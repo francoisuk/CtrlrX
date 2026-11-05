@@ -837,3 +837,92 @@ path, and is bounded to `juce_XmlDocument.cpp` rather than to every `String` in 
 
 Predicted outcome: XML parse below ~0.5 s (attribute throughput ≥50 MB/s), with peak RSS
 essentially unchanged, since the retained data does not change.
+
+---
+
+## 18. PROTOTYPE — Option 2 applied 2026-11-05 (the fix)
+
+The global `String` change was reverted; the fix is now confined to the XML parser.
+
+### 18.1 The change
+
+1. **Reverted** `juce_String.cpp:204` to the upstream
+   `jmax (b->allocatedNumBytes, numBytes)`. Confirmed by grep: no `allocatedNumBytes * 2`
+   remains in the file.
+2. **Rewrote `XmlDocument::readQuotedString`** (`juce_XmlDocument.cpp`, was line 450) so it
+   never calls `String::appendCharPointer`:
+   - a local `MemoryOutputStream accumulated` collects the value as raw bytes;
+   - ordinary text runs are copied with a new file-local helper
+     `writeToStream (MemoryOutputStream&, CharPointerType start, CharPointerType end)`,
+     which memcpys the byte range directly (`JUCE_STRING_UTF_TYPE == 8` path) — no `String`
+     is constructed per chunk;
+   - entities are expanded by `readEntity` into a scratch `String` and then written to the
+     stream as UTF-8 bytes;
+   - on the closing quote the value is converted **once** with
+     `result = accumulated.toString()`.
+
+Only this function and its new helper changed. Element parsing, entity parsing and all other
+callers are untouched.
+
+### 18.2 Result — three-way comparison
+
+| Metric | Baseline | Option 1 (String ×2) | **Option 2 (parser)** |
+|---|---:|---:|---:|
+| **XML Parse (t1 − t0)** | 30 795.37 ms | 8 109.71 ms | **248.18 ms** (run 2: 244.94 ms) |
+| Lua Execute | 115.89 ms | 120.89 ms | 121.15 ms |
+| Resource Import | 3 645.69 ms | 3 914.04 ms | **3 564.10 ms** |
+| Widget Construction | 351.28 ms | 355.06 ms | 344.09 ms |
+| **Total Load** | 34 908.24 ms | 12 499.69 ms | **4 277.51 ms** (run 2: 4 323.91 ms) |
+| **Peak RSS** | 741.0 MB | 740.5 MB | **741.1 MB** (run 2: 739.8 MB) |
+
+Parser internals:
+
+| Bucket | Baseline | Option 1 | **Option 2** |
+|---|---:|---:|---:|
+| total parse | 30 736.11 ms | 8 050.75 ms | **188.97 ms** |
+| attribute values | 30 684.37 ms | 7 999.28 ms | **136.21 ms** |
+| — entity decode | 9 462.99 ms | 3 958.29 ms | **14.83 ms** |
+| — attribute text | 21 221.38 ms | 4 040.99 ms | **121.39 ms** |
+| structural | 51.74 ms | 51.46 ms | 52.75 ms |
+
+**XML parsing is 124× faster than the baseline and 32.7× faster than Option 1.** Attribute
+throughput rose from **0.88 MB/s to 198 MB/s**; per-entity cost fell from 108.8 µs to
+**170 ns**.
+
+### 18.3 Correctness signals
+
+The parse produced an identical document shape before and after:
+
+| Check | Baseline | Option 2 |
+|---|---|---|
+| elements | 2 772 | 2 772 |
+| `readQuotedString` calls | 76 613 | 76 613 |
+| attribute bytes | 26.9 MB | 26.9 MB |
+| elements counter | 2 772 | 2 772 |
+
+Downstream phases are also unchanged (Lua 116–121 ms, widgets 344–353 ms), i.e. the Lua
+methods still compile and all 895 widgets still build from the parsed tree. Two independent
+runs gave 248.18 / 244.94 ms for the parse and 4 277.51 / 4 323.91 ms total.
+
+### 18.4 Peak RSS did not move — and that is the correct answer
+
+741.0 → 740.5 → 741.1 MB. As predicted in §17.3, the high-water mark is *retained* data, not
+allocation churn: 26.9 MB of attribute `String`s, the `XmlElement` tree that holds them, the
+`ValueTree`, 895 widgets, and the decoded resource blocks. Removing copies removes traffic,
+not storage. Only changing what is stored (§9 option 5, external resources) would move it.
+
+### 18.5 The bottleneck has moved
+
+With parsing at 248 ms, the profile is now:
+
+| Phase | Time | Share |
+|---|---:|---:|
+| **Resource Import** | **3 564 ms** | **83.3 %** |
+| Widget Construction | 344 ms | 8.0 % |
+| XML Parse | 248 ms | 5.8 % |
+| Lua Execute | 121 ms | 2.8 % |
+
+Resource import is now the dominant cost, exactly as §4.3 predicted: every launch
+base64-decodes 20 MB and rewrites 228 files, because `importResource` only deduplicates
+against an in-memory registry that is empty on a cold start. §9 option 1 is the next target
+and is worth ~3.4 s of the remaining 4.3 s.

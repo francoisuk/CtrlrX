@@ -447,9 +447,31 @@ void XmlDocument::skipNextWhiteSpace()
     }
 }
 
+// PROTOTYPE helper (large-panel perf): append the [start, end) range of the
+// parse input to a byte buffer, without touching String.
+static void writeToStream (MemoryOutputStream& out, String::CharPointerType start, String::CharPointerType end)
+{
+    if (start.getAddress() == end.getAddress())
+        return;
+
+   #if JUCE_STRING_UTF_TYPE == 8
+    out.write (start.getAddress(), (size_t) (end.getAddress() - start.getAddress()));
+   #else
+    const String chunk (start, end);
+    out.write (chunk.toRawUTF8(), (size_t) chunk.getNumBytesAsUTF8());
+   #endif
+}
+
 void XmlDocument::readQuotedString (String& result)
 {
     auto quote = readNextChar();
+
+    // PROTOTYPE (large-panel perf, Option 2): accumulate the value as bytes in a
+    // MemoryOutputStream and convert once at the end. String::appendCharPointer
+    // is O(n) per call (it strlen()s the accumulated text and, upstream,
+    // reallocates to the exact size), which made attribute parsing O(n^2).
+    // See investigations/large-panel-perf/LARGE_PANEL_LOAD_REPORT.md §16-17.
+    MemoryOutputStream accumulated;
 
     while (! outOfData)
     {
@@ -465,7 +487,13 @@ void XmlDocument::readQuotedString (String& result)
            #if JUCE_XML_PARSE_PROFILE // XMLParseProfile: entity decode
             XmlParseProfile::EntityTimer entityTimer;
            #endif
-            readEntity (result);
+            // readEntity() appends to a String, so give it a scratch one and
+            // copy the result into the byte buffer.
+            String entityText;
+            readEntity (entityText);
+
+            if (entityText.isNotEmpty())
+                accumulated.write (entityText.toRawUTF8(), (size_t) entityText.getNumBytesAsUTF8());
         }
         else
         {
@@ -477,14 +505,15 @@ void XmlDocument::readQuotedString (String& result)
 
                 if (character == quote)
                 {
-                    result.appendCharPointer (start, input);
+                    writeToStream (accumulated, start, input);
                     ++input;
+                    result = accumulated.toString();
                     return;
                 }
 
                 if (character == '&')
                 {
-                    result.appendCharPointer (start, input);
+                    writeToStream (accumulated, start, input);
                     break;
                 }
 
@@ -499,6 +528,8 @@ void XmlDocument::readQuotedString (String& result)
             }
         }
     }
+
+    result = accumulated.toString();
 }
 
 XmlElement* XmlDocument::readNextElement (const bool alsoParseSubElements)
