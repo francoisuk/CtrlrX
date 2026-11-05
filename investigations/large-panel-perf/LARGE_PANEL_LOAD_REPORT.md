@@ -1112,3 +1112,69 @@ visible page would remove the stall if it proves noticeable.
 
 Widget construction (360 ms) and XML parse (268 ms) are now the only substantial costs, and
 both are legitimate work. Nothing in the profile is obviously wasteful any more.
+
+---
+
+## 21. PHASE 2 — clean build and release artifacts (2026-11-05)
+
+### 21.1 Instrumentation removed
+
+| Removed | Was |
+|---|---|
+| `Source/Core/CtrlrPanel/CtrlrLoadProfiler.h` | the whole profiler (deleted) |
+| 5 call sites in `CtrlrPanel.cpp` / `CtrlrPanelFileOperations.cpp` | `CTRLR_PROF_*` markers, `openXmlPanel` t0/t1 |
+| property-loop timing block in `CtrlrPanel::restoreState` | per-property timing + `ctrlr_prop_diag.txt` |
+| `ResDiag` / `resLog` in `CtrlrPanelResourceManager.cpp` | per-resource + summary diagnostics |
+
+Kept, because they are the actual optimisations: the `importResource` on-disk cache check,
+`computeContentHash` via `File::hashCode64()`, and the `guessType()` header-magic image
+detection. Their temporary comment markers were replaced with normal documentation comments.
+
+Verification: after a full run, none of `ctrlr_load_profile.txt`, `ctrlr_load_trace.txt`,
+`ctrlr_prop_diag.txt`, `ctrlr_resource_diag.txt` or `juce_xml_parse_profile.txt` are
+recreated.
+
+### 21.2 The JUCE fix is now reproducible
+
+`patches/juce_xml_parser_perf.patch` — a unified diff against JUCE 8.0.12 containing the
+`readQuotedString` rewrite (99 lines, 4 hunks; the helper plus the function).
+
+`CMakeLists.txt` applies it at configure time, before `add_subdirectory(JUCE)`, guarded by a
+content marker so it is idempotent, and **fails the configure** if the change does not land.
+
+Two problems were found and fixed while wiring this up:
+
+1. **`git apply` silently skips `.gitignore`d paths.** JUCE is ignored in this repository, so
+   `git apply` printed `Skipped patch 'modules/juce_core/xml/juce_XmlDocument.cpp'` and exited
+   **0** without changing the file. Fixed by running the apply with
+   `GIT_CEILING_DIRECTORIES` pointing at the project root, so git does not discover the parent
+   repository and treats JUCE as a plain directory.
+2. **`git apply` converts LF to CRLF** when `core.autocrlf=true` (the Git for Windows
+   default), which would have rewritten all 948 lines. Fixed with
+   `-c core.autocrlf=false -c core.eol=lf`; verified byte-identical against a pristine copy.
+
+Verified end to end: revert `juce_XmlDocument.cpp` to pristine → run configure → file is
+patched and byte-identical to the reference.
+
+### 21.3 Release artifacts
+
+Built Release x64 with MSVC 19.51 against JUCE 8.0.12:
+
+| Artifact | Path | Size |
+|---|---|---:|
+| Standalone | `C:\Korg\ctrlrx-build-prof\CtrlrX_artefacts\Release\Standalone\CtrlrX.exe` | 48.9 MB |
+| VST3 | `C:\Korg\ctrlrx-build-prof\CtrlrX_artefacts\Release\VST3\CtrlrX.vst3\Contents\x86_64-win\CtrlrX.vst3` | 48.6 MB |
+
+Smoke test of the cleaned Standalone: loads the 29 MB panel, process alive and idle at
+**191 MB RSS / 1.6 s CPU** after 8 s — consistent with the profiled result (183 MB at the end
+of load), and no diagnostic file is written.
+
+### 21.4 Known items before release
+
+- **First-paint cost** has moved out of load and into the first render of each page (§20.4).
+  Needs a UI check; a background decode of the visible page would remove any stutter.
+- **`importResource` trusts a size match** (§19.5). A stale or truncated file of exactly the
+  right size would be accepted.
+- **`resourceHash` semantics changed** (§19.1): panels written by the older code carry hashes
+  that no longer compare equal, so a migration decision is still pending.
+- **The patch is version-specific to JUCE 8.0.12.** Updating JUCE requires regenerating it.
