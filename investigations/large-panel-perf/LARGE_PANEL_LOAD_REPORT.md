@@ -564,3 +564,180 @@ The optimisation target is now clear and is none of the original candidates:
 
 Widget construction and Lua must be dropped from the priority list: together they are ~1.3 %
 of load time.
+
+---
+
+## 16. INSIDE THE PARSER — measured 2026-11-05
+
+§14 localised 89 % of load time in `XmlDocument::parse(const File&)`. This section opens that
+black box. Result: **99.83 % of the parse is attribute-value extraction**, and within it the
+cost is quadratic string accumulation, not entity decoding per se.
+
+### 16.1 Where the code lives
+
+| File | Function | Role |
+|---|---|---|
+| `JUCE/modules/juce_core/xml/juce_XmlDocument.cpp:292` | `XmlDocument::parseDocumentElement` | parse entry, drives everything |
+| `…/juce_XmlDocument.cpp:504` | `XmlDocument::readNextElement` | tag name, attribute names/values |
+| `…/juce_XmlDocument.cpp:450` | `XmlDocument::readQuotedString` | **the hot path** — fills every attribute `String` |
+| `…/juce_XmlDocument.cpp:778` | `XmlDocument::readEntity` | `&#10;` → newline |
+| `…/juce_XmlDocument.cpp:614` | `XmlDocument::readChildElements` | elements and text content |
+| `JUCE/modules/juce_core/text/juce_String.cpp:296` | `String::preallocateBytes` | growth policy (see §16.4) |
+| `…/juce_String.cpp:747` | `String::appendCharPointer` | one realloc + memcpy per append |
+| `…/juce_String.cpp:190` | `makeUniqueWithByteSize` | decides the new allocation size |
+
+All paths relative to `build/CtrlrX-dnaldoog/CtrlrX-master/`.
+
+### 16.2 The hot path, as written
+
+`readQuotedString` (450-501) fills `newAtt->attribute.value` one chunk at a time:
+
+```
+quote = readNextChar();                       // 452
+while (! outOfData) {
+    c = readNextChar();  if (c == quote) break;    // 456-460
+    --input;
+    if (c == '&')  readEntity (result);            // 465-468   <-- entity branch
+    else {
+        start = input;
+        for (;;) {                                  // 471-498   <-- text branch
+            character = *input;
+            if (character == quote) { result.appendCharPointer (start, input); ++input; return; }  // 480
+            if (character == '&')   { result.appendCharPointer (start, input); break; }            // 487
+            if (character == 0)     { ...error... }
+            ++input;
+        }
+    }
+}
+```
+
+Two append styles reach the same `String`:
+
+- **Chunk append** — `appendCharPointer(start, input)`, lines 480 and 487: one call per
+  run of text between entities.
+- **Single-character append** — `readEntity` ends with `result << (juce_wchar) charCode`
+  (line 870) for numeric entities such as `&#10;`.
+
+Both go through `String::appendCharPointer` → `preallocateBytes` → **one fresh allocation
+plus a memcpy of the entire accumulated string, on every append.**
+
+### 16.3 Measurements
+
+Four markers were added (see §16.5): whole-parse scope, `readQuotedString` calls, `readEntity`
+calls, element counter. Output on the `KronosKontrol_1.0i` panel:
+
+```
+=== JUCE XmlDocument::parse profile ===
+total                      : 30736.11 ms
+attribute values           : 30684.37 ms   (76613 calls, 26.9 MB)
+   of which entity decode  :  9462.99 ms   (87007 entities)
+   attribute text only     : 21221.38 ms
+structural (everything else):    51.74 ms
+elements                   :     2772
+```
+
+| Bucket | Time | Share |
+|---|---:|---:|
+| Attribute values (all) | 30 684.37 ms | **99.83 %** |
+| — entity decoding | 9 462.99 ms | 30.8 % |
+| — attribute text chunks | 21 221.38 ms | 69.0 % |
+| Structural tag scanning | **51.74 ms** | **0.168 %** |
+
+Derived rates that make the anomaly explicit:
+
+- **0.88 MB/s** effective attribute throughput. A healthy XML parser runs at 50–200 MB/s.
+- **108.8 µs per `&#10;` entity.** Decoding a five-character numeric entity should cost tens
+  of nanoseconds. This is roughly **1 000–10 000× too slow**, and the cost is independent of
+  the entity itself — signature of an O(n) copy per entity.
+- 76 613 attribute values, average 368 bytes, but the distribution is extremely skewed: 41
+  `luaMethodCode` attributes hold 6.6 MB (largest 3.25 MB) and are precisely the ones built
+  from ~65-byte chunks.
+
+The structural scanner is *not* implicated: 2 772 elements and all tag/attribute-name
+scanning cost **51.74 ms in total**.
+
+### 16.4 Root cause
+
+`String` growth is **linear, not geometric**:
+
+```cpp
+// juce_String.cpp:747
+void String::appendCharPointer (start, end) {
+    auto extraBytesNeeded = end - start;
+    if (extraBytesNeeded > 0) {
+        auto byteOffsetOfNull = getByteOffsetOfEnd();
+        preallocateBytes ((size_t) extraBytesNeeded + byteOffsetOfNull);   // 759
+        memcpy (newStringStart, startOfTextToAppend.getAddress(), extraBytesNeeded);  // 762
+    }
+}
+
+// juce_String.cpp:296
+void String::preallocateBytes (const size_t numBytesNeeded) {
+    text = makeUniqueWithByteSize (text, numBytesNeeded + sizeof (CharType));  // 298
+}
+
+// juce_String.cpp:190
+static CharPointerType makeUniqueWithByteSize (const CharPointerType text, size_t numBytes) {
+    if (b->allocatedNumBytes >= numBytes && b->refCount <= 0) return text;      // 201
+    auto newText = createUninitialisedBytes (jmax (b->allocatedNumBytes, numBytes)); // 204
+    memcpy (newText.getAddress(), text.getAddress(), b->allocatedNumBytes);     // 205
+    ...
+}
+```
+
+Line 204 is the defect: the replacement buffer is `max(currentAllocated, needed)` — an
+allocation of **exactly** the required size, with no doubling factor and no slack. Therefore
+any append that needs one more byte allocates a whole new buffer and memcpy's everything
+accumulated so far. Building a string from *k* chunks costs Σ(i·chunk) = **O(n²)**.
+
+**Hypothesis (confirmed by the arithmetic below):** the 30-second parse is a quadratic string
+accumulation. `readQuotedString` appends ~100 000 chunks across the three large Lua
+attributes; each append re-copies the current prefix.
+
+Sanity check against measurement: `kronosData` (3.25 MB, ~65-byte chunks ⇒ ≈50 000
+appends) alone implies Σ ≈ 50 000² × 65 / 2 ≈ **81 GB** of memcpy. Adding `kronosEditor`
+(2.63 MB ⇒ ≈40 000 appends ⇒ ≈52 GB) and `kkEdPages`, the total lands in the 130–200 GB
+range. At the 4–6 GB/s effective memcpy rate implied by the 30.7 s measurement, that is
+precisely the observed time. Entity decoding is 31 % of it because each `&#10;` is one more
+append — **not** because entity parsing is intrinsically expensive.
+
+Note the interaction with §3: the panel stores 20 MB of base64 images and 6.6 MB of Lua
+*inside attribute values*. It is the combination of (a) payloads in attributes and (b) chunked
+appends that produces the quadratic blow-up. Attributes parsed as a single chunk (the base64
+images, which contain no `&`) cost almost nothing by comparison.
+
+### 16.5 Instrumentation as built
+
+All inside `juce_XmlDocument.cpp`; measurement only, no parser logic touched.
+
+| Site | Line | Measures |
+|---|---|---|
+| `XmlParseProfile` block after `namespace juce {` | 36-155 | counters, `QuotedTimer`/`EntityTimer`, dump (writes `%TEMP%\juce_xml_parse_profile.txt`, skips parses < 100 ms so a later small document cannot overwrite it) |
+| `parseDocumentElement` scope guard | 300-310 | whole-parse total, resets counters, dumps on exit |
+| `readEntity (result)` call | 465-468 | entity decode time + count |
+| `readNextElement` element counter | 531-532 | element count |
+| `readQuotedString (newAtt->…)` call | 580-587 | attribute-value time, call count, bytes |
+
+Removal: set `JUCE_XML_PARSE_PROFILE` to `0`, or delete the block and the four marked call
+sites (all tagged `XMLParseProfile`).
+
+**The instrumented file is preserved at
+`investigations/large-panel-perf/juce_XmlDocument.instrumented.cpp`**, because `JUCE/` is
+git-ignored in this repository (§README) and the modification would otherwise be lost. To
+reapply: copy it over `JUCE/modules/juce_core/xml/juce_XmlDocument.cpp` and rebuild.
+
+### 16.6 What this implies for a fix (not implemented)
+
+Three independent levers, in decreasing order of expected benefit:
+
+1. **Give `String` geometric growth** (`makeUniqueWithByteSize`, juce_String.cpp:204) — e.g.
+   allocate `max(needed, allocated * 2)`. This turns O(n²) into O(n) for *every* caller in
+   JUCE, not just XML. One line; biggest blast radius, so it needs upstream review.
+2. **Preallocate the attribute buffer** before the loop in `readQuotedString` using the
+   distance to the closing quote (`input.indexOf(quote)`), so the common case is a single
+   allocation. Bounded to the parser.
+3. **Do not store large payloads in attributes** (the generator-side change, §15.2a): the
+   quadratic term only bites because a 3.25 MB value is built from ~50 000 appends.
+
+Option 3 is orthogonal and remains the cheapest structural change, but option 1 or 2 fixes
+the engine for any panel, present or future.
