@@ -1030,3 +1030,85 @@ not made here.
 exactly the right size would be accepted. A stronger check would compare a stored content
 hash, but the hash algorithm now differs from what existing panels recorded (§19.1 item 2),
 so any hash-based check needs a migration decision first.
+
+---
+
+## 20. THE panelUID MYSTERY — measured and fixed 2026-11-05
+
+### 20.1 The hypothesis was wrong
+
+The plan was to blame the two MIDI properties and to bulk-copy the rest. Measurement refuted
+both halves:
+
+```
+benign n=94  2576.0 ms
+midi   n=0      0.0 ms
+top properties:
+  2575.87 ms  panelUID
+```
+
+- **No MIDI device properties exist in this panel at all** (`n=0`), so deferring them would
+  have changed nothing.
+- **`panelUID` alone is 2 575.87 ms** — 99.99 % of the loop. The other 93 properties total
+  ~0.1 ms.
+
+`ValueTree::copyPropertiesFrom` was checked before implementing it: it loops and calls
+`setProperty` per property (juce_ValueTree.cpp:207-208), so the suggested bulk copy would
+have produced **identical** notification behaviour and no speedup.
+
+### 20.2 The real call chain
+
+```
+panelTree.setProperty (Ids::panelUID, …)
+  └─ CtrlrPanel::valueTreePropertyChanged            CtrlrPanel.cpp:610
+     └─ resourceManager.panelUIDChanged()
+        └─ CtrlrPanelResourceManager::initManager()  CtrlrPanelResourceManager.cpp:34
+           └─ for each file in the resource directory: addResource(file)
+              └─ new CtrlrPanelResource(...)
+                 └─ owner.guessType(file)            CtrlrPanelResourceManager.cpp:520
+                    └─ ImageCache::getFromFile(file) <-- DECODES THE WHOLE PNG
+```
+
+The panel is constructed with a random `panelUID` (CtrlrPanel.cpp:206); restoring the saved
+UID changes the property, which triggers `initManager()`, which scans the directory and
+registers all 228 files. Registration calls `guessType()`, and `guessType()` answered
+"is this an image?" by **fully decoding the PNG with `ImageCache::getFromFile()`** — 228
+image decodes per load, purely to classify the file.
+
+That work was doubly redundant: `CtrlrPanelResource::load()` deliberately does *not* decode
+images (it defers to `asImage()`/`ImageCache`, see §4.3), so the eager decode in `guessType`
+was undoing the design's own laziness.
+
+### 20.3 The fix
+
+`guessType()` now identifies images from an 8-byte file header (PNG/JPEG/GIF/BMP magic) plus
+an extension fallback for `ico;tga;webp;tif;tiff`, and returns `ImageRes` without decoding.
+The audio probe is then skipped for images, as before.
+
+`panelUID` fell from **2 575.87 ms to 67.19 ms**, and the resource loop stayed at 33 ms.
+
+### 20.4 Final result — the 1-second barrier is broken
+
+| Metric | Baseline | Final | Change |
+|---|---:|---:|---:|
+| XML Parse | 30 795.37 ms | **267.60 ms** | 115× |
+| Lua Execute | 115.89 ms | 119.89 ms | — |
+| Resource Import | 3 645.69 ms | **103.00 ms** | 35× |
+| Widget Construction | 351.28 ms | **360.46 ms** | — |
+| **Total Load** | **34 908.24 ms** | **850.95 ms** | **41×** |
+| **Peak RSS** | **741.0 MB** | **182.8 MB** | **4.1× lower** |
+
+Two consecutive runs: 850.95 ms / 846.40 ms; peak RSS 182.8 / 182.6 MB.
+
+The memory result follows from the same change and was not predicted: 228 decoded images are
+no longer held in `ImageCache` at load, which accounts for most of the ~558 MB drop.
+
+**Trade-off to keep in mind:** image decoding has moved from load time to first paint. Load
+is now 41× faster and 4× smaller, but the first render of a page may briefly stall while its
+artwork decodes. That needs a UI-side check (not measured here); a background decode of the
+visible page would remove the stall if it proves noticeable.
+
+### 20.5 Remaining structure
+
+Widget construction (360 ms) and XML parse (268 ms) are now the only substantial costs, and
+both are legitimate work. Nothing in the profile is obviously wasteful any more.
