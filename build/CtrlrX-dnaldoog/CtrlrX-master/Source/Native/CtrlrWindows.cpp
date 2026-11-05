@@ -1,0 +1,791 @@
+#include "stdafx.h"
+#ifdef JUCE_WINDOWS
+#define NOMINMAX // Added v5.6.32
+#include "CtrlrInlineUtilitiesGUI.h"
+#include "CtrlrLog.h"
+#include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrPanel/CtrlrPanelResource.h"
+#include "CtrlrWindows.h"
+#if __has_include("CtrlrIconGenerator.h")
+#include "CtrlrIconGenerator.h"
+#define CTRLR_HAS_ICON_GENERATOR 1
+#endif
+#include <psapi.h>
+
+#include <algorithm> // Added v5.6.32
+#include <fstream>	 // Added v5.6.32
+#include <random>	 // Added v5.6.32
+#include <shlobj.h>
+#include <vector> // Added v5.6.32
+#include <windows.h>
+
+CtrlrWindows::CtrlrWindows(CtrlrManager &_owner) : owner(_owner) {}
+
+CtrlrWindows::~CtrlrWindows() {}
+
+Result CtrlrWindows::writeResource(void *handle, const LPCWSTR resourceId, const LPCWSTR resourceType,
+										 const MemoryBlock &resourceData) {
+	HANDLE hResource = (HANDLE)handle;
+
+if (hResource) {
+        // Explicitly use UpdateResourceW for LPCWSTR parameters
+        return (UpdateResourceW(hResource, resourceType, resourceId, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+                                (LPVOID)resourceData.getData(), (DWORD)resourceData.getSize())
+                    ? Result::ok()
+                    : Result::fail("WIN32 UpdateResource failed"));
+    } else {
+        return (Result::fail("Windows Native: UpdateResource, resource HANDLE cast failed"));
+    }
+}
+
+Result CtrlrWindows::readResource(void *handle, const LPCWSTR resourceId, const LPCWSTR resourceType,
+										MemoryBlock &resourceData) {
+	HRSRC panelResource;
+	HGLOBAL panelLoadedResource;
+	char *dataPointer;
+	DWORD dataSize;
+	HMODULE myModuleHandle;
+
+	if (handle != nullptr) {
+		myModuleHandle = (HMODULE)handle;
+	} else {
+		// Use .toWideCharPointer() or LPCWSTR cast for Wide/Unicode Win32 APIs
+		myModuleHandle = GetModuleHandleW(
+			File::getSpecialLocation(File::currentExecutableFile).getFullPathName().toWideCharPointer());
+	}
+
+	if (myModuleHandle) {
+		panelResource = FindResourceW(myModuleHandle, resourceId, resourceType);
+
+		if (panelResource) {
+			panelLoadedResource = LoadResource(myModuleHandle, panelResource);
+
+			if (panelLoadedResource) {
+				dataSize = SizeofResource(myModuleHandle, panelResource);
+				dataPointer = (char *)LockResource(panelLoadedResource);
+
+				resourceData = MemoryBlock(dataPointer, dataSize);
+
+				return (Result::ok());
+			} else {
+				return (Result::fail("Windows Native: LoadResource() failed"));
+			}
+		} else {
+			return (Result::fail("Windows Native: FindResource() failed"));
+		}
+	} else {
+		return (Result::fail("Windows Native: GetModuleHandle() for: \"" +
+							 File::getSpecialLocation(File::currentExecutableFile).getFullPathName() + "\" failed"));
+	}
+}
+// Locates rcedit.exe, tried in order:
+//   1. Sitting alongside the currently-running executable — the layout a
+//      properly packaged/distributed build should have (requires a build
+//      step to copy it there; not yet wired up).
+//   2. The build machine's own source-tree copy, via CTRLRX_RCEDIT_PATH
+//      (set by CMake) — works for local dev/testing today, but only on the
+//      machine that built this binary; won't resolve on an end user's
+//      machine running a build produced elsewhere.
+// Locates rcedit.exe, tried in order:
+//   1. Sitting alongside the currently-running executable — the layout a
+//      properly packaged/distributed build should have (requires a build
+//      step to copy it there; not yet wired up).
+//   2. The build machine's own source-tree copy, via CTRLRX_RCEDIT_PATH
+//      (set by CMake) — works for local dev/testing today, but only on the
+//      machine that built this binary; won't resolve on an end user's
+//      machine running a build produced elsewhere.
+static File findRcedit() {
+	File sibling = File::getSpecialLocation(File::currentExecutableFile).getSiblingFile("rcedit-x64.exe");
+	if (sibling.existsAsFile())
+		return sibling;
+
+#ifdef CTRLRX_RCEDIT_PATH
+	File devCopy(CTRLRX_RCEDIT_PATH);
+	if (devCopy.existsAsFile())
+		return devCopy;
+#endif
+
+	return File();
+}
+
+// Drop-in replacement for CtrlrWindows::exportWithDefaultPanel
+//
+// Flow:  file chooser -> (optional) overwrite prompt -> licence prompt -> performExport
+//
+// Also needed elsewhere (see notes in the chat):
+//   CtrlrPanel.h   : static void askForLicenseAsync (CtrlrPanel *panel, std::function<void (juce::String)> onDone);
+//                    exportPanel(..., const bool isRestricted = false, const String &licenseText = String());
+//   CtrlrPanel.cpp : exportPanel adds a Ids::resourceLicense child to `resources` when licenseText is not empty,
+//                    and askForLicenseAsync is defined.
+
+void CtrlrWindows::exportWithDefaultPanel(CtrlrPanel *panelToWrite,
+                                          const bool isRestricted,
+                                          const bool signPanel,
+                                          std::function<void(juce::Result)> callback)
+{
+    auto notifyAndReturn = [callback](const juce::Result &res) {
+        if (callback)
+            callback(res);
+    };
+
+    if (panelToWrite == nullptr) {
+        notifyAndReturn(Result::fail("Windows Native: exportWithDefaultPanel got nullptr for panel"));
+        return;
+    }
+
+    // The panel can be closed while dialogs are open, so only hold a weak reference from here on.
+    juce::WeakReference<CtrlrPanel> panelRef(panelToWrite);
+
+    // 1. Setup Variables & Logger
+    CtrlrManager &manager = panelToWrite->getOwner();
+    File me = File::getSpecialLocation(File::currentExecutableFile);
+    PluginLogger logger(me);
+    logger.log("Starting exportWithDefaultPanel");
+    String fileExtension = me.getFileExtension();
+    logger.log("CtrlrX source fileExtension is :" + fileExtension);
+
+    // 2. Determine Initial Directory (Sticky Logic)
+    String lastPath = manager.getProperty("lastExportPath").toString();
+    File targetDir;
+
+    if (lastPath.isNotEmpty() && File(lastPath).isDirectory()) {
+        targetDir = File(lastPath);
+    } else {
+        if (fileExtension.equalsIgnoreCase(".vst3") || fileExtension.equalsIgnoreCase(".dll")) {
+            String subFolder = fileExtension.equalsIgnoreCase(".vst3") ? "VST3" : "VST2";
+            targetDir = File::getSpecialLocation(File::globalApplicationsDirectory)
+                            .getChildFile("Common Files")
+                            .getChildFile(subFolder);
+
+            if (!targetDir.exists())
+                targetDir = File::getSpecialLocation(File::userDocumentsDirectory);
+        } else {
+            targetDir = File::getSpecialLocation(File::userDocumentsDirectory);
+        }
+    }
+
+    // 3. File Chooser Setup
+    String defaultFileName = File::createLegalFileName(panelToWrite->getProperty(Ids::name));
+    File defaultFile = targetDir.getChildFile(defaultFileName).withFileExtension(fileExtension);
+    bool useNative = (bool)manager.getProperty(Ids::ctrlrNativeFileDialogs);
+
+    // Member std::unique_ptr<FileChooser> fc keeps the dialog alive while it is open
+    fc = std::make_unique<FileChooser>(CTRLR_NEW_INSTANCE_DIALOG_TITLE,
+                                       defaultFile,
+                                       "*" + fileExtension,
+                                       useNative);
+
+    auto flags = FileBrowserComponent::saveMode | FileBrowserComponent::canSelectFiles |
+                 FileBrowserComponent::warnAboutOverwriting;
+
+    // 4. Launch the file dialog asynchronously
+    fc->launchAsync(flags, [this, panelRef, isRestricted, me, fileExtension,
+                            notifyAndReturn](const FileChooser &chooser) mutable {
+
+        // Safely schedule cleanup after this lambda completes
+        juce::MessageManager::callAsync([this]() { fc.reset(); });
+
+        File newMe = chooser.getResult();
+
+        if (newMe == File()) {
+            PluginLogger logger(me);
+            logger.log("Error: File selection dialog cancelled");
+            notifyAndReturn(Result::fail("User cancelled the export operation."));
+            return;
+        }
+
+        // The dialog's own overwrite check only validates the path the user actually chose.
+        // If we have to append the extension, we retarget a different path the dialog never
+        // checked, so that case needs its own overwrite prompt (and only that case).
+        const File chosenFile = newMe;
+        if (!newMe.hasFileExtension(fileExtension))
+            newMe = newMe.withFileExtension(fileExtension);
+        const bool pathWasAltered = (newMe != chosenFile);
+
+        // ---------------------------------------------------------------------------------
+        // The actual export. Runs last, after any overwrite / licence prompts.
+        // ---------------------------------------------------------------------------------
+        auto performExport = [this, panelRef, isRestricted, me, fileExtension, newMe,
+                              notifyAndReturn](const juce::String &licenseText) mutable {
+
+            CtrlrPanel *panelToWrite = panelRef.get();
+            if (panelToWrite == nullptr) {
+                notifyAndReturn(Result::fail("Windows Native: panel was closed before the export could finish"));
+                return;
+            }
+
+            CtrlrManager &manager = panelToWrite->getOwner();
+            PluginLogger logger(me);
+
+            // Save sticky path
+            manager.setProperty("lastExportPath", newMe.getParentDirectory().getFullPathName());
+            manager.saveState();
+
+            if (!me.copyFileTo(newMe)) {
+                logger.log("Error: Failed to copy executable");
+                notifyAndReturn(Result::fail("Windows Native: exportMeWithNewResource can't copy \"" +
+                                             me.getFullPathName() + "\" to \"" + newMe.getFullPathName() + "\""));
+                return;
+            }
+            logger.log("Executable copied successfully.");
+
+            MemoryBlock panelExportData, panelResourcesData;
+            String error;
+
+            // 5. Update Win32 Resources (Panel Injection)
+            HANDLE hResource = BeginUpdateResourceW(newMe.getFullPathName().toWideCharPointer(), FALSE);
+
+            if (hResource) {
+                if ((error = CtrlrPanel::exportPanel(panelToWrite, File(), newMe, &panelExportData,
+                                                     &panelResourcesData, isRestricted, licenseText)) == "") {
+                    if (writeResource(hResource, MAKEINTRESOURCEW(CTRLR_INTERNAL_PANEL_RESID), (LPCWSTR)RT_RCDATA,
+                                      panelExportData) &&
+                        writeResource(hResource, MAKEINTRESOURCEW(CTRLR_INTERNAL_RESOURCES_RESID),
+                                      (LPCWSTR)RT_RCDATA, panelResourcesData)) {
+                        EndUpdateResource(hResource, FALSE);
+
+                        // Swap the exported .exe's icon, if the panel has one chosen via
+                        // uiPanelIconResource. Sequenced AFTER EndUpdateResource, because rcedit
+                        // opens the file separately. Non-fatal: failures only log a warning.
+                        if (isRestricted) {
+                            ValueTree editorTree = panelToWrite->getPanelTree().getChildWithName(Ids::uiPanelEditor);
+                            String iconResourceName = editorTree.isValid()
+                                                          ? editorTree.getProperty(Ids::uiPanelIconResource).toString()
+                                                          : String();
+                            DBG("iconResourceName => " + iconResourceName);
+
+                            if (iconResourceName.isNotEmpty()) {
+                                CtrlrPanelResource *iconResource =
+                                    panelToWrite->getResourceManager().getResource(iconResourceName);
+
+                                if (iconResource != nullptr) {
+                                    File tempIco = File::getSpecialLocation(File::tempDirectory)
+                                                       .getNonexistentChildFile("ctrlrx_export_icon", ".ico");
+
+                                    juce::Result icoResult =
+                                        CtrlrIconGenerator::generateIcoFromSvg(iconResource->getFile(), tempIco);
+
+                                    if (icoResult.wasOk()) {
+                                        File rceditExe = me.getSiblingFile("rcedit-x64.exe");
+
+                                        if (rceditExe.existsAsFile()) {
+                                            StringArray args;
+                                            args.add(rceditExe.getFullPathName());
+                                            args.add(newMe.getFullPathName());
+                                            args.add("--set-icon");
+                                            args.add(tempIco.getFullPathName());
+
+                                            // Retry loop to handle Windows indexing / antivirus locks
+                                            bool success = false;
+                                            String rceditOutput;
+                                            int exitCode = -1;
+
+                                            for (int attempt = 1; attempt <= 5; ++attempt) {
+                                                Thread::sleep(100);
+
+                                                ChildProcess rceditProcess;
+                                                if (rceditProcess.start(args)) {
+                                                    rceditOutput = rceditProcess.readAllProcessOutput();
+                                                    exitCode = rceditProcess.getExitCode();
+
+                                                    if (exitCode == 0) {
+                                                        success = true;
+                                                        break;
+                                                    }
+
+                                                    DBG("rcedit attempt " + String(attempt) + " failed with code " +
+                                                        String(exitCode) + ". Output: " + rceditOutput.trim());
+                                                }
+                                            }
+
+                                            if (success) {
+                                                DBG("Icon applied successfully via rcedit. Output: " +
+                                                    rceditOutput.trim());
+                                                SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_IDLIST, nullptr, nullptr);
+                                            } else {
+                                                DBG("Warning: rcedit failed after retries - code " +
+                                                    String(exitCode) + ". Last output: " + rceditOutput.trim());
+                                            }
+                                        } else {
+                                            DBG("Warning: rcedit-x64.exe not found alongside plugin - icon not "
+                                                "applied: " + rceditExe.getFullPathName());
+                                        }
+
+                                        tempIco.deleteFile();
+                                    } else {
+                                        DBG("Warning: icon generation failed - " + icoResult.getErrorMessage());
+                                    }
+                                } else {
+                                    DBG("Warning: icon resource '" + iconResourceName + "' not found");
+                                }
+                            }
+                        }
+                    } else {
+                        notifyAndReturn(
+                            Result::fail("Windows Native: exportMeWithNewResource writeResource[panel] failed"));
+                        return;
+                    }
+                } else {
+                    notifyAndReturn(Result::fail(
+                        "Windows Native: exportMeWithNewResource exportPanel error: \"" + error + "\""));
+                    return;
+                }
+            } else {
+                notifyAndReturn(Result::fail("Windows Native: exportMeWithNewResource BeginUpdateResource failed"));
+                return;
+            }
+
+            // 6. Binary String Replacement (Rebranding)
+            logger.log("Thread sleep to delay binary modification task.");
+            juce::Thread::sleep(500);
+            logger.log("Thread restarted for binary modification task.");
+
+            File executableFile = newMe;
+            if (executableFile.existsAsFile()) {
+                if (fileExtension.equalsIgnoreCase(".vst3") || fileExtension.equalsIgnoreCase(".dll")) {
+                    logger.log("fileExtension is : " + fileExtension);
+
+                    const bool replaceVst3PluginIds = panelToWrite->getProperty(Ids::panelReplaceVst3PluginIds);
+
+                    if (replaceVst3PluginIds) {
+                        logger.log("Replace the VST3 plugin identifiers with the panel ones : " +
+                                   String((int)replaceVst3PluginIds));
+
+                        MemoryBlock executableData;
+                        if (executableFile.loadFileAsData(executableData)) {
+                            logger.log("Executable loaded into memory for modification.");
+
+                            String pluginName = panelToWrite->getProperty(Ids::name).toString();
+                            String pluginCode = panelToWrite->getProperty(Ids::panelInstanceUID).toString();
+                            String manufacturerName = panelToWrite->getProperty(Ids::panelAuthorName).toString();
+                            String manufacturerCode =
+                                panelToWrite->getProperty(Ids::panelInstanceManufacturerID).toString();
+                            String versionMajor = panelToWrite->getProperty(Ids::panelVersionMajor).toString();
+                            String versionMinor = panelToWrite->getProperty(Ids::panelVersionMinor).toString();
+                            String plugType = panelToWrite->getProperty(Ids::panelPlugType).toString();
+
+                            // --- 1. ASCII Search & Replacement Pass ---
+                            MemoryBlock pluginNameHex, pluginCodeHex, manufacturerNameHex, manufacturerCodeHex,
+                                plugTypeHex;
+                            hexStringToBytes(pluginName, 32, pluginNameHex);
+                            hexStringToBytes(pluginCode, 4, pluginCodeHex);
+                            hexStringToBytes(manufacturerName, 16, manufacturerNameHex);
+                            hexStringToBytes(manufacturerCode, 4, manufacturerCodeHex);
+                            hexStringToBytes(plugType, 16, plugTypeHex);
+
+                            MemoryBlock searchPluginNameHex, searchPluginCodeHex, searchManufacturerNameHex,
+                                searchManufacturerCodeHex, searchPlugTypeHex;
+
+                            hexStringToBytes("43 74 72 6C 72 58 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 "
+                                             "20 20 20 20 20 20 20 20 20",
+                                             searchPluginNameHex);
+                            hexStringToBytes("63 54 72 58", searchPluginCodeHex);
+                            hexStringToBytes("43 74 72 6C 72 58 20 50 72 6F 6A 65 63 74 20 20",
+                                             searchManufacturerNameHex);
+                            hexStringToBytes("63 54 72 6C", searchManufacturerCodeHex);
+                            hexStringToBytes("49 6E 73 74 72 75 6D 65 6E 74 7C 54 6F 6F 6C 73", searchPlugTypeHex);
+
+                            logger.log("Starting ASCII string replacement process (JUCE 8)...");
+                            replaceAllOccurrences(executableData, searchPluginNameHex, pluginNameHex);
+                            replaceAllOccurrences(executableData, searchPluginCodeHex, pluginCodeHex);
+                            replaceAllOccurrences(executableData, searchManufacturerNameHex, manufacturerNameHex);
+                            replaceAllOccurrences(executableData, searchManufacturerCodeHex, manufacturerCodeHex);
+                            replaceAllOccurrences(executableData, searchPlugTypeHex, plugTypeHex);
+
+                            // --- 2. UTF-16 (Wide String) Version Resource Pass ---
+                            auto makeUtf16Buffer = [](const String &text, const String &templateText) -> MemoryBlock {
+                                int targetCharCount = templateText.length();
+                                MemoryBlock block(targetCharCount * 2, true);
+
+                                String paddedText = text.length() > targetCharCount
+                                                        ? text.substring(0, targetCharCount)
+                                                        : text.paddedRight(' ', targetCharCount);
+
+                                const CharPointer_UTF16 utf16Ptr = paddedText.toUTF16();
+                                block.copyFrom(utf16Ptr.getAddress(), 0, targetCharCount * 2);
+                                return block;
+                            };
+
+                            // Target 1: "CtrlrX Project" (14 wide chars -> 28 bytes)
+                            MemoryBlock searchUtf16ManufName, replaceUtf16ManufName;
+                            hexStringToBytes("43 00 74 00 72 00 6C 00 72 00 58 00 20 00 50 00 72 00 6F 00 6A 00 65 "
+                                             "00 63 00 74 00",
+                                             searchUtf16ManufName);
+                            replaceUtf16ManufName = makeUtf16Buffer(manufacturerName, "CtrlrX Project");
+
+                            // Target 2: "CtrlrX" (6 wide chars -> 12 bytes)
+                            MemoryBlock searchUtf16PluginName, replaceUtf16PluginName;
+                            hexStringToBytes("43 00 74 00 72 00 6C 00 72 00 58 00", searchUtf16PluginName);
+                            replaceUtf16PluginName = makeUtf16Buffer(pluginName, "CtrlrX");
+
+                            logger.log("Starting UTF-16 string replacement process (JUCE 8)...");
+                            // Replace the longer target FIRST to prevent partial matching
+                            replaceAllOccurrences(executableData, searchUtf16ManufName, replaceUtf16ManufName);
+                            replaceAllOccurrences(executableData, searchUtf16PluginName, replaceUtf16PluginName);
+
+                            logger.log("String replacement process completed.");
+
+                            if (!executableFile.replaceWithData(executableData.getData(), executableData.getSize())) {
+                                logger.log("Error: Failed to write modified executable data");
+                                notifyAndReturn(
+                                    Result::fail("Windows Native: Failed to write modified executable data"));
+                                return;
+                            }
+                            logger.log("Modified executable data written.");
+                        } else {
+                            logger.log("Error: Failed to load executable into memory.");
+                            notifyAndReturn(Result::fail("Windows Native: Failed to load executable into memory."));
+                            return;
+                        }
+                    } else {
+                        logger.log("replaceVst3PluginIds set to false, Vst3 IDs replacement skipped.");
+                    }
+                } else {
+                    logger.log("Exported file is not vst3.");
+                }
+
+                // Codesigning step
+                logger.log("Thread sleep to delay codesigning task.");
+                juce::Thread::sleep(500);
+                logger.log("Thread restarted for codesigning task.");
+
+                juce::String panelCertificateWinPath =
+                    panelToWrite->getProperty(Ids::panelCertificateWinPath).toString();
+                juce::String panelCertificateWinPassCode =
+                    panelToWrite->getProperty(Ids::panelCertificateWinPassCode).toString();
+
+                if (panelCertificateWinPath.isNotEmpty() && juce::File::isAbsolutePath(panelCertificateWinPath) &&
+                    juce::File(panelCertificateWinPath).existsAsFile() && panelCertificateWinPassCode.isNotEmpty()) {
+
+                    const Result codesignResult =
+                        codesignFileWindows(newMe, panelCertificateWinPath, panelCertificateWinPassCode);
+                    if (!codesignResult.wasOk()) {
+                        logger.logResult(codesignResult);
+                        notifyAndReturn(codesignResult);
+                        return;
+                    }
+                    logger.log("Codesigning successful.");
+                    logger.logResult(codesignResult);
+                } else {
+                    logger.log("Codesigning failed because either CertificatePath or CertificatePassCode were wrong.");
+                }
+            } else {
+                logger.log("Error: Executable file does not exist.");
+                notifyAndReturn(Result::fail("Windows Native: Executable file does not exist"));
+                return;
+            }
+
+            notifyAndReturn(Result::ok());
+        }; // end performExport
+
+        // ---------------------------------------------------------------------------------
+        // Ask for a licence (only if the panel has resources), then run the export.
+        // Must be defined AFTER performExport, and stay inside this callback.
+        // ---------------------------------------------------------------------------------
+        auto askLicenceThenExport = [panelRef, performExport]() mutable {
+            CtrlrPanel::askForLicenseAsync(panelRef.get(), [performExport](juce::String lic) mutable {
+                performExport(lic);
+            });
+        };
+
+        // ---------------------------------------------------------------------------------
+        // Overwrite prompt only if the extension fix moved us onto a file that exists.
+        // ---------------------------------------------------------------------------------
+        if (pathWasAltered && newMe.existsAsFile()) {
+            AW::showOkCancelAsyncSafe(AW::Question, "Overwrite File",
+                                      "\"" + newMe.getFileName() + "\" already exists. Overwrite it?",
+                                      [askLicenceThenExport, notifyAndReturn](bool confirmed) mutable {
+                                          if (confirmed)
+                                              askLicenceThenExport();
+                                          else
+                                              notifyAndReturn(Result::fail("User cancelled the export operation."));
+                                      });
+        } else {
+            askLicenceThenExport();
+        }
+    }); // end launchAsync
+}
+/*
+   * ==============================================================================
+   * JUCE 8 Metadata & Resource Encoding Changes (PE/VST3 Binary Patching)
+   * ==============================================================================
+   *
+   * 1. String Encoding in Windows Resources:
+   *    - In JUCE 7 and below, binary metadata strings (such as ProductName and
+   *      CompanyName inside VS_VERSION_INFO / PE .rsrc sections) were primary target
+   *      candidates for single-byte ASCII/UTF-8 replacements (e.g. "43 74 72 6C 72 58").
+   *    - In JUCE 8 (MSVC / Windows builds), wide string version metadata is stored
+   *      as UTF-16 Little Endian (2 bytes per character, e.g. 'C\0t\0r\0l\0r\0X\0').
+   *
+   * 2. Replacement Strategy Update:
+   *    - Plain ASCII search blocks fail to match UTF-16 strings because of
+   *      interleaved null bytes (`0x00`).
+   *    - JUCE 8 logic now performs two replacement passes:
+   *        a) Standard ASCII pass for embedded C-string/plugin identifier tokens.
+   *        b) Dedicated UTF-16 pass to patch wide-character Windows version resources.
+   *
+   * ==============================================================================
+   */
+void CtrlrWindows::stringToUtf16Bytes(const juce::String &text, int charCount, juce::MemoryBlock &result) {
+	result.setSize(charCount * 2, true); // Zero-fill memory
+    juce::String paddedText = text.paddedRight(' ', charCount);
+    const juce::CharPointer_UTF16 utf16Ptr = paddedText.toUTF16();
+    
+    int copyBytes = juce::jmin((int)result.getSize(), (int)paddedText.getNumBytesAsUTF8() * 2);
+    result.copyFrom(utf16Ptr.getAddress(), 0, copyBytes);
+}
+
+// Codesign the exported binary
+const Result CtrlrWindows::codesignFileWindows(const File &fileToSign, const String &certificatePath,
+											   const String &certificatePassword) {
+	StringArray commandParts;
+	commandParts.add("signtool");
+	commandParts.add("sign");
+	commandParts.add("/f");
+	commandParts.add(certificatePath);
+	commandParts.add("/p");
+	commandParts.add(certificatePassword);
+	commandParts.add("/t");
+	commandParts.add("http://timestamp.digicert.com"); // Timestamp server
+	commandParts.add(fileToSign.getFullPathName());
+
+	juce::ChildProcess childProcess;
+	if (childProcess.start(commandParts)) {
+		childProcess.waitForProcessToFinish(-1);
+
+		if (!childProcess.isRunning()) { // Check if process has finished
+			if (childProcess.getExitCode() == 0) {
+				return juce::Result::ok(); // Codesign successful
+
+			} else {
+				return juce::Result::fail("Codesign failed with exit code: " +
+										  juce::String(childProcess.getExitCode())); // Codesign failed
+			}
+		} else {
+			return juce::Result::fail("Codesign process did not finish properly."); // Process still running
+		}
+
+	} else {
+		return juce::Result::fail("Failed to start codesign process."); // Failed to start process
+	}
+}
+
+// Convert hex string to binary data
+void CtrlrWindows::hexStringToBytes(const String &hexString, MemoryBlock &result) {
+	result.reset();
+	String cleanedHex = hexString.removeCharacters(" \t\r\n");
+
+	for (int i = 0; i < cleanedHex.length(); i += 2) {
+		if (i + 1 < cleanedHex.length()) {
+			String byteStr = cleanedHex.substring(i, i + 2);
+			int byteVal = byteStr.getHexValue32();
+			uint8 byte = static_cast<uint8>(byteVal);
+			result.append(&byte, 1);
+		}
+	}
+}
+
+// Convert hex string to binary data with defined maxLength
+void CtrlrWindows::hexStringToBytes(const juce::String &hexString, int maxLength, juce::MemoryBlock &result) {
+	result.setSize(0);														// Clear the MemoryBlock before use
+	juce::String sanitizedHexString = hexString.removeCharacters("\t\r\n"); // use juce::String
+	std::vector<uint8> bytes;
+
+	for (int i = 0; i < std::min((int)sanitizedHexString.length(), maxLength); ++i) { // Use std::min
+		bytes.push_back(static_cast<uint8>(sanitizedHexString[i]));
+	}
+
+	while (bytes.size() < maxLength) {
+		bytes.push_back(0); // Pad with zeros
+	}
+
+	result.append(bytes.data(), bytes.size());
+}
+
+// Convert binary data to hex string
+String CtrlrWindows::bytesToHexString(const juce::MemoryBlock &memoryBlock) {
+	std::stringstream ss;
+	ss << std::hex << std::setfill('0');
+	for (size_t i = 0; i < memoryBlock.getSize(); ++i) {
+		ss << std::setw(2) << static_cast<int>(static_cast<const uint8 *>(memoryBlock.getData())[i]);
+	}
+	return juce::String(ss.str());
+}
+
+// Replace all occurrences of searchData with replaceData in the targetData
+void CtrlrWindows::replaceAllOccurrences(MemoryBlock &targetData, const MemoryBlock &searchData,
+										 const MemoryBlock &replaceData) {
+	if (searchData.getSize() != replaceData.getSize() || searchData.getSize() == 0) {
+		DBG("Invalid search/replace data sizes");
+		return;
+	}
+
+	const uint8 *rawData = static_cast<const uint8 *>(targetData.getData());
+	size_t dataSize = targetData.getSize();
+	size_t searchSize = searchData.getSize();
+
+	for (size_t i = 0; i <= dataSize - searchSize; ++i) {
+		if (memcmp(rawData + i, searchData.getData(), searchSize) == 0) {
+			// Replace the data
+			targetData.copyFrom(replaceData.getData(), i, replaceData.getSize());
+			// Update rawData pointer as the memory might have been reallocated
+			rawData = static_cast<const uint8 *>(targetData.getData());
+		}
+	}
+}
+
+// Replace only the first N occurrences of searchData with replaceData in the targetData
+void CtrlrWindows::replaceFirstNOccurrences(MemoryBlock &targetData, const MemoryBlock &searchData,
+											const MemoryBlock &replaceData, int maxOccurrences) {
+	if (searchData.getSize() != replaceData.getSize() || searchData.getSize() == 0) {
+		DBG("Invalid search/replace data sizes");
+		return;
+	}
+
+	const uint8 *rawData = static_cast<const uint8 *>(targetData.getData());
+	size_t dataSize = targetData.getSize();
+	size_t searchSize = searchData.getSize();
+	int occurrencesFound = 0;
+
+	for (size_t i = 0; i <= dataSize - searchSize && occurrencesFound < maxOccurrences; ++i) {
+		if (memcmp(rawData + i, searchData.getData(), searchSize) == 0) {
+			// Replace the data
+			targetData.copyFrom(replaceData.getData(), i, replaceData.getSize());
+			// Update rawData pointer as the memory might have been reallocated
+			rawData = static_cast<const uint8 *>(targetData.getData());
+			occurrencesFound++;
+		}
+	}
+}
+
+Result CtrlrWindows::getDefaultPanel(MemoryBlock &dataToWrite) {
+#ifdef DEBUG_INSTANCE
+	File temp("c:\\devel\\debug_small.bpanelz");
+	temp.loadFileAsData(dataToWrite);
+	return (Result::ok());
+#endif
+
+	return (readResource(nullptr, MAKEINTRESOURCEW(CTRLR_INTERNAL_PANEL_RESID), (LPCWSTR)RT_RCDATA, dataToWrite));
+}
+
+Result CtrlrWindows::getDefaultResources(MemoryBlock &dataToWrite) {
+#ifdef DEBUG_INSTANCE
+	File temp("c:\\devel\\debug_small.bpanelz");
+
+	MemoryBlock data;
+	{
+		std::unique_ptr<FileInputStream> fis(temp.createInputStream());
+		fis->readIntoMemoryBlock(data);
+	}
+
+	ValueTree t = ValueTree::readFromGZIPData(data.getData(), data.getSize());
+
+	if (t.isValid()) {
+		ValueTree r = t.getChildWithName(Ids::resourceExportList);
+		if (r.isValid()) {
+			MemoryOutputStream mos(dataToWrite, false);
+			{
+				GZIPCompressorOutputStream gzipOutputStream(&mos);
+				r.writeToStream(gzipOutputStream);
+				gzipOutputStream.flush();
+			}
+			return (Result::ok());
+		}
+	} else {
+		return (Result::fail(
+			"Windows Native: getDefaultResources got data but couldn't parse it as a compressed ValueTree"));
+	}
+#endif
+
+	return (readResource(nullptr, MAKEINTRESOURCEW(CTRLR_INTERNAL_RESOURCES_RESID), (LPCWSTR)RT_RCDATA, dataToWrite));
+}
+
+Result CtrlrWindows::registerFileHandler() {
+	if (!JUCEApplication::isStandaloneApp())
+		return (Result::ok());
+
+	const char *const exts[] = {".panel", ".panelz", ".bpanel", ".bpanelz", nullptr};
+	StringArray extensions(exts);
+
+	for (int i = 0; i < extensions.size(); i++) {
+		if (!WindowsRegistry::registerFileAssociation(extensions[i], "ctrlr" + extensions[i],
+													  "Ctrlr panel file (" + extensions[i] + ")",
+													  File::getSpecialLocation(File::currentApplicationFile), -1, true))
+			return (Result::fail("Can't register [" + extensions[i] + "] file extension"));
+	}
+
+	return (Result::ok());
+}
+
+static void sendKey(const KeyPress &event) {
+	INPUT input;
+	input.type = INPUT_KEYBOARD;
+	input.ki.time = 0;
+	input.ki.dwExtraInfo = 0;
+	input.ki.wScan = 0;
+	input.ki.dwFlags = 0;
+
+	// Modifier Down
+	if (event.getModifiers().isCommandDown()) {
+		input.ki.wVk = VK_CONTROL;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isAltDown()) {
+		input.ki.wVk = VK_MENU;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isShiftDown()) {
+		input.ki.wVk = VK_SHIFT;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+
+	// KEY Down
+	input.ki.wVk = event.getKeyCode();
+	SendInput(1, &input, sizeof(INPUT));
+
+	// KEY Up
+	input.ki.dwFlags = KEYEVENTF_KEYUP;
+	SendInput(1, &input, sizeof(INPUT));
+
+	// MODIFIER Up
+	if (event.getModifiers().isCommandDown()) {
+		input.ki.wVk = VK_CONTROL;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isAltDown()) {
+		input.ki.wVk = VK_MENU;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isShiftDown()) {
+		input.ki.wVk = VK_SHIFT;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+}
+
+Result CtrlrWindows::sendKeyPressEvent(const KeyPress &event) { return (sendKeyPressEvent(event, "")); }
+
+Result CtrlrWindows::sendKeyPressEvent(const KeyPress &event, const String &targetWindowName) {
+	HWND firstwindow = FindWindowEx(NULL, NULL, NULL, NULL);
+	HWND window = firstwindow;
+	TCHAR windowtext[MAX_PATH];
+
+	if (targetWindowName.isNotEmpty()) {
+		while (1) {
+			GetWindowText(window, windowtext, MAX_PATH);
+
+			// Convert windowtext to juce::String and use JUCE's native contains method
+			if (String(windowtext).containsIgnoreCase(targetWindowName))
+				break;
+
+			window = FindWindowEx(NULL, window, NULL, NULL);
+			if (window == NULL || window == firstwindow)
+				return (Result::fail("Can't find target window: " + targetWindowName));
+		}
+	}
+
+	SetForegroundWindow(window);
+	sendKey(event);
+	return (Result::ok());
+}
+#endif

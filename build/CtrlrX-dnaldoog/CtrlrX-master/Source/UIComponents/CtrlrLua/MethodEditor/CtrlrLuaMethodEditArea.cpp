@@ -1,0 +1,261 @@
+/*
+  ==============================================================================
+
+  This is an automatically generated GUI class created by the Introjucer!
+
+  Be careful when adding custom code to these files, as only the code within
+  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
+  and re-saved.
+
+  Created with Introjucer version: 3.1.0
+
+  ------------------------------------------------------------------------------
+
+  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright 2004-13 by Raw Material Software Ltd.
+
+  ==============================================================================
+*/
+
+//[Headers] You can add your own extra header files here...
+#include "CtrlrIDs.h"
+#include "CtrlrLuaApiInspector.h"
+#include "CtrlrLuaMethodEditor.h"
+#include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "stdafx.h"
+
+//[/Headers]
+
+#include "CtrlrLuaMethodEditArea.h"
+
+//[MiscUserDefs] You can add your own user definitions and misc code here...
+//[/MiscUserDefs]
+
+//==============================================================================
+
+static int tabIndexOf (TabbedComponent &tabs, Component *c)
+{
+    for (int i = 0; i < tabs.getNumTabs(); ++i)
+        if (tabs.getTabContentComponent (i) == c)
+            return i;
+    return -1;
+}
+
+
+CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea(CtrlrLuaMethodEditor &_owner) : owner(_owner), sharedSearchTabsValue() {
+
+
+	lowerTabs = std::make_unique<TabbedComponent>(TabbedButtonBar::Orientation::TabsAtBottom);
+	lowerTabs->setName("lowerTabs");
+
+	addAndMakeVisible(lowerTabs.get());
+	lowerTabs->setCurrentTabIndex(-1);
+	
+	upperTabs = std::make_unique<CtrlrLuaMethodEditorTabs>(owner);
+	addAndMakeVisible(upperTabs.get());
+
+	//[UserPreSize]
+	owner.getOwner().getCtrlrManagerOwner().getCtrlrLog().addListener(this);
+	output = std::make_unique<CtrlrTextEditor>("Output");
+	output->setFont(
+		Font(owner.getOwner().getCtrlrManagerOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain));
+	output->setMultiLine(true, true);
+	output->setReadOnly(true);
+	output->addMouseListener(this, false);
+	output->setColour(TextEditor::backgroundColourId, Colours::white);
+	output->setColour(TextEditor::textColourId, Colours::black);
+	output->setColour(TextEditor::highlightColourId, findColour(TextEditor::highlightColourId));
+	output->setColour(TextEditor::outlineColourId, Colours::transparentBlack);
+	output->setColour(TextEditor::shadowColourId, Colours::transparentBlack);
+
+	// 1. Standard allocations using make_unique
+	find = std::make_unique<CtrlrLuaMethodFind>(owner, sharedSearchTabsValue);
+
+	// 2. Split the inline resizer allocation apart
+	resizer = std::make_unique<StretchableLayoutResizerBar>(&layoutManager, 1, false);
+	addAndMakeVisible(resizer.get()); // Pass the raw address to JUCE
+	debuggerPrompt = new CtrlrLuaMethodDebuggerPrompt(owner);
+
+	// 3. Complete the remaining allocations
+	apiInspector = std::make_unique<CtrlrLuaApiInspector>(owner.getOwner());
+	luaConsole = std::make_unique<CtrlrLuaConsole>(owner.getOwner());
+
+	// Pass 'false' so lowerTabs does NOT attempt to delete unique_ptr managed components
+	lowerTabs->addTab("Output", Colours::lightgrey, output.get(), false);
+	lowerTabs->addTab("Find and replace", Colours::lightgrey, find.get(), false);
+	lowerTabs->addTab("API Inspector", Colours::lightgrey, apiInspector.get(), false);
+	lowerTabs->addTab("Debugger output", Colours::lightgrey, debuggerPrompt, true);
+	lowerTabs->addTab("Console", Colours::lightgrey, luaConsole.get(), false);
+	lowerTabs->setTabBarDepth(owner.getOwner().getOwner().getProperty(Ids::ctrlrTabBarDepth));
+
+	layoutManager.setItemLayout(0, -0.001, -1.0, -0.79);
+	layoutManager.setItemLayout(1, -0.001, -0.01, -0.01);
+	layoutManager.setItemLayout(2, -0.001, -1.0, -0.19);
+	//[/UserPreSize]
+	setSize(600, 400);
+}
+
+CtrlrLuaMethodEditArea::~CtrlrLuaMethodEditArea() {
+	//[Destructor_pre]. You can add your own custom destruction code here..
+	owner.getOwner().getCtrlrManagerOwner().getCtrlrLog().removeListener(this);
+
+	if (lowerTabs != nullptr)
+		lowerTabs->clearTabs(); // Drops component references safely
+
+	resizer.reset();
+	//[/Destructor_pre]
+}
+
+//==============================================================================
+void CtrlrLuaMethodEditArea::paint(Graphics &g) {
+	//[UserPrePaint] Add your own custom painting code here..
+	//[/UserPrePaint]
+
+	//[UserPaint] Add your own custom painting code here..
+	//[/UserPaint]
+}
+
+void CtrlrLuaMethodEditArea::resized() {
+	lowerTabs->setBounds(0, proportionOfHeight(0.6995f), getWidth() - 0, proportionOfHeight(0.3005f));
+	upperTabs->setBounds(0, 0, getWidth() - 0, proportionOfHeight(0.6995f));
+	//[UserResized] Add your own custom resize handling here..
+	Component *comps[] = {upperTabs.get(), resizer.get(), lowerTabs.get()};
+	layoutManager.layOutComponents(comps, 3, 0, 0, getWidth(), getHeight(), true, true);
+	//[/UserResized]
+}
+
+//[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void CtrlrLuaMethodEditArea::mouseDoubleClick(const MouseEvent &e) {
+	// LUA compile error: ERROR: [string "function myNewMethod()..."]:4: '=' expected near 'end'
+	// Search result: SEARCH: [method]:3 position:43-46
+
+	const String line = output->getLineAtPosition(output->getTextIndexAt(e.x, e.y)).trim();
+
+	_DBG(line); // Added v5.6.34.
+
+	if (line.startsWithIgnoreCase("ERROR")) {
+		const int errorInLine = line.fromFirstOccurrenceOf("]:", false, true).getIntValue();
+
+		if (errorInLine > 0 && owner.getCurrentEditor()) {
+			owner.getCurrentEditor()->setErrorLine(errorInLine);
+		}
+	} else if (line.startsWithIgnoreCase("Method: ")) {
+		const String methodName =
+			line.fromFirstOccurrenceOf("Method: ", false, false).upToFirstOccurrenceOf("line: ", false, true).trim();
+		const int errorInLine = line.fromFirstOccurrenceOf("line: ", false, true).getIntValue();
+		const int positionStart = line.fromFirstOccurrenceOf("start: ", false, true).getIntValue();
+		const int positionEnd = line.fromFirstOccurrenceOf("end: ", false, true).getIntValue();
+
+		owner.searchResultClicked(methodName, errorInLine, positionStart, positionEnd);
+	}
+}
+
+CtrlrLuaMethodEditorTabs *CtrlrLuaMethodEditArea::getTabs() { return (upperTabs.get()); }
+
+void CtrlrLuaMethodEditArea::insertOutput(const String &textToInsert, const Colour what) {
+	output->setCaretPosition(output->getText().length());
+	output->insertText(
+		textToInsert,
+		Font(owner.getOwner().getCtrlrManagerOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain),
+		what);
+}
+
+void CtrlrLuaMethodEditArea::insertOutput(const AttributedString stringToInsert) {
+	output->setCaretPosition(output->getText().length() + 1);
+	output->insertAttributedText(stringToInsert);
+}
+
+void CtrlrLuaMethodEditArea::showFindDialog() {
+	lowerTabs->setCurrentTabIndex(1, true);
+	find->setFocusOnFindInput();
+}
+
+void CtrlrLuaMethodEditArea::showConsoleTab()
+{
+    lowerTabs->setCurrentTabIndex (tabIndexOf (*lowerTabs, luaConsole.get()), true);
+}
+
+void CtrlrLuaMethodEditArea::findNextMatch() { find->findNextMatch(); }
+
+void CtrlrLuaMethodEditArea::replaceNextMatch() { find->replaceNextMatch(); }
+
+void CtrlrLuaMethodEditArea::showDebuggerTab()
+{
+    lowerTabs->setCurrentTabIndex (tabIndexOf (*lowerTabs, debuggerPrompt), true);
+}
+
+void CtrlrLuaMethodEditArea::closeTabWithMethod(const ValueTree &item) {
+	for (int i = 0; i < upperTabs->getNumTabs(); i++) {
+		CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor *>(upperTabs->getTabContentComponent(i));
+		if (ed != nullptr) {
+			if (ed->getMethod()->getUuid() == item.getProperty(Ids::uuid).toString()) {
+				upperTabs->removeTab(i);
+				upperTabs->setCurrentTabIndex(i == 0 ? i + 1 : i - 1, true);
+				break;
+			}
+		}
+	}
+}
+
+void CtrlrLuaMethodEditArea::messageLogged(CtrlrLog::CtrlrLogMessage message) {
+	if (message.level == CtrlrLog::Lua) {
+		output->insertText(
+			"LUA>> " + message.message + "\n",
+			Font(owner.getOwner().getCtrlrManagerOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain),
+			Colours::black);
+	}
+
+	if (message.level == CtrlrLog::LuaRuntimeError) {
+		output->insertText(
+			"RUNTIME ERROR>> " + message.message + "\n",
+			Font(owner.getOwner().getCtrlrManagerOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::bold),
+			Colours::red);
+		owner.updateTabs();
+	}
+}
+
+TabbedComponent *CtrlrLuaMethodEditArea::getLowerTabs() { return (lowerTabs.get()); }
+
+bool CtrlrLuaMethodEditArea::keyPressed(
+	const KeyPress &key,
+	Component *originatingComponent) // Updated v5.6.34. was : bool CtrlrLuaMethodEditArea::keyPressed (const KeyPress
+									 // &key, Component *event)
+{
+	const auto modifiers = key.getModifiers();
+
+	// Ctrl + Tab: Switch tabs
+	if (modifiers.isCommandDown() && key.getKeyCode() == 9) {
+		if (getTabs()) {
+			int current = getTabs()->getCurrentTabIndex();
+			int numTabs = getTabs()->getNumTabs();
+
+			if (current < numTabs - 1) {
+				getTabs()->setCurrentTabIndex(current + 1);
+			} else {
+				getTabs()->setCurrentTabIndex(0);
+			}
+			return true;
+		}
+	}
+
+	// If we didn't handle the key, return false so the parent can handle it.
+	return false;
+}
+
+CtrlrLuaMethodDebuggerPrompt *CtrlrLuaMethodEditArea::getLuaDebuggerPrompt (const bool activateDebuggerNow)
+{
+    if (activateDebuggerNow)
+        showDebuggerTab();
+
+    return debuggerPrompt;
+}
+
+void CtrlrLuaMethodEditArea::setActiveOutputTab() {
+	if (getLowerTabs()) {
+		getLowerTabs()->setCurrentTabIndex(0);
+	}
+}
+void CtrlrLuaMethodEditArea::clearOutputText() { output->setText(""); }
+
+

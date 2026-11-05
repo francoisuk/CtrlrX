@@ -1,0 +1,39 @@
+{
+ "size": [
+  648,
+  432
+ ],
+ "links": [
+  {
+   "name": "kkSplashKofi",
+   "url": "https://ko-fi.com/damiensellier",
+   "rect": [
+    79,
+    165,
+    212,
+    17
+   ]
+  },
+  {
+   "name": "kkSplashBook",
+   "url": "https://www.kronoscopie.com",
+   "rect": [
+    175,
+    223,
+    122,
+    17
+   ]
+  },
+  {
+   "name": "kkSplashWeb",
+   "url": "https://www.kronoscopie.com",
+   "rect": [
+    263,
+    321,
+    122,
+    20
+   ]
+  }
+ ],
+ "rest": "click anywhere else closes the splash"
+}

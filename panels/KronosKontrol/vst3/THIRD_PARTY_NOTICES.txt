@@ -1,0 +1,55 @@
+KRONOS KONTROL - THIRD-PARTY NOTICES
+November 2026
+
+Kronos Kontrol (c) 2026 Francois Rossi, Kronoscopie, is a CtrlrX
+panel delivered as a CtrlrX "exported instance": the plug-in or
+application file is the CtrlrX 5.6.36 runtime with the Kronos
+Kontrol panel embedded in it. The runtime and its components are
+licensed to You under their own licenses, which prevail over the
+Kronos Kontrol EULA for those components. As stated by the Ctrlr
+and CtrlrX authors, panels are not covered by those licenses.
+
+1. CtrlrX 5.6.36
+   Copyright (c) Damien Sellier and contributors.
+   https://github.com/damiensellier/CtrlrX
+   A fork of Ctrlr, Copyright (c) Roman Kubiak.
+   https://github.com/RomanKubiak/ctrlr
+   Licensed under the BSD-3-Clause license or the GNU General
+   Public License version 2 or later. As distributed in this
+   file, linked with JUCE and the VST3 SDK under the GPL v3, the
+   combined runtime is subject to the GNU General Public License
+   version 3: https://www.gnu.org/licenses/gpl-3.0.html
+
+2. JUCE
+   Copyright (c) Raw Material Software Limited. https://juce.com
+   Used by CtrlrX under the GNU General Public License v3.
+   JUCE is a trademark of Raw Material Software Limited.
+
+3. Steinberg VST3 SDK
+   Copyright (c) Steinberg Media Technologies GmbH.
+   Used by CtrlrX under the GNU General Public License v3.
+   VST is a trademark of Steinberg Media Technologies GmbH.
+
+4. LuaJIT 2.1
+   Copyright (c) 2005-2026 Mike Pall. https://luajit.org
+   MIT license.
+
+5. luabind, Boost, RapidFuzz (embedded in CtrlrX)
+   luabind: MIT license. Boost: Boost Software License 1.0.
+   RapidFuzz C++: MIT license.
+
+6. Fonts used in the artwork
+   Inter, DejaVu Sans Mono, Michroma, Montserrat: SIL Open Font
+   License 1.1 / Bitstream Vera license (see the font folder of
+   the Kronos Kontrol sources).
+
+SOURCE CODE OFFER
+The complete corresponding source code of the GPL components
+(CtrlrX 5.6.36 with its JUCE and VST3 SDK versions) is available
+at https://github.com/damiensellier/CtrlrX (tag v5.6.36). On
+request, the Licensor will provide a copy of that source code for
+at least three years from the date of distribution, for a charge
+no more than the cost of performing the distribution:
+Kronoscopie - https://kronoscopie.com - contact@kronoscopie.com
+
+Support the CtrlrX developer: https://ko-fi.com/damiensellier

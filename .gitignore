@@ -1,0 +1,89 @@
+# =============================================================================
+# CtrlrX JUCE8 — Kronos Kontrol
+# Source-first ignore rules. Rationale and the full tracked/untracked split are
+# documented in README.md ("What lives in git" / "What does not").
+# =============================================================================
+
+# --- OS / editor noise -------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+*~
+.vs/
+*.suo
+*.user
+*.log
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Nested git repositories -------------------------------------------------
+# Separate checkouts/exports of upstream CtrlrX. Not this project's files:
+# they carry their own history and are re-fetchable (see README).
+/build/CtrlrX-damiensellier/
+/build/CtrlrX-pr337/
+/probe/src/
+
+# --- Vendored third-party dependencies --------------------------------------
+# Public upstreams; versions are pinned in README.md and restored on demand.
+/build/CtrlrX-dnaldoog/CtrlrX-master/JUCE/
+/reference/VST_SDK/
+/reference/books/
+
+# --- C / C++ build output ----------------------------------------------------
+CMakeFiles/
+*.o
+*.obj
+*.a
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.d
+*.gcda
+*.gcno
+compile_commands.json
+cmake_install.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+Makefile
+
+# --- Probe build output ------------------------------------------------------
+/probe/b/
+/probe/out/
+/probe/build_log.txt
+
+# --- Scratch -----------------------------------------------------------------
+/temp/
+
+# --- Natively executable artefacts ------------------------------------------
+*.exe
+*.dll
+*.vst3
+*.dylib
+*.so
+*.pkg
+*.zip
+
+# --- Large binary assets -----------------------------------------------------
+# Artwork rasters, manuals, video and audio stay on disk only (see README).
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.pdf
+
+# ...except the small panel assets that the generator and probe need:
+!/panels/KronosKontrol/assets/*.png
+!/panels/KronosKontrol/proof/assets/*.png
+!/panels/KronosKontrol/proof/screenshots/*.png

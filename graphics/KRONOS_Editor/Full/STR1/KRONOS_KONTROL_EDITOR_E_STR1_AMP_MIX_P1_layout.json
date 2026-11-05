@@ -1,0 +1,2272 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AMP·MIX · 1/2",
+ "tab_index": 0,
+ "object": "Program · STR-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_STR1_AMP_MIX_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_STR1_AMP_MIX_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · STR-1 — AMP·MIX · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 207.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 279.6,
+   "y": 84,
+   "w": 177.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 459.8,
+   "y": 84,
+   "w": 186.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 648.9,
+   "y": 84,
+   "w": 195.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 847.0,
+   "y": 84,
+   "w": 173.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1023.6,
+   "y": 84,
+   "w": 175.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1202.0,
+   "y": 84,
+   "w": 179.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@462.7",
+   "param": "Prog_EXi@462.7",
+   "group": "mixer_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "STRING LEVEL MOD.SOURCE",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 462,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@464.7",
+   "param": "Prog_EXi@464.7",
+   "group": "mixer_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "STRING PHASE INVERT",
+   "x": 201.1,
+   "y": 154.0,
+   "w": 125.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Phase Invert",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 464,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@465.7",
+   "param": "Prog_EXi@465.7",
+   "group": "mixer_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "STRING BALANCE MOD SOURCE",
+   "x": 334.2,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Balance Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 465,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@480.7~4",
+   "param": "Prog_EXi@480.7~4",
+   "group": "mixer_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PCM LEVEL MOD.SOURCE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 480,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@482.4",
+   "param": "Prog_EXi@482.4",
+   "group": "mixer_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PCM PHASE INVERT",
+   "x": 201.1,
+   "y": 188.0,
+   "w": 125.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Phase Invert",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 482,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "77",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@483.7~4",
+   "param": "Prog_EXi@483.7~4",
+   "group": "mixer_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PCM BALANCE MOD.SOURCE",
+   "x": 334.2,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Balance Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 483,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "79",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@486.7~3",
+   "param": "Prog_EXi@486.7~3",
+   "group": "mixer_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "NOISE LEVEL MOD.SOURCE",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 486,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@488.3",
+   "param": "Prog_EXi@488.3",
+   "group": "mixer_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "NOISE PHASE INVERT",
+   "x": 201.1,
+   "y": 222.0,
+   "w": 125.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Phase Invert",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 488,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@489.7~3",
+   "param": "Prog_EXi@489.7~3",
+   "group": "mixer_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "NOISE BALANCE MOD.SOURCE",
+   "x": 334.2,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Balance Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 489,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@462.6~0",
+   "param": "Prog_EXi@462.6~0",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "STRING LEVEL",
+   "x": 491.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 512.315411405124,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 462,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@462.6~0_val",
+   "param": "Prog_EXi@462.6~0",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "STRING LEVEL value",
+   "x": 493.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 462,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@463.7",
+   "param": "Prog_EXi@463.7",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "STRING LEVEL MOD.INT",
+   "x": 557.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 578.5073292337132,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 463,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@463.7_val",
+   "param": "Prog_EXi@463.7",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "STRING LEVEL MOD.INT value",
+   "x": 559.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 463,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@465.6~0",
+   "param": "Prog_EXi@465.6~0",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "STRING BALANCE",
+   "x": 623.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 644.6992470623024,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 465,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@465.6~0_val",
+   "param": "Prog_EXi@465.6~0",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "STRING BALANCE value",
+   "x": 625.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 465,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@466.7",
+   "param": "Prog_EXi@466.7",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "STRING BALANCE MOD. INTENSITY",
+   "x": 689.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 710.8911648908916,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 466,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@466.7_val",
+   "param": "Prog_EXi@466.7",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "STRING BALANCE MOD. INTENSITY value",
+   "x": 691.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "String Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 466,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@479.7~5",
+   "param": "Prog_EXi@479.7~5",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PCM LEVEL",
+   "x": 756.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 777.0830827194808,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 479,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@479.7~5_val",
+   "param": "Prog_EXi@479.7~5",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PCM LEVEL value",
+   "x": 758.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 479,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@481.7~4",
+   "param": "Prog_EXi@481.7~4",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PCM LEVEL MOD.INT",
+   "x": 822.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 843.27500054807,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 481,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@481.7~4_val",
+   "param": "Prog_EXi@481.7~4",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PCM LEVEL MOD.INT value",
+   "x": 824.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 481,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@482.7~5",
+   "param": "Prog_EXi@482.7~5",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PCM BALANCE",
+   "x": 888.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 909.4669183766591,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 482,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "78",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@482.7~5_val",
+   "param": "Prog_EXi@482.7~5",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PCM BALANCE value",
+   "x": 890.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 482,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "78",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@484.7~4",
+   "param": "Prog_EXi@484.7~4",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PCM BALANCE MOD.INT",
+   "x": 954.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 975.6588362052483,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 484,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "80",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@484.7~4_val",
+   "param": "Prog_EXi@484.7~4",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PCM BALANCE MOD.INT value",
+   "x": 956.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "PCM Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 484,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "80",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@485.7~4",
+   "param": "Prog_EXi@485.7~4",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE LEVEL",
+   "x": 1020.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1041.8507540338376,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 485,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "81",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@485.7~4_val",
+   "param": "Prog_EXi@485.7~4",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE LEVEL value",
+   "x": 1022.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 485,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "81",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@487.7~3",
+   "param": "Prog_EXi@487.7~3",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE LEVEL MOD.INT",
+   "x": 1087.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1108.0426718624267,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 487,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@487.7~3_val",
+   "param": "Prog_EXi@487.7~3",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE LEVEL MOD.INT value",
+   "x": 1089.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 487,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@488.7~4",
+   "param": "Prog_EXi@488.7~4",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE BALANCE",
+   "x": 1153.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1174.234589691016,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 488,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@488.7~4_val",
+   "param": "Prog_EXi@488.7~4",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE BALANCE value",
+   "x": 1155.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 488,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@490.7~3",
+   "param": "Prog_EXi@490.7~3",
+   "group": "mixer_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE BALANCE MOD. INTENSITY",
+   "x": 1219.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1240.4265075196051,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 490,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@490.7~3_val",
+   "param": "Prog_EXi@490.7~3",
+   "group": "mixer_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE BALANCE MOD. INTENSITY value",
+   "x": 1221.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Noise Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 490,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@703.6~0",
+   "param": "Prog_EXi@703.6~0",
+   "group": "amplifier_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 1301.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1322.4265075196051,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 703,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@703.6~0_val",
+   "param": "Prog_EXi@703.6~0",
+   "group": "amplifier_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 1303.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 703,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@703.7",
+   "param": "Prog_EXi@703.7",
+   "group": "amplifier_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VELOCITY INTENSITY",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Velocity Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 703,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@703.7_val",
+   "param": "Prog_EXi@703.7",
+   "group": "amplifier_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VELOCITY INTENSITY value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Velocity Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 703,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@704.7",
+   "param": "Prog_EXi@704.7",
+   "group": "amplifier_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@704.7",
+   "x": 270.7,
+   "y": 296,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 704,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@705.7",
+   "param": "Prog_EXi@705.7",
+   "group": "amplifier_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@705.7",
+   "x": 424.9,
+   "y": 296,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 705,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@706.7",
+   "param": "Prog_EXi@706.7",
+   "group": "amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@706.7",
+   "x": 270.7,
+   "y": 317,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.1 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 706,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@707.7",
+   "param": "Prog_EXi@707.7",
+   "group": "amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@707.7",
+   "x": 424.9,
+   "y": 317,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.2 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 707,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@708.7",
+   "param": "Prog_EXi@708.7",
+   "group": "amplifier_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@708.7",
+   "x": 270.7,
+   "y": 338,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 708,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@709.7",
+   "param": "Prog_EXi@709.7",
+   "group": "amplifier_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@709.7",
+   "x": 424.9,
+   "y": 338,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.2 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 709,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@710.7",
+   "param": "Prog_EXi@710.7",
+   "group": "amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@710.7",
+   "x": 270.7,
+   "y": 359,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 710,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@711.7",
+   "param": "Prog_EXi@711.7",
+   "group": "amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@711.7",
+   "x": 424.9,
+   "y": 359,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Mod.2 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 711,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@715.7~5",
+   "param": "Prog_EXi@715.7~5",
+   "group": "amplifier_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOW RAMP",
+   "x": 659.5,
+   "y": 284,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "Low Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 715,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@716.7~5",
+   "param": "Prog_EXi@716.7~5",
+   "group": "amplifier_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER LOW RAMP",
+   "x": 791.3,
+   "y": 284,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "Center Low Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 716,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@717.7~5",
+   "param": "Prog_EXi@717.7~5",
+   "group": "amplifier_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER HIGH RAMP",
+   "x": 924.7,
+   "y": 284,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "Center High Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 717,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@718.7~5",
+   "param": "Prog_EXi@718.7~5",
+   "group": "amplifier_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HIGH RAMP",
+   "x": 1024.7,
+   "y": 284,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "High Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 718,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@713.6~0",
+   "param": "Prog_EXi@713.6~0",
+   "group": "amplifier_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW KEY",
+   "x": 862.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 883.2,
+   "cy": 350.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 713,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@713.6~0_val",
+   "param": "Prog_EXi@713.6~0",
+   "group": "amplifier_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW KEY value",
+   "x": 864.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 713,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@713.7",
+   "param": "Prog_EXi@713.7",
+   "group": "amplifier_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CENTER KEY",
+   "x": 968.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 989.2,
+   "cy": 350.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 713,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@713.7_val",
+   "param": "Prog_EXi@713.7",
+   "group": "amplifier_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "CENTER KEY value",
+   "x": 970.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 713,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@714.7~6",
+   "param": "Prog_EXi@714.7~6",
+   "group": "amplifier_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH KEY",
+   "x": 1074.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1095.2,
+   "cy": 350.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 714,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@714.7~6_val",
+   "param": "Prog_EXi@714.7~6",
+   "group": "amplifier_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH KEY value",
+   "x": 1076.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier Keyboard Track",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 714,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "27",
+     "SUB": "1",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AMP·MIX",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "exi:STR-1"
+}

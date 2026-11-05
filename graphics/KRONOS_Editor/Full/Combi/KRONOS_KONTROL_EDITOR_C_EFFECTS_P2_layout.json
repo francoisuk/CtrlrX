@@ -1,0 +1,4327 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "EFFECTS · 2/2",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_C_EFFECTS_P2_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_C_EFFECTS_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — EFFECTS · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 127.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 190.6,
+   "y": 84,
+   "w": 121.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 314.7,
+   "y": 84,
+   "w": 125.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 443.6,
+   "y": 84,
+   "w": 121.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 568.2,
+   "y": 84,
+   "w": 123.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 695.0,
+   "y": 84,
+   "w": 129.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 827.2,
+   "y": 84,
+   "w": 143.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 973.2,
+   "y": 84,
+   "w": 126.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1102.8,
+   "y": 84,
+   "w": 120.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_module",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA MODULE",
+   "x": 1226.7,
+   "y": 84,
+   "w": 154.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@88",
+   "param": "CombiAndSongTimbreSet@88",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@88",
+   "x": 210.0,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 88,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@162",
+   "param": "CombiAndSongTimbreSet@162",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@162",
+   "x": 311.5,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 162,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@236",
+   "param": "CombiAndSongTimbreSet@236",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@236",
+   "x": 413.0,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 236,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@310",
+   "param": "CombiAndSongTimbreSet@310",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@310",
+   "x": 514.5,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 310,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@384",
+   "param": "CombiAndSongTimbreSet@384",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@384",
+   "x": 616.0,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 384,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@458",
+   "param": "CombiAndSongTimbreSet@458",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@458",
+   "x": 717.5,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 458,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@532",
+   "param": "CombiAndSongTimbreSet@532",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@532",
+   "x": 819.0,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 532,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@606",
+   "param": "CombiAndSongTimbreSet@606",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@606",
+   "x": 920.5,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 606,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@680",
+   "param": "CombiAndSongTimbreSet@680",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@680",
+   "x": 1022.0,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 680,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@754",
+   "param": "CombiAndSongTimbreSet@754",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@754",
+   "x": 1123.5,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 754,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@828",
+   "param": "CombiAndSongTimbreSet@828",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@828",
+   "x": 1225.0,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 828,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@902",
+   "param": "CombiAndSongTimbreSet@902",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@902",
+   "x": 1326.5,
+   "y": 150,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "range": "No Effect~Multitap",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 902,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~B9",
+    "value": "No Effect~Multitap"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@89.5~0",
+   "param": "CombiAndSongTimbreSet@89.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@89.5~0",
+   "x": 210.0,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 89,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@163.5~0",
+   "param": "CombiAndSongTimbreSet@163.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@163.5~0",
+   "x": 311.5,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 163,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@237.5~0",
+   "param": "CombiAndSongTimbreSet@237.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@237.5~0",
+   "x": 413.0,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 237,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@311.5~0",
+   "param": "CombiAndSongTimbreSet@311.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@311.5~0",
+   "x": 514.5,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 311,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@385.5~0",
+   "param": "CombiAndSongTimbreSet@385.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@385.5~0",
+   "x": 616.0,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 385,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@459.5~0",
+   "param": "CombiAndSongTimbreSet@459.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@459.5~0",
+   "x": 717.5,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 459,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@533.5~0",
+   "param": "CombiAndSongTimbreSet@533.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@533.5~0",
+   "x": 819.0,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 533,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@607.5~0",
+   "param": "CombiAndSongTimbreSet@607.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@607.5~0",
+   "x": 920.5,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 607,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@681.5~0",
+   "param": "CombiAndSongTimbreSet@681.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@681.5~0",
+   "x": 1022.0,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 681,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@755.5~0",
+   "param": "CombiAndSongTimbreSet@755.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@755.5~0",
+   "x": 1123.5,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 755,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@829.5~0",
+   "param": "CombiAndSongTimbreSet@829.5~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@829.5~0",
+   "x": 1225.0,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 829,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "1~All Routed"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@903.6",
+   "param": "CombiAndSongTimbreSet@903.6",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "toggle",
+   "label": "CombiAndSongTimbreSet@903.5~0",
+   "x": 1326.5,
+   "y": 171,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~All Routed",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 903,
+    "bit": "6",
+    "sysex": {
+     "TYP": "23",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@89.7",
+   "param": "CombiAndSongTimbreSet@89.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@89.7",
+   "x": 210.0,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 89,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@163.7",
+   "param": "CombiAndSongTimbreSet@163.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@163.7",
+   "x": 311.5,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 163,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@237.7",
+   "param": "CombiAndSongTimbreSet@237.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@237.7",
+   "x": 413.0,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 237,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@311.7",
+   "param": "CombiAndSongTimbreSet@311.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@311.7",
+   "x": 514.5,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 311,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@385.7",
+   "param": "CombiAndSongTimbreSet@385.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@385.7",
+   "x": 616.0,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 385,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@459.7",
+   "param": "CombiAndSongTimbreSet@459.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@459.7",
+   "x": 717.5,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 459,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@533.7",
+   "param": "CombiAndSongTimbreSet@533.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@533.7",
+   "x": 819.0,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 533,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@607.7",
+   "param": "CombiAndSongTimbreSet@607.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@607.7",
+   "x": 920.5,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 607,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@681.7",
+   "param": "CombiAndSongTimbreSet@681.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@681.7",
+   "x": 1022.0,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 681,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@755.7",
+   "param": "CombiAndSongTimbreSet@755.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@755.7",
+   "x": 1123.5,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 755,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@829.7",
+   "param": "CombiAndSongTimbreSet@829.7",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@829.7",
+   "x": 1225.0,
+   "y": 213,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Chain Off"
+   ],
+   "range": "Chain Off~Chain On",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Chain Switch",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 829,
+    "bit": "7",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Chain Off~Chain On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@90.3~0",
+   "param": "CombiAndSongTimbreSet@90.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@90.3~0",
+   "x": 210.0,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "2"
+   ],
+   "range": "2~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 90,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "02~0C",
+    "value": "2~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@164.3~0",
+   "param": "CombiAndSongTimbreSet@164.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@164.3~0",
+   "x": 311.5,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "3"
+   ],
+   "range": "3~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 164,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "03~0C",
+    "value": "3~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@238.3~0",
+   "param": "CombiAndSongTimbreSet@238.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@238.3~0",
+   "x": 413.0,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "4"
+   ],
+   "range": "4~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 238,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "04~0C",
+    "value": "4~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@312.3~0",
+   "param": "CombiAndSongTimbreSet@312.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@312.3~0",
+   "x": 514.5,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "5"
+   ],
+   "range": "5~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 312,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "05~0C",
+    "value": "5~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@386.3~0",
+   "param": "CombiAndSongTimbreSet@386.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@386.3~0",
+   "x": 616.0,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "6"
+   ],
+   "range": "6~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 386,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "06~0C",
+    "value": "6~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@460.3~0",
+   "param": "CombiAndSongTimbreSet@460.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@460.3~0",
+   "x": 717.5,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "7"
+   ],
+   "range": "7~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 460,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "07~0C",
+    "value": "7~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@534.3~0",
+   "param": "CombiAndSongTimbreSet@534.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@534.3~0",
+   "x": 819.0,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "8"
+   ],
+   "range": "8~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 534,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "08~0C",
+    "value": "8~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@608.3~0",
+   "param": "CombiAndSongTimbreSet@608.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@608.3~0",
+   "x": 920.5,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "9"
+   ],
+   "range": "9~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 608,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "09~0C",
+    "value": "9~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@682.3~0",
+   "param": "CombiAndSongTimbreSet@682.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@682.3~0",
+   "x": 1022.0,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "10"
+   ],
+   "range": "10~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 682,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0A~0C",
+    "value": "10~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@756.3~0",
+   "param": "CombiAndSongTimbreSet@756.3~0",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@756.3~0",
+   "x": 1123.5,
+   "y": 234,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "11"
+   ],
+   "range": "11~12",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Chain To",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 756,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0B~0C",
+    "value": "11~12"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@92",
+   "param": "CombiAndSongTimbreSet@92",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@92",
+   "x": 210.0,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 92,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@166",
+   "param": "CombiAndSongTimbreSet@166",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@166",
+   "x": 311.5,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 166,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@240",
+   "param": "CombiAndSongTimbreSet@240",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@240",
+   "x": 413.0,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 240,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@314",
+   "param": "CombiAndSongTimbreSet@314",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@314",
+   "x": 514.5,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 314,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@388",
+   "param": "CombiAndSongTimbreSet@388",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@388",
+   "x": 616.0,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 388,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@462",
+   "param": "CombiAndSongTimbreSet@462",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@462",
+   "x": 717.5,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 462,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@536",
+   "param": "CombiAndSongTimbreSet@536",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@536",
+   "x": 819.0,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 536,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@610",
+   "param": "CombiAndSongTimbreSet@610",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@610",
+   "x": 920.5,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 610,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@684",
+   "param": "CombiAndSongTimbreSet@684",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@684",
+   "x": 1022.0,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 684,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@758",
+   "param": "CombiAndSongTimbreSet@758",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@758",
+   "x": 1123.5,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 758,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@832",
+   "param": "CombiAndSongTimbreSet@832",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@832",
+   "x": 1225.0,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 832,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@906",
+   "param": "CombiAndSongTimbreSet@906",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@906",
+   "x": 1326.5,
+   "y": 255,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "range": "L000~R127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Panpot",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 906,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@93.3~0",
+   "param": "CombiAndSongTimbreSet@93.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@93.3~0",
+   "x": 210.0,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 93,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@167.3~0",
+   "param": "CombiAndSongTimbreSet@167.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@167.3~0",
+   "x": 311.5,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 167,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@241.3~0",
+   "param": "CombiAndSongTimbreSet@241.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@241.3~0",
+   "x": 413.0,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 241,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@315.3~0",
+   "param": "CombiAndSongTimbreSet@315.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@315.3~0",
+   "x": 514.5,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 315,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@389.3~0",
+   "param": "CombiAndSongTimbreSet@389.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@389.3~0",
+   "x": 616.0,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 389,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@463.3~0",
+   "param": "CombiAndSongTimbreSet@463.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@463.3~0",
+   "x": 717.5,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 463,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@537.3~0",
+   "param": "CombiAndSongTimbreSet@537.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@537.3~0",
+   "x": 819.0,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 537,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@611.3~0",
+   "param": "CombiAndSongTimbreSet@611.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@611.3~0",
+   "x": 920.5,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 611,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@685.3~0",
+   "param": "CombiAndSongTimbreSet@685.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@685.3~0",
+   "x": 1022.0,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 685,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@759.3~0",
+   "param": "CombiAndSongTimbreSet@759.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@759.3~0",
+   "x": 1123.5,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 759,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@833.3~0",
+   "param": "CombiAndSongTimbreSet@833.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@833.3~0",
+   "x": 1225.0,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 833,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@907.3~0",
+   "param": "CombiAndSongTimbreSet@907.3~0",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@907.3~0",
+   "x": 1326.5,
+   "y": 276,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 907,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~0D",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@93.5~4",
+   "param": "CombiAndSongTimbreSet@93.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@93.5~4",
+   "x": 210.0,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 93,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@167.5~4",
+   "param": "CombiAndSongTimbreSet@167.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@167.5~4",
+   "x": 311.5,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 167,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@241.5~4",
+   "param": "CombiAndSongTimbreSet@241.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@241.5~4",
+   "x": 413.0,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 241,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@315.5~4",
+   "param": "CombiAndSongTimbreSet@315.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@315.5~4",
+   "x": 514.5,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 315,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@389.5~4",
+   "param": "CombiAndSongTimbreSet@389.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@389.5~4",
+   "x": 616.0,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 389,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@463.5~4",
+   "param": "CombiAndSongTimbreSet@463.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@463.5~4",
+   "x": 717.5,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 463,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@537.5~4",
+   "param": "CombiAndSongTimbreSet@537.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@537.5~4",
+   "x": 819.0,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 537,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@611.5~4",
+   "param": "CombiAndSongTimbreSet@611.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@611.5~4",
+   "x": 920.5,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 611,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@685.5~4",
+   "param": "CombiAndSongTimbreSet@685.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@685.5~4",
+   "x": 1022.0,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 685,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@759.5~4",
+   "param": "CombiAndSongTimbreSet@759.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@759.5~4",
+   "x": 1123.5,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 759,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@833.5~4",
+   "param": "CombiAndSongTimbreSet@833.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@833.5~4",
+   "x": 1225.0,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 833,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@907.5~4",
+   "param": "CombiAndSongTimbreSet@907.5~4",
+   "group": "insert_effects",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@907.5~4",
+   "x": 1326.5,
+   "y": 297,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 907,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@94",
+   "param": "CombiAndSongTimbreSet@94",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@94",
+   "x": 210.0,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 94,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@168",
+   "param": "CombiAndSongTimbreSet@168",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@168",
+   "x": 311.5,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 168,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@242",
+   "param": "CombiAndSongTimbreSet@242",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@242",
+   "x": 413.0,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 242,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@316",
+   "param": "CombiAndSongTimbreSet@316",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@316",
+   "x": 514.5,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 316,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@390",
+   "param": "CombiAndSongTimbreSet@390",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@390",
+   "x": 616.0,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 390,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@464",
+   "param": "CombiAndSongTimbreSet@464",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@464",
+   "x": 717.5,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 464,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@538",
+   "param": "CombiAndSongTimbreSet@538",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@538",
+   "x": 819.0,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 538,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@612",
+   "param": "CombiAndSongTimbreSet@612",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@612",
+   "x": 920.5,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 612,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@686",
+   "param": "CombiAndSongTimbreSet@686",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@686",
+   "x": 1022.0,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 686,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@760",
+   "param": "CombiAndSongTimbreSet@760",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@760",
+   "x": 1123.5,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 760,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@834",
+   "param": "CombiAndSongTimbreSet@834",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@834",
+   "x": 1225.0,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 834,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@908",
+   "param": "CombiAndSongTimbreSet@908",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@908",
+   "x": 1326.5,
+   "y": 318,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 908,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@95",
+   "param": "CombiAndSongTimbreSet@95",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@95",
+   "x": 210.0,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 95,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@169",
+   "param": "CombiAndSongTimbreSet@169",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@169",
+   "x": 311.5,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 169,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@243",
+   "param": "CombiAndSongTimbreSet@243",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@243",
+   "x": 413.0,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 243,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@317",
+   "param": "CombiAndSongTimbreSet@317",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@317",
+   "x": 514.5,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 317,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@391",
+   "param": "CombiAndSongTimbreSet@391",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@391",
+   "x": 616.0,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 391,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@465",
+   "param": "CombiAndSongTimbreSet@465",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@465",
+   "x": 717.5,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 465,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@539",
+   "param": "CombiAndSongTimbreSet@539",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@539",
+   "x": 819.0,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 539,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@613",
+   "param": "CombiAndSongTimbreSet@613",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@613",
+   "x": 920.5,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 613,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@687",
+   "param": "CombiAndSongTimbreSet@687",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@687",
+   "x": 1022.0,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 687,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@761",
+   "param": "CombiAndSongTimbreSet@761",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@761",
+   "x": 1123.5,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 761,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@835",
+   "param": "CombiAndSongTimbreSet@835",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@835",
+   "x": 1225.0,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 835,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@909",
+   "param": "CombiAndSongTimbreSet@909",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@909",
+   "x": 1326.5,
+   "y": 339,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 909,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@96",
+   "param": "CombiAndSongTimbreSet@96",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@96",
+   "x": 210.0,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX1] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 96,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@170",
+   "param": "CombiAndSongTimbreSet@170",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@170",
+   "x": 311.5,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX2] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 170,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@244",
+   "param": "CombiAndSongTimbreSet@244",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@244",
+   "x": 413.0,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX3] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 244,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@318",
+   "param": "CombiAndSongTimbreSet@318",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@318",
+   "x": 514.5,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX4] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 318,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@392",
+   "param": "CombiAndSongTimbreSet@392",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@392",
+   "x": 616.0,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX5] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 392,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@466",
+   "param": "CombiAndSongTimbreSet@466",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@466",
+   "x": 717.5,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX6] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 466,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@540",
+   "param": "CombiAndSongTimbreSet@540",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@540",
+   "x": 819.0,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX7] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 540,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@614",
+   "param": "CombiAndSongTimbreSet@614",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@614",
+   "x": 920.5,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX8] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 614,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "7",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@688",
+   "param": "CombiAndSongTimbreSet@688",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@688",
+   "x": 1022.0,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX9] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 688,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@762",
+   "param": "CombiAndSongTimbreSet@762",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@762",
+   "x": 1123.5,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX10] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 762,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@836",
+   "param": "CombiAndSongTimbreSet@836",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@836",
+   "x": 1225.0,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX11] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 836,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@910",
+   "param": "CombiAndSongTimbreSet@910",
+   "group": "insert_effects",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@910",
+   "x": 1326.5,
+   "y": 360,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Insert Effects",
+    "name": "[IFX12] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 910,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "EFFECTS",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "all"
+}

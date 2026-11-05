@@ -1,0 +1,2164 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "FILTER · 2/4",
+ "tab_index": 0,
+ "object": "Program · AL-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_AL1_FILTER_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_AL1_FILTER_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · AL-1 — FILTER · 2/4"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 178.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 250.4,
+   "y": 84,
+   "w": 152.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 405.3,
+   "y": 84,
+   "w": 147.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 556.2,
+   "y": 84,
+   "w": 156.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 716.1,
+   "y": 84,
+   "w": 165.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 884.8,
+   "y": 84,
+   "w": 144.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1032.1,
+   "y": 84,
+   "w": 146.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1181.3,
+   "y": 84,
+   "w": 149.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@465.2",
+   "param": "Prog_EXi@465.2",
+   "group": "filter_b_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "BYPASS",
+   "x": 224.3,
+   "y": 154.0,
+   "w": 203.9,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Bypass",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 465,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@465.4~3",
+   "param": "Prog_EXi@465.4~3",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FILTER TYPE",
+   "x": 436.2,
+   "y": 153.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Low Pass"
+   ],
+   "options": "Low Pass~Band Rejec",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Filter Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 465,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Low Pass~Band Rejec"
+   }
+  },
+  {
+   "id": "Prog_EXi@469.7~2",
+   "param": "Prog_EXi@469.7~2",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESONANCE MOD.SOURCE",
+   "x": 648.1,
+   "y": 153.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Resonance Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 469,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "52",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@472.7~1",
+   "param": "Prog_EXi@472.7~1",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OUTPUT MOD.SOURCE",
+   "x": 859.9,
+   "y": 153.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Output Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 472,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@474.1",
+   "param": "Prog_EXi@474.1",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESONANCE BASS",
+   "x": 1071.8,
+   "y": 153.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Full"
+   ],
+   "options": "Full~Tight",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Resonance Bass",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 474,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Full~Tight"
+   }
+  },
+  {
+   "id": "Prog_EXi@476.4~2",
+   "param": "Prog_EXi@476.4~2",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG SELECT",
+   "x": 224.3,
+   "y": 187.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "EG1 (Filter)"
+   ],
+   "options": "EG1 (Filter)~Amp EG",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 476,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "EG1 (Filter)~Amp EG"
+   }
+  },
+  {
+   "id": "Prog_EXi@478.7~5",
+   "param": "Prog_EXi@478.7~5",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG INT.MOD.SOURCE",
+   "x": 436.2,
+   "y": 187.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 478,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@482.7~5",
+   "param": "Prog_EXi@482.7~5",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CUTOFF MOD 1 INT.MOD SRC",
+   "x": 648.1,
+   "y": 187.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Mod.1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 482,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "67",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@486.7~5",
+   "param": "Prog_EXi@486.7~5",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LFO SELECT",
+   "x": 859.9,
+   "y": 187.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "LFO1"
+   ],
+   "options": "LFO1~Common LFO",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 486,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "71",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "LFO1~Common LFO"
+   }
+  },
+  {
+   "id": "Prog_EXi@489",
+   "param": "Prog_EXi@489",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LFO INT.MOD.SOURCE",
+   "x": 1071.8,
+   "y": 187.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 489,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@491.0",
+   "param": "Prog_EXi@491.0",
+   "group": "filter_b_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "LINK",
+   "x": 224.3,
+   "y": 222.0,
+   "w": 203.9,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Link",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 491,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@495.7~1",
+   "param": "Prog_EXi@495.7~1",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PANPOT",
+   "x": 436.2,
+   "y": 221.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "RND"
+   ],
+   "options": "RND~R127",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Panpot",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 495,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "RND~R127"
+   }
+  },
+  {
+   "id": "Prog_EXi@496",
+   "param": "Prog_EXi@496",
+   "group": "filter_b_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PANPOT MOD.SOURCE",
+   "x": 648.1,
+   "y": 221.0,
+   "w": 203.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Panpot Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 496,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@465.7~5",
+   "param": "Prog_EXi@465.7~5",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIM",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 465,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@465.7~5_val",
+   "param": "Prog_EXi@465.7~5",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIM value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 465,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@466.7~4",
+   "param": "Prog_EXi@466.7~4",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF",
+   "x": 138.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 159.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 466,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@466.7~4_val",
+   "param": "Prog_EXi@466.7~4",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF value",
+   "x": 140.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 466,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@467.7~3",
+   "param": "Prog_EXi@467.7~3",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF FINE",
+   "x": 201.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 222.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Fine",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 467,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@467.7~3_val",
+   "param": "Prog_EXi@467.7~3",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF FINE value",
+   "x": 203.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Fine",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 467,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@468.7~3",
+   "param": "Prog_EXi@468.7~3",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESONANCE",
+   "x": 264.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 285.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Resonance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 468,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@468.7~3_val",
+   "param": "Prog_EXi@468.7~3",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "RESONANCE value",
+   "x": 266.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Resonance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 468,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@470.7~2",
+   "param": "Prog_EXi@470.7~2",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESONANCE MOD.INT",
+   "x": 327.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 348.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Resonance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 470,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@470.7~2_val",
+   "param": "Prog_EXi@470.7~2",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "RESONANCE MOD.INT value",
+   "x": 329.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Resonance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 470,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@471.7~2",
+   "param": "Prog_EXi@471.7~2",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OUTPUT",
+   "x": 389.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 410.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Output",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 471,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@471.7~2_val",
+   "param": "Prog_EXi@471.7~2",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "OUTPUT value",
+   "x": 391.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Output",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 471,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@473.7~1",
+   "param": "Prog_EXi@473.7~1",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OUTPUT MOD.INT",
+   "x": 452.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 473.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Output Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 473,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@473.7~1_val",
+   "param": "Prog_EXi@473.7~1",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "OUTPUT MOD.INT value",
+   "x": 454.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Output Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 473,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@474.7~2",
+   "param": "Prog_EXi@474.7~2",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEYBOARD TRACK",
+   "x": 515.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 536.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Keyboard Track",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 474,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@474.7~2_val",
+   "param": "Prog_EXi@474.7~2",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "KEYBOARD TRACK value",
+   "x": 517.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Keyboard Track",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 474,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@476.7~5",
+   "param": "Prog_EXi@476.7~5",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG VELOCITY INTENSITY",
+   "x": 578.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 599.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Velocity Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 476,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@476.7~5_val",
+   "param": "Prog_EXi@476.7~5",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EG VELOCITY INTENSITY value",
+   "x": 580.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Velocity Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 476,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@477.7~5",
+   "param": "Prog_EXi@477.7~5",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG INTENSITY",
+   "x": 640.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 661.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 477,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@477.7~5_val",
+   "param": "Prog_EXi@477.7~5",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EG INTENSITY value",
+   "x": 642.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 477,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@479.7~5",
+   "param": "Prog_EXi@479.7~5",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG INT.MOD.INT",
+   "x": 703.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 724.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 479,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@479.7~5_val",
+   "param": "Prog_EXi@479.7~5",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EG INT.MOD.INT value",
+   "x": 705.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "EG Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 479,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@483.7~5",
+   "param": "Prog_EXi@483.7~5",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF MOD 1 INT.MOD INT",
+   "x": 766.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 787.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 483,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "68",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@483.7~5_val",
+   "param": "Prog_EXi@483.7~5",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF MOD 1 INT.MOD INT value",
+   "x": 768.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 483,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "68",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@487",
+   "param": "Prog_EXi@487",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LFO INTENSITY",
+   "x": 829.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 850.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 487,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "72",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@487_val",
+   "param": "Prog_EXi@487",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LFO INTENSITY value",
+   "x": 831.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 487,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "72",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@488",
+   "param": "Prog_EXi@488",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LFO JS(-Y) INTENSITY",
+   "x": 891.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 912.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO JS(-Y) Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 488,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@488_val",
+   "param": "Prog_EXi@488",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LFO JS(-Y) INTENSITY value",
+   "x": 893.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO JS(-Y) Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 488,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@490",
+   "param": "Prog_EXi@490",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LFO INT.MOD.INT",
+   "x": 954.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 975.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 490,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@490_val",
+   "param": "Prog_EXi@490",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LFO INT.MOD.INT value",
+   "x": 956.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "LFO Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 490,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@491.7~1",
+   "param": "Prog_EXi@491.7~1",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LINK CUTOFF OFFSET",
+   "x": 1017.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1038.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Link Cutoff Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 491,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "77",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@491.7~1_val",
+   "param": "Prog_EXi@491.7~1",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LINK CUTOFF OFFSET value",
+   "x": 1019.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Link Cutoff Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 491,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "77",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@497",
+   "param": "Prog_EXi@497",
+   "group": "filter_b_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PANPOT INTENSITY",
+   "x": 1080.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1101.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Panpot Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 497,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@497_val",
+   "param": "Prog_EXi@497",
+   "group": "filter_b_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PANPOT INTENSITY value",
+   "x": 1082.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Panpot Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 497,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@480.7~5",
+   "param": "Prog_EXi@480.7~5",
+   "group": "filter_b_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@480.7~5",
+   "x": 1296.0,
+   "y": 296,
+   "w": 62.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 480,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@484.7~5",
+   "param": "Prog_EXi@484.7~5",
+   "group": "filter_b_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@484.7~5",
+   "x": 1362.0,
+   "y": 296,
+   "w": 62.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 484,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "69",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@481.7~5",
+   "param": "Prog_EXi@481.7~5",
+   "group": "filter_b_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@481.7~5",
+   "x": 1296.0,
+   "y": 317,
+   "w": 62.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Mod.1 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 481,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@485.7~5",
+   "param": "Prog_EXi@485.7~5",
+   "group": "filter_b_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@485.7~5",
+   "x": 1362.0,
+   "y": 317,
+   "w": 62.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Filter B",
+    "name": "Cutoff Mod.2 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 485,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "FILTER",
+ "page_number": 2,
+ "pages_in_area": 4,
+ "apply": "exi:AL-1"
+}

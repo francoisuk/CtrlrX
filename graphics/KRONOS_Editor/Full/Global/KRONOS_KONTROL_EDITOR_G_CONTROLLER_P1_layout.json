@@ -1,0 +1,1302 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "CONTROLLER",
+ "tab_index": 0,
+ "object": "Global",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_G_CONTROLLER_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_G_CONTROLLER_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "3 : Global"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Global — CONTROLLER"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_basic",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "BASIC",
+   "x": 60,
+   "y": 84,
+   "w": 151.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_controller",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROLLER",
+   "x": 214.4,
+   "y": 84,
+   "w": 178.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI",
+   "x": 395.6,
+   "y": 84,
+   "w": 145.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_ext_sets",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXT SETS",
+   "x": 543.7,
+   "y": 84,
+   "w": 164.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 710.9,
+   "y": 84,
+   "w": 162.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_octave_scales",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OCTAVE SCALES",
+   "x": 876.1,
+   "y": 84,
+   "w": 190.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_all_note_scale",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ALL NOTE SCALE",
+   "x": 1069.9,
+   "y": 84,
+   "w": 190.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_categories",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CATEGORIES",
+   "x": 1263.8,
+   "y": 84,
+   "w": 176.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Global@4.0",
+   "param": "Global@4.0",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FOOT SW POLARITY",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "-"
+   ],
+   "options": "-~+",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Foot SW Polarity",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 4,
+    "bit": "0",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "-~+"
+   }
+  },
+  {
+   "id": "Global@4.1",
+   "param": "Global@4.1",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DAMPER POLARITY",
+   "x": 219.0,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "-"
+   ],
+   "options": "-~+",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Damper Polarity",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 4,
+    "bit": "1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "-~+"
+   }
+  },
+  {
+   "id": "Global@5",
+   "param": "Global@5",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FOOT SW ASSIGN",
+   "x": 370.0,
+   "y": 153.0,
+   "w": 60.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Chord SW",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Foot SW Assign",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 5,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "00~35",
+    "value": "Off~Chord SW"
+   }
+  },
+  {
+   "id": "Global@6",
+   "param": "Global@6",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FOOT PEDAL ASSIGN",
+   "x": 520.9,
+   "y": 153.0,
+   "w": 82.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~KARMA Slider 8",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Foot Pedal Assign",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 6,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~1F",
+    "value": "Off~KARMA Slider 8"
+   }
+  },
+  {
+   "id": "Global@9.7",
+   "param": "Global@9.7",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FOOT PEDAL BEHAVIOR",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 73.2,
+   "h": 16,
+   "text": [
+    "Keep Current"
+   ],
+   "options": "Keep Current~Reset",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Foot Pedal Behavior",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 9,
+    "bit": "7",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "108",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Keep Current~Reset"
+   }
+  },
+  {
+   "id": "Global@12555",
+   "param": "Global@12555",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KARMA CC# ASSIGN (ON/OFF)",
+   "x": 219.0,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (ON/OFF)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12555,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12556",
+   "param": "Global@12556",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KARMA CC# ASSIGN (SCENE)",
+   "x": 370.0,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SCENE)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12556,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12557",
+   "param": "Global@12557",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KARMA CC# ASSIGN (LATCH)",
+   "x": 520.9,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (LATCH)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12557,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12590",
+   "param": "Global@12590",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VECTOR CC# ASSIGN (X)",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Vector CC# Assign (X)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12590,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12591",
+   "param": "Global@12591",
+   "group": "controller_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VECTOR CC# ASSIGN (Y)",
+   "x": 219.0,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Vector CC# Assign (Y)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12591,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12558",
+   "param": "Global@12558",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12558",
+   "x": 829.9,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER1)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12558,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12559",
+   "param": "Global@12559",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12559",
+   "x": 904.7,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER2)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12559,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12560",
+   "param": "Global@12560",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12560",
+   "x": 979.4,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER3)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12560,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12561",
+   "param": "Global@12561",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12561",
+   "x": 1054.2,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER4)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12561,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12562",
+   "param": "Global@12562",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12562",
+   "x": 1129.0,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER5)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12562,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12563",
+   "param": "Global@12563",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12563",
+   "x": 1203.7,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER6)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12563,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12564",
+   "param": "Global@12564",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12564",
+   "x": 1278.5,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER7)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12564,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12565",
+   "param": "Global@12565",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12565",
+   "x": 1353.2,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SLIDER8)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12565,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12566",
+   "param": "Global@12566",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12566",
+   "x": 829.9,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW1)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12566,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12567",
+   "param": "Global@12567",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12567",
+   "x": 904.7,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW2)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12567,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12568",
+   "param": "Global@12568",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12568",
+   "x": 979.4,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW3)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12568,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12569",
+   "param": "Global@12569",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12569",
+   "x": 1054.2,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW4)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12569,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12570",
+   "param": "Global@12570",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12570",
+   "x": 1129.0,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW5)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12570,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12571",
+   "param": "Global@12571",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12571",
+   "x": 1203.7,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW6)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12571,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12572",
+   "param": "Global@12572",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12572",
+   "x": 1278.5,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW7)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12572,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12573",
+   "param": "Global@12573",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12573",
+   "x": 1353.2,
+   "y": 171,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "KARMA CC# Assign (SW8)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12573,
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@12574",
+   "param": "Global@12574",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12574",
+   "x": 829.9,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD1)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12574,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "Global@12576",
+   "param": "Global@12576",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12576",
+   "x": 904.7,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD2)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12576,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "Global@12578",
+   "param": "Global@12578",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12578",
+   "x": 979.4,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD3)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12578,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "Global@12580",
+   "param": "Global@12580",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12580",
+   "x": 1054.2,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD4)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12580,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "Global@12582",
+   "param": "Global@12582",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12582",
+   "x": 1129.0,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD5)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12582,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "Global@12584",
+   "param": "Global@12584",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12584",
+   "x": 1203.7,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD6)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12584,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "Global@12586",
+   "param": "Global@12586",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12586",
+   "x": 1278.5,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD7)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12586,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "Global@12588",
+   "param": "Global@12588",
+   "group": "controller_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@12588",
+   "x": 1353.2,
+   "y": 192,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119 1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Pad CC# Assign (PAD8)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 12588,
+    "data": "FF~F7",
+    "value": "Off~CC#119 1~Gch"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "CONTROLLER",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all"
+}

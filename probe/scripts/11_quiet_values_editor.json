@@ -1,0 +1,16 @@
+{
+  "settleMs": 600,
+  "quietMs": 60,
+  "steps": [
+    { "action": "wait", "ms": 6000 },
+    { "action": "eval", "lua": "local function g(n) local m=panel:getModulatorByName(n) return { m:getComponent():getValue(), m:getValue() } end local r={} for i=1,8 do r['kkMix'..i]=g('kkMix'..i) end for i=1,8 do r[string.format('kkEnc%02d',i)]=g(string.format('kkEnc%02d',i)) end for i=1,9 do r['kkFdr'..i]=g('kkFdr'..i) end for i=1,8 do r['kkKSlid'..i]=g('kkKSlid'..i) end return r" },
+    { "action": "click", "modulator": "kkBtnBank02" },
+    { "action": "wait", "ms": 1500 },
+    { "action": "eval", "lua": "local function g(n) local m=panel:getModulatorByName(n) return { m:getComponent():getValue(), m:getValue() } end local r={} for i=1,8 do r['kkMix'..i]=g('kkMix'..i) end for i=1,8 do r[string.format('kkEnc%02d',i)]=g(string.format('kkEnc%02d',i)) end return r" },
+    { "action": "setValue", "modulator": "kkMix1", "value": 100 },
+    { "action": "wait", "ms": 1500 },
+    { "action": "click", "modulator": "kkBtnEdit" },
+    { "action": "wait", "ms": 1500 },
+    { "action": "screenshot", "file": "out/11_editor.png" }
+  ]
+}

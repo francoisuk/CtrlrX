@@ -1,0 +1,1963 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AUDIO IN · 2/2",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_C_AUDIO_IN_P2_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_C_AUDIO_IN_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — AUDIO IN · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 143.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 206.8,
+   "y": 84,
+   "w": 137.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 347.2,
+   "y": 84,
+   "w": 142.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 492.2,
+   "y": 84,
+   "w": 137.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 633.0,
+   "y": 84,
+   "w": 140.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 776.1,
+   "y": 84,
+   "w": 145.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 924.5,
+   "y": 84,
+   "w": 142.8,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1070.4,
+   "y": 84,
+   "w": 137.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_module",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA MODULE",
+   "x": 1210.5,
+   "y": 84,
+   "w": 170.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1256",
+   "param": "CombiAndSongTimbreSet@1256",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1256",
+   "x": 472.8,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN1] Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1256,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1256,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1262",
+   "param": "CombiAndSongTimbreSet@1262",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1262",
+   "x": 588.2,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN2] Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1262,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1262,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1268",
+   "param": "CombiAndSongTimbreSet@1268",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1268",
+   "x": 703.6,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN3] Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1268,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1268,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1274",
+   "param": "CombiAndSongTimbreSet@1274",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1274",
+   "x": 819.0,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN4] Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1274,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1274,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1280",
+   "param": "CombiAndSongTimbreSet@1280",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1280",
+   "x": 934.4,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF L] Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1280,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1280,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1286",
+   "param": "CombiAndSongTimbreSet@1286",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1286",
+   "x": 1049.8,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF R] Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1286,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1286,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1257",
+   "param": "CombiAndSongTimbreSet@1257",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1257",
+   "x": 472.8,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN1] Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1257,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1257,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1263",
+   "param": "CombiAndSongTimbreSet@1263",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1263",
+   "x": 588.2,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN2] Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1263,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1263,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1269",
+   "param": "CombiAndSongTimbreSet@1269",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1269",
+   "x": 703.6,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN3] Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1269,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1269,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1275",
+   "param": "CombiAndSongTimbreSet@1275",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1275",
+   "x": 819.0,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN4] Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1275,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1275,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1281",
+   "param": "CombiAndSongTimbreSet@1281",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1281",
+   "x": 934.4,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF L] Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1281,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1281,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1287",
+   "param": "CombiAndSongTimbreSet@1287",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1287",
+   "x": 1049.8,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF R] Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1287,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1287,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1258",
+   "param": "CombiAndSongTimbreSet@1258",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1258",
+   "x": 472.8,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN1] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1258,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1258,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1264",
+   "param": "CombiAndSongTimbreSet@1264",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1264",
+   "x": 588.2,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN2] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1264,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1264,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1270",
+   "param": "CombiAndSongTimbreSet@1270",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1270",
+   "x": 703.6,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN3] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1270,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1270,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1276",
+   "param": "CombiAndSongTimbreSet@1276",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1276",
+   "x": 819.0,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN4] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1276,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1276,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1282",
+   "param": "CombiAndSongTimbreSet@1282",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1282",
+   "x": 934.4,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF L] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1282,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1282,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1288",
+   "param": "CombiAndSongTimbreSet@1288",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1288",
+   "x": 1049.8,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF R] Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1288,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1288,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1259",
+   "param": "CombiAndSongTimbreSet@1259",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1259",
+   "x": 472.8,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN1] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1259,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1259,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1265",
+   "param": "CombiAndSongTimbreSet@1265",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1265",
+   "x": 588.2,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN2] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1265,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1265,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1271",
+   "param": "CombiAndSongTimbreSet@1271",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1271",
+   "x": 703.6,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN3] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1271,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1271,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1277",
+   "param": "CombiAndSongTimbreSet@1277",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1277",
+   "x": 819.0,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN4] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1277,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1277,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1283",
+   "param": "CombiAndSongTimbreSet@1283",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1283",
+   "x": 934.4,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF L] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1283,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1283,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1289",
+   "param": "CombiAndSongTimbreSet@1289",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1289",
+   "x": 1049.8,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF R] Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1289,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1289,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1260",
+   "param": "CombiAndSongTimbreSet@1260",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1260",
+   "x": 472.8,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN1] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1260,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "L/R~Off",
+    "oasys": {
+     "ofs": 1260,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1266",
+   "param": "CombiAndSongTimbreSet@1266",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1266",
+   "x": 588.2,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN2] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1266,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "1"
+    },
+    "data": "00~19",
+    "value": "L/R~Off",
+    "oasys": {
+     "ofs": 1266,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1272",
+   "param": "CombiAndSongTimbreSet@1272",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1272",
+   "x": 703.6,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN3] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1272,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "2"
+    },
+    "data": "00~19",
+    "value": "L/R~Off",
+    "oasys": {
+     "ofs": 1272,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1278",
+   "param": "CombiAndSongTimbreSet@1278",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1278",
+   "x": 819.0,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN4] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1278,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "3"
+    },
+    "data": "00~19",
+    "value": "L/R~Off",
+    "oasys": {
+     "ofs": 1278,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1284",
+   "param": "CombiAndSongTimbreSet@1284",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1284",
+   "x": 934.4,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF L] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1284,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "4"
+    },
+    "data": "00~19",
+    "value": "L/R~Off",
+    "oasys": {
+     "ofs": 1284,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1290",
+   "param": "CombiAndSongTimbreSet@1290",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1290",
+   "x": 1049.8,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF R] Bus Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1290,
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "5"
+    },
+    "data": "00~19",
+    "value": "L/R~Off",
+    "oasys": {
+     "ofs": 1290,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1261.1~0",
+   "param": "CombiAndSongTimbreSet@1261.1~0",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1261.1~0",
+   "x": 472.8,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN1] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1261,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2",
+    "oasys": {
+     "ofs": 1261,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1267.1~0",
+   "param": "CombiAndSongTimbreSet@1267.1~0",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1267.1~0",
+   "x": 588.2,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN2] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1267,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "1"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2",
+    "oasys": {
+     "ofs": 1267,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1273.1~0",
+   "param": "CombiAndSongTimbreSet@1273.1~0",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1273.1~0",
+   "x": 703.6,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN3] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1273,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "2"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2",
+    "oasys": {
+     "ofs": 1273,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1279.1~0",
+   "param": "CombiAndSongTimbreSet@1279.1~0",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1279.1~0",
+   "x": 819.0,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN4] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1279,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "3"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2",
+    "oasys": {
+     "ofs": 1279,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1285.1~0",
+   "param": "CombiAndSongTimbreSet@1285.1~0",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1285.1~0",
+   "x": 934.4,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF L] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1285,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "4"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2",
+    "oasys": {
+     "ofs": 1285,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1291.1~0",
+   "param": "CombiAndSongTimbreSet@1291.1~0",
+   "group": "audio_inputs",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1291.1~0",
+   "x": 1049.8,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~FX Control2",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF R] Fx Control Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1291,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "5"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2",
+    "oasys": {
+     "ofs": 1291,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1261.4~2",
+   "param": "CombiAndSongTimbreSet@1261.4~2",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1261.4~2",
+   "x": 472.8,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN1] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1261,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4",
+    "oasys": {
+     "ofs": 1261,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1267.4~2",
+   "param": "CombiAndSongTimbreSet@1267.4~2",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1267.4~2",
+   "x": 588.2,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN2] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1267,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "1"
+    },
+    "data": "00~06",
+    "value": "Off~3/4",
+    "oasys": {
+     "ofs": 1267,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1273.4~2",
+   "param": "CombiAndSongTimbreSet@1273.4~2",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1273.4~2",
+   "x": 703.6,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN3] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1273,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "2"
+    },
+    "data": "00~06",
+    "value": "Off~3/4",
+    "oasys": {
+     "ofs": 1273,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1279.4~2",
+   "param": "CombiAndSongTimbreSet@1279.4~2",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1279.4~2",
+   "x": 819.0,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[IN4] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1279,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "3"
+    },
+    "data": "00~06",
+    "value": "Off~3/4",
+    "oasys": {
+     "ofs": 1279,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1285.4~2",
+   "param": "CombiAndSongTimbreSet@1285.4~2",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1285.4~2",
+   "x": 934.4,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF L] Rec Bus",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1285,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "4"
+    },
+    "data": "00~06",
+    "value": "Off~3/4",
+    "oasys": {
+     "ofs": 1285,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1291.7",
+   "param": "CombiAndSongTimbreSet@1291.7",
+   "group": "audio_inputs",
+   "type": "display",
+   "kind": "toggle",
+   "label": "CombiAndSongTimbreSet@1291.4~2",
+   "x": 1049.8,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~3/4",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Inputs",
+    "name": "[S/PDIF R] Mute",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1291,
+    "bit": "7",
+    "sysex": {
+     "TYP": "30",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "5"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 1291,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AUDIO IN",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

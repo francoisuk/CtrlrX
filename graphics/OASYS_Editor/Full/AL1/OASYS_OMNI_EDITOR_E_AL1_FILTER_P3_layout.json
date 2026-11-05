@@ -1,0 +1,1219 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "FILTER · 3/4",
+ "tab_index": 0,
+ "object": "Program · AL-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_AL1_FILTER_P3_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_AL1_FILTER_P3_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · AL-1 — FILTER · 3/4"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 178.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 250.4,
+   "y": 84,
+   "w": 152.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 405.3,
+   "y": 84,
+   "w": 147.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 556.2,
+   "y": 84,
+   "w": 156.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 716.1,
+   "y": 84,
+   "w": 165.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 884.8,
+   "y": 84,
+   "w": 144.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1032.1,
+   "y": 84,
+   "w": 146.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1181.3,
+   "y": 84,
+   "w": 149.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@500.7~5",
+   "param": "Prog_EXi@500.7~5",
+   "group": "filter_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOW RAMP",
+   "x": 124.8,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "Low Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 500,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@501.7~5",
+   "param": "Prog_EXi@501.7~5",
+   "group": "filter_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER LOW RAMP",
+   "x": 286.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "Center Low Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 501,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@502.7~5",
+   "param": "Prog_EXi@502.7~5",
+   "group": "filter_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER HIGH RAMP",
+   "x": 450.0,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "Center High Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 502,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@503.7~5",
+   "param": "Prog_EXi@503.7~5",
+   "group": "filter_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HIGH RAMP",
+   "x": 580.0,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "High Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 503,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@498.6~0",
+   "param": "Prog_EXi@498.6~0",
+   "group": "filter_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW KEY",
+   "x": 334.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 355.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 498,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@498.6~0_val",
+   "param": "Prog_EXi@498.6~0",
+   "group": "filter_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW KEY value",
+   "x": 336.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 498,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@498.7",
+   "param": "Prog_EXi@498.7",
+   "group": "filter_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CENTER KEY",
+   "x": 440.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 461.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 498,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@498.7_val",
+   "param": "Prog_EXi@498.7",
+   "group": "filter_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "CENTER KEY value",
+   "x": 442.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 498,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@499.7~6",
+   "param": "Prog_EXi@499.7~6",
+   "group": "filter_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH KEY",
+   "x": 546.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 567.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 499,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@499.7~6_val",
+   "param": "Prog_EXi@499.7~6",
+   "group": "filter_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH KEY value",
+   "x": 548.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Filter Keyboard Track",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 499,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "20",
+     "SUB": "1",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@505.0",
+   "param": "Prog_EXi@505.0",
+   "group": "drive",
+   "type": "button",
+   "kind": "toggle",
+   "label": "BYPASS",
+   "x": 878.0,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Bypass",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 505,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@506",
+   "param": "Prog_EXi@506",
+   "group": "drive",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRIVE MOD.SOURCE",
+   "x": 1054.3,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Drive Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 506,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@508.7",
+   "param": "Prog_EXi@508.7",
+   "group": "drive",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BOOST MOD.SOURCE",
+   "x": 1222.3,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Boost Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 508,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@505.7~1",
+   "param": "Prog_EXi@505.7~1",
+   "group": "drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRIVE",
+   "x": 978.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 999.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Drive",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 505,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@505.7~1_val",
+   "param": "Prog_EXi@505.7~1",
+   "group": "drive",
+   "type": "display",
+   "kind": "value",
+   "label": "DRIVE value",
+   "x": 980.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Drive",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 505,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@507",
+   "param": "Prog_EXi@507",
+   "group": "drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRIVE MOD.INT",
+   "x": 1079.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1100.4666666666667,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Drive Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 507,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@507_val",
+   "param": "Prog_EXi@507",
+   "group": "drive",
+   "type": "display",
+   "kind": "value",
+   "label": "DRIVE MOD.INT value",
+   "x": 1081.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Drive Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 507,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@508.6~0",
+   "param": "Prog_EXi@508.6~0",
+   "group": "drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BOOST",
+   "x": 1180.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1201.1333333333332,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Boost",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 508,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@508.6~0_val",
+   "param": "Prog_EXi@508.6~0",
+   "group": "drive",
+   "type": "display",
+   "kind": "value",
+   "label": "BOOST value",
+   "x": 1182.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Boost",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 508,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@509.7",
+   "param": "Prog_EXi@509.7",
+   "group": "drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BOOST MOD.INT",
+   "x": 1280.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1301.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Boost Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 509,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@509.7_val",
+   "param": "Prog_EXi@509.7",
+   "group": "drive",
+   "type": "display",
+   "kind": "value",
+   "label": "BOOST MOD.INT value",
+   "x": 1282.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drive",
+    "name": "Boost Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 509,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "21",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "FILTER",
+ "page_number": 3,
+ "pages_in_area": 4,
+ "apply": "exi:AL-1",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

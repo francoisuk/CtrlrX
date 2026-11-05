@@ -1,0 +1,1291 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "VECTOR · 2/2",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_P_VECTOR_P2_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_P_VECTOR_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — VECTOR · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 78.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 141.0,
+   "y": 84,
+   "w": 59.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 203.4,
+   "y": 84,
+   "w": 68.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 274.9,
+   "y": 84,
+   "w": 60.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 338.5,
+   "y": 84,
+   "w": 74.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 416.0,
+   "y": 84,
+   "w": 98.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 517.7,
+   "y": 84,
+   "w": 55.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 576.6,
+   "y": 84,
+   "w": 79.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 658.9,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 733.2,
+   "y": 84,
+   "w": 76.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 812.4,
+   "y": 84,
+   "w": 72.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 887.4,
+   "y": 84,
+   "w": 74.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 964.6,
+   "y": 84,
+   "w": 79.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 1047.2,
+   "y": 84,
+   "w": 93.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1143.6,
+   "y": 84,
+   "w": 77.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1223.6,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1297.9,
+   "y": 84,
+   "w": 83.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@1222",
+   "param": "Prog_HD-1@1222",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1222",
+   "x": 568.8,
+   "y": 150,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(0to1) Hold Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1222,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1223",
+   "param": "Prog_HD-1@1223",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1223",
+   "x": 693.9,
+   "y": 150,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(1to2) Hold Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1223,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "1"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1224",
+   "param": "Prog_HD-1@1224",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1224",
+   "x": 819.0,
+   "y": 150,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(2to3) Hold Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1224,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "2"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1225",
+   "param": "Prog_HD-1@1225",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1225",
+   "x": 944.1,
+   "y": 150,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(3to4) Hold Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1225,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "3"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1226",
+   "param": "Prog_HD-1@1226",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1226",
+   "x": 568.8,
+   "y": 171,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(0to1) Transition Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1226,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1227",
+   "param": "Prog_HD-1@1227",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1227",
+   "x": 693.9,
+   "y": 171,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(1to2) Transition Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1227,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "1"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1228",
+   "param": "Prog_HD-1@1228",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1228",
+   "x": 819.0,
+   "y": 171,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(2to3) Transition Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1228,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "2"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1230",
+   "param": "Prog_HD-1@1230",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1230",
+   "x": 944.1,
+   "y": 171,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~60000",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(3to4) Transition Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1230,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "4"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1231",
+   "param": "Prog_HD-1@1231",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1231",
+   "x": 568.8,
+   "y": 192,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(0to1) Hold Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1231,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "Off~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1232",
+   "param": "Prog_HD-1@1232",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1232",
+   "x": 693.9,
+   "y": 192,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(1to2) Hold Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1232,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "Off~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1233",
+   "param": "Prog_HD-1@1233",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1233",
+   "x": 819.0,
+   "y": 192,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(2to3) Hold Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1233,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "Off~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1234",
+   "param": "Prog_HD-1@1234",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1234",
+   "x": 944.1,
+   "y": 192,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(3to4) Hold Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1234,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "Off~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1235",
+   "param": "Prog_HD-1@1235",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1235",
+   "x": 568.8,
+   "y": 213,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(0to1) Hold Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1235,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1236",
+   "param": "Prog_HD-1@1236",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1236",
+   "x": 693.9,
+   "y": 213,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(1to2) Hold Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1236,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "1"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1237",
+   "param": "Prog_HD-1@1237",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1237",
+   "x": 819.0,
+   "y": 213,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(2to3) Hold Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1237,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "2"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1238",
+   "param": "Prog_HD-1@1238",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1238",
+   "x": 944.1,
+   "y": 213,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(3to4) Hold Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1238,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "3"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1239",
+   "param": "Prog_HD-1@1239",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1239",
+   "x": 568.8,
+   "y": 234,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(0to1) Transition Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1239,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1240",
+   "param": "Prog_HD-1@1240",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1240",
+   "x": 693.9,
+   "y": 234,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(1to2) Transition Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1240,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "1"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1241",
+   "param": "Prog_HD-1@1241",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1241",
+   "x": 819.0,
+   "y": 234,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(2to3) Transition Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1241,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "2"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1243",
+   "param": "Prog_HD-1@1243",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1243",
+   "x": 944.1,
+   "y": 234,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(3to4) Transition Time Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1243,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "4"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1244",
+   "param": "Prog_HD-1@1244",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1244",
+   "x": 568.8,
+   "y": 255,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(0to1) Transition Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1244,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1245",
+   "param": "Prog_HD-1@1245",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1245",
+   "x": 693.9,
+   "y": 255,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(1to2) Transition Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1245,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "1"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1246",
+   "param": "Prog_HD-1@1246",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1246",
+   "x": 819.0,
+   "y": 255,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(2to3) Transition Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1246,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "2"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1248",
+   "param": "Prog_HD-1@1248",
+   "group": "vector_control_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1248",
+   "x": 944.1,
+   "y": 255,
+   "w": 121.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Vector Control",
+    "name": "(3to4) Transition Time Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1248,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "4"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "VECTOR",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "all"
+}

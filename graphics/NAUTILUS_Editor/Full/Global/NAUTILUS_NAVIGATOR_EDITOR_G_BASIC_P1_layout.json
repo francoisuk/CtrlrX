@@ -1,0 +1,1928 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "BASIC · 1/2",
+ "tab_index": 0,
+ "object": "Global",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_G_BASIC_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_G_BASIC_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "3 : Global"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Global — BASIC · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_basic",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "BASIC",
+   "x": 60,
+   "y": 84,
+   "w": 107.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_controller",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROLLER",
+   "x": 170.2,
+   "y": 84,
+   "w": 133.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI",
+   "x": 307.1,
+   "y": 84,
+   "w": 100.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 410.9,
+   "y": 84,
+   "w": 117.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_octave_scales",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OCTAVE SCALES",
+   "x": 531.8,
+   "y": 84,
+   "w": 146.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_all_note_scale",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ALL NOTE SCALE",
+   "x": 681.4,
+   "y": 84,
+   "w": 146.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_categories",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CATEGORIES",
+   "x": 831.1,
+   "y": 84,
+   "w": 131.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_quick_access",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "QUICK ACCESS",
+   "x": 966.0,
+   "y": 84,
+   "w": 140.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_quick_user",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "QUICK USER",
+   "x": 1109.4,
+   "y": 84,
+   "w": 129.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_assignments",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ASSIGNMENTS",
+   "x": 1241.9,
+   "y": 84,
+   "w": 139.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Global@4.5",
+   "param": "Global@4.5",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ALL ARP OFF",
+   "x": 68.0,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "All Arp Off",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 4,
+    "bit": "5",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@4.6",
+   "param": "Global@4.6",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KNOB MODE",
+   "x": 296.7,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Jump"
+   ],
+   "options": "Jump~Catch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Knob Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 4,
+    "bit": "6",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Jump~Catch"
+   }
+  },
+  {
+   "id": "Global@4.7",
+   "param": "Global@4.7",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "AUTO OPTIMIZE RAM",
+   "x": 525.3,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Auto Optimize Ram",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 4,
+    "bit": "7",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@7.7",
+   "param": "Global@7.7",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SHOW MS/WS/DKIT GRAPHICS",
+   "x": 754.0,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Show MS/WS/DKit Graphics",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 7,
+    "bit": "7",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@9.6",
+   "param": "Global@9.6",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ALL DRUM OFF",
+   "x": 982.7,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "All Drum Off",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 9,
+    "bit": "6",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24567.4",
+   "param": "Global@24567.4",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BANK MAP",
+   "x": 1211.3,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "KORG"
+   ],
+   "options": "KORG~GM(2)",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Bank Map",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24567,
+    "bit": "4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "KORG~GM(2)"
+   }
+  },
+  {
+   "id": "Global@24567.5",
+   "param": "Global@24567.5",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "POWER ON MODE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Reset"
+   ],
+   "options": "Reset~Mem",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Power On Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24567,
+    "bit": "5",
+    "data": "00~01",
+    "value": "Reset~Mem"
+   }
+  },
+  {
+   "id": "Global@24569.2",
+   "param": "Global@24569.2",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MUTE MODE",
+   "x": 296.7,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Studio"
+   ],
+   "options": "Studio~Live",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Mute Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24569,
+    "bit": "2",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Studio~Live"
+   }
+  },
+  {
+   "id": "Global@24570.0",
+   "param": "Global@24570.0",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PROTECT PROGRAM",
+   "x": 525.3,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Protect Program",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "0",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24570.1",
+   "param": "Global@24570.1",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PROTECT COMBI",
+   "x": 754.0,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Protect Combi",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "1",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24570.2",
+   "param": "Global@24570.2",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PROTECT SONG",
+   "x": 982.7,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Protect Song",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "2",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24570.3",
+   "param": "Global@24570.3",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PROTECT DRUMKIT",
+   "x": 1211.3,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Protect DrumKit",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "3",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24570.4",
+   "param": "Global@24570.4",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PROTECT WAVESEQ",
+   "x": 68.0,
+   "y": 222.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Protect WaveSeq",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "4",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24570.5",
+   "param": "Global@24570.5",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PROTECT ARP PATTERN",
+   "x": 296.7,
+   "y": 222.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Protect ARP Pattern",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "5",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24570.6",
+   "param": "Global@24570.6",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "INTERNAL HDD SAVE",
+   "x": 525.3,
+   "y": 222.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Internal HDD Save",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "6",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24570.7",
+   "param": "Global@24570.7",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PROTECT SET LIST",
+   "x": 754.0,
+   "y": 222.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Protect Set List",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24570,
+    "bit": "7",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24688.0",
+   "param": "Global@24688.0",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OSC/TIMBRE/TRK TRANSP (SCALE TYPE)",
+   "x": 982.7,
+   "y": 221.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Works Within"
+   ],
+   "options": "Works Within~Transpose",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Osc/Timbre/Track Transpose (Scale Type)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24688,
+    "bit": "0",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "117",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Works Within~Transpose"
+   }
+  },
+  {
+   "id": "Global@24689.2",
+   "param": "Global@24689.2",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL METERS OFF",
+   "x": 1211.3,
+   "y": 221.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Not Off"
+   ],
+   "options": "Not Off, Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Level Meters Off",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24689,
+    "bit": "2",
+    "data": "00~01",
+    "value": "Not Off, Off"
+   }
+  },
+  {
+   "id": "Global@0",
+   "param": "Global@0",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MASTER TUNE",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.00000000000011,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-50~50",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Master Tune",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 0,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "CE~32",
+    "value": "-50~50"
+   }
+  },
+  {
+   "id": "Global@0_val",
+   "param": "Global@0",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MASTER TUNE value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Master Tune",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 0,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "CE~32",
+    "value": "-50~50"
+   }
+  },
+  {
+   "id": "Global@1",
+   "param": "Global@1",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY TRANSPOSE",
+   "x": 145.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 166.06484986557595,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-12~12",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Key Transpose",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 1,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "F4~0C",
+    "value": "-12~12"
+   }
+  },
+  {
+   "id": "Global@1_val",
+   "param": "Global@1",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY TRANSPOSE value",
+   "x": 147.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Key Transpose",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 1,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "F4~0C",
+    "value": "-12~12"
+   }
+  },
+  {
+   "id": "Global@2",
+   "param": "Global@2",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VELOCITY CURVE",
+   "x": 214.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 235.1296997311518,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Velocity Curve",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 2,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~08",
+    "value": "1~9"
+   }
+  },
+  {
+   "id": "Global@2_val",
+   "param": "Global@2",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VELOCITY CURVE value",
+   "x": 216.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Velocity Curve",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 2,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~08",
+    "value": "1~9"
+   }
+  },
+  {
+   "id": "Global@3",
+   "param": "Global@3",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AFTERTOUCH CURVE",
+   "x": 283.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 304.1945495967276,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~8",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Aftertouch Curve",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 3,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1~8"
+   }
+  },
+  {
+   "id": "Global@3_val",
+   "param": "Global@3",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "AFTERTOUCH CURVE value",
+   "x": 285.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Aftertouch Curve",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 3,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1~8"
+   }
+  },
+  {
+   "id": "Global@7.4",
+   "param": "Global@7.4",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AUDIO TRK REC BIT DEPTH",
+   "x": 352.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 373.25939946230346,
+   "cy": 350.0,
+   "r": 12,
+   "range": "16~24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Audio Track Rec Bit Depth",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 7,
+    "bit": "4",
+    "data": "00~01",
+    "value": "16~24"
+   }
+  },
+  {
+   "id": "Global@7.4_val",
+   "param": "Global@7.4",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "AUDIO TRK REC BIT DEPTH value",
+   "x": 354.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "16"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Audio Track Rec Bit Depth",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 7,
+    "bit": "4",
+    "data": "00~01",
+    "value": "16~24"
+   }
+  },
+  {
+   "id": "Global@7.5",
+   "param": "Global@7.5",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SAMPLING TO DISK BIT DEPTH",
+   "x": 421.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 442.32424932787933,
+   "cy": 350.0,
+   "r": 12,
+   "range": "16~24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Sampling to Disk Bit Depth",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 7,
+    "bit": "5",
+    "data": "00~01",
+    "value": "16~24"
+   }
+  },
+  {
+   "id": "Global@7.5_val",
+   "param": "Global@7.5",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SAMPLING TO DISK BIT DEPTH value",
+   "x": 423.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "16"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Sampling to Disk Bit Depth",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 7,
+    "bit": "5",
+    "data": "00~01",
+    "value": "16~24"
+   }
+  },
+  {
+   "id": "Global@7.6",
+   "param": "Global@7.6",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SAMPLING TO RAM BIT DEPTH",
+   "x": 490.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 511.38909919345514,
+   "cy": 350.0,
+   "r": 12,
+   "range": "16~24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Sampling to Ram Bit Depth",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 7,
+    "bit": "6",
+    "data": "00~01",
+    "value": "16~24"
+   }
+  },
+  {
+   "id": "Global@7.6_val",
+   "param": "Global@7.6",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SAMPLING TO RAM BIT DEPTH value",
+   "x": 492.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "16"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Sampling to Ram Bit Depth",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 7,
+    "bit": "6",
+    "data": "00~01",
+    "value": "16~24"
+   }
+  },
+  {
+   "id": "Global@8.0~2",
+   "param": "Global@8.0~2",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HEADROOM",
+   "x": 559.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 580.453949059031,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Standard~+48dB",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Headroom",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 8,
+    "bit": "0~2",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Standard~+48dB"
+   }
+  },
+  {
+   "id": "Global@8.0~2_val",
+   "param": "Global@8.0~2",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HEADROOM value",
+   "x": 561.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Standar"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Headroom",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 8,
+    "bit": "0~2",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Standard~+48dB"
+   }
+  },
+  {
+   "id": "Global@24608",
+   "param": "Global@24608",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HOLD TIME",
+   "x": 628.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 649.5187989246068,
+   "cy": 350.0,
+   "r": 12,
+   "range": "00Sec~60Sec",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Hold Time",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24608,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "00~16",
+    "value": "00Sec~60Sec"
+   }
+  },
+  {
+   "id": "Global@24608_val",
+   "param": "Global@24608",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HOLD TIME value",
+   "x": 630.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "00Sec"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Hold Time",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24608,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "00~16",
+    "value": "00Sec~60Sec"
+   }
+  },
+  {
+   "id": "Global@24697",
+   "param": "Global@24697",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CLICK LEVEL",
+   "x": 697.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 718.5836487901827,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Click Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24697,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24697_val",
+   "param": "Global@24697",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CLICK LEVEL value",
+   "x": 699.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Click Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24697,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24702",
+   "param": "Global@24702",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OCTAVE",
+   "x": 766.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 787.6484986557585,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Octave",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24702,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Global@24702_val",
+   "param": "Global@24702",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OCTAVE value",
+   "x": 768.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Octave",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24702,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Global@24571",
+   "param": "Global@24571",
+   "group": "audio_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LRBUS INDIVIDUAL OUT ASGN",
+   "x": 868.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 889.0077491565706,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~3/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio",
+    "name": "LRBus Individual Out Assign",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24571,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24571_val",
+   "param": "Global@24571",
+   "group": "audio_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LRBUS INDIVIDUAL OUT ASGN value",
+   "x": 870.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio",
+    "name": "LRBus Individual Out Assign",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24571,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24698",
+   "param": "Global@24698",
+   "group": "audio_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24698",
+   "x": 1103.4,
+   "y": 296,
+   "w": 74.2,
+   "h": 16,
+   "text": [
+    "0.0"
+   ],
+   "range": "0.0~32.0",
+   "midi": null,
+   "korg": {
+    "group": "Audio",
+    "name": "Analog Input 1 Gain",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24698,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~40",
+    "value": "0.0~32.0"
+   }
+  },
+  {
+   "id": "Global@24699",
+   "param": "Global@24699",
+   "group": "audio_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24699",
+   "x": 1181.6,
+   "y": 296,
+   "w": 74.2,
+   "h": 16,
+   "text": [
+    "0.0"
+   ],
+   "range": "0.0~32.0",
+   "midi": null,
+   "korg": {
+    "group": "Audio",
+    "name": "Analog Input 2 Gain",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24699,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~40",
+    "value": "0.0~32.0"
+   }
+  },
+  {
+   "id": "Global@24700",
+   "param": "Global@24700",
+   "group": "audio_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24700",
+   "x": 1103.4,
+   "y": 317,
+   "w": 74.2,
+   "h": 16,
+   "text": [
+    "Line"
+   ],
+   "range": "Line, Mic",
+   "midi": null,
+   "korg": {
+    "group": "Audio",
+    "name": "Analog Input 1 Select",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24700,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Line, Mic"
+   }
+  },
+  {
+   "id": "Global@24701",
+   "param": "Global@24701",
+   "group": "audio_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24701",
+   "x": 1181.6,
+   "y": 317,
+   "w": 74.2,
+   "h": 16,
+   "text": [
+    "Line"
+   ],
+   "range": "Line, Mic",
+   "midi": null,
+   "korg": {
+    "group": "Audio",
+    "name": "Analog Input 2 Select",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24701,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Line, Mic"
+   }
+  },
+  {
+   "id": "Global@24610",
+   "param": "Global@24610",
+   "group": "special_function",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PROGRAM UP CHANNEL",
+   "x": 1338.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1359.8950144213209,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Special Function",
+    "name": "Program Up           Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24610,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24610_val",
+   "param": "Global@24610",
+   "group": "special_function",
+   "type": "display",
+   "kind": "value",
+   "label": "PROGRAM UP CHANNEL value",
+   "x": 1340.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Special Function",
+    "name": "Program Up           Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24610,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "BASIC",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "all"
+}

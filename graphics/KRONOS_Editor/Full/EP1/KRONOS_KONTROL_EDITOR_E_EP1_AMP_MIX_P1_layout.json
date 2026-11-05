@@ -1,0 +1,477 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AMP·MIX",
+ "tab_index": 0,
+ "object": "Program · EP-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_EP1_AMP_MIX_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_EP1_AMP_MIX_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · EP-1 — AMP·MIX"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 359.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 431.8,
+   "y": 84,
+   "w": 329.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 764.1,
+   "y": 84,
+   "w": 347.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1114.3,
+   "y": 84,
+   "w": 325.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@65.7",
+   "param": "Prog_EXi@65.7",
+   "group": "ep_amp",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AMS SOURCE",
+   "x": 701.0,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "EP Amp",
+    "name": "AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 65,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@65.6~0",
+   "param": "Prog_EXi@65.6~0",
+   "group": "ep_amp",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 668.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 689.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "EP Amp",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 65,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@65.6~0_val",
+   "param": "Prog_EXi@65.6~0",
+   "group": "ep_amp",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 670.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EP Amp",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 65,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@66.7",
+   "param": "Prog_EXi@66.7",
+   "group": "ep_amp",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMS INTENSITY",
+   "x": 790.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 811.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "EP Amp",
+    "name": "AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 66,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@66.7_val",
+   "param": "Prog_EXi@66.7",
+   "group": "ep_amp",
+   "type": "display",
+   "kind": "value",
+   "label": "AMS INTENSITY value",
+   "x": 792.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EP Amp",
+    "name": "AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 66,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AMP·MIX",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "exi:EP-1"
+}

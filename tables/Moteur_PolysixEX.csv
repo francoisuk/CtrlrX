@@ -1,0 +1,323 @@
+octet;bits (octet:bas-haut, poids faible d'abord);largeur;section;paramètre;données (hex);valeurs;note
+0;0:0-6;7;;[OSC] Delay Start;00~61;0~Off;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+0;0:7-7 + 1:0-7 + 2:0-0;10;;[VCO] PWM Speed;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+2;2:1-7 + 3:0-0;8;;[VCO] PWM Speed Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+3;3:1-7 + 4:0-3;11;;[VCO] PWM Speed Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+4;4:4-7 + 5:0-3;8;;[VCO] PWM Speed Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+5;5:4-7 + 6:0-6;11;;[VCO] PWM Speed Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+6;6:7-7 + 7:0-0;2;;[Effect] Mode;00~03;Off~Ensemble;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+7;7:1-7 + 8:0-0;8;;[Effect] Mode Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+8;8:1-3;3;;[Effect] Mode Mod.Intensity;FD~03;-3~+3;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+8;8:4-7 + 9:0-5;10;;[Effect] Spread;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+9;9:6-7 + 10:0-5;8;;[Effect] Spread Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+10;10:6-7 + 11:0-7 + 12:0-0;11;;[Effect] Spread Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+12;12:1-7 + 13:0-0;8;;[Effect] Spread Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+13;13:1-7 + 14:0-3;11;;[Effect] Spread Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+14;14:4-7 + 15:0-5;10;;[Effect] Speed/Intensity;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+15;15:6-7 + 16:0-5;8;;[Effect] Speed/Intensity Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+16;16:6-7 + 17:0-7 + 18:0-0;11;;[Effect] Speed/Intensity Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+18;18:1-7 + 19:0-0;8;;[Effect] Speed/Intensity Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+19;19:1-7 + 20:0-3;11;;[Effect] Speed/Intensity Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+20;20:4-7 + 21:0-5;10;;[VCA] Volume;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+21;21:6-7 + 22:0-5;8;;[VCA] Volume Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+22;22:6-7 + 23:0-7 + 24:0-0;11;;[VCA] Volume Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+24;24:1-7 + 25:0-0;8;;[VCA] Volume Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+25;25:1-7 + 26:0-3;11;;[VCA] Volume Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+26;26:4-4;1;;[Arpeggiator] Enable;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+26;26:5-7 + 27:0-4;8;;[Arpeggiator] Enable Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+27;27:5-5;1;;[Arpeggiator] Enable Mod.Switch Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+27;27:6-6;1;;[Arpeggiator] Key Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+27;27:7-7 + 28:0-7 + 29:0-0;10;;[Arpeggiator] Speed;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+29;29:1-7 + 30:0-0;8;;[Arpeggiator] Speed Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+30;30:1-7 + 31:0-3;11;;[Arpeggiator] Speed Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+31;31:4-7 + 32:0-3;8;;[Arpeggiator] Speed Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+32;32:4-7 + 33:0-6;11;;[Arpeggiator] Speed Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+33;33:7-7;1;;[Arpeggiator] MIDI Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+34;34:0-3;4;;[Arpeggiator] Base Note;00~09;1/32~1/1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+34;34:4-7;4;;[Arpeggiator] Times;00~0F;16~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+35;35:0-7;8;;[Arpeggiator] Times Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+36;36:0-4;5;;[Arpeggiator] Times Mod.Intensity;F1~0F;-15~+15;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+36;36:5-7 + 37:0-4;8;;[Arpeggiator] Times Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+37;37:5-7 + 38:0-1;5;;[Arpeggiator] Times Mod.Int.Mod.Intensity;F1~0F;-15~+15;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+38;38:2-3;2;;[Arpeggiator] Range;00~02;1 Octave~Full;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+38;38:4-7 + 39:0-3;8;;[Arpeggiator] Range Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+39;39:4-6;3;;[Arpeggiator] Range Mod.Intensity;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+39;39:7-7 + 40:0-0;2;;[Arpeggiator] Mode;00~02;Up~Up/Down;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+40;40:1-7 + 41:0-0;8;;[Arpeggiator] Mode Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+41;41:1-3;3;;[Arpeggiator] Mode Mod.Intensity;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+41;41:4-4;1;;[Arpeggiator] Latch;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+41;41:5-7 + 42:0-4;8;;[Arpeggiator] Latch Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+42;42:5-5;1;;[Arpeggiator] Latch Mod.Switch Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+43;43:0-7;8;;[Mod.Mixer3] Type;00~06;A+B~Gate;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+44;44:0-7;8;;[Mod.Mixer3] Source A;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+45;45:0-7;8;;[Mod.Mixer3] Amount A;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+46;46:0-7;8;;[Mod.Mixer3] Source B;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+47;47:0-7;8;;[Mod.Mixer3] Amount B;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+48;48:0-7;8;;[Mod.Mixer3] Number Of Steps;02~20;2~32;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+49;49:0-7 + 50:0-7;16;;[Mod.Mixer3] Amount A;FF39~00C7;-199~+199;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+51;51:0-7 + 52:0-7;16;;[Mod.Mixer3] Offset;FF39~00C7;-199~+199;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+53;53:0-7;8;;[Mod.Mixer3] Attack;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+54;54:0-7;8;;[Mod.Mixer3] Decay;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+55;55:0-7;8;;[Mod.Mixer3] Shape;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+56;56:0-7;8;;[Mod.Mixer3] Shape Type;00~01;Symmetric~Asymmetri;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+57;57:0-0;1;;[Mod.Mixer3] Control At Note On Only;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+57;57:1-1;1;;[Mod.Mixer3] Below Threshold;00~01;Fixed Value~Mod.Sou;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+57;57:2-7;6;;[Mod.Mixer3] At&Above Threshold;00~01;Fixed Value~Mod.Sou;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+58;58:0-7;8;;[Mod.Mixer3] Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+59;59:0-7;8;;[Mod.Mixer3] Threshold;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+60;60:0-7;8;;[Mod.Mixer3] Below Fixed Value;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+61;61:0-7;8;;[Mod.Mixer3] At&Above Fixed Value;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+62;62:0-7;8;;[Mod.Mixer3];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+63;63:0-7;8;;[Mod.Mixer4] Type;00~06;A+B~Gate;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+64;64:0-7;8;;[Mod.Mixer4] Source A;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+65;65:0-7;8;;[Mod.Mixer4] Amount A;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+66;66:0-7;8;;[Mod.Mixer4] Source B;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+67;67:0-7;8;;[Mod.Mixer4] Amount B;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+68;68:0-7;8;;[Mod.Mixer4] Number Of Steps;02~20;2~32;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+69;69:0-7 + 70:0-7;16;;[Mod.Mixer4] Amount A;FF39~00C7;-199~+199;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+71;71:0-7 + 72:0-7;16;;[Mod.Mixer4] Offset;FF39~00C7;-199~+199;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+73;73:0-7;8;;[Mod.Mixer4] Attack;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+74;74:0-7;8;;[Mod.Mixer4] Decay;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+75;75:0-7;8;;[Mod.Mixer4] Shape;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+76;76:0-7;8;;[Mod.Mixer4] Shape Type;00~01;Symmetric~Asymmetri;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+77;77:0-0;1;;[Mod.Mixer4] Control At Note On Only;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+77;77:1-1;1;;[Mod.Mixer4] Below Threshold;00~01;Fixed Value~Mod.Sou;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+77;77:2-7;6;;[Mod.Mixer4] At&Above Threshold;00~01;Fixed Value~Mod.Sou;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+78;78:0-7;8;;[Mod.Mixer4] Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+79;79:0-7;8;;[Mod.Mixer4] Threshold;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+80;80:0-7;8;;[Mod.Mixer4] Below Fixed Value;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+81;81:0-7;8;;[Mod.Mixer4] At&Above Fixed Value;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+82;82:0-7;8;;[Mod.Mixer4];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+83;83:0-0;1;;[MG] Key Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+83;83:1-7 + 84:0-2;10;;[MG] Frequency;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+84;84:3-7 + 85:0-2;8;;[MG] Frequency Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+85;85:3-7 + 86:0-5;11;;[MG] Frequency Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+86;86:6-7 + 87:0-5;8;;[MG] Frequency Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+87;87:6-7 + 88:0-7 + 89:0-0;11;;[MG] Frequency Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+89;89:1-1;1;;[MG] MIDI Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+89;89:2-5;4;;[MG] Base Note;00~09;1/32~1/1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+89;89:6-7 + 90:0-1;4;;[MG] Times;00~0F;16~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+90;90:2-7 + 91:0-1;8;;[MG] Times Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+91;91:2-6;5;;[MG] Times Mod.Intensity;F1~0F;-15~+15;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+91;91:7-7 + 92:0-6;8;;[MG] Times Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+92;92:7-7 + 93:0-3;5;;[MG] Times Mod.Int.Mod.Intensity;F1~0F;-15~+15;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+93;93:4-7 + 94:0-5;10;;[MG] Delay;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+94;94:6-7 + 95:0-5;8;;[MG] Delay Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+95;95:6-7 + 96:0-7 + 97:0-0;11;;[MG] Delay Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+97;97:1-7 + 98:0-0;8;;[MG] Delay Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+98;98:1-7 + 99:0-3;11;;[MG] Delay Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+100;100:0-4;5;;[LFO1] Waveform;00~11;Triangle~Random6(Co;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+100;100:5-7 + 101:0-3;7;;[LFO1] Start Phase;DC~25;-180~RND;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+101;101:4-7 + 102:0-3;8;;[LFO1] Shape;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+102;102:4-7 + 103:0-3;8;;[LFO1] Shape Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+103;103:4-7 + 104:0-3;8;;[LFO1] Shape Mod.Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+104;104:4-7 + 105:0-2;7;;[LFO1] Frequency;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+105;105:3-7 + 106:0-1;7;;[LFO1] Frequency Fine;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+106;106:2-2;1;;[LFO1] Stop;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+106;106:3-7 + 107:0-2;8;;[LFO1] Offset;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+107;107:3-3;1;;[LFO1] Key Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+107;107:4-7 + 108:0-2;7;;[LFO1] Fade In;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+108;108:3-7 + 109:0-1;7;;[LFO1] Delay;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+109;109:2-7 + 110:0-1;8;;[LFO1] Frequency Mod.1 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+110;110:2-7 + 111:0-1;8;;[LFO1] Frequency Mod.1 Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+111;111:2-7 + 112:0-1;8;;[LFO1] Frequency Mod.1 Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+112;112:2-7 + 113:0-1;8;;[LFO1] Frequency Mod.1 Int.Mod.Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+113;113:2-7 + 114:0-1;8;;[LFO1] Frequency Mod.2 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+114;114:2-7 + 115:0-1;8;;[LFO1] Frequency Mod.2 Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+115;115:2-2;1;;[LFO1] MIDI Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+115;115:3-6;4;;[LFO1] MIDI Sync Base Note;00~09;1/32~1/1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+115;115:7-7 + 116:0-4;6;;[LFO1] MIDI Sync Times;01~20;1~32;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+117;117:0-4;5;;[LFO2] Waveform;00~11;Triangle~Random6(Co;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+117;117:5-7 + 118:0-3;7;;[LFO2] Start Phase;DC~25;-180~RND;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+118;118:4-7 + 119:0-3;8;;[LFO2] Shape;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+119;119:4-7 + 120:0-3;8;;[LFO2] Shape Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+120;120:4-7 + 121:0-3;8;;[LFO2] Shape Mod.Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+121;121:4-7 + 122:0-2;7;;[LFO2] Frequency;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+122;122:3-7 + 123:0-1;7;;[LFO2] Frequency Fine;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+123;123:2-2;1;;[LFO2] Stop;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+123;123:3-7 + 124:0-2;8;;[LFO2] Offset;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+124;124:3-3;1;;[LFO2] Key Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+124;124:4-7 + 125:0-2;7;;[LFO2] Fade In;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+125;125:3-7 + 126:0-1;7;;[LFO2] Delay;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+126;126:2-7 + 127:0-1;8;;[LFO2] Frequency Mod.1 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+127;127:2-7 + 128:0-1;8;;[LFO2] Frequency Mod.1 Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+128;128:2-7 + 129:0-1;8;;[LFO2] Frequency Mod.1 Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+129;129:2-7 + 130:0-1;8;;[LFO2] Frequency Mod.1 Int.Mod.Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+130;130:2-7 + 131:0-1;8;;[LFO2] Frequency Mod.2 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+131;131:2-7 + 132:0-1;8;;[LFO2] Frequency Mod.2 Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+132;132:2-2;1;;[LFO2] MIDI Sync;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+132;132:3-6;4;;[LFO2] MIDI Sync Base Note;00~09;1/32~1/1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+132;132:7-7 + 133:0-4;6;;[LFO2] MIDI Sync Times;01~20;1~32;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+134;134:0-7 + 135:0-1;10;;[EG] Attack Time;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+135;135:2-7 + 136:0-1;8;;[EG] Attack Time Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+136;136:2-7 + 137:0-4;11;;[EG] Attack Time Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+137;137:5-7 + 138:0-4;8;;[EG] Attack Time Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+138;138:5-7 + 139:0-7;11;;[EG] Attack Time Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+140;140:0-7 + 141:0-1;10;;[EG] Decay Time;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+141;141:2-7 + 142:0-1;8;;[EG] Decay Time Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+142;142:2-7 + 143:0-4;11;;[EG] Decay Time Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+143;143:5-7 + 144:0-4;8;;[EG] Decay Time Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+144;144:5-7 + 145:0-7;11;;[EG] Decay Time Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+146;146:0-7 + 147:0-1;10;;[EG] Sustain Level;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+147;147:2-7 + 148:0-1;8;;[EG] Sustain Level Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+148;148:2-7 + 149:0-4;11;;[EG] Sustain Level Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+149;149:5-7 + 150:0-4;8;;[EG] Sustain Level Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+150;150:5-7 + 151:0-7;11;;[EG] Sustain Level Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+152;152:0-7 + 153:0-1;10;;[EG] Release Time;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+153;153:2-7 + 154:0-1;8;;[EG] Release Time Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+154;154:2-7 + 155:0-4;11;;[EG] Release Time Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+155;155:5-7 + 156:0-4;8;;[EG] Release Time Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+156;156:5-7 + 157:0-7;11;;[EG] Release Time Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+158;158:0-7;8;;[EG2] Start Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+159;159:0-7;8;;[EG2] Attack Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+160;160:0-7;8;;[EG2] Break Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+161;161:0-7;8;;[EG2] Sustain Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+162;162:0-7;8;;[EG2] Release Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+163;163:0-6;7;;[EG2] Attack Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+163;163:7-7 + 164:0-5;7;;[EG2] Decay Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+164;164:6-7 + 165:0-4;7;;[EG2] Slope Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+165;165:5-7 + 166:0-3;7;;[EG2] Release Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+166;166:4-7;4;;[EG2] Attack Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+167;167:0-3;4;;[EG2] Decay Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+167;167:4-7;4;;[EG2] Slope Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+168;168:0-3;4;;[EG2] Release Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+168;168:4-7 + 169:0-3;8;;[EG2] Level Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+169;169:4-7 + 170:0-3;8;;[EG2] Level Mod.Intensity To Start Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+170;170:4-7 + 171:0-3;8;;[EG2] Level Mod.Intensity To Attack Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+171;171:4-7 + 172:0-3;8;;[EG2] Level Mod.Intensity To Break Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+172;172:4-7 + 173:0-3;8;;[EG2];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+173;173:4-7 + 174:0-3;8;;[EG2];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+174;174:4-7 + 175:0-3;8;;[EG2];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+175;175:4-7 + 176:0-3;8;;[EG2];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+176;176:4-7 + 177:0-3;8;;[EG2] Time Mod.1 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+177;177:4-7 + 178:0-3;8;;[EG2] Time Mod.1 Intensity To Attack Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+178;178:4-7 + 179:0-3;8;;[EG2] Time Mod.1 Intensity To Decay Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+179;179:4-7 + 180:0-3;8;;[EG2] Time Mod.1 Intensity To Slope Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+180;180:4-7 + 181:0-3;8;;[EG2] Time Mod.1 Intensity To Release Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+181;181:4-7 + 182:0-3;8;;[EG2] Time Mod.2 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+182;182:4-7 + 183:0-3;8;;[EG2] Time Mod.2 Intensity To Attack Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+183;183:4-7 + 184:0-3;8;;[EG2] Time Mod.2 Intensity To Decay Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+184;184:4-7 + 185:0-3;8;;[EG2] Time Mod.2 Intensity To Slope Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+185;185:4-7 + 186:0-3;8;;[EG2] Time Mod.2 Intensity To Release Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+186;186:4-7 + 187:0-3;8;;[EG2] Time Mod.3 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+187;187:4-7 + 188:0-3;8;;[EG2] Time Mod.3 Intensity To Attack Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+188;188:4-7 + 189:0-3;8;;[EG2] Time Mod.3 Intensity To Decay Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+189;189:4-7 + 190:0-3;8;;[EG2] Time Mod.3 Intensity To Slope Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+190;190:4-7 + 191:0-3;8;;[EG2] Time Mod.3 Intensity To Release Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+191;191:4-7 + 192:0-3;8;;[EG2] Reset Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+192;192:4-7 + 193:0-3;8;;[EG2] Reset Threshold;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+194;194:0-7;8;;[EG3] Start Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+195;195:0-7;8;;[EG3] Attack Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+196;196:0-7;8;;[EG3] Break Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+197;197:0-7;8;;[EG3] Sustain Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+198;198:0-7;8;;[EG3] Release Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+199;199:0-6;7;;[EG3] Attack Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+199;199:7-7 + 200:0-5;7;;[EG3] Decay Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+200;200:6-7 + 201:0-4;7;;[EG3] Slope Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+201;201:5-7 + 202:0-3;7;;[EG3] Release Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+202;202:4-7;4;;[EG3] Attack Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+203;203:0-3;4;;[EG3] Decay Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+203;203:4-7;4;;[EG3] Slope Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+204;204:0-3;4;;[EG3] Release Time EG Curve;00~0A;0~10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+204;204:4-7 + 205:0-3;8;;[EG3] Level Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+205;205:4-7 + 206:0-3;8;;[EG3] Level Mod.Intensity To Start Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+206;206:4-7 + 207:0-3;8;;[EG3] Level Mod.Intensity To Attack Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+207;207:4-7 + 208:0-3;8;;[EG3] Level Mod.Intensity To Break Level;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+208;208:4-7 + 209:0-3;8;;[EG3];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+209;209:4-7 + 210:0-3;8;;[EG3];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+210;210:4-7 + 211:0-3;8;;[EG3];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+211;211:4-7 + 212:0-3;8;;[EG3];00(fixed);0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+212;212:4-7 + 213:0-3;8;;[EG3] Time Mod.1 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+213;213:4-7 + 214:0-3;8;;[EG3] Time Mod.1 Intensity To Attack Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+214;214:4-7 + 215:0-3;8;;[EG3] Time Mod.1 Intensity To Decay Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+215;215:4-7 + 216:0-3;8;;[EG3] Time Mod.1 Intensity To Slope Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+216;216:4-7 + 217:0-3;8;;[EG3] Time Mod.1 Intensity To Release Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+217;217:4-7 + 218:0-3;8;;[EG3] Time Mod.2 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+218;218:4-7 + 219:0-3;8;;[EG3] Time Mod.2 Intensity To Attack Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+219;219:4-7 + 220:0-3;8;;[EG3] Time Mod.2 Intensity To Decay Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+220;220:4-7 + 221:0-3;8;;[EG3] Time Mod.2 Intensity To Slope Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+221;221:4-7 + 222:0-3;8;;[EG3] Time Mod.2 Intensity To Release Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+222;222:4-7 + 223:0-3;8;;[EG3] Time Mod.3 Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+223;223:4-7 + 224:0-3;8;;[EG3] Time Mod.3 Intensity To Attack Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+224;224:4-7 + 225:0-3;8;;[EG3] Time Mod.3 Intensity To Decay Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+225;225:4-7 + 226:0-3;8;;[EG3] Time Mod.3 Intensity To Slope Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+226;226:4-7 + 227:0-3;8;;[EG3] Time Mod.3 Intensity To Release Time;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+227;227:4-7 + 228:0-3;8;;[EG3] Reset Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+228;228:4-7 + 229:0-3;8;;[EG3] Reset Threshold;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+230;230:0-7 + 231:0-2;11;;[Pitch] Bend Range;0000~04B0;0.00~12.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+232;232:0-1;2;;[Pitch] Octave;00~02;16'~4';offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+232;232:2-7 + 233:0-1;8;;[Pitch] Octave Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+233;233:2-4;3;;[Pitch] Octave Mod.Intensity;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+233;233:5-7 + 234:0-7 + 235:0-1;13;;[Pitch] Transpose;F6A0~0960;-24.00~+24.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+235;235:2-7 + 236:0-1;8;;[Pitch] Transpose Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+236;236:2-7 + 237:0-7;14;;[Pitch] Transpose Mod.Intensity;ED40~12C0;-48.00~+48.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+238;238:0-7;8;;[Pitch] Transpose Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+239;239:0-7 + 240:0-5;14;;[Pitch] Transpose Mod.Int.Mod.Intensity;ED40~12C0;-48.00~+48.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+240;240:6-7 + 241:0-7;10;;[Pitch] Tune;FE0C~01F4;-5.00~+5.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+242;242:0-7;8;;[Pitch] Tune Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+243;243:0-7 + 244:0-2;11;;[Pitch] Tune Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+244;244:3-7 + 245:0-2;8;;[Pitch] Tune Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+245;245:3-7 + 246:0-5;11;;[Pitch] Tune Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+246;246:6-7 + 247:0-7;10;;[Pitch] Vibrato Intensity;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+248;248:0-7;8;;[Pitch] Vibrato Intensity Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+249;249:0-7 + 250:0-2;11;;[Pitch] Vibrato Intensity Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+250;250:3-7 + 251:0-2;8;;[Pitch] Vibrato Intensity Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+251;251:3-7 + 252:0-5;11;;[Pitch] Vibrato Intensity Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+252;252:6-7;2;;[VCO] Waveform;00~02;Saw~PWM;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+253;253:0-7;8;;[VCO] Waveform Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+254;254:0-2;3;;[VCO] Waveform Mod.Intensity;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+254;254:3-7 + 255:0-4;10;;[VCO] Pulse Width;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+255;255:5-7 + 256:0-4;8;;[VCO] Pulse Width Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+256;256:5-7 + 257:0-7;11;;[VCO] Pulse Width Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+258;258:0-7;8;;[VCO] Pulse Width Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+259;259:0-7 + 260:0-2;11;;[VCO] Pulse Width Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+260;260:3-4;2;;[VCO] Sub Oscillator;00~02;Off~2 Octave;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+260;260:5-7 + 261:0-4;8;;[VCO] Sub Oscillator Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+261;261:5-7;3;;[VCO] Sub Oscillator Mod.Intensity;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+262;262:0-7 + 263:0-1;10;;[Filter] Cutoff;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+263;263:2-7 + 264:0-1;8;;[Filter] Cutoff Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+264;264:2-7 + 265:0-4;11;;[Filter] Cutoff Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+265;265:5-7 + 266:0-4;8;;[Filter] Cutoff Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+266;266:5-7 + 267:0-7;11;;[Filter] Cutoff Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+268;268:0-7 + 269:0-1;10;;[Filter] Resonance;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+269;269:2-7 + 270:0-1;8;;[Filter] Resonance Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+270;270:2-7 + 271:0-4;11;;[Filter] Resonance Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+271;271:5-7 + 272:0-4;8;;[Filter] Resonance Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+272;272:5-7 + 273:0-7;11;;[Filter] Resonance Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+274;274:0-7 + 275:0-1;10;;[Filter] EG Intensity;FE0C~01F4;-5.00~+5.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+275;275:2-7 + 276:0-1;8;;[Filter] EG Intensity Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+276;276:2-7 + 277:0-4;11;;[Filter] EG Intensity Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+277;277:5-7 + 278:0-4;8;;[Filter] EG Intensity Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+278;278:5-7 + 279:0-7;11;;[Filter] EG Intensity Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+280;280:0-7 + 281:0-2;11;;[Filter] Keyboard Track;0000~05DC;0.0~150.0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+281;281:3-7 + 282:0-2;8;;[Filter] Keyboard Track Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+282;282:3-7 + 283:0-6;12;;[Filter] Keyboard Track Mod.Intensity;FA24~05DC;-150.0~+150.0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+283;283:7-7 + 284:0-6;8;;[Filter] Keyboard Track Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+284;284:7-7 + 285:0-7 + 286:0-2;12;;[Filter] Keyboard Track Mod.Int.Mod.Intensity;FA24~05DC;-150.0~+150.0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+286;286:3-3;1;;[VCA] Amp EG Mode;00~01;EG~Gate;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+286;286:4-7 + 287:0-3;8;;[VCA] Amp EG Mode Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+287;287:4-5;2;;[VCA] Amp EG Mode Mod.Intensity;FF~01;-1~+1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+287;287:6-7 + 288:0-6;9;;[VCA] Amp Attenuator;FF38~00C8;-20.0~+20.0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+288;288:7-7 + 289:0-6;8;;[VCA] Amp Attenuator Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+289;289:7-7 + 290:0-7 + 291:0-0;10;;[VCA] Amp Attenuator Mod.Intensity;FE70~0190;-40.0~+40.0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+291;291:1-7 + 292:0-0;8;;[VCA] Amp Attenuator Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+292;292:1-7 + 293:0-2;10;;[VCA] Amp Attenuator Mod.Int.Mod.Intensity;FE70~0190;-40.0~+40.0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+293;293:3-7 + 294:0-4;10;;[MG] Level;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+294;294:5-7 + 295:0-4;8;;[MG] Level Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+295;295:5-7 + 296:0-7;11;;[MG] Level Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+297;297:0-7;8;;[MG] Level Mod.Int.Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+298;298:0-7 + 299:0-2;11;;[MG] Level Mod.Int.Mod.Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+299;299:3-4;2;;[MG] Destination;00~02;VCO~VCA;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+299;299:5-7 + 300:0-4;8;;[MG] Destination Mod.Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+300;300:5-7;3;;[MG] Destination Mod.Intensity;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+301;301:0-7;8;;[External Modulation1] Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+302;302:0-7;8;;[External Modulation2] Source;00~31;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+303;303:0-7 + 304:0-2;11;;[External Modulation1] VCO Pulse Width Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+304;304:3-7 + 305:0-5;11;;[External Modulation2] VCO Pulse Width Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+305;305:6-7 + 306:0-7 + 307:0-0;11;;[External Modulation1] FilterC utoff Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+307;307:1-7 + 308:0-3;11;;[External Modulation2] Filter Cutoff Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+308;308:4-7 + 309:0-6;11;;[External Modulation1] Amp Gain Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+309;309:7-7 + 310:0-7 + 311:0-1;11;;[External Modulation2] Amp Gain Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+311;311:2-7 + 312:0-4;11;;[External Modulation1] MG Level Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+312;312:5-7 + 313:0-7;11;;[External Modulation2] MG Level Intensity;FC18~03E8;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+314;314:0-7 + 315:0-1;10;;[Pitch] Analog;0000~03E8;0.00~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset

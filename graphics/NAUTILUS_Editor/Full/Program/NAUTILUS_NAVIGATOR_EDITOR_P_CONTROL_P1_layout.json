@@ -1,0 +1,2192 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "CONTROL · 1/6",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_P_CONTROL_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_P_CONTROL_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — CONTROL · 1/6"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 77.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 140.5,
+   "y": 84,
+   "w": 59.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 202.6,
+   "y": 84,
+   "w": 68.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 273.6,
+   "y": 84,
+   "w": 60.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 336.8,
+   "y": 84,
+   "w": 74.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 413.9,
+   "y": 84,
+   "w": 98.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 515.1,
+   "y": 84,
+   "w": 55.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 573.6,
+   "y": 84,
+   "w": 78.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 655.4,
+   "y": 84,
+   "w": 70.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 729.3,
+   "y": 84,
+   "w": 75.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 808.1,
+   "y": 84,
+   "w": 71.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 882.7,
+   "y": 84,
+   "w": 57.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 943.1,
+   "y": 84,
+   "w": 79.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 1025.3,
+   "y": 84,
+   "w": 72.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1101.0,
+   "y": 84,
+   "w": 100.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1204.4,
+   "y": 84,
+   "w": 76.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@2567.7",
+   "param": "Prog_HD-1@2567.7",
+   "group": "rt_controller_1_6",
+   "type": "menu",
+   "kind": "toggle",
+   "label": "MODE",
+   "x": 268.8,
+   "y": 187.0,
+   "w": 240.7,
+   "h": 16,
+   "text": [
+    "Sound"
+   ],
+   "options": "Sound~User",
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Switch2 Status",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2567,
+    "bit": "7",
+    "sysex": {
+     "TYP": "26",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2676",
+   "param": "Prog_HD-1@2676",
+   "group": "tone_adjust_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MASTER FADER ASSIGN",
+   "x": 1011.9,
+   "y": 187.0,
+   "w": 219.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Master Fader Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2676,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "8"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2580",
+   "param": "Prog_HD-1@2580",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2580",
+   "x": 210.0,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob1 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2580,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2582",
+   "param": "Prog_HD-1@2582",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2582",
+   "x": 286.1,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob2 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2582,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2584",
+   "param": "Prog_HD-1@2584",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2584",
+   "x": 362.2,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob3 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2584,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2586",
+   "param": "Prog_HD-1@2586",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2586",
+   "x": 438.4,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob4 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2586,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2588",
+   "param": "Prog_HD-1@2588",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2588",
+   "x": 514.5,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob5 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2588,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "4"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2590",
+   "param": "Prog_HD-1@2590",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2590",
+   "x": 590.6,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob6 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2590,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "5"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2592",
+   "param": "Prog_HD-1@2592",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2592",
+   "x": 666.8,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob7 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2592,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "6"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2594",
+   "param": "Prog_HD-1@2594",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2594",
+   "x": 742.9,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Knob8 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2594,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "7"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2596",
+   "param": "Prog_HD-1@2596",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2596",
+   "x": 210.0,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch1 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2596,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2600",
+   "param": "Prog_HD-1@2600",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2600",
+   "x": 286.1,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch2 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2600,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2604",
+   "param": "Prog_HD-1@2604",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2604",
+   "x": 362.2,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch3 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2604,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2608",
+   "param": "Prog_HD-1@2608",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2608",
+   "x": 438.4,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch4 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2608,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2612",
+   "param": "Prog_HD-1@2612",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2612",
+   "x": 514.5,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch5 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2612,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "4"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2616",
+   "param": "Prog_HD-1@2616",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2616",
+   "x": 590.6,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch6 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2616,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "5"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2620",
+   "param": "Prog_HD-1@2620",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2620",
+   "x": 666.8,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch7 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2620,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "6"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2624",
+   "param": "Prog_HD-1@2624",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2624",
+   "x": 742.9,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch8 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2624,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "7"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2628",
+   "param": "Prog_HD-1@2628",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2628",
+   "x": 819.0,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch9 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2628,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "8"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2632",
+   "param": "Prog_HD-1@2632",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2632",
+   "x": 895.1,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch10 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2632,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "9"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2636",
+   "param": "Prog_HD-1@2636",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2636",
+   "x": 971.2,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch11 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2636,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "10"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2640",
+   "param": "Prog_HD-1@2640",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2640",
+   "x": 1047.4,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch12 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2640,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "11"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2644",
+   "param": "Prog_HD-1@2644",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2644",
+   "x": 1123.5,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch13 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2644,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "12"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2648",
+   "param": "Prog_HD-1@2648",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2648",
+   "x": 1199.6,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch14 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2648,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "13"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2652",
+   "param": "Prog_HD-1@2652",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2652",
+   "x": 1275.8,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch15 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2652,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "14"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2656",
+   "param": "Prog_HD-1@2656",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2656",
+   "x": 1351.9,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch16 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2656,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "15"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2598",
+   "param": "Prog_HD-1@2598",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2598",
+   "x": 210.0,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch1 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2598,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2602",
+   "param": "Prog_HD-1@2602",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2602",
+   "x": 286.1,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch2 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2602,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "1"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2606",
+   "param": "Prog_HD-1@2606",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2606",
+   "x": 362.2,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch3 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2606,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "2"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2610",
+   "param": "Prog_HD-1@2610",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2610",
+   "x": 438.4,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch4 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2610,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "3"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2614",
+   "param": "Prog_HD-1@2614",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2614",
+   "x": 514.5,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch5 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2614,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "4"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2618",
+   "param": "Prog_HD-1@2618",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2618",
+   "x": 590.6,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch6 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2618,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "5"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2622",
+   "param": "Prog_HD-1@2622",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2622",
+   "x": 666.8,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch7 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2622,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "6"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2626",
+   "param": "Prog_HD-1@2626",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2626",
+   "x": 742.9,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch8 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2626,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "7"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2630",
+   "param": "Prog_HD-1@2630",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2630",
+   "x": 819.0,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch9 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2630,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "8"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2634",
+   "param": "Prog_HD-1@2634",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2634",
+   "x": 895.1,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch10 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2634,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "9"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2638",
+   "param": "Prog_HD-1@2638",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2638",
+   "x": 971.2,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch11 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2638,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "10"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2642",
+   "param": "Prog_HD-1@2642",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2642",
+   "x": 1047.4,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch12 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2642,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "11"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2646",
+   "param": "Prog_HD-1@2646",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2646",
+   "x": 1123.5,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch13 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2646,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "12"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2650",
+   "param": "Prog_HD-1@2650",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2650",
+   "x": 1199.6,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch14 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2650,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "13"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2654",
+   "param": "Prog_HD-1@2654",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2654",
+   "x": 1275.8,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch15 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2654,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "14"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2658",
+   "param": "Prog_HD-1@2658",
+   "group": "tone_adjust_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2658",
+   "x": 1351.9,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Switch16 On Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2658,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "15"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2660",
+   "param": "Prog_HD-1@2660",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2660",
+   "x": 210.0,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader1 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2660,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2662",
+   "param": "Prog_HD-1@2662",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2662",
+   "x": 286.1,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader2 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2662,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2664",
+   "param": "Prog_HD-1@2664",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2664",
+   "x": 362.2,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader3 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2664,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2666",
+   "param": "Prog_HD-1@2666",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2666",
+   "x": 438.4,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader4 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2666,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2668",
+   "param": "Prog_HD-1@2668",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2668",
+   "x": 514.5,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader5 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2668,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2670",
+   "param": "Prog_HD-1@2670",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2670",
+   "x": 590.6,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader6 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2670,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "5"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2672",
+   "param": "Prog_HD-1@2672",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2672",
+   "x": 666.8,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader7 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2672,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "6"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2674",
+   "param": "Prog_HD-1@2674",
+   "group": "tone_adjust_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2674",
+   "x": 742.9,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~",
+   "midi": null,
+   "korg": {
+    "group": "Tone Adjust",
+    "name": "Fader8 Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2674,
+    "sysex": {
+     "TYP": "29",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "7"
+    },
+    "data": "00~FF",
+    "value": "Off~"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "CONTROL",
+ "page_number": 1,
+ "pages_in_area": 6,
+ "apply": "all"
+}

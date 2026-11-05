@@ -1,0 +1,152 @@
+octet;bits (octet:bas-haut, poids faible d'abord);largeur;section;paramètre;données (hex);valeurs;note
+0;0:0-6;7;;[Basic] Delay Start;00~61;0~Off;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+0;0:7-7;1;;[Drawbar] Drawbar Mode;00~01;Normal~EX;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+1;1:0-0;1;;[Basic] Wheel Type;00~01;Vintage~Clean;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+1;1:1-7;7;;[Basic] Overtone Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+2;2:0-6;7;;[Basic] Leakage Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+2;2:7-7 + 3:0-5;7;;[Basic] Noise Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+3;3:6-6;1;;[Basic] Wheel Brake;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+3;3:7-7 + 4:0-6;8;;[Basic] Wheel Brake Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+4;4:7-7;1;;[Basic] Wheel Brake Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+5;5:0-0;1;;[Basic] Wheel Brake Speed;00~01;Slow~Fast;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+5;5:1-7;7;;[Basic] Pitch Bend JS(+X);C4~0C;-60~+12;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+6;6:0-6;7;;[Basic] Pitch Bend JS(-X);C4~0C;-60~+12;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+6;6:7-7;1;;[Drawbar] Split Enable;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+7;7:0-7;8;;[Drawbar] Split Enable Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+8;8:0-0;1;;[Drawbar] Split Enable Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+8;8:1-7;7;;[Basic] Key On Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+9;9:0-6;7;;[Basic] Key Off Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+9;9:7-7;1;;[Percussion] Enable;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+10;10:0-7;8;;[Percussion] Enable Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+11;11:0-0;1;;[Percussion] Enable Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+11;11:1-1;1;;[Percussion] Level;00~01;Soft~Loud;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+11;11:2-7 + 12:0-1;8;;[Percussion] Level Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+12;12:2-2;1;;[Percussion] Level Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+12;12:3-7 + 13:0-1;7;;[Percussion] Loud Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+13;13:2-7 + 14:0-0;7;;[Percussion] Soft Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+14;14:1-7;7;;[Percussion] Loud Drawbar Attenuation;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+15;15:0-0;1;;[Percussion] Decay;00~01;Slow~Fast;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+15;15:1-7 + 16:0-0;8;;[Percussion] Decay Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+16;16:1-1;1;;[Percussion] Decay Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+16;16:2-7 + 17:0-0;7;;[Percussion] Fast Decay Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+17;17:1-7;7;;[Percussion] Slow Decay Time;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+18;18:0-0;1;;[Percussion] Harmonic Switch;00~01;2nd~3rd;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+18;18:1-7 + 19:0-0;8;;[Percussion] Harmonic Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+19;19:1-1;1;;[Percussion] Harmonic Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+19;19:2-2;1;;[Vibrato/Chorus] Upper Enable;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+19;19:3-7 + 20:0-2;8;;[Vibrato/Chorus] Upper Enable Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+20;20:3-3;1;;[Vibrato/Chorus] Upper Enable Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+20;20:4-4;1;;[Vibrato/Chorus] Lower Enable;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+20;20:5-7 + 21:0-4;8;;[Vibrato/Chorus] Lower Enable Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+21;21:5-5;1;;[Vibrato/Chorus] Lower Enable Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+21;21:6-7 + 22:0-4;7;;[Vibrato/Chorus] Trim;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+22;22:5-5;1;;[Vibrato/Chorus] Mode;00~01;Preset~Custom;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+22;22:6-7 + 23:0-0;3;;[Vibrato/Chorus] Type;00~05;V1~C3;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+23;23:1-7 + 24:0-0;8;;[Vibrato/Chorus] Type Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+24;24:1-4;4;;[Vibrato/Chorus] Type Mod.Intensity;FB~05;-5~+5;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+24;24:5-7 + 25:0-3;7;;[Vibrato/Chorus] Mix;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+25;25:4-7 + 26:0-3;8;;[Vibrato/Chorus] Mix Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+26;26:4-7 + 27:0-3;8;;[Vibrato/Chorus] Mix Mod.Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+27;27:4-7 + 28:0-2;7;;[Vibrato/Chorus] Depth;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+28;28:3-7 + 29:0-2;8;;[Vibrato/Chorus] Depth Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+29;29:3-7 + 30:0-2;8;;[Vibrato/Chorus] Depth Mod.Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+30;30:3-7 + 31:0-2;8;;[Vibrato/Chorus] Speed;01~E6;1~230;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+31;31:3-7 + 32:0-2;8;;[Vibrato/Chorus] Speed Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+32;32:3-7 + 33:0-2;8;;[Vibrato/Chorus] Speed Mod.Intensity;8D~73;-115~+115;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+33;33:3-7;5;;[Basic] Expression Minimum;00~1E;0~30;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+34;34:0-6;7;;[Basic] Expression Level;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+34;34:7-7 + 35:0-6;8;;[Basic] Expression Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+35;35:7-7 + 36:0-0;2;;[Basic] Expression Mode;00~03;Level Only~Both Ove;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+36;36:1-2;2;;[Amplifier] Amp Type;00~02;Type1~Pre Amp;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+36;36:3-7 + 37:0-1;7;;[Amplifier] Amp Gain;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+37;37:2-7 + 38:0-1;8;;[Amplifier] Amp Gain Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+38;38:2-7 + 39:0-1;8;;[Amplifier] Amp Gain Mod.Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+39;39:2-6;5;;[Amplifier] EQ Treble;F6~0A;-10~+10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+39;39:7-7 + 40:0-3;5;;[Amplifier] EQ Middle;F6~0A;-10~+10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+40;40:4-7 + 41:0-0;5;;[Amplifier] EQ Bass;F6~0A;-10~+10;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+41;41:1-7;7;;[Amplifier] Output Level;00~7F;0~127;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+42;42:0-7;8;;[Amplifier] Output Level Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+43;43:0-7;8;;[Amplifier] Output Level Mod.Intensity;81~7F;-127~+127;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+44;44:0-6;7;;[Rotary Speaker] Wet/Dry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+44;44:7-7 + 45:0-6;8;;[Rotary Speaker] Wet/Dry Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+45;45:7-7 + 46:0-6;8;;[Rotary Speaker] Wet/Dry Mod.Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+46;46:7-7;1;;[Rotary Speaker] Rotary Switch;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+47;47:0-7;8;;[Rotary Speaker] Rotary Switch Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+48;48:0-0;1;;[Rotary Speaker] Rotary Switch Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+48;48:1-1;1;;[Rotary Speaker] Rotary Mode;00~01;Rotate~Stop;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+48;48:2-7 + 49:0-1;8;;[Rotary Speaker] Rotary Mode Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+49;49:2-2;1;;[Rotary Speaker] Rotary Mode Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+49;49:3-3;1;;[Rotary Speaker] Rotary Speed;00~01;Slow~Fast;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+49;49:4-7 + 50:0-3;8;;[Rotary Speaker] Rotary Speed Mod.Source;00~28;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+50;50:4-4;1;;[Rotary Speaker] Rotary Speed Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+50;50:5-5;1;;[Rotary Speaker] Rotary Fast Overrides Stop;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+50;50:6-7 + 51:0-4;7;;[Rotary Speaker] Horn Acceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+51;51:5-7 + 52:0-3;7;;[Rotary Speaker] Horn Deceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+52;52:4-7 + 53:0-2;7;;[Rotary Speaker] Horn Start Acceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+53;53:3-7 + 54:0-1;7;;[Rotary Speaker] Horn Stop Deceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+54;54:2-7 + 55:0-0;7;;[Rotary Speaker] Horn Slow Speed;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+55;55:1-7;7;;[Rotary Speaker] Horn Fast Speed;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+56;56:0-6;7;;[Rotary Speaker] Rotor Acceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+56;56:7-7 + 57:0-5;7;;[Rotary Speaker] Rotor Deceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+57;57:6-7 + 58:0-4;7;;[Rotary Speaker] Rotor Start Acceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+58;58:5-7 + 59:0-3;7;;[Rotary Speaker] Rotor Stop Deceleration;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+59;59:4-7 + 60:0-2;7;;[Rotary Speaker] Rotor Slow Speed;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+60;60:3-7 + 61:0-1;7;;[Rotary Speaker] Rotor Fast Speed;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+61;61:2-7 + 62:0-0;7;;[Rotary Speaker] Horn/Rotor Balance;00~64;Rotor~Horn;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+62;62:1-7;7;;[Rotary Speaker] Horn Mic Distance;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+63;63:0-6;7;;[Rotary Speaker] Horn Mic Spread;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+63;63:7-7 + 64:0-5;7;;[Rotary Speaker] Rotor Mic Distance;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+64;64:6-7 + 65:0-4;7;;[Rotary Speaker] Rotor Mic Spread;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+65;65:5-7 + 66:0-2;6;;[Rotary Speaker] Horn Stop Phase;ED~12;Free~+180;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+66;66:3-7 + 67:0-0;6;;[Rotary Speaker] Rotor Stop Phase;ED~12;Free~+180;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+67;67:1-1;1;;[Rotary Speaker] Speaker Simulator;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+67;67:2-2;1;;[Rotary Speaker] Off Output;00~01;Pre-Crossover~Post-;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+67;67:3-3;1;;[Rotary Speaker] Amp & Rotary Version;00~01;Classic CX-3~Custom;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+67;67:4-6;3;;[Rotary Speaker] Speaker Sim Type;00~06;Natural~CX-3;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+68;68:0-3;4;;[Drawbar] Upper Drawbar1 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+68;68:4-7;4;;[Drawbar] Upper Drawbar2 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+69;69:0-3;4;;[Drawbar] Upper Drawbar3 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+69;69:4-7;4;;[Drawbar] Upper Drawbar4 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+70;70:0-3;4;;[Drawbar] Upper Drawbar5 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+70;70:4-7;4;;[Drawbar] Upper Drawbar6 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+71;71:0-3;4;;[Drawbar] Upper Drawbar7 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+71;71:4-7;4;;[Drawbar] Upper Drawbar8 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+72;72:0-3;4;;[Drawbar] Upper Drawbar9 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+72;72:4-7;4;;[Drawbar] Upper EX Drawbar1 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+73;73:0-3;4;;[Drawbar] Upper EX Drawbar2 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+73;73:4-7;4;;[Drawbar] Upper EX Drawbar3 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+74;74:0-3;4;;[Drawbar] Upper EX Drawbar4 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+74;74:4-7;4;;[Drawbar] Lower Drawbar1 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+75;75:0-3;4;;[Drawbar] Lower Drawbar2 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+75;75:4-7;4;;[Drawbar] Lower Drawbar3 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+76;76:0-3;4;;[Drawbar] Lower Drawbar4 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+76;76:4-7;4;;[Drawbar] Lower Drawbar5 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+77;77:0-3;4;;[Drawbar] Lower Drawbar6 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+77;77:4-7;4;;[Drawbar] Lower Drawbar7 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+78;78:0-3;4;;[Drawbar] Lower Drawbar8 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+78;78:4-7;4;;[Drawbar] Lower Drawbar9 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+79;79:0-3;4;;[Drawbar] Lower EX Drawbar1 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+79;79:4-7;4;;[Drawbar] Lower EX Drawbar2 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+80;80:0-3;4;;[Drawbar] Lower EX Drawbar3 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+80;80:4-7;4;;[Drawbar] Lower EX Drawbar4 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+81;81:0-0;1;;[Drawbar] Drawbar Level Curve;00~01;Bright~Mellow;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+81;81:1-7;7;;[Drawbar] Split Point;00~7F;C-1~G9;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+82;82:0-2;3;;[Drawbar] Upper Octave Shift;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+82;82:3-5;3;;[Drawbar] Lower Octave Shift;FE~02;-2~+2;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+82;82:6-7 + 83:0-0;3;;[Drawbar] Upper Drawbar Preset;01~05;Preset1~Custom;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+83;83:1-7;7;;[Drawbar] Upper Drawbar Pitch1;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+84;84:0-6;7;;[Drawbar] Upper Drawbar Pitch2;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+84;84:7-7 + 85:0-5;7;;[Drawbar] Upper Drawbar Pitch3;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+85;85:6-7 + 86:0-4;7;;[Drawbar] Upper Drawbar Pitch4;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+86;86:5-7;3;;[Drawbar] Lower Drawbar Preset;01~05;Preset1~Custom;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+87;87:0-6;7;;[Drawbar] Lower Drawbar Pitch1;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+87;87:7-7 + 88:0-5;7;;[Drawbar] Lower Drawbar Pitch2;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+88;88:6-7 + 89:0-4;7;;[Drawbar] Lower Drawbar Pitch3;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+89;89:5-7 + 90:0-3;7;;[Drawbar] Lower Drawbar Pitch4;00~48;16'~1'+24;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+90;90:4-4;1;;[Percussion] Percussion Assign;00~01;Lower~Upper;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+90;90:5-7 + 91:0-0;4;;[Percussion] EX Percussion Drawbar1 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+91;91:1-4;4;;[Percussion] EX Percussion Drawbar2 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+91;91:5-7 + 92:0-0;4;;[Percussion] EX Percussion Drawbar3 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+92;92:1-4;4;;[Percussion] EX Percussion Drawbar4 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+92;92:5-7 + 93:0-0;4;;[Percussion] EX Percussion Drawbar5 Level;00~08;0~8;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+93;93:1-1;1;;[Basic] Gate Type;00~01;Clean~Dirty;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset

@@ -1,0 +1,2598 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA · 5/8",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_C_KARMA_P5_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_C_KARMA_P5_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — KARMA · 5/8"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 112.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 175.6,
+   "y": 84,
+   "w": 106.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 284.7,
+   "y": 84,
+   "w": 110.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 398.6,
+   "y": 84,
+   "w": 106.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 508.2,
+   "y": 84,
+   "w": 108.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 620.0,
+   "y": 84,
+   "w": 114.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 737.2,
+   "y": 84,
+   "w": 128.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 868.2,
+   "y": 84,
+   "w": 111.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 982.8,
+   "y": 84,
+   "w": 105.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_module",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA MODULE",
+   "x": 1091.7,
+   "y": 84,
+   "w": 139.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1243.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1268.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_7",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "7",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_8",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "8",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1469#1",
+   "param": "CombiAndSongTimbreSet@1469#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1469#1",
+   "x": 150.0,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1469,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1471#2",
+   "param": "CombiAndSongTimbreSet@1471#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1471#2",
+   "x": 309.8,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1471,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1473#3",
+   "param": "CombiAndSongTimbreSet@1473#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1473#3",
+   "x": 469.5,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1473,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1475#4",
+   "param": "CombiAndSongTimbreSet@1475#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1475#4",
+   "x": 629.2,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1475,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1477#5",
+   "param": "CombiAndSongTimbreSet@1477#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1477#5",
+   "x": 789.0,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1477,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1479#6",
+   "param": "CombiAndSongTimbreSet@1479#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1479#6",
+   "x": 948.8,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1479,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1481#7",
+   "param": "CombiAndSongTimbreSet@1481#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1481#7",
+   "x": 1108.5,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1481,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1483#8",
+   "param": "CombiAndSongTimbreSet@1483#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1483#8",
+   "x": 1268.2,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 1) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1483,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1487#1",
+   "param": "CombiAndSongTimbreSet@1487#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1487#1",
+   "x": 150.0,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1487,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1489#2",
+   "param": "CombiAndSongTimbreSet@1489#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1489#2",
+   "x": 309.8,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1489,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1491#3",
+   "param": "CombiAndSongTimbreSet@1491#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1491#3",
+   "x": 469.5,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1491,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1493#4",
+   "param": "CombiAndSongTimbreSet@1493#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1493#4",
+   "x": 629.2,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1493,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1495#5",
+   "param": "CombiAndSongTimbreSet@1495#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1495#5",
+   "x": 789.0,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1495,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1497#6",
+   "param": "CombiAndSongTimbreSet@1497#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1497#6",
+   "x": 948.8,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1497,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1499#7",
+   "param": "CombiAndSongTimbreSet@1499#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1499#7",
+   "x": 1108.5,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1499,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1501#8",
+   "param": "CombiAndSongTimbreSet@1501#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1501#8",
+   "x": 1268.2,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 2) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1501,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1505#1",
+   "param": "CombiAndSongTimbreSet@1505#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1505#1",
+   "x": 150.0,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1505,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1507#2",
+   "param": "CombiAndSongTimbreSet@1507#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1507#2",
+   "x": 309.8,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1507,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1509#3",
+   "param": "CombiAndSongTimbreSet@1509#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1509#3",
+   "x": 469.5,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1509,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1511#4",
+   "param": "CombiAndSongTimbreSet@1511#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1511#4",
+   "x": 629.2,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1511,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1513#5",
+   "param": "CombiAndSongTimbreSet@1513#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1513#5",
+   "x": 789.0,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1513,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1515#6",
+   "param": "CombiAndSongTimbreSet@1515#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1515#6",
+   "x": 948.8,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1515,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1517#7",
+   "param": "CombiAndSongTimbreSet@1517#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1517#7",
+   "x": 1108.5,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1517,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1519#8",
+   "param": "CombiAndSongTimbreSet@1519#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1519#8",
+   "x": 1268.2,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 3) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1519,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1523#1",
+   "param": "CombiAndSongTimbreSet@1523#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1523#1",
+   "x": 150.0,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1523,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1525#2",
+   "param": "CombiAndSongTimbreSet@1525#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1525#2",
+   "x": 309.8,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1525,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1527#3",
+   "param": "CombiAndSongTimbreSet@1527#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1527#3",
+   "x": 469.5,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1527,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1529#4",
+   "param": "CombiAndSongTimbreSet@1529#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1529#4",
+   "x": 629.2,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1529,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1531#5",
+   "param": "CombiAndSongTimbreSet@1531#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1531#5",
+   "x": 789.0,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1531,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1533#6",
+   "param": "CombiAndSongTimbreSet@1533#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1533#6",
+   "x": 948.8,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1533,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1535#7",
+   "param": "CombiAndSongTimbreSet@1535#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1535#7",
+   "x": 1108.5,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1535,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1537#8",
+   "param": "CombiAndSongTimbreSet@1537#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1537#8",
+   "x": 1268.2,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 4) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1537,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "3"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1541#1",
+   "param": "CombiAndSongTimbreSet@1541#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1541#1",
+   "x": 150.0,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1541,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1543#2",
+   "param": "CombiAndSongTimbreSet@1543#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1543#2",
+   "x": 309.8,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1543,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1545#3",
+   "param": "CombiAndSongTimbreSet@1545#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1545#3",
+   "x": 469.5,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1545,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1547#4",
+   "param": "CombiAndSongTimbreSet@1547#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1547#4",
+   "x": 629.2,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1547,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1549#5",
+   "param": "CombiAndSongTimbreSet@1549#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1549#5",
+   "x": 789.0,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1549,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1551#6",
+   "param": "CombiAndSongTimbreSet@1551#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1551#6",
+   "x": 948.8,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1551,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1553#7",
+   "param": "CombiAndSongTimbreSet@1553#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1553#7",
+   "x": 1108.5,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1553,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1555#8",
+   "param": "CombiAndSongTimbreSet@1555#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1555#8",
+   "x": 1268.2,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 5) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1555,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "4"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1559#1",
+   "param": "CombiAndSongTimbreSet@1559#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1559#1",
+   "x": 150.0,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1559,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1561#2",
+   "param": "CombiAndSongTimbreSet@1561#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1561#2",
+   "x": 309.8,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1561,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1563#3",
+   "param": "CombiAndSongTimbreSet@1563#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1563#3",
+   "x": 469.5,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1563,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1565#4",
+   "param": "CombiAndSongTimbreSet@1565#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1565#4",
+   "x": 629.2,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1565,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1567#5",
+   "param": "CombiAndSongTimbreSet@1567#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1567#5",
+   "x": 789.0,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1567,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1569#6",
+   "param": "CombiAndSongTimbreSet@1569#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1569#6",
+   "x": 948.8,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1569,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1571#7",
+   "param": "CombiAndSongTimbreSet@1571#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1571#7",
+   "x": 1108.5,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1571,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1573#8",
+   "param": "CombiAndSongTimbreSet@1573#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1573#8",
+   "x": 1268.2,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 6) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1573,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "5"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1577#1",
+   "param": "CombiAndSongTimbreSet@1577#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1577#1",
+   "x": 150.0,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1577,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1579#2",
+   "param": "CombiAndSongTimbreSet@1579#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1579#2",
+   "x": 309.8,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1579,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1581#3",
+   "param": "CombiAndSongTimbreSet@1581#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1581#3",
+   "x": 469.5,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1581,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1583#4",
+   "param": "CombiAndSongTimbreSet@1583#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1583#4",
+   "x": 629.2,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1583,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1585#5",
+   "param": "CombiAndSongTimbreSet@1585#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1585#5",
+   "x": 789.0,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1585,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1587#6",
+   "param": "CombiAndSongTimbreSet@1587#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1587#6",
+   "x": 948.8,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1587,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1589#7",
+   "param": "CombiAndSongTimbreSet@1589#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1589#7",
+   "x": 1108.5,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1589,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1591#8",
+   "param": "CombiAndSongTimbreSet@1591#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1591#8",
+   "x": 1268.2,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 7) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1591,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "6"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1595#1",
+   "param": "CombiAndSongTimbreSet@1595#1",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1595#1",
+   "x": 150.0,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1595,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1597#2",
+   "param": "CombiAndSongTimbreSet@1597#2",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1597#2",
+   "x": 309.8,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1597,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1599#3",
+   "param": "CombiAndSongTimbreSet@1599#3",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1599#3",
+   "x": 469.5,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1599,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1601#4",
+   "param": "CombiAndSongTimbreSet@1601#4",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1601#4",
+   "x": 629.2,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1601,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1603#5",
+   "param": "CombiAndSongTimbreSet@1603#5",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1603#5",
+   "x": 789.0,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1603,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1605#6",
+   "param": "CombiAndSongTimbreSet@1605#6",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1605#6",
+   "x": 948.8,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1605,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1607#7",
+   "param": "CombiAndSongTimbreSet@1607#7",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1607#7",
+   "x": 1108.5,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1607,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1609#8",
+   "param": "CombiAndSongTimbreSet@1609#8",
+   "group": "karma_common_chord_pad_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1609#8",
+   "x": 1268.2,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Chord Pad 8) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1609,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "7"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA",
+ "page_number": 5,
+ "pages_in_area": 8,
+ "apply": "all"
+}

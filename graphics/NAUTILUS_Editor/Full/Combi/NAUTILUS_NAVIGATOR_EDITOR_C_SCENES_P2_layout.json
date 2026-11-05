@@ -1,0 +1,2489 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "SCENES · 2/5",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — SCENES · 2/5"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 137.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 200.5,
+   "y": 84,
+   "w": 131.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 334.6,
+   "y": 84,
+   "w": 135.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 473.4,
+   "y": 84,
+   "w": 131.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 607.9,
+   "y": 84,
+   "w": 117.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 728.3,
+   "y": 84,
+   "w": 139.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 870.4,
+   "y": 84,
+   "w": 132.6,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1006.0,
+   "y": 84,
+   "w": 160.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1169.4,
+   "y": 84,
+   "w": 136.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.0",
+   "param": "CombiAndSongTimbreSet@2443.0",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A SORT",
+   "x": 68.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Sort",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "0",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.1",
+   "param": "CombiAndSongTimbreSet@2443.1",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A LATCH",
+   "x": 264.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Latch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "1",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.2",
+   "param": "CombiAndSongTimbreSet@2443.2",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A KEYSYNC",
+   "x": 460.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A KeySync",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "2",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.3",
+   "param": "CombiAndSongTimbreSet@2443.3",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A KEYBOARD",
+   "x": 656.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Keyboard",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "3",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.4",
+   "param": "CombiAndSongTimbreSet@2443.4",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A RUN",
+   "x": 852.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Run",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "4",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.5",
+   "param": "CombiAndSongTimbreSet@2443.5",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A LOOP",
+   "x": 1048.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Loop",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "5",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.6",
+   "param": "CombiAndSongTimbreSet@2443.6",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A THRU BY OFF",
+   "x": 1244.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Thru by Off",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "6",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2443.7",
+   "param": "CombiAndSongTimbreSet@2443.7",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP A TIMBRE ZONE BYPASS",
+   "x": 68.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Timbre Zone Bypass",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2443,
+    "bit": "7",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.0",
+   "param": "CombiAndSongTimbreSet@2459.0",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B SORT",
+   "x": 264.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Sort",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "0",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.1",
+   "param": "CombiAndSongTimbreSet@2459.1",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B LATCH",
+   "x": 460.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Latch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "1",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.2",
+   "param": "CombiAndSongTimbreSet@2459.2",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B KEYSYNC",
+   "x": 656.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B KeySync",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "2",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.3",
+   "param": "CombiAndSongTimbreSet@2459.3",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B KEYBOARD",
+   "x": 852.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Keyboard",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "3",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.4",
+   "param": "CombiAndSongTimbreSet@2459.4",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B RUN",
+   "x": 1048.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Run",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "4",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.5",
+   "param": "CombiAndSongTimbreSet@2459.5",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B LOOP",
+   "x": 1244.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Loop",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "5",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.6",
+   "param": "CombiAndSongTimbreSet@2459.6",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B THRU BY OFF",
+   "x": 68.0,
+   "y": 222.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Thru by Off",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "6",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2459.7",
+   "param": "CombiAndSongTimbreSet@2459.7",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP B TIMBRE ZONE BYPASS",
+   "x": 264.0,
+   "y": 222.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Timbre Zone Bypass",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2459,
+    "bit": "7",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2472.1",
+   "param": "CombiAndSongTimbreSet@2472.1",
+   "group": "scene_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "DRUM RUN",
+   "x": 460.0,
+   "y": 222.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Run",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2472,
+    "bit": "1",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2472.3~2",
+   "param": "CombiAndSongTimbreSet@2472.3~2",
+   "group": "scene_1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "STEP SEQ. SELECT",
+   "x": 656.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "A"
+   ],
+   "options": "A~D",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Step Seq. Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2472,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "A~D"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2478.3~0",
+   "param": "CombiAndSongTimbreSet@2478.3~0",
+   "group": "scene_1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM TRK PATTERN BANK",
+   "x": 852.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Preset"
+   ],
+   "options": "Preset~User",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Pattern Bank",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2478,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Preset~User"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2478.4",
+   "param": "CombiAndSongTimbreSet@2478.4",
+   "group": "scene_1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM TRK TRIGGER SYNC MODE",
+   "x": 1048.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Sequence",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Trigger Sync Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2478,
+    "bit": "4",
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~Sequence"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2440",
+   "param": "CombiAndSongTimbreSet@2440",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A PATTERN NO.",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~2180",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Pattern Number",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2440,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2440_val",
+   "param": "CombiAndSongTimbreSet@2440",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A PATTERN NO. value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Pattern Number",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2440,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2442.1~0",
+   "param": "CombiAndSongTimbreSet@2442.1~0",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A OCTAVE",
+   "x": 144.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 165.73684210526315,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Octave",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2442,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2442.1~0_val",
+   "param": "CombiAndSongTimbreSet@2442.1~0",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A OCTAVE value",
+   "x": 146.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Octave",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2442,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2442.4~2",
+   "param": "CombiAndSongTimbreSet@2442.4~2",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A RESOLUTION",
+   "x": 213.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 234.4736842105263,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/48~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Resolution",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2442,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2442.4~2_val",
+   "param": "CombiAndSongTimbreSet@2442.4~2",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A RESOLUTION value",
+   "x": 215.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/48"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Resolution",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2442,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2444",
+   "param": "CombiAndSongTimbreSet@2444",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A GATE",
+   "x": 282.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 303.2105263157895,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Gate",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2444,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2444_val",
+   "param": "CombiAndSongTimbreSet@2444",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A GATE value",
+   "x": 284.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Gate",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2444,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2445",
+   "param": "CombiAndSongTimbreSet@2445",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A VELOCITY",
+   "x": 350.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 371.9473684210526,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Step",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2445,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~81",
+    "value": "1~Step"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2445_val",
+   "param": "CombiAndSongTimbreSet@2445",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A VELOCITY value",
+   "x": 352.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2445,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~81",
+    "value": "1~Step"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2446",
+   "param": "CombiAndSongTimbreSet@2446",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A SWING",
+   "x": 419.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 440.6842105263157,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Swing",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2446,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2446_val",
+   "param": "CombiAndSongTimbreSet@2446",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A SWING value",
+   "x": 421.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Swing",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2446,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2452",
+   "param": "CombiAndSongTimbreSet@2452",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A OUTPUT CH",
+   "x": 488.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 509.4210526315789,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Output Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2452,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2452_val",
+   "param": "CombiAndSongTimbreSet@2452",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A OUTPUT CH value",
+   "x": 490.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Output Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2452,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2453",
+   "param": "CombiAndSongTimbreSet@2453",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A INPUT CHANNEL",
+   "x": 557.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 578.1578947368421,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Input Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2453,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2453_val",
+   "param": "CombiAndSongTimbreSet@2453",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A INPUT CHANNEL value",
+   "x": 559.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP A Input Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2453,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2456",
+   "param": "CombiAndSongTimbreSet@2456",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B PATTERN NO.",
+   "x": 625.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 646.8947368421052,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~2180",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Pattern Number",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2456,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2456_val",
+   "param": "CombiAndSongTimbreSet@2456",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B PATTERN NO. value",
+   "x": 627.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Pattern Number",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2456,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2458.1~0",
+   "param": "CombiAndSongTimbreSet@2458.1~0",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B OCTAVE",
+   "x": 694.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 715.6315789473683,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Octave",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2458,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2458.1~0_val",
+   "param": "CombiAndSongTimbreSet@2458.1~0",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B OCTAVE value",
+   "x": 696.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Octave",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2458,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2458.4~2",
+   "param": "CombiAndSongTimbreSet@2458.4~2",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B RESOLUTION",
+   "x": 763.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 784.3684210526314,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/48~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Resolution",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2458,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2458.4~2_val",
+   "param": "CombiAndSongTimbreSet@2458.4~2",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B RESOLUTION value",
+   "x": 765.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/48"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Resolution",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2458,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2460",
+   "param": "CombiAndSongTimbreSet@2460",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B GATE",
+   "x": 832.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 853.1052631578947,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Gate",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2460,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2460_val",
+   "param": "CombiAndSongTimbreSet@2460",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B GATE value",
+   "x": 834.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Gate",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2460,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2461",
+   "param": "CombiAndSongTimbreSet@2461",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B VELOCITY",
+   "x": 900.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 921.8421052631578,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Key",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2461,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~80",
+    "value": "1~Key"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2461_val",
+   "param": "CombiAndSongTimbreSet@2461",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B VELOCITY value",
+   "x": 902.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2461,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~80",
+    "value": "1~Key"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2462",
+   "param": "CombiAndSongTimbreSet@2462",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B SWING",
+   "x": 969.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 990.5789473684209,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Swing",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2462,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2462_val",
+   "param": "CombiAndSongTimbreSet@2462",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B SWING value",
+   "x": 971.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Swing",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2462,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2468",
+   "param": "CombiAndSongTimbreSet@2468",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B OUTPUT CH",
+   "x": 1038.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1059.3157894736842,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Output Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2468,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2468_val",
+   "param": "CombiAndSongTimbreSet@2468",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B OUTPUT CH value",
+   "x": 1040.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Output Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2468,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2469",
+   "param": "CombiAndSongTimbreSet@2469",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B INPUT CHANNEL",
+   "x": 1107.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1128.0526315789473,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Input Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2469,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2469_val",
+   "param": "CombiAndSongTimbreSet@2469",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B INPUT CHANNEL value",
+   "x": 1109.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "ARP B Input Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2469,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2472.0",
+   "param": "CombiAndSongTimbreSet@2472.0",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM SELECT",
+   "x": 1175.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1196.7894736842104,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Select",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2472,
+    "bit": "0",
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2472.0_val",
+   "param": "CombiAndSongTimbreSet@2472.0",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM SELECT value",
+   "x": 1177.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Select",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2472,
+    "bit": "0",
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2476",
+   "param": "CombiAndSongTimbreSet@2476",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRK PATTERN NO.",
+   "x": 1244.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1265.5263157894735,
+   "cy": 350.0,
+   "r": 12,
+   "range": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Pattern Number",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2476,
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~07CF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2476_val",
+   "param": "CombiAndSongTimbreSet@2476",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRK PATTERN NO. value",
+   "x": 1246.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Pattern Number",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2476,
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~07CF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2478.7~5",
+   "param": "CombiAndSongTimbreSet@2478.7~5",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRK SWING RESO",
+   "x": 1313.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1334.2631578947367,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/48~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Swing Resolution",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2478,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2478.7~5_val",
+   "param": "CombiAndSongTimbreSet@2478.7~5",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRK SWING RESO value",
+   "x": 1315.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/48"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Swing Resolution",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2478,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2479",
+   "param": "CombiAndSongTimbreSet@2479",
+   "group": "scene_1_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRACK SHIFT",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1402.9999999999998,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-24~+24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Shift",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2479,
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2479_val",
+   "param": "CombiAndSongTimbreSet@2479",
+   "group": "scene_1_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRACK SHIFT value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 1",
+    "name": "Drum Track Shift",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2479,
+    "sysex": {
+     "TYP": "8",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "SCENES",
+ "page_number": 2,
+ "pages_in_area": 5,
+ "apply": "all"
+}

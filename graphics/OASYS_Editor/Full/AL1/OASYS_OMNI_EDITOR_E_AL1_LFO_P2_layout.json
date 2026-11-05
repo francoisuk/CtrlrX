@@ -1,0 +1,2855 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "LFO · 2/2",
+ "tab_index": 0,
+ "object": "Program · AL-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_AL1_LFO_P2_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_AL1_LFO_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · AL-1 — LFO · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 184.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 256.6,
+   "y": 84,
+   "w": 158.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 417.8,
+   "y": 84,
+   "w": 154.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 574.9,
+   "y": 84,
+   "w": 163.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 741.1,
+   "y": 84,
+   "w": 172.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 916.1,
+   "y": 84,
+   "w": 150.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1069.6,
+   "y": 84,
+   "w": 152.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1225.1,
+   "y": 84,
+   "w": 155.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@35.4~0",
+   "param": "Prog_EXi@35.4~0",
+   "group": "lfo3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVEFORM",
+   "x": 123.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Triangle"
+   ],
+   "options": "Triangle~Random6(Co",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Waveform",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 35,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "Triangle~Random6(Co",
+    "oasys": {
+     "ofs": 35,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@37.7~4",
+   "param": "Prog_EXi@37.7~4",
+   "group": "lfo3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE MOD.SOURCE",
+   "x": 290.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Shape Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 37,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 37,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41.2",
+   "param": "Prog_EXi@41.2",
+   "group": "lfo3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "STOP",
+   "x": 370.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Stop",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 41,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@42.3",
+   "param": "Prog_EXi@42.3",
+   "group": "lfo3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEY SYNC",
+   "x": 462.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Key Sync",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 42,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 42,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@46.7~2",
+   "param": "Prog_EXi@46.7~2",
+   "group": "lfo3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQ MOD 1 INT.MOD SRC",
+   "x": 661.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Mod.1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 46,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 46,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@50.2",
+   "param": "Prog_EXi@50.2",
+   "group": "lfo3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MIDI SYNC",
+   "x": 741.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "MIDI Sync",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 50,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 50,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@35.7~5",
+   "param": "Prog_EXi@35.7~5",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START PHASE",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-180~RND",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Start Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 35,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "DC~25",
+    "value": "-180~RND",
+    "oasys": {
+     "ofs": 35,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@35.7~5_val",
+   "param": "Prog_EXi@35.7~5",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START PHASE value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "-180"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Start Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 35,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "DC~25",
+    "value": "-180~RND",
+    "oasys": {
+     "ofs": 35,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@36.7~4",
+   "param": "Prog_EXi@36.7~4",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 165.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 186.4632,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 36,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 36,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@36.7~4_val",
+   "param": "Prog_EXi@36.7~4",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 167.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 36,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 36,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@38.7~4",
+   "param": "Prog_EXi@38.7~4",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE MOD.INT",
+   "x": 254.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 275.9264,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Shape Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 38,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 38,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@38.7~4_val",
+   "param": "Prog_EXi@38.7~4",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE MOD.INT value",
+   "x": 256.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Shape Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 38,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 38,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@39.7~4",
+   "param": "Prog_EXi@39.7~4",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY",
+   "x": 344.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 365.3896,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 39,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 39,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@39.7~4_val",
+   "param": "Prog_EXi@39.7~4",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY value",
+   "x": 346.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 39,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 39,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@40.7~3",
+   "param": "Prog_EXi@40.7~3",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY FINE",
+   "x": 433.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 454.8528,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Fine",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 40,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 40,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@40.7~3_val",
+   "param": "Prog_EXi@40.7~3",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY FINE value",
+   "x": 435.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Fine",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 40,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 40,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41.7~3",
+   "param": "Prog_EXi@41.7~3",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 523.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 544.316,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 41,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41.7~3_val",
+   "param": "Prog_EXi@41.7~3",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 525.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 41,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@42.7~4",
+   "param": "Prog_EXi@42.7~4",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FADE IN",
+   "x": 612.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 633.7792,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Fade In",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 42,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 42,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@42.7~4_val",
+   "param": "Prog_EXi@42.7~4",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FADE IN value",
+   "x": 614.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Fade In",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 42,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 42,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@43.7~3",
+   "param": "Prog_EXi@43.7~3",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY",
+   "x": 702.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 723.2424,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 43,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 43,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@43.7~3_val",
+   "param": "Prog_EXi@43.7~3",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY value",
+   "x": 704.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 43,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 43,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@47.7~2",
+   "param": "Prog_EXi@47.7~2",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQ MOD 1 INT.MOD INT",
+   "x": 791.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 812.7056,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 47,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 47,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@47.7~2_val",
+   "param": "Prog_EXi@47.7~2",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQ MOD 1 INT.MOD INT value",
+   "x": 793.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 47,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 47,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@50.6~3",
+   "param": "Prog_EXi@50.6~3",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC BASE NOTE",
+   "x": 881.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 902.1688,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 50,
+    "bit": "6~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1",
+    "oasys": {
+     "ofs": 50,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@50.6~3_val",
+   "param": "Prog_EXi@50.6~3",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC BASE NOTE value",
+   "x": 883.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 50,
+    "bit": "6~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1",
+    "oasys": {
+     "ofs": 50,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@50.7",
+   "param": "Prog_EXi@50.7",
+   "group": "lfo3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC TIMES",
+   "x": 970.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 991.6320000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "MIDI Sync Times",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 50,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": 50,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@50.7_val",
+   "param": "Prog_EXi@50.7",
+   "group": "lfo3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC TIMES value",
+   "x": 972.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "MIDI Sync Times",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 50,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": 50,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@44.7~2",
+   "param": "Prog_EXi@44.7~2",
+   "group": "lfo3_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@44.7~2",
+   "x": 1186.6,
+   "y": 150,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 44,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 44,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@48.7~2",
+   "param": "Prog_EXi@48.7~2",
+   "group": "lfo3_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@48.7~2",
+   "x": 1307.3,
+   "y": 150,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 48,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 48,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@45.7~2",
+   "param": "Prog_EXi@45.7~2",
+   "group": "lfo3_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@45.7~2",
+   "x": 1186.6,
+   "y": 171,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Mod.1 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 45,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 45,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@49.7~2",
+   "param": "Prog_EXi@49.7~2",
+   "group": "lfo3_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@49.7~2",
+   "x": 1307.3,
+   "y": 171,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "LFO3",
+    "name": "Frequency Mod.2 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 49,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 49,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@52.4~0",
+   "param": "Prog_EXi@52.4~0",
+   "group": "lfo4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVEFORM",
+   "x": 123.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Triangle"
+   ],
+   "options": "Triangle~Random6(Co",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Waveform",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 52,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "Triangle~Random6(Co",
+    "oasys": {
+     "ofs": 52,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@54.7~4",
+   "param": "Prog_EXi@54.7~4",
+   "group": "lfo4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE MOD.SOURCE",
+   "x": 290.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Shape Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 54,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 54,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@58.2",
+   "param": "Prog_EXi@58.2",
+   "group": "lfo4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "STOP",
+   "x": 370.6,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Stop",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 58,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 58,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@59.3",
+   "param": "Prog_EXi@59.3",
+   "group": "lfo4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEY SYNC",
+   "x": 462.6,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Key Sync",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 59,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 59,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@63.7~2",
+   "param": "Prog_EXi@63.7~2",
+   "group": "lfo4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQ MOD 1 INT.MOD SRC",
+   "x": 661.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Mod.1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 63,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 63,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@67.2",
+   "param": "Prog_EXi@67.2",
+   "group": "lfo4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MIDI SYNC",
+   "x": 741.6,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "MIDI Sync",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 67,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 67,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@52.7~5",
+   "param": "Prog_EXi@52.7~5",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START PHASE",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-180~RND",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Start Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 52,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "DC~25",
+    "value": "-180~RND",
+    "oasys": {
+     "ofs": 52,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@52.7~5_val",
+   "param": "Prog_EXi@52.7~5",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START PHASE value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "-180"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Start Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 52,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "DC~25",
+    "value": "-180~RND",
+    "oasys": {
+     "ofs": 52,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@53.7~4",
+   "param": "Prog_EXi@53.7~4",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 165.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 186.4632,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 53,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 53,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@53.7~4_val",
+   "param": "Prog_EXi@53.7~4",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 167.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 53,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 53,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@55.7~4",
+   "param": "Prog_EXi@55.7~4",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE MOD.INT",
+   "x": 254.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 275.9264,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Shape Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 55,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 55,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@55.7~4_val",
+   "param": "Prog_EXi@55.7~4",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE MOD.INT value",
+   "x": 256.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Shape Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 55,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 55,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@56.7~4",
+   "param": "Prog_EXi@56.7~4",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY",
+   "x": 344.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 365.3896,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 56,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 56,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@56.7~4_val",
+   "param": "Prog_EXi@56.7~4",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY value",
+   "x": 346.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 56,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 56,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@57.7~3",
+   "param": "Prog_EXi@57.7~3",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY FINE",
+   "x": 433.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 454.8528,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Fine",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 57,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 57,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@57.7~3_val",
+   "param": "Prog_EXi@57.7~3",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY FINE value",
+   "x": 435.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Fine",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 57,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 57,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@58.7~3",
+   "param": "Prog_EXi@58.7~3",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 523.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 544.316,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 58,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 58,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@58.7~3_val",
+   "param": "Prog_EXi@58.7~3",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 525.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 58,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 58,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@59.7~4",
+   "param": "Prog_EXi@59.7~4",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FADE IN",
+   "x": 612.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 633.7792,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Fade In",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 59,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 59,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@59.7~4_val",
+   "param": "Prog_EXi@59.7~4",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FADE IN value",
+   "x": 614.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Fade In",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 59,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 59,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@60.7~3",
+   "param": "Prog_EXi@60.7~3",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY",
+   "x": 702.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 723.2424,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 60,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 60,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@60.7~3_val",
+   "param": "Prog_EXi@60.7~3",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY value",
+   "x": 704.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 60,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 60,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@64.7~2",
+   "param": "Prog_EXi@64.7~2",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQ MOD 1 INT.MOD INT",
+   "x": 791.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 812.7056,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 64,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 64,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@64.7~2_val",
+   "param": "Prog_EXi@64.7~2",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQ MOD 1 INT.MOD INT value",
+   "x": 793.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 64,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 64,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@67.6~3",
+   "param": "Prog_EXi@67.6~3",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC BASE NOTE",
+   "x": 881.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 902.1688,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 67,
+    "bit": "6~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1",
+    "oasys": {
+     "ofs": 67,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@67.6~3_val",
+   "param": "Prog_EXi@67.6~3",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC BASE NOTE value",
+   "x": 883.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 67,
+    "bit": "6~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1",
+    "oasys": {
+     "ofs": 67,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@67.7",
+   "param": "Prog_EXi@67.7",
+   "group": "lfo4_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC TIMES",
+   "x": 970.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 991.6320000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "MIDI Sync Times",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 67,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": 67,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@67.7_val",
+   "param": "Prog_EXi@67.7",
+   "group": "lfo4_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC TIMES value",
+   "x": 972.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "MIDI Sync Times",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 67,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": 67,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@61.7~2",
+   "param": "Prog_EXi@61.7~2",
+   "group": "lfo4_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@61.7~2",
+   "x": 1186.6,
+   "y": 296,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 61,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 61,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@65.7~2",
+   "param": "Prog_EXi@65.7~2",
+   "group": "lfo4_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@65.7~2",
+   "x": 1307.3,
+   "y": 296,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 65,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 65,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@62.7~2",
+   "param": "Prog_EXi@62.7~2",
+   "group": "lfo4_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@62.7~2",
+   "x": 1186.6,
+   "y": 317,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Mod.1 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 62,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 62,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@66.7~2",
+   "param": "Prog_EXi@66.7~2",
+   "group": "lfo4_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@66.7~2",
+   "x": 1307.3,
+   "y": 317,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "LFO4",
+    "name": "Frequency Mod.2 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 66,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 66,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "LFO",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "exi:AL-1",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

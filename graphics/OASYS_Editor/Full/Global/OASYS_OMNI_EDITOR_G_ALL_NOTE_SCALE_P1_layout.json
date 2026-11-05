@@ -1,0 +1,1484 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "ALL NOTE SCALE · 1/2",
+ "tab_index": 0,
+ "object": "Global",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_G_ALL_NOTE_SCALE_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_G_ALL_NOTE_SCALE_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "3 : Global"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Global — ALL NOTE SCALE · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_basic",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "BASIC",
+   "x": 60,
+   "y": 84,
+   "w": 144.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_controller",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROLLER",
+   "x": 207.0,
+   "y": 84,
+   "w": 170.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI",
+   "x": 380.8,
+   "y": 84,
+   "w": 137.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_ext_sets",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXT SETS",
+   "x": 521.6,
+   "y": 84,
+   "w": 156.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 681.4,
+   "y": 84,
+   "w": 154.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_octave_scales",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OCTAVE SCALES",
+   "x": 839.2,
+   "y": 84,
+   "w": 183.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_all_note_scale",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ALL NOTE SCALE",
+   "x": 1025.6,
+   "y": 84,
+   "w": 183.6,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_categories",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CATEGORIES",
+   "x": 1212.2,
+   "y": 84,
+   "w": 168.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Global@12784",
+   "param": "Global@12784",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "C-1",
+   "x": 218.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 239.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "C-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12784,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12784_val",
+   "param": "Global@12784",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "C-1 value",
+   "x": 220.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "C-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12784,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12785",
+   "param": "Global@12785",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "C#-1",
+   "x": 310.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 331.9090909090909,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "C#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12785,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12785_val",
+   "param": "Global@12785",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "C#-1 value",
+   "x": 312.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "C#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12785,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12786",
+   "param": "Global@12786",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "D-1",
+   "x": 403.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 424.8181818181818,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "D-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12786,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12786_val",
+   "param": "Global@12786",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "D-1 value",
+   "x": 405.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "D-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12786,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12787",
+   "param": "Global@12787",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "D#-1",
+   "x": 496.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 517.7272727272727,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "D#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12787,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12787_val",
+   "param": "Global@12787",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "D#-1 value",
+   "x": 498.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "D#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12787,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12788",
+   "param": "Global@12788",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "E-1",
+   "x": 589.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 610.6363636363636,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "E-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12788,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12788_val",
+   "param": "Global@12788",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "E-1 value",
+   "x": 591.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "E-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12788,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12789",
+   "param": "Global@12789",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "F-1",
+   "x": 682.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 703.5454545454545,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "F-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12789,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "5"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12789_val",
+   "param": "Global@12789",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "F-1 value",
+   "x": 684.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "F-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12789,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "5"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12790",
+   "param": "Global@12790",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "F#-1",
+   "x": 775.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 796.4545454545455,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "F#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12790,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "6"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12790_val",
+   "param": "Global@12790",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "F#-1 value",
+   "x": 777.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "F#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12790,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "6"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12791",
+   "param": "Global@12791",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "G-1",
+   "x": 868.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 889.3636363636364,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "G-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12791,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "7"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12791_val",
+   "param": "Global@12791",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "G-1 value",
+   "x": 870.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "G-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12791,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "7"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12792",
+   "param": "Global@12792",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "G#-1",
+   "x": 961.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 982.2727272727273,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "G#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12792,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "8"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12792_val",
+   "param": "Global@12792",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "G#-1 value",
+   "x": 963.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "G#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12792,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "8"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12793",
+   "param": "Global@12793",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "A-1",
+   "x": 1054.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1075.181818181818,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "A-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12793,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "9"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12793_val",
+   "param": "Global@12793",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "A-1 value",
+   "x": 1056.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "A-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12793,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "9"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12794",
+   "param": "Global@12794",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "A#-1",
+   "x": 1147.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1168.090909090909,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "A#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12794,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "10"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12794_val",
+   "param": "Global@12794",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "A#-1 value",
+   "x": 1149.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "A#-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12794,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "10"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12795",
+   "param": "Global@12795",
+   "group": "user_all_note_scale_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "B-1",
+   "x": 1240.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1261.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12795,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "11"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12795_val",
+   "param": "Global@12795",
+   "group": "user_all_note_scale_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "B-1 value",
+   "x": 1242.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B-1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12795,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "11"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12807",
+   "param": "Global@12807",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12807",
+   "x": 280.8,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B0",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12807,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "23"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12819",
+   "param": "Global@12819",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12819",
+   "x": 388.4,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B1",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12819,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "35"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12831",
+   "param": "Global@12831",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12831",
+   "x": 496.1,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B2",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12831,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "47"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12843",
+   "param": "Global@12843",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12843",
+   "x": 603.7,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B3",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12843,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "59"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12855",
+   "param": "Global@12855",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12855",
+   "x": 711.4,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B4",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12855,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "71"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12867",
+   "param": "Global@12867",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12867",
+   "x": 819.0,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B5",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12867,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "83"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12879",
+   "param": "Global@12879",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12879",
+   "x": 926.6,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B6",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12879,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "95"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12891",
+   "param": "Global@12891",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12891",
+   "x": 1034.3,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B7",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12891,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "107"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Global@12903",
+   "param": "Global@12903",
+   "group": "user_all_note_scale_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@12903",
+   "x": 1141.9,
+   "y": 296,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "User All Note Scale",
+    "name": "B8",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 12903,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "119"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "ALL NOTE SCALE",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

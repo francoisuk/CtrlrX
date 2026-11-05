@@ -1,0 +1,54 @@
+site_name: Kronos Kontrol — User Manual
+site_description: >-
+  User manual for Kronos Kontrol 1.0i — the Korg KRONOS (OS 3.2.3) editor and
+  controller, available as a VST3 plug-in and a standalone application.
+site_author: Francois Rossi (Kronoscopie)
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - toc.integrate
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: orange
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Tutorials:
+      - Getting started (VST3 & standalone): tutorials/getting-started.md
+      - Tutorial: edit and save a Program: tutorials/edit-and-save-a-program.md
+  - How-to guides:
+      - Connect MIDI and set the channel: how-to/midi-setup.md
+      - Select, audition and import sounds (banks, PCG): how-to/select-and-audition.md
+      - RACK: Tone Adjust encoders and faders: how-to/rack-tone-adjust.md
+      - RACK: effects, KARMA, GE, X-Y pad: how-to/rack-effects-karma.md
+      - EDIT: navigate pages and edit parameters: how-to/edit-with-pages.md
+      - Saving presets: Apply, Write, Store, Bank read: how-to/save-and-store.md
+      - Loading .PCG files: how-to/pcg-files.md
+      - Using Kronos Kontrol as a VST3 in a DAW: how-to/use-as-vst3.md
+      - Using the standalone application: how-to/use-standalone.md
+      - Troubleshooting: how-to/troubleshooting.md
+  - Explanation:
+      - Architecture: RACK, EDIT, dumps and SysEx: explanation/architecture.md
+      - Pages and parameters model: explanation/pages-and-parameters.md
+  - Reference:
+      - Editor page directory (215 numbered pages + FX EDIT): reference/pages.md
+      - Modulator inventory (895 controls): reference/modulators.md
+      - MIDI map and SysEx functions: reference/midi-map.md
+      - Glossary: reference/glossary.md
+
+plugins: []

@@ -1,0 +1,2689 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA · 7/8",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_P_KARMA_P7_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_P_KARMA_P7_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — KARMA · 7/8"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 69.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 132.2,
+   "y": 84,
+   "w": 50.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 185.8,
+   "y": 84,
+   "w": 59.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 248.4,
+   "y": 84,
+   "w": 51.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 303.2,
+   "y": 84,
+   "w": 65.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 371.9,
+   "y": 84,
+   "w": 89.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 464.7,
+   "y": 84,
+   "w": 47.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 514.8,
+   "y": 84,
+   "w": 70.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 588.3,
+   "y": 84,
+   "w": 62.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 653.7,
+   "y": 84,
+   "w": 67.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 724.2,
+   "y": 84,
+   "w": 63.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 790.3,
+   "y": 84,
+   "w": 65.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 858.7,
+   "y": 84,
+   "w": 70.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 932.5,
+   "y": 84,
+   "w": 84.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1020.1,
+   "y": 84,
+   "w": 68.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1091.3,
+   "y": 84,
+   "w": 62.5,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1156.8,
+   "y": 84,
+   "w": 74.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1243.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1268.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_7",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "7",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_8",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "8",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@1615",
+   "param": "Prog_HD-1@1615",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1615",
+   "x": 150.0,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1615,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1616",
+   "param": "Prog_HD-1@1616",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1616",
+   "x": 309.8,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1616,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1617",
+   "param": "Prog_HD-1@1617",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1617",
+   "x": 469.5,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1617,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1618",
+   "param": "Prog_HD-1@1618",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1618",
+   "x": 629.2,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1618,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1619",
+   "param": "Prog_HD-1@1619",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1619",
+   "x": 789.0,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1619,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1620",
+   "param": "Prog_HD-1@1620",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1620",
+   "x": 948.8,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1620,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1621",
+   "param": "Prog_HD-1@1621",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1621",
+   "x": 1108.5,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1621,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1622",
+   "param": "Prog_HD-1@1622",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1622",
+   "x": 1268.2,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene1) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1622,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1624",
+   "param": "Prog_HD-1@1624",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1624",
+   "x": 150.0,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1624,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1625",
+   "param": "Prog_HD-1@1625",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1625",
+   "x": 309.8,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1625,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1626",
+   "param": "Prog_HD-1@1626",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1626",
+   "x": 469.5,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1626,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1627",
+   "param": "Prog_HD-1@1627",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1627",
+   "x": 629.2,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1627,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1628",
+   "param": "Prog_HD-1@1628",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1628",
+   "x": 789.0,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1628,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1629",
+   "param": "Prog_HD-1@1629",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1629",
+   "x": 948.8,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1629,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1630",
+   "param": "Prog_HD-1@1630",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1630",
+   "x": 1108.5,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1630,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1631",
+   "param": "Prog_HD-1@1631",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1631",
+   "x": 1268.2,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene2) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1631,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1633",
+   "param": "Prog_HD-1@1633",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1633",
+   "x": 150.0,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1633,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1634",
+   "param": "Prog_HD-1@1634",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1634",
+   "x": 309.8,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1634,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1635",
+   "param": "Prog_HD-1@1635",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1635",
+   "x": 469.5,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1635,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1636",
+   "param": "Prog_HD-1@1636",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1636",
+   "x": 629.2,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1636,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1637",
+   "param": "Prog_HD-1@1637",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1637",
+   "x": 789.0,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1637,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1638",
+   "param": "Prog_HD-1@1638",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1638",
+   "x": 948.8,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1638,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1639",
+   "param": "Prog_HD-1@1639",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1639",
+   "x": 1108.5,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1639,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1640",
+   "param": "Prog_HD-1@1640",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1640",
+   "x": 1268.2,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene3) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1640,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1642",
+   "param": "Prog_HD-1@1642",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1642",
+   "x": 150.0,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1642,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1643",
+   "param": "Prog_HD-1@1643",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1643",
+   "x": 309.8,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1643,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1644",
+   "param": "Prog_HD-1@1644",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1644",
+   "x": 469.5,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1644,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1645",
+   "param": "Prog_HD-1@1645",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1645",
+   "x": 629.2,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1645,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1646",
+   "param": "Prog_HD-1@1646",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1646",
+   "x": 789.0,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1646,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1647",
+   "param": "Prog_HD-1@1647",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1647",
+   "x": 948.8,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1647,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1648",
+   "param": "Prog_HD-1@1648",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1648",
+   "x": 1108.5,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1648,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1649",
+   "param": "Prog_HD-1@1649",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1649",
+   "x": 1268.2,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene4) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1649,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1651",
+   "param": "Prog_HD-1@1651",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1651",
+   "x": 150.0,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1651,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1652",
+   "param": "Prog_HD-1@1652",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1652",
+   "x": 309.8,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1652,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1653",
+   "param": "Prog_HD-1@1653",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1653",
+   "x": 469.5,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1653,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1654",
+   "param": "Prog_HD-1@1654",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1654",
+   "x": 629.2,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1654,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1655",
+   "param": "Prog_HD-1@1655",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1655",
+   "x": 789.0,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1655,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1656",
+   "param": "Prog_HD-1@1656",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1656",
+   "x": 948.8,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1656,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1657",
+   "param": "Prog_HD-1@1657",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1657",
+   "x": 1108.5,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1657,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1658",
+   "param": "Prog_HD-1@1658",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1658",
+   "x": 1268.2,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene5) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1658,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1660",
+   "param": "Prog_HD-1@1660",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1660",
+   "x": 150.0,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1660,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1661",
+   "param": "Prog_HD-1@1661",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1661",
+   "x": 309.8,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1661,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1662",
+   "param": "Prog_HD-1@1662",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1662",
+   "x": 469.5,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1662,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1663",
+   "param": "Prog_HD-1@1663",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1663",
+   "x": 629.2,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1663,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1664",
+   "param": "Prog_HD-1@1664",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1664",
+   "x": 789.0,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1664,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1665",
+   "param": "Prog_HD-1@1665",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1665",
+   "x": 948.8,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1665,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1666",
+   "param": "Prog_HD-1@1666",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1666",
+   "x": 1108.5,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1666,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1667",
+   "param": "Prog_HD-1@1667",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1667",
+   "x": 1268.2,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene6) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1667,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1669",
+   "param": "Prog_HD-1@1669",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1669",
+   "x": 150.0,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1669,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1670",
+   "param": "Prog_HD-1@1670",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1670",
+   "x": 309.8,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1670,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1671",
+   "param": "Prog_HD-1@1671",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1671",
+   "x": 469.5,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1671,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1672",
+   "param": "Prog_HD-1@1672",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1672",
+   "x": 629.2,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1672,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1673",
+   "param": "Prog_HD-1@1673",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1673",
+   "x": 789.0,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1673,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1674",
+   "param": "Prog_HD-1@1674",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1674",
+   "x": 948.8,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1674,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1675",
+   "param": "Prog_HD-1@1675",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1675",
+   "x": 1108.5,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1675,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1676",
+   "param": "Prog_HD-1@1676",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1676",
+   "x": 1268.2,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene7) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1676,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1678",
+   "param": "Prog_HD-1@1678",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1678",
+   "x": 150.0,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1678,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1679",
+   "param": "Prog_HD-1@1679",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1679",
+   "x": 309.8,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1679,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1680",
+   "param": "Prog_HD-1@1680",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1680",
+   "x": 469.5,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader3",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1680,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1681",
+   "param": "Prog_HD-1@1681",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1681",
+   "x": 629.2,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader4",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1681,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1682",
+   "param": "Prog_HD-1@1682",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1682",
+   "x": 789.0,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader5",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1682,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1683",
+   "param": "Prog_HD-1@1683",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1683",
+   "x": 948.8,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader6",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1683,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1684",
+   "param": "Prog_HD-1@1684",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1684",
+   "x": 1108.5,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader7",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1684,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1685",
+   "param": "Prog_HD-1@1685",
+   "group": "karma_common_scene_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1685",
+   "x": 1268.2,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Scene8) Fader8",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1685,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA",
+ "page_number": 7,
+ "pages_in_area": 8,
+ "apply": "all"
+}

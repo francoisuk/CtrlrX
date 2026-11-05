@@ -1,0 +1,2322 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 1/2",
+ "tab_index": 0,
+ "object": "Program · AL-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_AL1_OSC_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_AL1_OSC_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · AL-1 — OSC · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 184.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 256.6,
+   "y": 84,
+   "w": 158.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 417.8,
+   "y": 84,
+   "w": 154.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 574.9,
+   "y": 84,
+   "w": 163.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 741.1,
+   "y": 84,
+   "w": 172.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 916.1,
+   "y": 84,
+   "w": 150.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1069.6,
+   "y": 84,
+   "w": 152.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1225.1,
+   "y": 84,
+   "w": 155.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@423.2",
+   "param": "Prog_EXi@423.2",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SUB OSC/AUDIO IN SEL",
+   "x": 167.5,
+   "y": 138,
+   "w": 56.7,
+   "h": 16,
+   "text": [
+    "Sub OSC"
+   ],
+   "options": "Sub OSC~Ext.Input",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "Sub OSC/Audio In Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 423,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Sub OSC~Ext.Input"
+   }
+  },
+  {
+   "id": "Prog_EXi@423.5~3",
+   "param": "Prog_EXi@423.5~3",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EXTERNAL IN SEL",
+   "x": 307.7,
+   "y": 138,
+   "w": 71.7,
+   "h": 16,
+   "text": [
+    "Audio Input 1"
+   ],
+   "options": "Audio Input 1~S/PDI",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "External Input Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 423,
+    "bit": "5~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "00~05",
+    "value": "Audio Input 1~S/PDI"
+   }
+  },
+  {
+   "id": "Prog_EXi@0.6~0",
+   "param": "Prog_EXi@0.6~0",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY START",
+   "x": 173.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 194.88955758577322,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~Off",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "Delay Start",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~Off"
+   }
+  },
+  {
+   "id": "Prog_EXi@0.6~0_val",
+   "param": "Prog_EXi@0.6~0",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY START value",
+   "x": 175.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "Delay Start",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~Off"
+   }
+  },
+  {
+   "id": "Prog_EXi@423.7~6",
+   "param": "Prog_EXi@423.7~6",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EDGE",
+   "x": 295.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 316.8895575857732,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "Edge",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 423,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@423.7~6_val",
+   "param": "Prog_EXi@423.7~6",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "EDGE value",
+   "x": 297.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "Edge",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 423,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@333.6",
+   "param": "Prog_EXi@333.6",
+   "group": "common_pitch_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PORTAMENTO SWITCH",
+   "x": 467.8,
+   "y": 154.0,
+   "w": 140.2,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Switch",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 333,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@333.7",
+   "param": "Prog_EXi@333.7",
+   "group": "common_pitch_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PORTAMENTO FINGERED",
+   "x": 616.0,
+   "y": 154.0,
+   "w": 140.2,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Fingered",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 333,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@334.0",
+   "param": "Prog_EXi@334.0",
+   "group": "common_pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PORTAMENTO MODE",
+   "x": 467.8,
+   "y": 187.0,
+   "w": 76.2,
+   "h": 16,
+   "text": [
+    "Constant Rate"
+   ],
+   "options": "Constant Rate~Const",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 334,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Constant Rate~Const"
+   }
+  },
+  {
+   "id": "Prog_EXi@335",
+   "param": "Prog_EXi@335",
+   "group": "common_pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PORTAMENTO MOD.SOURCE",
+   "x": 616.0,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 335,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@337.2~0",
+   "param": "Prog_EXi@337.2~0",
+   "group": "common_pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LFO SELECT",
+   "x": 467.8,
+   "y": 221.0,
+   "w": 73.1,
+   "h": 16,
+   "text": [
+    "LFO1"
+   ],
+   "options": "LFO1~Common LFO",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 337,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "LFO1~Common LFO"
+   }
+  },
+  {
+   "id": "Prog_EXi@339.7~5",
+   "param": "Prog_EXi@339.7~5",
+   "group": "common_pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LFO INT.MOD.SOURCE",
+   "x": 616.0,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 339,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@330",
+   "param": "Prog_EXi@330",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH SLOPE",
+   "x": 788.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 809.2657157446773,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-1.00~+2.00",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Slope",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 330,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "FF9C~00C8",
+    "value": "-1.00~+2.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@330_val",
+   "param": "Prog_EXi@330",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH SLOPE value",
+   "x": 790.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Slope",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 330,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "FF9C~00C8",
+    "value": "-1.00~+2.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@331.7~1",
+   "param": "Prog_EXi@331.7~1",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH BEND RIBBON",
+   "x": 862.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 883.4825012765926,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-60~+60",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Bend Ribbon",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 331,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@331.7~1_val",
+   "param": "Prog_EXi@331.7~1",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH BEND RIBBON value",
+   "x": 864.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Bend Ribbon",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 331,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@332.6~0",
+   "param": "Prog_EXi@332.6~0",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH BEND JS(+X)",
+   "x": 936.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 957.6992868085081,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-60~+60",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Bend JS(+X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 332,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@332.6~0_val",
+   "param": "Prog_EXi@332.6~0",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH BEND JS(+X) value",
+   "x": 938.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Bend JS(+X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 332,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@332.7",
+   "param": "Prog_EXi@332.7",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH BEND JS(-X)",
+   "x": 1010.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1031.9160723404234,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-60~+60",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Bend JS(-X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 332,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@332.7_val",
+   "param": "Prog_EXi@332.7",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH BEND JS(-X) value",
+   "x": 1012.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Pitch Bend JS(-X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 332,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@334.7~1",
+   "param": "Prog_EXi@334.7~1",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PORTAMENTO TIME FACTOR",
+   "x": 1085.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1106.1328578723387,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Time Factor",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 334,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@334.7~1_val",
+   "param": "Prog_EXi@334.7~1",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PORTAMENTO TIME FACTOR value",
+   "x": 1087.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Time Factor",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 334,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@336",
+   "param": "Prog_EXi@336",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PORTAMENTO MOD.INTENSITY",
+   "x": 1159.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1180.349643404254,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-127~+127",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 336,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "Prog_EXi@336_val",
+   "param": "Prog_EXi@336",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PORTAMENTO MOD.INTENSITY value",
+   "x": 1161.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "Portamento Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 336,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "Prog_EXi@337.7~3",
+   "param": "Prog_EXi@337.7~3",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LFO INTENSITY",
+   "x": 1233.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1254.5664289361694,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-48.00~+48.00",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 337,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@337.7~3_val",
+   "param": "Prog_EXi@337.7~3",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LFO INTENSITY value",
+   "x": 1235.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 337,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@338.7~4",
+   "param": "Prog_EXi@338.7~4",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LFO JS(+Y) INTENSITY",
+   "x": 1307.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1328.783214468085,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-48.00~+48.00",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO JS(+Y) Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 338,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@338.7~4_val",
+   "param": "Prog_EXi@338.7~4",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LFO JS(+Y) INTENSITY value",
+   "x": 1309.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO JS(+Y) Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 338,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@340.7~5",
+   "param": "Prog_EXi@340.7~5",
+   "group": "common_pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LFO INT.MOD. INTENSITY",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0000000000002,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-48.00~+48.00",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 340,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@340.7~5_val",
+   "param": "Prog_EXi@340.7~5",
+   "group": "common_pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LFO INT.MOD. INTENSITY value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Pitch",
+    "name": "LFO Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 340,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@391.4",
+   "param": "Prog_EXi@391.4",
+   "group": "sub_osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVEFORM",
+   "x": 123.6,
+   "y": 284,
+   "w": 53.8,
+   "h": 16,
+   "text": [
+    "Square"
+   ],
+   "options": "Square~Triangle",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Waveform",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 391,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Square~Triangle"
+   }
+  },
+  {
+   "id": "Prog_EXi@406.7~4",
+   "param": "Prog_EXi@406.7~4",
+   "group": "sub_osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 272.3,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 406,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@408.4",
+   "param": "Prog_EXi@408.4",
+   "group": "sub_osc",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PHASE INVERT",
+   "x": 330.7,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Phase Invert",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 408,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@409.7~4",
+   "param": "Prog_EXi@409.7~4",
+   "group": "sub_osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BALANCE MOD SRC",
+   "x": 503.9,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Balance Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 409,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@405.7~5",
+   "param": "Prog_EXi@405.7~5",
+   "group": "sub_osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 224.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 245.52179357362047,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 405,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@405.7~5_val",
+   "param": "Prog_EXi@405.7~5",
+   "group": "sub_osc",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 226.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 405,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@407.7~4",
+   "param": "Prog_EXi@407.7~4",
+   "group": "sub_osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL MOD.INTENSITY",
+   "x": 325.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 346.1884602402871,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 407,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@407.7~4_val",
+   "param": "Prog_EXi@407.7~4",
+   "group": "sub_osc",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL MOD.INTENSITY value",
+   "x": 327.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 407,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@408.7~5",
+   "param": "Prog_EXi@408.7~5",
+   "group": "sub_osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BALANCE",
+   "x": 425.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 446.8551269069538,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 408,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@408.7~5_val",
+   "param": "Prog_EXi@408.7~5",
+   "group": "sub_osc",
+   "type": "display",
+   "kind": "value",
+   "label": "BALANCE value",
+   "x": 427.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 408,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@410.7~4",
+   "param": "Prog_EXi@410.7~4",
+   "group": "sub_osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BALANCE MOD.INTENSITY",
+   "x": 526.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 547.5217935736205,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 410,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@410.7~4_val",
+   "param": "Prog_EXi@410.7~4",
+   "group": "sub_osc",
+   "type": "display",
+   "kind": "value",
+   "label": "BALANCE MOD.INTENSITY value",
+   "x": 528.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Sub OSC",
+    "name": "Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 410,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@391.6~5",
+   "param": "Prog_EXi@391.6~5",
+   "group": "ring_modulator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 749.0,
+   "y": 299.0,
+   "w": 60.6,
+   "h": 16,
+   "text": [
+    "Ring Mod."
+   ],
+   "options": "Ring Mod.~Clip",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 391,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Ring Mod.~Clip"
+   }
+  },
+  {
+   "id": "Prog_EXi@391.7",
+   "param": "Prog_EXi@391.7",
+   "group": "ring_modulator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODULATOR",
+   "x": 912.5,
+   "y": 299.0,
+   "w": 81.4,
+   "h": 16,
+   "text": [
+    "OSC1"
+   ],
+   "options": "OSC1~Noise Generato",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Modulator",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 391,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "OSC1~Noise Generato"
+   }
+  },
+  {
+   "id": "Prog_EXi@392.0",
+   "param": "Prog_EXi@392.0",
+   "group": "ring_modulator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CARRIER",
+   "x": 749.0,
+   "y": 333.0,
+   "w": 56.7,
+   "h": 16,
+   "text": [
+    "OSC2"
+   ],
+   "options": "OSC2~Ext.Input",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Carrier",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 392,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "OSC2~Ext.Input"
+   }
+  },
+  {
+   "id": "Prog_EXi@412.7~3",
+   "param": "Prog_EXi@412.7~3",
+   "group": "ring_modulator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 912.5,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 412,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@414.3",
+   "param": "Prog_EXi@414.3",
+   "group": "ring_modulator_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PHASE INVERT",
+   "x": 749.0,
+   "y": 368.0,
+   "w": 155.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:AL-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Phase Invert",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 414,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "52",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@415.7~3",
+   "param": "Prog_EXi@415.7~3",
+   "group": "ring_modulator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BALANCE MOD.SOURCE",
+   "x": 912.5,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Balance Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 415,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@411.7~4",
+   "param": "Prog_EXi@411.7~4",
+   "group": "ring_modulator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 1100.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1121.0527570152453,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 411,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@411.7~4_val",
+   "param": "Prog_EXi@411.7~4",
+   "group": "ring_modulator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 1102.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 411,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@413.7~3",
+   "param": "Prog_EXi@413.7~3",
+   "group": "ring_modulator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL MOD.INTENSITY",
+   "x": 1194.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1215.0351713434968,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 413,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@413.7~3_val",
+   "param": "Prog_EXi@413.7~3",
+   "group": "ring_modulator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL MOD.INTENSITY value",
+   "x": 1196.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 413,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@414.7~4",
+   "param": "Prog_EXi@414.7~4",
+   "group": "ring_modulator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BALANCE",
+   "x": 1288.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1309.0175856717485,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 414,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@414.7~4_val",
+   "param": "Prog_EXi@414.7~4",
+   "group": "ring_modulator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BALANCE value",
+   "x": 1290.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Balance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 414,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@416.7~3",
+   "param": "Prog_EXi@416.7~3",
+   "group": "ring_modulator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BALANCE MOD.INTENSITY",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 416,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@416.7~3_val",
+   "param": "Prog_EXi@416.7~3",
+   "group": "ring_modulator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BALANCE MOD.INTENSITY value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Ring Modulator",
+    "name": "Balance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 416,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "19",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "exi:AL-1"
+}

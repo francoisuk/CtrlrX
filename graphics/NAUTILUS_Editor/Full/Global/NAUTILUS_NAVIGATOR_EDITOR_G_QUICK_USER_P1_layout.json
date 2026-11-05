@@ -1,0 +1,1838 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "QUICK USER",
+ "tab_index": 0,
+ "object": "Global",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_G_QUICK_USER_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_G_QUICK_USER_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "3 : Global"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Global — QUICK USER"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_basic",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "BASIC",
+   "x": 60,
+   "y": 84,
+   "w": 102.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_controller",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROLLER",
+   "x": 165.2,
+   "y": 84,
+   "w": 128.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI",
+   "x": 297.1,
+   "y": 84,
+   "w": 95.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 395.9,
+   "y": 84,
+   "w": 112.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_octave_scales",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OCTAVE SCALES",
+   "x": 511.8,
+   "y": 84,
+   "w": 141.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_all_note_scale",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ALL NOTE SCALE",
+   "x": 656.4,
+   "y": 84,
+   "w": 141.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_categories",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CATEGORIES",
+   "x": 801.1,
+   "y": 84,
+   "w": 126.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_quick_access",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "QUICK ACCESS",
+   "x": 931.0,
+   "y": 84,
+   "w": 135.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_quick_user",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "QUICK USER",
+   "x": 1069.4,
+   "y": 84,
+   "w": 124.5,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_assignments",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ASSIGNMENTS",
+   "x": 1196.9,
+   "y": 84,
+   "w": 134.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Global@20682",
+   "param": "Global@20682",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20682",
+   "x": 472.8,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "None"
+   ],
+   "range": "None ~ Function",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[A] Action",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20682,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "0 ~ 4",
+    "value": "None ~ Function"
+   }
+  },
+  {
+   "id": "Global@20690",
+   "param": "Global@20690",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20690",
+   "x": 588.2,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "None"
+   ],
+   "range": "None ~ Function",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[B] Action",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20690,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "1"
+    },
+    "data": "0 ~ 4",
+    "value": "None ~ Function"
+   }
+  },
+  {
+   "id": "Global@20698",
+   "param": "Global@20698",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20698",
+   "x": 703.6,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "None"
+   ],
+   "range": "None ~ Function",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[C] Action",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20698,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "2"
+    },
+    "data": "0 ~ 4",
+    "value": "None ~ Function"
+   }
+  },
+  {
+   "id": "Global@20706",
+   "param": "Global@20706",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20706",
+   "x": 819.0,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "None"
+   ],
+   "range": "None ~ Function",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[D] Action",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20706,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "3"
+    },
+    "data": "0 ~ 4",
+    "value": "None ~ Function"
+   }
+  },
+  {
+   "id": "Global@20714",
+   "param": "Global@20714",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20714",
+   "x": 934.4,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "None"
+   ],
+   "range": "None ~ Function",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[E] Action",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20714,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "4"
+    },
+    "data": "0 ~ 4",
+    "value": "None ~ Function"
+   }
+  },
+  {
+   "id": "Global@20722",
+   "param": "Global@20722",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20722",
+   "x": 1049.8,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "None"
+   ],
+   "range": "None ~ Function",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[F] Action",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20722,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "5"
+    },
+    "data": "0 ~ 4",
+    "value": "None ~ Function"
+   }
+  },
+  {
+   "id": "Global@20683",
+   "param": "Global@20683",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20683",
+   "x": 472.8,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Program Select"
+   ],
+   "range": "Program Select ~ Select By Bank",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[A] Sound Browse Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20683,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "0 ~ 7",
+    "value": "Program Select ~ Select By Bank"
+   }
+  },
+  {
+   "id": "Global@20691",
+   "param": "Global@20691",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20691",
+   "x": 588.2,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Prog. Select"
+   ],
+   "range": "Prog. Select ~ Cur. Sound Select By Bank",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[B] Sound Browse Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20691,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "126",
+     "IDX": "1"
+    },
+    "data": "0 ~ 7",
+    "value": "Prog. Select ~ Cur. Sound Select By Bank"
+   }
+  },
+  {
+   "id": "Global@20699",
+   "param": "Global@20699",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20699",
+   "x": 703.6,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Prog. Select"
+   ],
+   "range": "Prog. Select ~ Cur. Sound Select By Bank",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[C] Sound Browse Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20699,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "126",
+     "IDX": "2"
+    },
+    "data": "0 ~ 7",
+    "value": "Prog. Select ~ Cur. Sound Select By Bank"
+   }
+  },
+  {
+   "id": "Global@20707",
+   "param": "Global@20707",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20707",
+   "x": 819.0,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Prog. Select"
+   ],
+   "range": "Prog. Select ~ Cur. Sound Select By Bank",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[D] Sound Browse Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20707,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "126",
+     "IDX": "3"
+    },
+    "data": "0 ~ 7",
+    "value": "Prog. Select ~ Cur. Sound Select By Bank"
+   }
+  },
+  {
+   "id": "Global@20715",
+   "param": "Global@20715",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20715",
+   "x": 934.4,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Prog. Select"
+   ],
+   "range": "Prog. Select ~ Cur. Sound Select By Bank",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[E] Sound Browse Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20715,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "126",
+     "IDX": "4"
+    },
+    "data": "0 ~ 7",
+    "value": "Prog. Select ~ Cur. Sound Select By Bank"
+   }
+  },
+  {
+   "id": "Global@20723",
+   "param": "Global@20723",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20723",
+   "x": 1049.8,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Prog. Select"
+   ],
+   "range": "Prog. Select ~ Cur. Sound Select By Bank",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[F] Sound Browse Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20723,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "126",
+     "IDX": "5"
+    },
+    "data": "0 ~ 7",
+    "value": "Prog. Select ~ Cur. Sound Select By Bank"
+   }
+  },
+  {
+   "id": "Global@20684",
+   "param": "Global@20684",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20684",
+   "x": 472.8,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Seq StartStop"
+   ],
+   "range": "Seq StartStop ~ Write",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[A] Function Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20684,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "2",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "0 ~ 9",
+    "value": "Seq StartStop ~ Write"
+   }
+  },
+  {
+   "id": "Global@20692",
+   "param": "Global@20692",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20692",
+   "x": 588.2,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Seq StartStop"
+   ],
+   "range": "Seq StartStop ~ Write",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[B] Function Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20692,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "2",
+     "PID": "126",
+     "IDX": "1"
+    },
+    "data": "0 ~ 9",
+    "value": "Seq StartStop ~ Write"
+   }
+  },
+  {
+   "id": "Global@20700",
+   "param": "Global@20700",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20700",
+   "x": 703.6,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Seq StartStop"
+   ],
+   "range": "Seq StartStop ~ Write",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[C] Function Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20700,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "2",
+     "PID": "126",
+     "IDX": "2"
+    },
+    "data": "0 ~ 9",
+    "value": "Seq StartStop ~ Write"
+   }
+  },
+  {
+   "id": "Global@20708",
+   "param": "Global@20708",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20708",
+   "x": 819.0,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Seq StartStop"
+   ],
+   "range": "Seq StartStop ~ Write",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[D] Function Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20708,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "2",
+     "PID": "126",
+     "IDX": "3"
+    },
+    "data": "0 ~ 9",
+    "value": "Seq StartStop ~ Write"
+   }
+  },
+  {
+   "id": "Global@20716",
+   "param": "Global@20716",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20716",
+   "x": 934.4,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Seq StartStop"
+   ],
+   "range": "Seq StartStop ~ Write",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[E] Function Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20716,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "2",
+     "PID": "126",
+     "IDX": "4"
+    },
+    "data": "0 ~ 9",
+    "value": "Seq StartStop ~ Write"
+   }
+  },
+  {
+   "id": "Global@20724",
+   "param": "Global@20724",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20724",
+   "x": 1049.8,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Seq StartStop"
+   ],
+   "range": "Seq StartStop ~ Write",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[F] Function Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20724,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "2",
+     "PID": "126",
+     "IDX": "5"
+    },
+    "data": "0 ~ 9",
+    "value": "Seq StartStop ~ Write"
+   }
+  },
+  {
+   "id": "Global@20685",
+   "param": "Global@20685",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20685",
+   "x": 472.8,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Home"
+   ],
+   "range": "Home ~ Controllers",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[A] Current Mode Page Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20685,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "3",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "0 ~ 6",
+    "value": "Home ~ Controllers"
+   }
+  },
+  {
+   "id": "Global@20693",
+   "param": "Global@20693",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20693",
+   "x": 588.2,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Home"
+   ],
+   "range": "Home ~ Controllers",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[B] Current Mode Page Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20693,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "3",
+     "PID": "126",
+     "IDX": "1"
+    },
+    "data": "0 ~ 6",
+    "value": "Home ~ Controllers"
+   }
+  },
+  {
+   "id": "Global@20701",
+   "param": "Global@20701",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20701",
+   "x": 703.6,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Home"
+   ],
+   "range": "Home ~ Controllers",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[C] Current Mode Page Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20701,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "3",
+     "PID": "126",
+     "IDX": "2"
+    },
+    "data": "0 ~ 6",
+    "value": "Home ~ Controllers"
+   }
+  },
+  {
+   "id": "Global@20709",
+   "param": "Global@20709",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20709",
+   "x": 819.0,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Home"
+   ],
+   "range": "Home ~ Controllers",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[D] Current Mode Page Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20709,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "3",
+     "PID": "126",
+     "IDX": "3"
+    },
+    "data": "0 ~ 6",
+    "value": "Home ~ Controllers"
+   }
+  },
+  {
+   "id": "Global@20717",
+   "param": "Global@20717",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20717",
+   "x": 934.4,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Home"
+   ],
+   "range": "Home ~ Controllers",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[E] Current Mode Page Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20717,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "3",
+     "PID": "126",
+     "IDX": "4"
+    },
+    "data": "0 ~ 6",
+    "value": "Home ~ Controllers"
+   }
+  },
+  {
+   "id": "Global@20725",
+   "param": "Global@20725",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20725",
+   "x": 1049.8,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Home"
+   ],
+   "range": "Home ~ Controllers",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[F] Current Mode Page Type",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20725,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "3",
+     "PID": "126",
+     "IDX": "5"
+    },
+    "data": "0 ~ 6",
+    "value": "Home ~ Controllers"
+   }
+  },
+  {
+   "id": "Global@20686",
+   "param": "Global@20686",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20686",
+   "x": 472.8,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program ~ SetList",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[A] (Page Jump) Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20686,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "4",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "0 ~ 6",
+    "value": "Program ~ SetList"
+   }
+  },
+  {
+   "id": "Global@20694",
+   "param": "Global@20694",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20694",
+   "x": 588.2,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program ~ SetList",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[B] (Page Jump) Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20694,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "4",
+     "PID": "126",
+     "IDX": "1"
+    },
+    "data": "0 ~ 6",
+    "value": "Program ~ SetList"
+   }
+  },
+  {
+   "id": "Global@20702",
+   "param": "Global@20702",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20702",
+   "x": 703.6,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program ~ SetList",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[C] (Page Jump) Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20702,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "4",
+     "PID": "126",
+     "IDX": "2"
+    },
+    "data": "0 ~ 6",
+    "value": "Program ~ SetList"
+   }
+  },
+  {
+   "id": "Global@20710",
+   "param": "Global@20710",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20710",
+   "x": 819.0,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program ~ SetList",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[D] (Page Jump) Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20710,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "4",
+     "PID": "126",
+     "IDX": "3"
+    },
+    "data": "0 ~ 6",
+    "value": "Program ~ SetList"
+   }
+  },
+  {
+   "id": "Global@20718",
+   "param": "Global@20718",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20718",
+   "x": 934.4,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program ~ SetList",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[E] (Page Jump) Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20718,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "4",
+     "PID": "126",
+     "IDX": "4"
+    },
+    "data": "0 ~ 6",
+    "value": "Program ~ SetList"
+   }
+  },
+  {
+   "id": "Global@20726",
+   "param": "Global@20726",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20726",
+   "x": 1049.8,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program ~ SetList",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[F] (Page Jump) Mode",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20726,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "4",
+     "PID": "126",
+     "IDX": "5"
+    },
+    "data": "0 ~ 6",
+    "value": "Program ~ SetList"
+   }
+  },
+  {
+   "id": "Global@20687",
+   "param": "Global@20687",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20687",
+   "x": 472.8,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[A] (Page Jump) Page",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20687,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "5",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "0 ~ 5C",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20695",
+   "param": "Global@20695",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20695",
+   "x": 588.2,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[B] (Page Jump) Page",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20695,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "5",
+     "PID": "126",
+     "IDX": "1"
+    },
+    "data": "0 ~ 5C",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20703",
+   "param": "Global@20703",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20703",
+   "x": 703.6,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[C] (Page Jump) Page",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20703,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "5",
+     "PID": "126",
+     "IDX": "2"
+    },
+    "data": "0 ~ 5C",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20711",
+   "param": "Global@20711",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20711",
+   "x": 819.0,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[D] (Page Jump) Page",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20711,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "5",
+     "PID": "126",
+     "IDX": "3"
+    },
+    "data": "0 ~ 5C",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20719",
+   "param": "Global@20719",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20719",
+   "x": 934.4,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[E] (Page Jump) Page",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20719,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "5",
+     "PID": "126",
+     "IDX": "4"
+    },
+    "data": "0 ~ 5C",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20727",
+   "param": "Global@20727",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20727",
+   "x": 1049.8,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[F] (Page Jump) Page",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20727,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "5",
+     "PID": "126",
+     "IDX": "5"
+    },
+    "data": "0 ~ 5C",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20688",
+   "param": "Global@20688",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20688",
+   "x": 472.8,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[A] (Page Jump) Tab",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20688,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "6",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "0 ~ 8",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20696",
+   "param": "Global@20696",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20696",
+   "x": 588.2,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[B] (Page Jump) Tab",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20696,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "6",
+     "PID": "126",
+     "IDX": "1"
+    },
+    "data": "0 ~ 8",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20704",
+   "param": "Global@20704",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20704",
+   "x": 703.6,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[C] (Page Jump) Tab",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20704,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "6",
+     "PID": "126",
+     "IDX": "2"
+    },
+    "data": "0 ~ 8",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20712",
+   "param": "Global@20712",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20712",
+   "x": 819.0,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[D] (Page Jump) Tab",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20712,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "6",
+     "PID": "126",
+     "IDX": "3"
+    },
+    "data": "0 ~ 8",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20720",
+   "param": "Global@20720",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20720",
+   "x": 934.4,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[E] (Page Jump) Tab",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20720,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "6",
+     "PID": "126",
+     "IDX": "4"
+    },
+    "data": "0 ~ 8",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20728",
+   "param": "Global@20728",
+   "group": "quickaccess_user",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@20728",
+   "x": 1049.8,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "QuickAccess User 1",
+    "name": "[F] (Page Jump) Tab",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 20728,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "6",
+     "PID": "126",
+     "IDX": "5"
+    },
+    "data": "0 ~ 8",
+    "value": ""
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "QUICK USER",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all",
+ "index": {
+  "label": "USER",
+  "instances": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "shown": "1",
+  "stride_bytes": 48,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ }
+}

@@ -1,0 +1,181 @@
+{
+ "object": "Program · STR-1",
+ "areas": [
+  {
+   "label": "OSC",
+   "pages": 7,
+   "index": null,
+   "instances": [],
+   "apply": "exi:STR-1",
+   "link": null
+  },
+  {
+   "label": "FILTER",
+   "pages": 4,
+   "index": null,
+   "instances": [],
+   "apply": "exi:STR-1",
+   "link": null
+  },
+  {
+   "label": "AMP·MIX",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:STR-1",
+   "link": null
+  },
+  {
+   "label": "EG",
+   "pages": 5,
+   "index": null,
+   "instances": [],
+   "apply": "exi:STR-1",
+   "link": null
+  },
+  {
+   "label": "LFO",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:STR-1",
+   "link": null
+  },
+  {
+   "label": "MOD",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:STR-1",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_OSC_P1",
+   "area": "OSC",
+   "n": 1,
+   "of": 7
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_OSC_P2",
+   "area": "OSC",
+   "n": 2,
+   "of": 7
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_OSC_P3",
+   "area": "OSC",
+   "n": 3,
+   "of": 7
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_OSC_P4",
+   "area": "OSC",
+   "n": 4,
+   "of": 7
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_OSC_P5",
+   "area": "OSC",
+   "n": 5,
+   "of": 7
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_OSC_P6",
+   "area": "OSC",
+   "n": 6,
+   "of": 7
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_OSC_P7",
+   "area": "OSC",
+   "n": 7,
+   "of": 7
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_FILTER_P1",
+   "area": "FILTER",
+   "n": 1,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_FILTER_P2",
+   "area": "FILTER",
+   "n": 2,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_FILTER_P3",
+   "area": "FILTER",
+   "n": 3,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_FILTER_P4",
+   "area": "FILTER",
+   "n": 4,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_AMP_MIX_P1",
+   "area": "AMP·MIX",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_AMP_MIX_P2",
+   "area": "AMP·MIX",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_EG_P1",
+   "area": "EG",
+   "n": 1,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_EG_P2",
+   "area": "EG",
+   "n": 2,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_EG_P3",
+   "area": "EG",
+   "n": 3,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_EG_P4",
+   "area": "EG",
+   "n": 4,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_EG_P5",
+   "area": "EG",
+   "n": 5,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_LFO_P1",
+   "area": "LFO",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_LFO_P2",
+   "area": "LFO",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_STR1_MOD_P1",
+   "area": "MOD",
+   "n": 1,
+   "of": 1
+  }
+ ]
+}

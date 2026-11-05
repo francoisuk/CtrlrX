@@ -1,0 +1,1419 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 2/3",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_P_OSC_P2_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_P_OSC_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — OSC · 2/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 78.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 141.7,
+   "y": 84,
+   "w": 60.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 205.0,
+   "y": 84,
+   "w": 69.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 277.2,
+   "y": 84,
+   "w": 61.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 341.6,
+   "y": 84,
+   "w": 75.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 419.9,
+   "y": 84,
+   "w": 99.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 522.3,
+   "y": 84,
+   "w": 56.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 582.0,
+   "y": 84,
+   "w": 80.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 665.0,
+   "y": 84,
+   "w": 72.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 740.1,
+   "y": 84,
+   "w": 77.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 820.1,
+   "y": 84,
+   "w": 72.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 895.9,
+   "y": 84,
+   "w": 75.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 973.9,
+   "y": 84,
+   "w": 80.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1057.3,
+   "y": 84,
+   "w": 77.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1138.1,
+   "y": 84,
+   "w": 72.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1213.2,
+   "y": 84,
+   "w": 83.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1309.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1334.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@3135.7",
+   "param": "Prog_HD-1@3135.7",
+   "group": "osc_drive",
+   "type": "button",
+   "kind": "toggle",
+   "label": "BYPASS",
+   "x": 72,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "hd1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Bypass",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3135,
+    "bit": "7",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2927,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3137",
+   "param": "Prog_HD-1@3137",
+   "group": "osc_drive",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRIVE MOD.SOURCE",
+   "x": 248.3,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Drive Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3137,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 2929,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3139",
+   "param": "Prog_HD-1@3139",
+   "group": "osc_drive",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BOOST MOD.SOURCE",
+   "x": 416.3,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Boost Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3139,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 2931,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3135.6~0",
+   "param": "Prog_HD-1@3135.6~0",
+   "group": "osc_drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRIVE",
+   "x": 102.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 123.65291093629946,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Drive",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3135,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2927,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3135.6~0_val",
+   "param": "Prog_HD-1@3135.6~0",
+   "group": "osc_drive",
+   "type": "display",
+   "kind": "value",
+   "label": "DRIVE value",
+   "x": 104.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Drive",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3135,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2927,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3136.6~0",
+   "param": "Prog_HD-1@3136.6~0",
+   "group": "osc_drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BOOST",
+   "x": 203.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 224.31957760296612,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Boost",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3136,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2928,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3136.6~0_val",
+   "param": "Prog_HD-1@3136.6~0",
+   "group": "osc_drive",
+   "type": "display",
+   "kind": "value",
+   "label": "BOOST value",
+   "x": 205.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Boost",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3136,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2928,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3138",
+   "param": "Prog_HD-1@3138",
+   "group": "osc_drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRIVE MOD.INT",
+   "x": 304.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 324.9862442696328,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Drive Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3138,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2930,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3138_val",
+   "param": "Prog_HD-1@3138",
+   "group": "osc_drive",
+   "type": "display",
+   "kind": "value",
+   "label": "DRIVE MOD.INT value",
+   "x": 306.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Drive Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3138,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2930,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3140",
+   "param": "Prog_HD-1@3140",
+   "group": "osc_drive",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BOOST MOD.INT",
+   "x": 404.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 425.65291093629946,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Boost Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3140,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2932,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3140_val",
+   "param": "Prog_HD-1@3140",
+   "group": "osc_drive",
+   "type": "display",
+   "kind": "value",
+   "label": "BOOST MOD.INT value",
+   "x": 406.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Drive",
+    "name": "Boost Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3140,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2932,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3193.6~0",
+   "param": "Prog_HD-1@3193.6~0",
+   "group": "osc_output_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PANPOT",
+   "x": 547.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "RND"
+   ],
+   "options": "RND~R127",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Panpot",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3193,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "RND~R127",
+    "oasys": {
+     "ofs": 2985,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3193.7",
+   "param": "Prog_HD-1@3193.7",
+   "group": "osc_output_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "USE DRUM.INST PANPOT",
+   "x": 627.2,
+   "y": 137,
+   "w": 111.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "hd1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Use Drum.Inst Panpot",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3193,
+    "bit": "7",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2985,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3194",
+   "param": "Prog_HD-1@3194",
+   "group": "osc_output_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PANPOT MOD SRC",
+   "x": 821.0,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Panpot Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3194,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 2986,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3199.0",
+   "param": "Prog_HD-1@3199.0",
+   "group": "osc_output_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MUTE",
+   "x": 901.0,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "hd1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Mute",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3199,
+    "bit": "0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2991,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3192.2~0",
+   "param": "Prog_HD-1@3192.2~0",
+   "group": "osc_output_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VECTOR CENTER LVL",
+   "x": 660.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 681.3833721293555,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0%~100%",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Vector Center Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3192,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "0%~100%",
+    "oasys": {
+     "ofs": 2984,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3192.2~0_val",
+   "param": "Prog_HD-1@3192.2~0",
+   "group": "osc_output_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VECTOR CENTER LVL value",
+   "x": 662.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0%"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Vector Center Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3192,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "0%~100%",
+    "oasys": {
+     "ofs": 2984,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3195",
+   "param": "Prog_HD-1@3195",
+   "group": "osc_output_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PANPOT MOD.INT",
+   "x": 766.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 787.3833721293555,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Panpot Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3195,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2987,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3195_val",
+   "param": "Prog_HD-1@3195",
+   "group": "osc_output_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PANPOT MOD.INT value",
+   "x": 768.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Panpot Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3195,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2987,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3198",
+   "param": "Prog_HD-1@3198",
+   "group": "osc_output_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PATCH LEVEL",
+   "x": 872.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 893.3833721293555,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Patch Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3198,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2990,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3198_val",
+   "param": "Prog_HD-1@3198",
+   "group": "osc_output_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PATCH LEVEL value",
+   "x": 874.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Patch Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3198,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2990,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3196",
+   "param": "Prog_HD-1@3196",
+   "group": "osc_output_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3196",
+   "x": 1235.5,
+   "y": 150,
+   "w": 92.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Send1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3196,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2988,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3197",
+   "param": "Prog_HD-1@3197",
+   "group": "osc_output_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3197",
+   "x": 1331.7,
+   "y": 150,
+   "w": 92.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Output",
+    "name": "Send2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3197,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2989,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 2,
+ "pages_in_area": 3,
+ "apply": "hd1",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier.",
+ "index": {
+  "label": "OSC",
+  "instances": [
+   "1",
+   "2"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2"
+  ],
+  "shown": "1",
+  "stride_bytes": 2,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes",
+  "stride_bytes_oasys": 2
+ }
+}

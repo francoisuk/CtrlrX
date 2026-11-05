@@ -1,0 +1,2135 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 2/2",
+ "tab_index": 0,
+ "object": "Program · MS-20EX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_MS20EX_OSC_P2_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_MS20EX_OSC_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MS-20EX — OSC · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 207.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 279.6,
+   "y": 84,
+   "w": 177.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 459.8,
+   "y": 84,
+   "w": 186.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 648.9,
+   "y": 84,
+   "w": 195.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 847.0,
+   "y": 84,
+   "w": 173.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1023.6,
+   "y": 84,
+   "w": 175.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1202.0,
+   "y": 84,
+   "w": 179.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@287",
+   "param": "Prog_EXi@287",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FINE TUNE MOD.SOURCE",
+   "x": 184.2,
+   "y": 153.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 287,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 287,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@289.7~3",
+   "param": "Prog_EXi@289.7~3",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FINE TUNE MOD INT.MOD SRC",
+   "x": 469.1,
+   "y": 153.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 289,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 289,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@299.7~6",
+   "param": "Prog_EXi@299.7~6",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRANSPOSE MOD.SOURCE",
+   "x": 754.0,
+   "y": 153.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 299,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 299,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@302.7~4",
+   "param": "Prog_EXi@302.7~4",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRANSP MOD INT.MOD SRC",
+   "x": 1038.9,
+   "y": 153.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 302,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 302,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@377.7~6",
+   "param": "Prog_EXi@377.7~6",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PORTAMENTO TIME MOD SRC",
+   "x": 184.2,
+   "y": 187.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 377,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@381.7~6",
+   "param": "Prog_EXi@381.7~6",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQ MOD MG/T.EXT MOD SRC",
+   "x": 469.1,
+   "y": 187.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 381,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "4"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@382.7~6",
+   "param": "Prog_EXi@382.7~6",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQ MOD EG1/EXT MOD SRC",
+   "x": 754.0,
+   "y": 187.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 382,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "5"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@411",
+   "param": "Prog_EXi@411",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PORTAMENTO TIME MOD INT.MOD SRC",
+   "x": 1038.9,
+   "y": 187.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 411,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@415",
+   "param": "Prog_EXi@415",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQ MOD MG/T.EXT MOD INT.MOD SRC",
+   "x": 184.2,
+   "y": 221.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 415,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "4"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@416",
+   "param": "Prog_EXi@416",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQ MOD EG1/EXT MOD INT.MOD SRC",
+   "x": 469.1,
+   "y": 221.0,
+   "w": 276.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 416,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "5"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@284.7~4",
+   "param": "Prog_EXi@284.7~4",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PORTAMENTO TIME",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 284,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 284,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@284.7~4_val",
+   "param": "Prog_EXi@284.7~4",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PORTAMENTO TIME value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 284,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 284,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@285.7~6",
+   "param": "Prog_EXi@285.7~6",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FINE TUNE",
+   "x": 138.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 159.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-5.00~+5.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 285,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "FE0C~01F4",
+    "value": "-5.00~+5.00",
+    "oasys": {
+     "ofs": 285,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@285.7~6_val",
+   "param": "Prog_EXi@285.7~6",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FINE TUNE value",
+   "x": 140.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 285,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "FE0C~01F4",
+    "value": "-5.00~+5.00",
+    "oasys": {
+     "ofs": 285,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@288",
+   "param": "Prog_EXi@288",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FINE TUNE MOD.INT",
+   "x": 201.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 222.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 288,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 288,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@288_val",
+   "param": "Prog_EXi@288",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FINE TUNE MOD.INT value",
+   "x": 203.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 288,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 288,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@290.7~3",
+   "param": "Prog_EXi@290.7~3",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FINE TUNE MOD INT.MOD INT",
+   "x": 264.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 285.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 290,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 290,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@290.7~3_val",
+   "param": "Prog_EXi@290.7~3",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FINE TUNE MOD INT.MOD INT value",
+   "x": 266.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Fine Tune Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 290,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 290,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@291.7~6",
+   "param": "Prog_EXi@291.7~6",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQ MOD MG/T.EXT",
+   "x": 327.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 348.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 291,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 291,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@291.7~6_val",
+   "param": "Prog_EXi@291.7~6",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQ MOD MG/T.EXT value",
+   "x": 329.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 291,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 291,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@293",
+   "param": "Prog_EXi@293",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY MOD.EG1/EXT",
+   "x": 389.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 410.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 293,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 293,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@293_val",
+   "param": "Prog_EXi@293",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY MOD.EG1/EXT value",
+   "x": 391.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 293,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 293,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@296.7~6",
+   "param": "Prog_EXi@296.7~6",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BEND RANGE",
+   "x": 452.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 473.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~12.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Bend Range",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 296,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "0000~04B0",
+    "value": "0.00~12.00",
+    "oasys": {
+     "ofs": 296,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@296.7~6_val",
+   "param": "Prog_EXi@296.7~6",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BEND RANGE value",
+   "x": 454.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Bend Range",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 296,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "0000~04B0",
+    "value": "0.00~12.00",
+    "oasys": {
+     "ofs": 296,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@298.7~1",
+   "param": "Prog_EXi@298.7~1",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSPOSE",
+   "x": 515.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 536.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-24.00~+24.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 298,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "F6A0~0960",
+    "value": "-24.00~+24.00",
+    "oasys": {
+     "ofs": 298,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@298.7~1_val",
+   "param": "Prog_EXi@298.7~1",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSPOSE value",
+   "x": 517.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 298,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "F6A0~0960",
+    "value": "-24.00~+24.00",
+    "oasys": {
+     "ofs": 298,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@300.7~6",
+   "param": "Prog_EXi@300.7~6",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSPOSE MOD.INT",
+   "x": 578.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 599.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-48.00~+48.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 300,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00",
+    "oasys": {
+     "ofs": 300,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@300.7~6_val",
+   "param": "Prog_EXi@300.7~6",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSPOSE MOD.INT value",
+   "x": 580.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 300,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00",
+    "oasys": {
+     "ofs": 300,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@303.7~4",
+   "param": "Prog_EXi@303.7~4",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSP MOD INT.MOD INT",
+   "x": 640.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 661.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-48.00~+48.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 303,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00",
+    "oasys": {
+     "ofs": 303,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@303.7~4_val",
+   "param": "Prog_EXi@303.7~4",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSP MOD INT.MOD INT value",
+   "x": 642.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 303,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00",
+    "oasys": {
+     "ofs": 303,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@333.7~3",
+   "param": "Prog_EXi@333.7~3",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ANALOG",
+   "x": 703.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 724.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Analog",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 333,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@333.7~3_val",
+   "param": "Prog_EXi@333.7~3",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ANALOG value",
+   "x": 705.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Analog",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 333,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@391.7~6",
+   "param": "Prog_EXi@391.7~6",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PORTAMENTO TIME MOD INT",
+   "x": 766.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 787.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 391,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@391.7~6_val",
+   "param": "Prog_EXi@391.7~6",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PORTAMENTO TIME MOD INT value",
+   "x": 768.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 391,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@397.7~2",
+   "param": "Prog_EXi@397.7~2",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQ MOD MG/T.EXT MOD INT",
+   "x": 829.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 850.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 397,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "4"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@397.7~2_val",
+   "param": "Prog_EXi@397.7~2",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQ MOD MG/T.EXT MOD INT value",
+   "x": 831.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 397,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "4"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@398.7~5",
+   "param": "Prog_EXi@398.7~5",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQ MOD EG1/EXT MOD INT",
+   "x": 891.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 912.75,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 398,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "5"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@398.7~5_val",
+   "param": "Prog_EXi@398.7~5",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQ MOD EG1/EXT MOD INT value",
+   "x": 893.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 398,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "5"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@425",
+   "param": "Prog_EXi@425",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PORTAMENTO TIME MOD INT.MOD INT",
+   "x": 954.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 975.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 425,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@425_val",
+   "param": "Prog_EXi@425",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PORTAMENTO TIME MOD INT.MOD INT value",
+   "x": 956.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Portamento Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 425,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@430.7~4",
+   "param": "Prog_EXi@430.7~4",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQ MOD MG/T.EXT MOD INT.MOD INT",
+   "x": 1017.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1038.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 430,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "4"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@430.7~4_val",
+   "param": "Prog_EXi@430.7~4",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQ MOD MG/T.EXT MOD INT.MOD INT value",
+   "x": 1019.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.MG/T.EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 430,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "4"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@431.7",
+   "param": "Prog_EXi@431.7",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQ MOD EG1/EXT MOD INT.MOD INT",
+   "x": 1080.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1101.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 431,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "5"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@431.7_val",
+   "param": "Prog_EXi@431.7",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQ MOD EG1/EXT MOD INT.MOD INT value",
+   "x": 1082.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Frequency Mod.EG1/EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 431,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "5"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@294.7~2",
+   "param": "Prog_EXi@294.7~2",
+   "group": "vco_mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@294.7~2",
+   "x": 1296.0,
+   "y": 296,
+   "w": 62.0,
+   "h": 16,
+   "text": [
+    "0.00"
+   ],
+   "range": "0.00~10.00",
+   "midi": null,
+   "korg": {
+    "group": "VCO Mixer",
+    "name": "VCO1 Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 294,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 294,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@295.7~4",
+   "param": "Prog_EXi@295.7~4",
+   "group": "vco_mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@295.7~4",
+   "x": 1362.0,
+   "y": 296,
+   "w": 62.0,
+   "h": 16,
+   "text": [
+    "0.00"
+   ],
+   "range": "0.00~10.00",
+   "midi": null,
+   "korg": {
+    "group": "VCO Mixer",
+    "name": "VCO2 Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 295,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 295,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "exi:MS-20EX",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

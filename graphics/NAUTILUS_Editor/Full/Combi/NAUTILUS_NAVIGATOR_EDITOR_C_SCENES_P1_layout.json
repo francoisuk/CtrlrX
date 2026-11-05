@@ -1,0 +1,2385 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "SCENES · 1/5",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — SCENES · 1/5"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 137.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 200.5,
+   "y": 84,
+   "w": 131.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 334.6,
+   "y": 84,
+   "w": 135.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 473.4,
+   "y": 84,
+   "w": 131.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 607.9,
+   "y": 84,
+   "w": 117.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 728.3,
+   "y": 84,
+   "w": 139.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 870.4,
+   "y": 84,
+   "w": 132.6,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1006.0,
+   "y": 84,
+   "w": 160.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1169.4,
+   "y": 84,
+   "w": 136.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1348.2~0",
+   "param": "CombiAndSongTimbreSet@1348.2~0",
+   "group": "scene_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SCENE SELECT",
+   "x": 135.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Scene Select",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1348,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1348.5~4",
+   "param": "CombiAndSongTimbreSet@1348.5~4",
+   "group": "scene_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CUE MODE",
+   "x": 262.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Immediately"
+   ],
+   "options": "Immediately~Measure",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Cue Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1348,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Immediately~Measure"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1349.0",
+   "param": "CombiAndSongTimbreSet@1349.0",
+   "group": "scene_common_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "LATCH SWITCH",
+   "x": 342.5,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Latch Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1349,
+    "bit": "0",
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1349.1",
+   "param": "CombiAndSongTimbreSet@1349.1",
+   "group": "scene_common_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP SWITCH",
+   "x": 434.5,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1349,
+    "bit": "1",
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1349.2",
+   "param": "CombiAndSongTimbreSet@1349.2",
+   "group": "scene_common_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "DRUM SWITCH",
+   "x": 526.5,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1349,
+    "bit": "2",
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1373",
+   "param": "CombiAndSongTimbreSet@1373",
+   "group": "scene_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM INPUT CH",
+   "x": 687.1,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Input Channel",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1373,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1378.0",
+   "param": "CombiAndSongTimbreSet@1378.0",
+   "group": "scene_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM TRIGGER MODE",
+   "x": 857.4,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Start Immediately"
+   ],
+   "options": "Start Immediately~W",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1378,
+    "bit": "0",
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Start Immediately~W"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1378.2~1",
+   "param": "CombiAndSongTimbreSet@1378.2~1",
+   "group": "scene_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM LATCH MODE",
+   "x": 1020.4,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Use Scene Latch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Latch Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1378,
+    "bit": "2~1",
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~Use Scene Latch"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1350",
+   "param": "CombiAndSongTimbreSet@1350",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TEMPO",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "40.00~300.00",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Tempo",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1350,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0FA0~7530",
+    "value": "40.00~300.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1350_val",
+   "param": "CombiAndSongTimbreSet@1350",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TEMPO value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "40.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Tempo",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1350,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0FA0~7530",
+    "value": "40.00~300.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1352",
+   "param": "CombiAndSongTimbreSet@1352",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP GATE",
+   "x": 148.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 169.55555555555554,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-64~63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp Gate",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1352,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "-64~63"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1352_val",
+   "param": "CombiAndSongTimbreSet@1352",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP GATE value",
+   "x": 150.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp Gate",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1352,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "-64~63"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1353",
+   "param": "CombiAndSongTimbreSet@1353",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP VELOCITY",
+   "x": 221.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 242.11111111111111,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-64~63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1353,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "-64~63"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1353_val",
+   "param": "CombiAndSongTimbreSet@1353",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP VELOCITY value",
+   "x": 223.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1353,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "-64~63"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1354",
+   "param": "CombiAndSongTimbreSet@1354",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP/DRUM LENGTH",
+   "x": 293.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 314.6666666666667,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp/Drum Length",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1354,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1354_val",
+   "param": "CombiAndSongTimbreSet@1354",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP/DRUM LENGTH value",
+   "x": 295.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp/Drum Length",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1354,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1355",
+   "param": "CombiAndSongTimbreSet@1355",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP/DRUM SWING",
+   "x": 366.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 387.22222222222223,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-64~63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp/Drum Swing",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1355,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "-64~63"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1355_val",
+   "param": "CombiAndSongTimbreSet@1355",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP/DRUM SWING value",
+   "x": 368.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Arp/Drum Swing",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1355,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "-64~63"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1356",
+   "param": "CombiAndSongTimbreSet@1356",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM SD",
+   "x": 438.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 459.77777777777777,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum SD",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1356,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1356_val",
+   "param": "CombiAndSongTimbreSet@1356",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM SD value",
+   "x": 440.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum SD",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1356,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1360",
+   "param": "CombiAndSongTimbreSet@1360",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM OUTPUT CHANNEL",
+   "x": 511.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 532.3333333333334,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Output Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1360,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1360_val",
+   "param": "CombiAndSongTimbreSet@1360",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM OUTPUT CHANNEL value",
+   "x": 513.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Output Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1360,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1374",
+   "param": "CombiAndSongTimbreSet@1374",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRIGGER KEY ZONE BOT",
+   "x": 583.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 604.8888888888889,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Key Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1374,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1374_val",
+   "param": "CombiAndSongTimbreSet@1374",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRIGGER KEY ZONE BOT value",
+   "x": 585.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Key Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1374,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1375",
+   "param": "CombiAndSongTimbreSet@1375",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRIGGER KEY ZONE TOP",
+   "x": 656.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 677.4444444444445,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Key Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1375,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1375_val",
+   "param": "CombiAndSongTimbreSet@1375",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRIGGER KEY ZONE TOP value",
+   "x": 658.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Key Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1375,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1376",
+   "param": "CombiAndSongTimbreSet@1376",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRIGGER VEL ZONE BOT",
+   "x": 729.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1376,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1376_val",
+   "param": "CombiAndSongTimbreSet@1376",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRIGGER VEL ZONE BOT value",
+   "x": 731.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1376,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1377",
+   "param": "CombiAndSongTimbreSet@1377",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRIGGER VEL ZONE TOP",
+   "x": 801.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 822.5555555555555,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Velocity Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1377,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1377_val",
+   "param": "CombiAndSongTimbreSet@1377",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRIGGER VEL ZONE TOP value",
+   "x": 803.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Trigger Velocity Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1377,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2612",
+   "param": "CombiAndSongTimbreSet@2612",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A KEY ZONE TOP",
+   "x": 874.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 895.1111111111111,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Key Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2612,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2612_val",
+   "param": "CombiAndSongTimbreSet@2612",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A KEY ZONE TOP value",
+   "x": 876.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Key Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2612,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2613",
+   "param": "CombiAndSongTimbreSet@2613",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A KEY ZONE BOTTOM",
+   "x": 946.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 967.6666666666667,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Key Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2613,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2613_val",
+   "param": "CombiAndSongTimbreSet@2613",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A KEY ZONE BOTTOM value",
+   "x": 948.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Key Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2613,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2614",
+   "param": "CombiAndSongTimbreSet@2614",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A VEL ZONE TOP",
+   "x": 1019.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1040.2222222222222,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Velocity Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2614,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2614_val",
+   "param": "CombiAndSongTimbreSet@2614",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A VEL ZONE TOP value",
+   "x": 1021.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Velocity Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2614,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2615",
+   "param": "CombiAndSongTimbreSet@2615",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP A VEL ZONE BOTTOM",
+   "x": 1091.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1112.7777777777778,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2615,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2615_val",
+   "param": "CombiAndSongTimbreSet@2615",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP A VEL ZONE BOTTOM value",
+   "x": 1093.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP A Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2615,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2616",
+   "param": "CombiAndSongTimbreSet@2616",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B KEY ZONE TOP",
+   "x": 1164.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1185.3333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Key Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2616,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2616_val",
+   "param": "CombiAndSongTimbreSet@2616",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B KEY ZONE TOP value",
+   "x": 1166.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Key Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2616,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2617",
+   "param": "CombiAndSongTimbreSet@2617",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B KEY ZONE BOTTOM",
+   "x": 1236.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1257.888888888889,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Key Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2617,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2617_val",
+   "param": "CombiAndSongTimbreSet@2617",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B KEY ZONE BOTTOM value",
+   "x": 1238.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Key Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2617,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2618",
+   "param": "CombiAndSongTimbreSet@2618",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B VEL ZONE TOP",
+   "x": 1309.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1330.4444444444446,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Velocity Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2618,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2618_val",
+   "param": "CombiAndSongTimbreSet@2618",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B VEL ZONE TOP value",
+   "x": 1311.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Velocity Zone Top",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2618,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2619",
+   "param": "CombiAndSongTimbreSet@2619",
+   "group": "scene_common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP B VEL ZONE BOTTOM",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2619,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2619_val",
+   "param": "CombiAndSongTimbreSet@2619",
+   "group": "scene_common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP B VEL ZONE BOTTOM value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "ARP B Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2619,
+    "sysex": {
+     "TYP": "7",
+     "SOC": "0",
+     "SUB": "1",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1361",
+   "param": "CombiAndSongTimbreSet@1361",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1361",
+   "x": 210.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 01",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1361,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1362",
+   "param": "CombiAndSongTimbreSet@1362",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1362",
+   "x": 311.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 02",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1362,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1363",
+   "param": "CombiAndSongTimbreSet@1363",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1363",
+   "x": 413.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 03",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1363,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1364",
+   "param": "CombiAndSongTimbreSet@1364",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1364",
+   "x": 514.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 04",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1364,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1365",
+   "param": "CombiAndSongTimbreSet@1365",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1365",
+   "x": 616.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 05",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1365,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1366",
+   "param": "CombiAndSongTimbreSet@1366",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1366",
+   "x": 717.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 06",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1366,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1367",
+   "param": "CombiAndSongTimbreSet@1367",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1367",
+   "x": 819.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 07",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1367,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1368",
+   "param": "CombiAndSongTimbreSet@1368",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1368",
+   "x": 920.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 08",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1368,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1369",
+   "param": "CombiAndSongTimbreSet@1369",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1369",
+   "x": 1022.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 09",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1369,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "8"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1370",
+   "param": "CombiAndSongTimbreSet@1370",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1370",
+   "x": 1123.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 10",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1370,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "9"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1371",
+   "param": "CombiAndSongTimbreSet@1371",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1371",
+   "x": 1225.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 11",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1371,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "10"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1372",
+   "param": "CombiAndSongTimbreSet@1372",
+   "group": "scene_common_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1372",
+   "x": 1326.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Scene Common",
+    "name": "Drum Inst. Select 12",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1372,
+    "sysex": {
+     "TYP": "5",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "11"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "SCENES",
+ "page_number": 1,
+ "pages_in_area": 5,
+ "apply": "all"
+}

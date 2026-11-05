@@ -1,0 +1,10 @@
+{
+  "settleMs": 600,
+  "quietMs": 60,
+  "steps": [
+    { "action": "wait", "ms": 6000 },
+    { "action": "click", "modulator": "kkBtnEdit" },
+    { "action": "wait", "ms": 1500 },
+    { "action": "screenshot", "file": "out/12_editor.png" }
+  ]
+}

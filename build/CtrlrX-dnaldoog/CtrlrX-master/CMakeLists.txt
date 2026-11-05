@@ -1,0 +1,554 @@
+cmake_minimum_required(VERSION 3.25)
+
+# Suppress CMake 3.31+ policy warnings
+if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.31.0") 
+    cmake_policy(SET CMP0175 NEW)
+endif()
+
+# Allows clang-based tools to work with the source:
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# This tells cmake we have goodies in the /cmake folder
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+include(PamplejuceVersion)
+
+# -----------------------------------------------------------------------
+# Options
+# -----------------------------------------------------------------------
+option(CTRLRX_ENABLE_CPM "Enable CPM-based optional dependencies" OFF)
+option(CTRLRX_USE_SYSTEM_JUCE "Use system-installed JUCE instead of vendored JUCE submodule" OFF)
+option(CTRLRX_COPY_PLUGIN_AFTER_BUILD "Copy plugin artefacts to user/system plugin folders after build" OFF)
+option(CTRLRX_USE_LUAJIT "Use LuaJIT instead of standard Lua" ON) 
+option(CTRLRX_ENABLE_MACOS_LUAJIT "Allow LuaJIT on macOS builds" ON) 
+#cmake -B build -DCTRLRX_ENABLE_MACOS_LUAJIT=ON
+option(CTRLRX_FORCE_JIT_OFF "Force disable LuaJIT compiler on macOS for unsigned builds" OFF)
+
+if(CTRLRX_ENABLE_CPM)
+    include(CPM)
+endif()
+
+include(PamplejuceMacOS)
+include(JUCEDefaults)
+
+if(UNIX AND NOT APPLE)
+    set(LINUX TRUE)
+endif()
+
+# -----------------------------------------------------------------------
+# Project identity
+# -----------------------------------------------------------------------
+set(BASE_ID_NAME "CtrlrX")
+set(PROJECT_NAME "${BASE_ID_NAME}")
+set(CMAKE_CXX_STANDARD 20) 
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(PLUGIN_DISPLAY_NAME "CtrlrX")
+set(PRODUCT_NAME "CtrlrX")
+set(COMPANY_NAME "CtrlrX Project")
+set(BUNDLE_ID "com.${BASE_ID_NAME}.${PROJECT_NAME}")
+set(FORMATS Standalone AU VST3)
+
+project(${PROJECT_NAME} VERSION ${CURRENT_VERSION})
+
+# -----------------------------------------------------------------------
+# Linux System Packages
+# -----------------------------------------------------------------------
+if(LINUX)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(libudev REQUIRED libudev)
+    pkg_check_modules(x11 REQUIRED x11)
+    pkg_check_modules(zlib REQUIRED zlib)
+    pkg_check_modules(gtk3 REQUIRED gtk+-3.0) 
+    pkg_check_modules(webkit REQUIRED webkit2gtk-4.1)
+    pkg_check_modules(curl REQUIRED libcurl)
+
+    include_directories(SYSTEM
+        ${gtk3_INCLUDE_DIRS}
+        ${webkit_INCLUDE_DIRS}
+        ${x11_INCLUDE_DIRS}
+        ${curl_INCLUDE_DIRS}
+    )
+    set(JUCE_USE_WEBKIT_4_1 ON CACHE INTERNAL "")
+endif()
+
+# -----------------------------------------------------------------------
+# Subdirectories (JUCE)
+# -----------------------------------------------------------------------
+# Prevent JUCE from installing its own tools/headers into your package
+set(JUCE_INSTALL_HELPER_TARGETS OFF CACHE BOOL "" FORCE)
+set(JUCE_BUILD_HELPER_TARGETS OFF CACHE BOOL "" FORCE)
+
+if(CTRLRX_USE_SYSTEM_JUCE)
+    find_package(JUCE CONFIG REQUIRED)
+else()
+    add_subdirectory(JUCE)
+endif()
+
+# -----------------------------------------------------------------------
+# Lua / LuaJIT Architecture Routing (Isolated cleanly)
+# -----------------------------------------------------------------------
+# Determine whether LuaJIT should actually be active for this build
+if(APPLE AND NOT CTRLRX_ENABLE_MACOS_LUAJIT)
+    set(USE_LUAJIT_FOR_BUILD OFF)
+else()
+    set(USE_LUAJIT_FOR_BUILD ${CTRLRX_USE_LUAJIT})
+endif()
+
+if(USE_LUAJIT_FOR_BUILD)
+    set(LUAJIT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/luajit")
+    set(LUAJIT_INCLUDE_TARGET "${LUAJIT_DIR}/src")
+    
+    if(MSVC)
+        set(LUA_STATIC_LIB_TARGET "${LUAJIT_DIR}/src/lua51.lib")
+    else()
+        set(LUA_STATIC_LIB_TARGET "${LUAJIT_DIR}/src/libluajit.a")
+    endif()
+else()
+    set(LUA_INCLUDE_TARGET "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/lua/include")
+endif()
+
+
+# -----------------------------------------------------------------------
+# SDK Paths
+# -----------------------------------------------------------------------
+if("VST" IN_LIST FORMATS)
+    juce_set_vst2_sdk_path("${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/vst2sdk")
+endif()
+
+if("AAX" IN_LIST FORMATS)
+    juce_set_aax_sdk_path("${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/aax-sdk-2-8-1")
+endif()
+
+# -----------------------------------------------------------------------
+# JUCE Plugin Target Configuration
+# -----------------------------------------------------------------------
+juce_add_plugin("${PROJECT_NAME}"
+    ICON_BIG "${CMAKE_CURRENT_SOURCE_DIR}/Source/Resources/Icons/ctrlrx_logo.svg"
+    PLUGIN_NAME "${PLUGIN_DISPLAY_NAME}"
+    COMPANY_NAME "${COMPANY_NAME}"
+    BUNDLE_ID "${BUNDLE_ID}"
+    COPY_PLUGIN_AFTER_BUILD ${CTRLRX_COPY_PLUGIN_AFTER_BUILD}
+    PLUGIN_MANUFACTURER_CODE cTrX
+    PLUGIN_CODE cTrl
+    FORMATS "${FORMATS}"
+    IS_SYNTH TRUE
+    IS_MIDI_EFFECT FALSE
+    NEEDS_MIDI_INPUT TRUE
+    NEEDS_MIDI_OUTPUT TRUE
+    EDITOR_WANTS_KEYBOARD_FOCUS TRUE
+    PRODUCT_NAME "${PRODUCT_NAME}"
+)
+
+# --- Format Specific Overrides ---
+if ("VST3" IN_LIST FORMATS)
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        JUCE_PLUGIN_NAME "CtrlrX                          "
+        JUCE_COMPANY_NAME "CtrlrX Project                  "
+    )
+endif()
+
+if ("AU" IN_LIST FORMATS)
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        JUCE_AU_MAIN_TYPE kAudioUnitType_MusicDevice
+        JUCE_PLUGIN_NAME "CtrlrX                          "
+        JUCE_COMPANY_NAME "CtrlrX Project                  "
+    )
+endif()
+
+
+# -----------------------------------------------------------------------
+# macOS Hardened Runtime & JIT Entitlements
+# -----------------------------------------------------------------------
+if(APPLE)
+    set(MACOS_ENTITLEMENTS "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/MacOS/Entitlements.plist")
+
+    if(TARGET "${PROJECT_NAME}")
+        set_target_properties("${PROJECT_NAME}" PROPERTIES
+            XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${MACOS_ENTITLEMENTS}"
+        )
+    endif()
+
+    if(TARGET "${PROJECT_NAME}_Standalone")
+        set_target_properties("${PROJECT_NAME}_Standalone" PROPERTIES
+            XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${MACOS_ENTITLEMENTS}"
+        )
+    endif()
+endif()
+
+
+
+# -----------------------------------------------------------------------
+# SharedCode Library & Source Files
+# -----------------------------------------------------------------------
+add_library(SharedCode INTERFACE)
+include(SharedCodeDefaults)
+
+# macOS LuaJIT JIT Force-Off Override
+if(CTRLRX_FORCE_JIT_OFF)
+    target_compile_definitions(SharedCode INTERFACE CTRLRX_FORCE_JIT_OFF=1)
+endif()
+# Optimization fix for LuaBind
+set_source_files_properties(
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/luabind/src/object_rep.cpp"
+    PROPERTIES COMPILE_FLAGS "-O0"
+)
+
+file(GLOB_RECURSE SourceFiles CONFIGURE_DEPENDS
+    "Source/Misc/luabind/*.cpp" "Source/Misc/luabind/*.hpp"
+    "Source/Misc/luabind/*.c" "Source/Misc/luabind/*.h"
+    "Source/Misc/libusb/src/*.c" "Source/Misc/libusb/src/*.h"
+    "Source/Misc/*.c*" "Source/Misc/*.h*"
+    "Source/Core/*.cpp" "Source/Core/*.h"
+    "Source/Lua/*.cpp" "Source/Lua/*.h"
+    "Source/MIDI/*.cpp" "Source/MIDI/*.h"
+    "Source/Native/*.cpp" "Source/Native/*.h"
+    "Source/Plugin/*.cpp" "Source/Plugin/*.h"
+    "Source/UIComponents/*.cpp" "Source/UIComponents/*.h"
+)
+
+if(NOT LINUX)
+    list(FILTER SourceFiles EXCLUDE REGEX "CtrlrLinux\\.(cpp|h)$")
+endif()
+
+# Exclude generated/foreign sources
+list(FILTER SourceFiles EXCLUDE REGEX ".*/Source/Misc/luajit/.*")
+list(FILTER SourceFiles EXCLUDE REGEX ".*/Source/Misc/lua/src/.*")
+list(FILTER SourceFiles EXCLUDE REGEX ".*/Source/Misc/luabind/(examples|build[^/]*|test|tests)/.*")
+list(FILTER SourceFiles EXCLUDE REGEX ".*/Source/Lua/Deprecated/CtrlrLuaFile\\.cpp$")
+
+target_sources(SharedCode INTERFACE ${SourceFiles})
+
+# Base Include Paths
+target_include_directories(SharedCode INTERFACE
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/rapidfuzz"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/luabind"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/libusb/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/boost"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/vst2sdk"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/MIDI"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Core"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Core/CtrlrManager"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Core/CtrlrModulator"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Core/CtrlrPanel"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Native"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Plugin"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/UIComponents"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Source/Lua"
+    "${CMAKE_CURRENT_SOURCE_DIR}/JuceLibraryCode"
+)
+
+# Conditional Engine Include Routing
+if(USE_LUAJIT_FOR_BUILD)
+    target_include_directories(SharedCode INTERFACE "${LUAJIT_INCLUDE_TARGET}")
+else()
+    target_include_directories(SharedCode INTERFACE "${LUA_INCLUDE_TARGET}")
+endif()
+
+if(WIN32)
+    # CMAKE_SIZEOF_VOID_P is 8 for 64-bit targets and 4 for 32-bit targets
+    if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+        set(RCEDIT_FILENAME "rcedit-x64.exe")
+    else()
+        set(RCEDIT_FILENAME "rcedit-x86.exe")
+    endif()
+
+    target_compile_definitions(SharedCode INTERFACE
+        CTRLRX_RCEDIT_PATH="${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/rcedit/${RCEDIT_FILENAME}"
+    )
+endif()
+target_compile_options(SharedCode INTERFACE
+    # Flags shared by all architectures for these compilers
+    $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-fPIC>
+    
+    # -msse2 flag ONLY applied if the compiler supports it AND we are on x86/x86_64
+    $<$<AND:$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>,$<OR:$<PLATFORM_ID:Windows>,$<PLATFORM_ID:Linux>,$<NOT:$<PLATFORM_ID:Darwin>>>>:-msse2>
+)
+
+
+if(UNIX)
+    target_compile_options(SharedCode INTERFACE -w -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-missing-field-initializers -Wno-free-nonheap-object)
+endif()
+
+if(USE_LUAJIT_FOR_BUILD)
+    target_compile_definitions(SharedCode INTERFACE CTRLRX_USE_LUAJIT=1)
+endif()
+
+# Projucer's JUCEOPTIONS (including JUCE_MODAL_LOOPS_PERMITTED) are not read by
+# this CMake build at all -- the two build systems don't share settings. Without
+# this, runDispatchLoopUntil()/runDispatchLoop()/stopDispatchLoop() don't exist
+# on juce::MessageManager on platforms where JUCE doesn't default the flag on
+# (observed: fine on local Windows/VS2022, fails on Linux/Mac CI).
+target_compile_definitions(SharedCode INTERFACE 
+    JUCE_MODAL_LOOPS_PERMITTED=1
+    JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
+    JUCE_VST3_CAN_REPLACE_VST2=0
+)
+
+# -----------------------------------------------------------------------
+# ASSETS & BINARY DATA
+# -----------------------------------------------------------------------
+include(Assets)
+include(XcodePrettify)
+
+# -----------------------------------------------------------------------
+# Linking
+# -----------------------------------------------------------------------
+target_link_libraries(SharedCode INTERFACE
+    Assets  
+    juce_audio_basics
+    juce_audio_devices
+    juce_audio_formats
+    juce_audio_plugin_client
+    juce_audio_processors
+    juce_audio_utils
+    juce_core
+    juce_cryptography
+    juce_data_structures
+    juce_events
+    juce_graphics
+    juce_gui_basics
+    juce_gui_extra
+    juce_product_unlocking
+    juce::juce_recommended_config_flags
+    juce::juce_recommended_lto_flags
+    juce::juce_recommended_warning_flags
+)
+
+# Explicit static engine binary targeting
+if(USE_LUAJIT_FOR_BUILD)
+    target_link_libraries(SharedCode INTERFACE "${LUA_STATIC_LIB_TARGET}")
+    if(APPLE)
+        target_link_libraries(SharedCode INTERFACE "-framework Security")
+    endif()
+endif()
+
+if(LINUX)
+    target_link_libraries(SharedCode INTERFACE
+        ${x11_LIBRARIES}
+        ${gtk3_LIBRARIES}
+        ${webkit_LIBRARIES}
+        ${libudev_LIBRARIES}
+        ${zlib_LIBRARIES}
+        ${curl_LIBRARIES}
+    )
+endif()
+
+# Final Plugin Target Linking
+target_link_libraries("${PROJECT_NAME}" PRIVATE SharedCode)
+# -----------------------------------------------------------------------
+# Windows Post-Build Helpers (Copy rcedit next to binaries)
+# -----------------------------------------------------------------------
+# --- NEW FIXED WINDOWS POST-BUILD SECTION ---
+if(WIN32)
+    # Target specific actual binaries instead of the meta target
+    if(TARGET "${PROJECT_NAME}_Standalone")
+        add_custom_command(TARGET "${PROJECT_NAME}_Standalone" POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}_Standalone>"
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/rcedit/${RCEDIT_FILENAME}"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}_Standalone>/${RCEDIT_FILENAME}"
+            COMMENT "Copying ${RCEDIT_FILENAME} to Standalone output directory..."
+            VERBATIM
+        )
+    endif()
+
+    if(TARGET "${PROJECT_NAME}_VST3")
+        add_custom_command(TARGET "${PROJECT_NAME}_VST3" POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}_VST3>"
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_CURRENT_SOURCE_DIR}/Source/Misc/rcedit/${RCEDIT_FILENAME}"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}_VST3>/${RCEDIT_FILENAME}"
+            COMMENT "Copying ${RCEDIT_FILENAME} to VST3 output directory..."
+            VERBATIM
+        )
+    endif()
+endif()
+if(LINUX)
+    if(TARGET "${PROJECT_NAME}_VST3")
+        target_link_options("${PROJECT_NAME}_VST3" PRIVATE
+            -Wl,--exclude-libs,ALL
+        )
+    endif()
+endif()
+# -----------------------------------------------------------------------
+# Packaging & Distribution (CPack for Linux .deb / .rpm)
+# -----------------------------------------------------------------------
+if(LINUX)
+    include(GNUInstallDirs)
+
+    set(CTRLR_SVG_ICON "${CMAKE_CURRENT_SOURCE_DIR}/Source/Resources/Icons/ctrlrx_logo.svg")
+    set(APPSTREAM_ID "com.ctrlrx.CtrlrX") # This is our primary, case-sensitive ID
+
+    # 1. Install scalable SVG icon using the exact AppStream ID
+    install(FILES "${CTRLR_SVG_ICON}"
+            DESTINATION "share/icons/hicolor/scalable/apps"
+            RENAME "${APPSTREAM_ID}.svg")
+
+    # 2. Rasterize and install PNG icons using the exact AppStream ID
+    set(ICON_SIZES 16 32 48 64 128 256 512)
+    find_program(RSVG_CONVERT_EXECUTABLE rsvg-convert)
+
+    if(RSVG_CONVERT_EXECUTABLE)
+        foreach(SIZE ${ICON_SIZES})
+            # FIX: Changed file output target naming to use APPSTREAM_ID instead of a custom nickname
+            set(PNG_OUT "${CMAKE_BINARY_DIR}/icons/${SIZE}x${SIZE}/${APPSTREAM_ID}.png")
+            
+            add_custom_command(
+                OUTPUT "${PNG_OUT}"
+                COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/icons/${SIZE}x${SIZE}"
+                COMMAND ${RSVG_CONVERT_EXECUTABLE} -w ${SIZE} -h ${SIZE} -f png -o "${PNG_OUT}" "${CTRLR_SVG_ICON}"
+                DEPENDS "${CTRLR_SVG_ICON}"
+                COMMENT "Generating transparent ${SIZE}x${SIZE} AppStream-compliant PNG icon..."
+            )
+
+            add_custom_target(ctrlrx_icon_${SIZE} ALL DEPENDS "${PNG_OUT}")
+
+            install(FILES "${PNG_OUT}"
+                    DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/hicolor/${SIZE}x${SIZE}/apps")
+        endforeach()
+    else()
+        # Without rsvg-convert, only the raw scalable SVG (item 1 above) gets
+        # installed and every raster hicolor size (16..512) is silently
+        # missing from the package. That's easy to miss since the build
+        # still succeeds — fail configure loudly instead so it's caught
+        # before packaging, not after someone installs it and finds a
+        # half-populated icon theme.
+        message(FATAL_ERROR
+            "rsvg-convert not found — required to generate hicolor PNG icons for Linux packaging. "
+            "Install it first: 'sudo apt install librsvg2-bin' (Debian/Ubuntu) or "
+            "'sudo dnf install librsvg2-tools' (Fedora).")
+    endif()
+
+
+
+    # 3. Desktop Application Entry
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Source/Resources/Linux/com.ctrlrx.CtrlrX.desktop.in")
+        configure_file(
+            "${CMAKE_CURRENT_SOURCE_DIR}/Source/Resources/Linux/com.ctrlrx.CtrlrX.desktop.in"
+            "${CMAKE_BINARY_DIR}/com.ctrlrx.CtrlrX.desktop"
+            @ONLY
+        )
+
+        install(FILES "${CMAKE_BINARY_DIR}/com.ctrlrx.CtrlrX.desktop"
+                DESTINATION "/usr/share/applications")
+    endif()
+
+    # 4. AppStream MetaInfo for GNOME Software / KDE Discover
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Source/Resources/Linux/com.ctrlrx.CtrlrX.metainfo.xml")
+        install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/Source/Resources/Linux/com.ctrlrx.CtrlrX.metainfo.xml"
+                DESTINATION "${CMAKE_INSTALL_DATADIR}/metainfo")
+    endif()
+
+    # 5. Install Standalone executable target to system bin path
+    if(TARGET "${PROJECT_NAME}_Standalone")
+        install(TARGETS "${PROJECT_NAME}_Standalone" DESTINATION "${CMAKE_INSTALL_BINDIR}" RENAME "CtrlrX")
+    elseif(TARGET "${PROJECT_NAME}")
+        install(TARGETS "${PROJECT_NAME}" DESTINATION "${CMAKE_INSTALL_BINDIR}" RENAME "CtrlrX")
+    endif()
+
+    # 6. Stage VST3 bundle for postinst rollout
+    if(NOT DEFINED VST3_STAGE_DIR)
+        set(VST3_STAGE_DIR "share/ctrlrx/vst3")
+    endif()
+
+    if(CMAKE_BUILD_TYPE)
+        set(CURRENT_BUILD_CONFIG "${CMAKE_BUILD_TYPE}")
+    else()
+        set(CURRENT_BUILD_CONFIG "Release")
+    endif()
+
+    set(VST3_BUNDLE_SOURCE "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_artefacts/${CURRENT_BUILD_CONFIG}/VST3/${PRODUCT_NAME}.vst3")
+
+    install(DIRECTORY "${VST3_BUNDLE_SOURCE}"
+            DESTINATION "${VST3_STAGE_DIR}"
+            FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+            DIRECTORY_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+
+    # -----------------------------------------------------------------------
+    # CPack Variable Definitions (MUST BE BEFORE include(CPack))
+    # -----------------------------------------------------------------------
+    set(CPACK_PACKAGE_NAME "ctrlrx")
+    set(CPACK_PACKAGE_VENDOR "CtrlrX")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "MIDI Control Surface Framework & Editor")
+    set(CPACK_PACKAGE_DESCRIPTION "With CtrlrX, control any MIDI enabled hardware")
+    set(CPACK_PACKAGE_VERSION "${CURRENT_VERSION}")
+    set(CPACK_PACKAGE_CONTACT "CtrlrX Team <https://github.com>")
+    set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com")
+    
+    if(RSVG_CONVERT_EXECUTABLE)
+        set(CPACK_GUI_ICON "${CMAKE_BINARY_DIR}/ctrlrx_cpack_icon.png")
+        execute_process(COMMAND ${RSVG_CONVERT_EXECUTABLE} -w 128 -h 128 -f png -o "${CPACK_GUI_ICON}" "${CTRLR_SVG_ICON}")
+        set(CPACK_PACKAGE_ICON "${CPACK_GUI_ICON}")
+    endif()
+
+    set(CPACK_PACKAGING_INSTALL_PREFIX "/usr")
+    set(CPACK_MONOLITHIC_INSTALL ON)
+
+    # Debian Specific Graphical Metadata
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "CtrlrX Team <https://github.com>")
+    set(CPACK_DEBIAN_PACKAGE_SECTION "sound")
+    set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
+    set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+    set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://github.com")
+    set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
+        "${CMAKE_CURRENT_SOURCE_DIR}/Packaging/Linux/postinst;${CMAKE_CURRENT_SOURCE_DIR}/Packaging/Linux/postrm")
+    set(CPACK_DEBIAN_PACKAGE_CONTROL_STRICT_PERMISSION TRUE)
+    # RPM Specific Graphical Metadata
+    set(CPACK_RPM_PACKAGE_LICENSE "GPLv3 and BSD")
+    set(CPACK_RPM_PACKAGE_GROUP "Applications/Multimedia")
+    set(CPACK_RPM_PACKAGE_URL "https://github.com")
+    set(CPACK_RPM_POST_INSTALL_SCRIPT_FILE "${CMAKE_CURRENT_SOURCE_DIR}/Packaging/Linux/postinst")
+    set(CPACK_RPM_POST_UNINSTALL_SCRIPT_FILE "${CMAKE_CURRENT_SOURCE_DIR}/Packaging/Linux/postrm-rpm")
+    set(CPACK_RPM_PACKAGE_AUTOREQ "OFF")
+    set(CPACK_RPM_PACKAGE_REQUIRES "libcurl, systemd-libs, libX11, gtk3, webkit2gtk4.1")
+    set(CPACK_RPM_PACKAGE_SUMMARY "MIDI Control Surface Framework & Editor")
+    set(CPACK_RPM_PACKAGE_DESCRIPTION "With CtrlrX, control any MIDI enabled hardware: synthesizers, drum machines, effects, samplers.")
+
+    set(CPACK_GENERATOR "DEB;RPM")
+
+    set(CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION
+        "/usr"
+        "/usr/share"
+        "/usr/share/applications"
+        "/usr/share/icons"
+        "/usr/share/icons/hicolor"
+    )
+
+    include(CPack)
+endif()
+
+# -----------------------------------------------------------------------
+# Portable tarball target
+# -----------------------------------------------------------------------
+if(LINUX)
+    set(PORTABLE_TARBALL_NAME "${CPACK_PACKAGE_NAME}-${CURRENT_VERSION}-linux-x86_64")
+    set(PORTABLE_TARBALL_STAGE "${CMAKE_BINARY_DIR}/portable_tarball_stage")
+
+    add_custom_target(portable_tarball
+        COMMAND ${CMAKE_COMMAND} -E remove_directory "${PORTABLE_TARBALL_STAGE}"
+        COMMAND ${CMAKE_COMMAND} -E make_directory "${PORTABLE_TARBALL_STAGE}/${PORTABLE_TARBALL_NAME}/vst3"
+        COMMAND ${CMAKE_COMMAND} -E copy
+                "$<TARGET_FILE:${PROJECT_NAME}_Standalone>"
+                "${PORTABLE_TARBALL_STAGE}/${PORTABLE_TARBALL_NAME}/${PRODUCT_NAME}"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+                "${VST3_BUNDLE_SOURCE}"
+                "${PORTABLE_TARBALL_STAGE}/${PORTABLE_TARBALL_NAME}/vst3/${PRODUCT_NAME}.vst3"
+        COMMAND ${CMAKE_COMMAND} -E chdir "${PORTABLE_TARBALL_STAGE}"
+                ${CMAKE_COMMAND} -E tar cfz "${CMAKE_BINARY_DIR}/${PORTABLE_TARBALL_NAME}.tar.gz" "${PORTABLE_TARBALL_NAME}"
+        DEPENDS "${PROJECT_NAME}_Standalone"
+        COMMENT "Building portable tarball (executable + vst3/ only)"
+        VERBATIM
+    )
+endif()
+
+include(PamplejuceIPP)
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Tests/CMakeLists.txt")
+    enable_testing()
+    add_subdirectory(Tests)
+endif()
+
+include(GitHubENV)

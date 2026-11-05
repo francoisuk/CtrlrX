@@ -1,0 +1,2857 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "BASIC · 2/3",
+ "tab_index": 0,
+ "object": "Global",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_G_BASIC_P2_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_G_BASIC_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "3 : Global"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Global — BASIC · 2/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_basic",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "BASIC",
+   "x": 60,
+   "y": 84,
+   "w": 140.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_controller",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROLLER",
+   "x": 203.9,
+   "y": 84,
+   "w": 167.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI",
+   "x": 374.6,
+   "y": 84,
+   "w": 134.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_ext_sets",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXT SETS",
+   "x": 512.2,
+   "y": 84,
+   "w": 153.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 668.9,
+   "y": 84,
+   "w": 151.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_octave_scales",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OCTAVE SCALES",
+   "x": 823.6,
+   "y": 84,
+   "w": 180.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_all_note_scale",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ALL NOTE SCALE",
+   "x": 1006.9,
+   "y": 84,
+   "w": 180.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_categories",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CATEGORIES",
+   "x": 1190.3,
+   "y": 84,
+   "w": 165.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Global@24622",
+   "param": "Global@24622",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PROGRAM DOWN CH",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Program Down         Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24622,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24622_val",
+   "param": "Global@24622",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "PROGRAM DOWN CH value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Program Down         Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24622,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24624",
+   "param": "Global@24624",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SONG START/STOP CHANNEL",
+   "x": 144.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 165.73684210526315,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Song Start/Stop      Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24624,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24624_val",
+   "param": "Global@24624",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "SONG START/STOP CHANNEL value",
+   "x": 146.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Song Start/Stop      Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24624,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24626",
+   "param": "Global@24626",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SONG PUNCH IN CHANNEL",
+   "x": 213.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 234.4736842105263,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Song Punch In        Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24626,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24626_val",
+   "param": "Global@24626",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "SONG PUNCH IN CHANNEL value",
+   "x": 215.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Song Punch In        Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24626,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24628",
+   "param": "Global@24628",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TAP TEMPO CHANNEL",
+   "x": 282.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 303.2105263157895,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Tap Tempo            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24628,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24628_val",
+   "param": "Global@24628",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TAP TEMPO CHANNEL value",
+   "x": 284.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Tap Tempo            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24628,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24630",
+   "param": "Global@24630",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OVTAVE UP CHANNEL",
+   "x": 350.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 371.9473684210526,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Ovtave Up            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24630,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "68",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24630_val",
+   "param": "Global@24630",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "OVTAVE UP CHANNEL value",
+   "x": 352.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Ovtave Up            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24630,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "68",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24632",
+   "param": "Global@24632",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OVTAVE DOWN CHANNEL",
+   "x": 419.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 440.6842105263157,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Ovtave Down          Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24632,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24632_val",
+   "param": "Global@24632",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "OVTAVE DOWN CHANNEL value",
+   "x": 421.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Ovtave Down          Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24632,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24634",
+   "param": "Global@24634",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RIBBON LOCK CHANNEL",
+   "x": 488.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 509.4210526315789,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Ribbon Lock          Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24634,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "72",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24634_val",
+   "param": "Global@24634",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "RIBBON LOCK CHANNEL value",
+   "x": 490.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Ribbon Lock          Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24634,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "72",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24668",
+   "param": "Global@24668",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS X LOCK CHANNEL",
+   "x": 557.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 578.1578947368421,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS X Lock            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24668,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "78",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24668_val",
+   "param": "Global@24668",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS X LOCK CHANNEL value",
+   "x": 559.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS X Lock            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24668,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "78",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24670",
+   "param": "Global@24670",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS Y LOCK CHANNEL",
+   "x": 625.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 646.8947368421052,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS Y Lock            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24670,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "80",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24670_val",
+   "param": "Global@24670",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS Y LOCK CHANNEL value",
+   "x": 627.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS Y Lock            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24670,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "80",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24672",
+   "param": "Global@24672",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS +Y LOCK CHANNEL",
+   "x": 694.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 715.6315789473683,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS +Y Lock           Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24672,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24672_val",
+   "param": "Global@24672",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS +Y LOCK CHANNEL value",
+   "x": 696.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS +Y Lock           Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24672,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24674",
+   "param": "Global@24674",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS -Y LOCK CHANNEL",
+   "x": 763.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 784.3684210526314,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS -Y Lock           Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24674,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24674_val",
+   "param": "Global@24674",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS -Y LOCK CHANNEL value",
+   "x": 765.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS -Y Lock           Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24674,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24676",
+   "param": "Global@24676",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS X & RIBBON LOCK CHANNEL",
+   "x": 832.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 853.1052631578947,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS X & Ribbon Lock   Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24676,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24676_val",
+   "param": "Global@24676",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS X & RIBBON LOCK CHANNEL value",
+   "x": 834.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS X & Ribbon Lock   Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24676,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24678",
+   "param": "Global@24678",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS Y & RIBBON LOCK CHANNEL",
+   "x": 900.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 921.8421052631578,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS Y & Ribbon Lock   Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24678,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24678_val",
+   "param": "Global@24678",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS Y & RIBBON LOCK CHANNEL value",
+   "x": 902.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS Y & Ribbon Lock   Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24678,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24680",
+   "param": "Global@24680",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS +Y & RIBBON LOCK CHANNEL",
+   "x": 969.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 990.5789473684209,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS +Y & Ribbon Lock  Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24680,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "90",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24680_val",
+   "param": "Global@24680",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS +Y & RIBBON LOCK CHANNEL value",
+   "x": 971.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS +Y & Ribbon Lock  Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24680,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "90",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24682",
+   "param": "Global@24682",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "JS -Y & RIBBON LOCK CHANNEL",
+   "x": 1038.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1059.3157894736842,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS -Y & Ribbon Lock  Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24682,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "92",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24682_val",
+   "param": "Global@24682",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "JS -Y & RIBBON LOCK CHANNEL value",
+   "x": 1040.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "JS -Y & Ribbon Lock  Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24682,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "92",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24688",
+   "param": "Global@24688",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VALUE INC CHANNEL",
+   "x": 1107.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1128.0526315789473,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Value Inc            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24688,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "98",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24688_val",
+   "param": "Global@24688",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "VALUE INC CHANNEL value",
+   "x": 1109.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Value Inc            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24688,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "98",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24690",
+   "param": "Global@24690",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VALUE DEC CHANNEL",
+   "x": 1175.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1196.7894736842104,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Value Dec            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24690,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "100",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24690_val",
+   "param": "Global@24690",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "VALUE DEC CHANNEL value",
+   "x": 1177.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Value Dec            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24690,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "100",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24692",
+   "param": "Global@24692",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHORD SW CHANNEL",
+   "x": 1244.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1265.5263157894735,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Chord SW             Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24692,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "102",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24692_val",
+   "param": "Global@24692",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "CHORD SW CHANNEL value",
+   "x": 1246.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Chord SW             Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24692,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "102",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24694",
+   "param": "Global@24694",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRK ENABLE CH",
+   "x": 1313.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1334.2631578947367,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Drum Track Enable    Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24694,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "104",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24694_val",
+   "param": "Global@24694",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRK ENABLE CH value",
+   "x": 1315.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Drum Track Enable    Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24694,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "104",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24696",
+   "param": "Global@24696",
+   "group": "assignments_1_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AFTER TOUCH LOCK CHANNEL",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1402.9999999999998,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Gch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "After Touch Lock     Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24696,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "106",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24696_val",
+   "param": "Global@24696",
+   "group": "assignments_1_4",
+   "type": "display",
+   "kind": "value",
+   "label": "AFTER TOUCH LOCK CHANNEL value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "After Touch Lock     Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24696,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "106",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24621#1",
+   "param": "Global@24621#1",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24621#1",
+   "x": 210.0,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24621,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24623#2",
+   "param": "Global@24623#2",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24623#2",
+   "x": 286.1,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24623,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24625#3",
+   "param": "Global@24625#3",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24625#3",
+   "x": 362.2,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24625,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24627#4",
+   "param": "Global@24627#4",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24627#4",
+   "x": 438.4,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24627,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24629#5",
+   "param": "Global@24629#5",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24629#5",
+   "x": 514.5,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24629,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "67",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24631#6",
+   "param": "Global@24631#6",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24631#6",
+   "x": 590.6,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24631,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "69",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24633#7",
+   "param": "Global@24633#7",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24633#7",
+   "x": 666.8,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24633,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "71",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24635#8",
+   "param": "Global@24635#8",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24635#8",
+   "x": 742.9,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24635,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24637#9",
+   "param": "Global@24637#9",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24637#9",
+   "x": 819.0,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24637,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24639#10",
+   "param": "Global@24639#10",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24639#10",
+   "x": 895.1,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24639,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "1"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24641#11",
+   "param": "Global@24641#11",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24641#11",
+   "x": 971.2,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24641,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "2"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24643#12",
+   "param": "Global@24643#12",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24643#12",
+   "x": 1047.4,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24643,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "3"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24645#13",
+   "param": "Global@24645#13",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24645#13",
+   "x": 1123.5,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24645,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "4"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24647#14",
+   "param": "Global@24647#14",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24647#14",
+   "x": 1199.6,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24647,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "5"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24649#15",
+   "param": "Global@24649#15",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24649#15",
+   "x": 1275.8,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24649,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "6"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24651#16",
+   "param": "Global@24651#16",
+   "group": "assignments_2_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Global@24651#16",
+   "x": 1351.9,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Assignment",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24651,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "8"
+    },
+    "data": "FF~77",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "Global@24636",
+   "param": "Global@24636",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24636",
+   "x": 210.0,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 1            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24636,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24638",
+   "param": "Global@24638",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24638",
+   "x": 286.1,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 2            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24638,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "1"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24640",
+   "param": "Global@24640",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24640",
+   "x": 362.2,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 3            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24640,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "2"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24642",
+   "param": "Global@24642",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24642",
+   "x": 438.4,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 4            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24642,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "3"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24644",
+   "param": "Global@24644",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24644",
+   "x": 514.5,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 5            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24644,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "4"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24646",
+   "param": "Global@24646",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24646",
+   "x": 590.6,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 6            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24646,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "5"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24648",
+   "param": "Global@24648",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24648",
+   "x": 666.8,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 7            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24648,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "6"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24650",
+   "param": "Global@24650",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24650",
+   "x": 742.9,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "RT Knob 8            Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24650,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "7"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24652",
+   "param": "Global@24652",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24652",
+   "x": 210.0,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 1                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24652,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24654",
+   "param": "Global@24654",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24654",
+   "x": 286.1,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 2                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24654,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "1"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24656",
+   "param": "Global@24656",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24656",
+   "x": 362.2,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 3                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24656,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "2"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24658",
+   "param": "Global@24658",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24658",
+   "x": 438.4,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 4                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24658,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "3"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24660",
+   "param": "Global@24660",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24660",
+   "x": 514.5,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 5                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24660,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "4"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24662",
+   "param": "Global@24662",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24662",
+   "x": 590.6,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 6                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24662,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "5"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24664",
+   "param": "Global@24664",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24664",
+   "x": 666.8,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 7                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24664,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "6"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24666",
+   "param": "Global@24666",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24666",
+   "x": 742.9,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "Pad 8                Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24666,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "7"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24684",
+   "param": "Global@24684",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24684",
+   "x": 210.0,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "SW 1                 Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24684,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "94",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "Global@24686",
+   "param": "Global@24686",
+   "group": "assignments_2_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24686",
+   "x": 286.1,
+   "y": 359,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~Gch",
+   "midi": null,
+   "korg": {
+    "group": "Assignments",
+    "name": "SW 2                 Channel",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24686,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "96",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Gch"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "BASIC",
+ "page_number": 2,
+ "pages_in_area": 3,
+ "apply": "all"
+}

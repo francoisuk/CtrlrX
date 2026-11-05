@@ -1,0 +1,1544 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "MAIN · 5/9",
+ "tab_index": 0,
+ "object": "Program · MOD-7",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_MOD7_MAIN_P5_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_MOD7_MAIN_P5_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MOD-7 — MAIN · 5/9"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 175.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 247.2,
+   "y": 84,
+   "w": 148.8,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 399.1,
+   "y": 84,
+   "w": 144.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 546.8,
+   "y": 84,
+   "w": 153.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 703.6,
+   "y": 84,
+   "w": 162.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 869.2,
+   "y": 84,
+   "w": 141.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1013.4,
+   "y": 84,
+   "w": 143.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1159.4,
+   "y": 84,
+   "w": 146.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_pprev_pprev",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_pbox",
+   "group": "nav",
+   "type": "display",
+   "kind": "label",
+   "label": "5 / 9",
+   "x": 1343.0,
+   "y": 85,
+   "w": 72.0,
+   "h": 16,
+   "text": [
+    "5 / 9"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_pnext_pnext",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "▶",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@659.6~0",
+   "param": "Prog_EXi@659.6~0",
+   "group": "osc3_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@659.6~0",
+   "x": 270.7,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~100",
+   "midi": null,
+   "korg": {
+    "group": "OSC3",
+    "name": "Input Level1",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 659,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@659.7",
+   "param": "Prog_EXi@659.7",
+   "group": "osc3_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@659.7",
+   "x": 424.9,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~100",
+   "midi": null,
+   "korg": {
+    "group": "OSC3",
+    "name": "Input Level2",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 659,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@663.7~6",
+   "param": "Prog_EXi@663.7~6",
+   "group": "osc3_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@663.7~6",
+   "x": 270.7,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "OSC3",
+    "name": "Pitch Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 663,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@668",
+   "param": "Prog_EXi@668",
+   "group": "osc3_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@668",
+   "x": 424.9,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "OSC3",
+    "name": "Pitch Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 668,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@664.7~6",
+   "param": "Prog_EXi@664.7~6",
+   "group": "osc3_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@664.7~6",
+   "x": 270.7,
+   "y": 192,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-48.00~+48.00",
+   "midi": null,
+   "korg": {
+    "group": "OSC3",
+    "name": "Pitch Mod.1 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 664,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@669",
+   "param": "Prog_EXi@669",
+   "group": "osc3_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@669",
+   "x": 424.9,
+   "y": 192,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-48.00~+48.00",
+   "midi": null,
+   "korg": {
+    "group": "OSC3",
+    "name": "Pitch Mod.2 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 669,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "FF69~0097",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@692.7~5",
+   "param": "Prog_EXi@692.7~5",
+   "group": "osc3_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOW RAMP",
+   "x": 659.5,
+   "y": 138,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "Low Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 692,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@693.7~5",
+   "param": "Prog_EXi@693.7~5",
+   "group": "osc3_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER LOW RAMP",
+   "x": 791.3,
+   "y": 138,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "Center Low Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 693,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@694.7~5",
+   "param": "Prog_EXi@694.7~5",
+   "group": "osc3_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER HIGH RAMP",
+   "x": 924.7,
+   "y": 138,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "Center High Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 694,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@695.7~5",
+   "param": "Prog_EXi@695.7~5",
+   "group": "osc3_keyboard_track",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HIGH RAMP",
+   "x": 1024.7,
+   "y": 138,
+   "w": 40,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "High Ramp",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 695,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_EXi@690.6~0",
+   "param": "Prog_EXi@690.6~0",
+   "group": "osc3_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW KEY",
+   "x": 862.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 883.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 690,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@690.6~0_val",
+   "param": "Prog_EXi@690.6~0",
+   "group": "osc3_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW KEY value",
+   "x": 864.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 690,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@690.7",
+   "param": "Prog_EXi@690.7",
+   "group": "osc3_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CENTER KEY",
+   "x": 968.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 989.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 690,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@690.7_val",
+   "param": "Prog_EXi@690.7",
+   "group": "osc3_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "CENTER KEY value",
+   "x": 970.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 690,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@691.7~6",
+   "param": "Prog_EXi@691.7~6",
+   "group": "osc3_keyboard_track",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH KEY",
+   "x": 1074.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1095.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 691,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@691.7~6_val",
+   "param": "Prog_EXi@691.7~6",
+   "group": "osc3_keyboard_track",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH KEY value",
+   "x": 1076.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC3 Keyboard Track",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 691,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "34",
+     "SUB": "1",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_EXi@697.0",
+   "param": "Prog_EXi@697.0",
+   "group": "osc4_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "OSC ON/OFF",
+   "x": 68.0,
+   "y": 300.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:MOD-7",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "OSC On/Off",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 697,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@697.3~1",
+   "param": "Prog_EXi@697.3~1",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OSC MODE",
+   "x": 296.7,
+   "y": 299.0,
+   "w": 80.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Ring Mod. Only",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "OSC Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 697,
+    "bit": "3~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "Off~Ring Mod. Only"
+   }
+  },
+  {
+   "id": "Prog_EXi@703.7~6",
+   "param": "Prog_EXi@703.7~6",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PHASE SYNC",
+   "x": 525.3,
+   "y": 299.0,
+   "w": 58.1,
+   "h": 16,
+   "text": [
+    "Key Sync"
+   ],
+   "options": "Key Sync~Free Run",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Phase Sync",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 703,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Key Sync~Free Run"
+   }
+  },
+  {
+   "id": "Prog_EXi@706.7~5",
+   "param": "Prog_EXi@706.7~5",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FEEDBACK LEVEL MOD.SOURCE",
+   "x": 754.0,
+   "y": 299.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Feedback Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 706,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@708.5",
+   "param": "Prog_EXi@708.5",
+   "group": "osc4_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "USE COMMON PITCH MOD.",
+   "x": 982.7,
+   "y": 300.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:MOD-7",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Use Common Pitch Mod.",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 708,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@710.7",
+   "param": "Prog_EXi@710.7",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PITCH MOD.1 INT.MOD.SOURCE",
+   "x": 1211.3,
+   "y": 299.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Pitch Mod.1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 710,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@716.6~0",
+   "param": "Prog_EXi@716.6~0",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVESHAPER TABLE SELECT",
+   "x": 68.0,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Linear"
+   ],
+   "options": "Linear~Wurly",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Waveshaper Table Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 716,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Linear~Wurly"
+   }
+  },
+  {
+   "id": "Prog_EXi@718.5",
+   "param": "Prog_EXi@718.5",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVESHAPER DRIVE SLOPE SHAPE",
+   "x": 296.7,
+   "y": 333.0,
+   "w": 73.8,
+   "h": 16,
+   "text": [
+    "Low and High"
+   ],
+   "options": "Low and High~High O",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Waveshaper Drive Slope Shape",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 718,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Low and High~High O"
+   }
+  },
+  {
+   "id": "Prog_EXi@718.7~6",
+   "param": "Prog_EXi@718.7~6",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVESHAPER DRIVE MOD.SOURCE",
+   "x": 525.3,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Waveshaper Drive Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 718,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@721.7~6",
+   "param": "Prog_EXi@721.7~6",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVESHAPER OFFSET MOD.SOURCE",
+   "x": 754.0,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Waveshaper Offset Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 721,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@724.7~5",
+   "param": "Prog_EXi@724.7~5",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RING MOD. CROSSFADE",
+   "x": 982.7,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Dry"
+   ],
+   "options": "Dry~Ring",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Ring Mod. Crossfade",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 724,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Ring"
+   }
+  },
+  {
+   "id": "Prog_EXi@725.7~4",
+   "param": "Prog_EXi@725.7~4",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RING MOD. CROSSFADE MOD.SOURCE",
+   "x": 1211.3,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Ring Mod. Crossfade Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 725,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@728.6~3",
+   "param": "Prog_EXi@728.6~3",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VOLUME EG SELECT",
+   "x": 68.0,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "None"
+   ],
+   "options": "None~Amp EG",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Volume EG Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 728,
+    "bit": "6~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "None~Amp EG"
+   }
+  },
+  {
+   "id": "Prog_EXi@729.7",
+   "param": "Prog_EXi@729.7",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VOLUME MOD.SOURCE",
+   "x": 296.7,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Volume Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 729,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@731.7",
+   "param": "Prog_EXi@731.7",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VOLUME MOD.INT.MOD.SOURCE",
+   "x": 525.3,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Volume Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 731,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@733.7",
+   "param": "Prog_EXi@733.7",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VOLUME MOD.MODE",
+   "x": 754.0,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Add"
+   ],
+   "options": "Add~Multiply",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Volume Mod.Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 733,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Add~Multiply"
+   }
+  },
+  {
+   "id": "Prog_EXi@734.7",
+   "param": "Prog_EXi@734.7",
+   "group": "osc4_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FEEDBACK PRE/POST",
+   "x": 982.7,
+   "y": 367.0,
+   "w": 77.3,
+   "h": 16,
+   "text": [
+    "From Sine Osc"
+   ],
+   "options": "From Sine Osc~From",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "OSC4",
+    "name": "Feedback Pre/Post",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 734,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "35",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "From Sine Osc~From"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "MAIN",
+ "page_number": 5,
+ "pages_in_area": 9,
+ "apply": "exi:MOD-7"
+}

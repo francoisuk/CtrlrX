@@ -1,0 +1,21 @@
+{
+ "object": "Program · SGX-2",
+ "areas": [
+  {
+   "label": "OSC",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:SGX-2",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_SGX2_OSC_P1",
+   "area": "OSC",
+   "n": 1,
+   "of": 1
+  }
+ ]
+}

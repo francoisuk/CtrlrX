@@ -1,0 +1,2418 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "LFO·MIX · 2/2",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_P_LFO_MIX_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_P_LFO_MIX_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — LFO·MIX · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 80.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 143.1,
+   "y": 84,
+   "w": 61.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 207.7,
+   "y": 84,
+   "w": 70.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 281.3,
+   "y": 84,
+   "w": 62.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 347.0,
+   "y": 84,
+   "w": 76.7,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 426.7,
+   "y": 84,
+   "w": 100.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 530.5,
+   "y": 84,
+   "w": 58.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 591.5,
+   "y": 84,
+   "w": 81.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 675.9,
+   "y": 84,
+   "w": 73.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 752.4,
+   "y": 84,
+   "w": 78.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 833.8,
+   "y": 84,
+   "w": 74.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 910.9,
+   "y": 84,
+   "w": 60.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 973.9,
+   "y": 84,
+   "w": 81.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 1058.6,
+   "y": 84,
+   "w": 75.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1136.8,
+   "y": 84,
+   "w": 103.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1242.8,
+   "y": 84,
+   "w": 79.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1334.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1359.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@3194.2~0",
+   "param": "Prog_HD-1@3194.2~0",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Gate",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3194,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "A+B~Gate"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3195",
+   "param": "Prog_HD-1@3195",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE A",
+   "x": 204.1,
+   "y": 153.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Source A",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3195,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3197",
+   "param": "Prog_HD-1@3197",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE B",
+   "x": 340.1,
+   "y": 153.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Source B",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3197,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3207",
+   "param": "Prog_HD-1@3207",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE TYPE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Symmetric"
+   ],
+   "options": "Symmetric~Asymmetri",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Shape Type",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3207,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Symmetric~Asymmetri"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3208.0",
+   "param": "Prog_HD-1@3208.0",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CTRL AT NOTE ON ONLY",
+   "x": 204.1,
+   "y": 188.0,
+   "w": 128.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "hd1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Control At Note On Only",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3208,
+    "bit": "0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3208.1",
+   "param": "Prog_HD-1@3208.1",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BELOW THRESHOLD",
+   "x": 340.1,
+   "y": 187.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Fixed Value"
+   ],
+   "options": "Fixed Value~Mod.Sou",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Below Threshold",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3208,
+    "bit": "1",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Fixed Value~Mod.Sou"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3208.2",
+   "param": "Prog_HD-1@3208.2",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AT&ABOVE THRESHOLD",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Fixed Value"
+   ],
+   "options": "Fixed Value~Mod.Sou",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "At&Above Threshold",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3208,
+    "bit": "2",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Fixed Value~Mod.Sou"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3209",
+   "param": "Prog_HD-1@3209",
+   "group": "osc_mod_mixer1_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE",
+   "x": 204.1,
+   "y": 221.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3209,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3198",
+   "param": "Prog_HD-1@3198",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 500.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 521.2244245447034,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3198,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3198_val",
+   "param": "Prog_HD-1@3198",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 502.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3198,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3199",
+   "param": "Prog_HD-1@3199",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NUMBER OF STEPS",
+   "x": 569.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 590.6852386022067,
+   "cy": 204.0,
+   "r": 12,
+   "range": "2~32",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3199,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3199_val",
+   "param": "Prog_HD-1@3199",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NUMBER OF STEPS value",
+   "x": 571.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "2"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3199,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3202",
+   "param": "Prog_HD-1@3202",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 639.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 660.1460526597099,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-199~+199",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3202,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3202_val",
+   "param": "Prog_HD-1@3202",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 641.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3202,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3204",
+   "param": "Prog_HD-1@3204",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK",
+   "x": 708.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 729.6068667172132,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3204,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3204_val",
+   "param": "Prog_HD-1@3204",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK value",
+   "x": 710.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3204,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3205",
+   "param": "Prog_HD-1@3205",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 778.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 799.0676807747163,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3205,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3205_val",
+   "param": "Prog_HD-1@3205",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 780.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3205,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3206",
+   "param": "Prog_HD-1@3206",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 847.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 868.5284948322196,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3206,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3206_val",
+   "param": "Prog_HD-1@3206",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 849.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3206,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3210",
+   "param": "Prog_HD-1@3210",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "THRESHOLD",
+   "x": 917.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 937.9893088897229,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3210,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3210_val",
+   "param": "Prog_HD-1@3210",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "THRESHOLD value",
+   "x": 919.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3210,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3211",
+   "param": "Prog_HD-1@3211",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BELOW FIXED VALUE",
+   "x": 986.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1007.4501229472262,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Below Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3211,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3211_val",
+   "param": "Prog_HD-1@3211",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "BELOW FIXED VALUE value",
+   "x": 988.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Below Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3211,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3212",
+   "param": "Prog_HD-1@3212",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AT&ABOVE FIXED VALUE",
+   "x": 1055.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1076.9109370047295,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "At&Above Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3212,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3212_val",
+   "param": "Prog_HD-1@3212",
+   "group": "osc_mod_mixer1_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "AT&ABOVE FIXED VALUE value",
+   "x": 1057.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "At&Above Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3212,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3196#1",
+   "param": "Prog_HD-1@3196#1",
+   "group": "osc_mod_mixer1_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3196#1",
+   "x": 1271.9,
+   "y": 150,
+   "w": 74.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3196,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3200#2",
+   "param": "Prog_HD-1@3200#2",
+   "group": "osc_mod_mixer1_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3200#2",
+   "x": 1350.0,
+   "y": 150,
+   "w": 74.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-199~+199",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer1",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3200,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3214.2~0",
+   "param": "Prog_HD-1@3214.2~0",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 68.0,
+   "y": 299.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Gate",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3214,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "A+B~Gate"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3215",
+   "param": "Prog_HD-1@3215",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE A",
+   "x": 204.1,
+   "y": 299.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Source A",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3215,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3217",
+   "param": "Prog_HD-1@3217",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE B",
+   "x": 340.1,
+   "y": 299.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Source B",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3217,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3227",
+   "param": "Prog_HD-1@3227",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE TYPE",
+   "x": 68.0,
+   "y": 333.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Symmetric"
+   ],
+   "options": "Symmetric~Asymmetri",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Shape Type",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3227,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Symmetric~Asymmetri"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3228.0",
+   "param": "Prog_HD-1@3228.0",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CTRL AT NOTE ON ONLY",
+   "x": 204.1,
+   "y": 334.0,
+   "w": 128.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "hd1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Control At Note On Only",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3228,
+    "bit": "0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3228.1",
+   "param": "Prog_HD-1@3228.1",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BELOW THRESHOLD",
+   "x": 340.1,
+   "y": 333.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Fixed Value"
+   ],
+   "options": "Fixed Value~Mod.Sou",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Below Threshold",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3228,
+    "bit": "1",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Fixed Value~Mod.Sou"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3228.2",
+   "param": "Prog_HD-1@3228.2",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AT&ABOVE THRESHOLD",
+   "x": 68.0,
+   "y": 367.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Fixed Value"
+   ],
+   "options": "Fixed Value~Mod.Sou",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "At&Above Threshold",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3228,
+    "bit": "2",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Fixed Value~Mod.Sou"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3229",
+   "param": "Prog_HD-1@3229",
+   "group": "osc_mod_mixer2_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE",
+   "x": 204.1,
+   "y": 367.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3229,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3218",
+   "param": "Prog_HD-1@3218",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 500.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 521.2244245447034,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3218,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3218_val",
+   "param": "Prog_HD-1@3218",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 502.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3218,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3219",
+   "param": "Prog_HD-1@3219",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NUMBER OF STEPS",
+   "x": 569.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 590.6852386022067,
+   "cy": 350.0,
+   "r": 12,
+   "range": "2~32",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3219,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3219_val",
+   "param": "Prog_HD-1@3219",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NUMBER OF STEPS value",
+   "x": 571.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "2"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3219,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3222",
+   "param": "Prog_HD-1@3222",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 639.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 660.1460526597099,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-199~+199",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3222,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3222_val",
+   "param": "Prog_HD-1@3222",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 641.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3222,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3224",
+   "param": "Prog_HD-1@3224",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK",
+   "x": 708.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 729.6068667172132,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3224,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3224_val",
+   "param": "Prog_HD-1@3224",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK value",
+   "x": 710.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3224,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3225",
+   "param": "Prog_HD-1@3225",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 778.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 799.0676807747163,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3225,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3225_val",
+   "param": "Prog_HD-1@3225",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 780.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3225,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3226",
+   "param": "Prog_HD-1@3226",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 847.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 868.5284948322196,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3226,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3226_val",
+   "param": "Prog_HD-1@3226",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 849.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3226,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3230",
+   "param": "Prog_HD-1@3230",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "THRESHOLD",
+   "x": 917.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 937.9893088897229,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3230,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3230_val",
+   "param": "Prog_HD-1@3230",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "THRESHOLD value",
+   "x": 919.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3230,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3231",
+   "param": "Prog_HD-1@3231",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BELOW FIXED VALUE",
+   "x": 986.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1007.4501229472262,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Below Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3231,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3231_val",
+   "param": "Prog_HD-1@3231",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "BELOW FIXED VALUE value",
+   "x": 988.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Below Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3231,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3232",
+   "param": "Prog_HD-1@3232",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AT&ABOVE FIXED VALUE",
+   "x": 1055.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1076.9109370047295,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "At&Above Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3232,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3232_val",
+   "param": "Prog_HD-1@3232",
+   "group": "osc_mod_mixer2_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "AT&ABOVE FIXED VALUE value",
+   "x": 1057.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "At&Above Fixed Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3232,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3216#1",
+   "param": "Prog_HD-1@3216#1",
+   "group": "osc_mod_mixer2_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3216#1",
+   "x": 1271.9,
+   "y": 296,
+   "w": 74.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3216,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3220#2",
+   "param": "Prog_HD-1@3220#2",
+   "group": "osc_mod_mixer2_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3220#2",
+   "x": 1350.0,
+   "y": 296,
+   "w": 74.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-199~+199",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Mod.Mixer2",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3220,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "LFO·MIX",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "hd1",
+ "index": {
+  "label": "OSC",
+  "instances": [
+   "1",
+   "2"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2"
+  ],
+  "shown": "1",
+  "stride_bytes": 466,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ }
+}

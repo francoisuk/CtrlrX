@@ -1,0 +1,2386 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 1/3",
+ "tab_index": 0,
+ "object": "Program · CX-3",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_CX3_OSC_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_CX3_OSC_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · CX-3 — OSC · 1/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 441.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 513.4,
+   "y": 84,
+   "w": 410.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 927.2,
+   "y": 84,
+   "w": 428.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@1.0",
+   "param": "Prog_EXi@1.0",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WHEEL TYPE",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 157.9,
+   "h": 16,
+   "text": [
+    "Vintage"
+   ],
+   "options": "Vintage~Clean",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Wheel Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 1,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Vintage~Clean",
+    "oasys": {
+     "ofs": 1,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@3.6",
+   "param": "Prog_EXi@3.6",
+   "group": "basic_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "WHEEL BRAKE",
+   "x": 233.9,
+   "y": 154.0,
+   "w": 157.9,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Wheel Brake",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 3,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 3,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@3.7",
+   "param": "Prog_EXi@3.7",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WHEEL BRAKE MOD.SOURCE",
+   "x": 399.8,
+   "y": 153.0,
+   "w": 157.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Wheel Brake Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 3,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 3,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@4.7",
+   "param": "Prog_EXi@4.7",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WHEEL BRAKE MODE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 157.9,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Wheel Brake Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 4,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 4,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@5.0",
+   "param": "Prog_EXi@5.0",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WHEEL BRAKE SPEED",
+   "x": 233.9,
+   "y": 187.0,
+   "w": 157.9,
+   "h": 16,
+   "text": [
+    "Slow"
+   ],
+   "options": "Slow~Fast",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Wheel Brake Speed",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 5,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Slow~Fast",
+    "oasys": {
+     "ofs": 5,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@34.7",
+   "param": "Prog_EXi@34.7",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EXPRESSION MOD.SOURCE",
+   "x": 399.8,
+   "y": 187.0,
+   "w": 157.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Expression Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 34,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 34,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@35.7",
+   "param": "Prog_EXi@35.7",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EXPRESSION MODE",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 157.9,
+   "h": 16,
+   "text": [
+    "Level Only"
+   ],
+   "options": "Level Only~Both Ove",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Expression Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 35,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Level Only~Both Ove",
+    "oasys": {
+     "ofs": 35,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@93.1",
+   "param": "Prog_EXi@93.1",
+   "group": "basic_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "GATE TYPE",
+   "x": 233.9,
+   "y": 221.0,
+   "w": 157.9,
+   "h": 16,
+   "text": [
+    "Clean"
+   ],
+   "options": "Clean~Dirty",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Gate Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 93,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Clean~Dirty",
+    "oasys": {
+     "ofs": 93,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@0.6~0",
+   "param": "Prog_EXi@0.6~0",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY START",
+   "x": 589.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 610.756862745098,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~Off",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Delay Start",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~Off",
+    "oasys": {
+     "ofs": 0,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@0.6~0_val",
+   "param": "Prog_EXi@0.6~0",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY START value",
+   "x": 591.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Delay Start",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~Off",
+    "oasys": {
+     "ofs": 0,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@1.7~1",
+   "param": "Prog_EXi@1.7~1",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OVERTONE LEVEL",
+   "x": 677.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 698.7838779956427,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Overtone Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 1,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 1,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@1.7~1_val",
+   "param": "Prog_EXi@1.7~1",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OVERTONE LEVEL value",
+   "x": 679.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Overtone Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 1,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 1,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@2.6~0",
+   "param": "Prog_EXi@2.6~0",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEAKAGE LEVEL",
+   "x": 765.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 786.8108932461873,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Leakage Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 2,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@2.6~0_val",
+   "param": "Prog_EXi@2.6~0",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEAKAGE LEVEL value",
+   "x": 767.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Leakage Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 2,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@2.7",
+   "param": "Prog_EXi@2.7",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE LEVEL",
+   "x": 853.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 874.8379084967321,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 2,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@2.7_val",
+   "param": "Prog_EXi@2.7",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE LEVEL value",
+   "x": 855.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 2,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@5.7~1",
+   "param": "Prog_EXi@5.7~1",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH BEND JS(+X)",
+   "x": 941.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 962.8649237472767,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-60~+12",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Pitch Bend JS(+X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 5,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12",
+    "oasys": {
+     "ofs": 5,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@5.7~1_val",
+   "param": "Prog_EXi@5.7~1",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH BEND JS(+X) value",
+   "x": 943.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Pitch Bend JS(+X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 5,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12",
+    "oasys": {
+     "ofs": 5,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@6.6~0",
+   "param": "Prog_EXi@6.6~0",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH BEND JS(-X)",
+   "x": 1029.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1050.8919389978214,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-60~+12",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Pitch Bend JS(-X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 6,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12",
+    "oasys": {
+     "ofs": 6,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@6.6~0_val",
+   "param": "Prog_EXi@6.6~0",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH BEND JS(-X) value",
+   "x": 1031.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Pitch Bend JS(-X)",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 6,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12",
+    "oasys": {
+     "ofs": 6,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@8.7~1",
+   "param": "Prog_EXi@8.7~1",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY ON LEVEL",
+   "x": 1117.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1138.9189542483662,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Key On Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 8,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 8,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@8.7~1_val",
+   "param": "Prog_EXi@8.7~1",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY ON LEVEL value",
+   "x": 1119.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Key On Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 8,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 8,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@9.6~0",
+   "param": "Prog_EXi@9.6~0",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY OFF LEVEL",
+   "x": 1205.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1226.945969498911,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Key Off Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 9,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 9,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@9.6~0_val",
+   "param": "Prog_EXi@9.6~0",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY OFF LEVEL value",
+   "x": 1207.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Key Off Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 9,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 9,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@33.7~3",
+   "param": "Prog_EXi@33.7~3",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EXPRESSION MINIMUM",
+   "x": 1294.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1314.9729847494555,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~30",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Expression Minimum",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 33,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~1E",
+    "value": "0~30",
+    "oasys": {
+     "ofs": 33,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@33.7~3_val",
+   "param": "Prog_EXi@33.7~3",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EXPRESSION MINIMUM value",
+   "x": 1296.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Expression Minimum",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 33,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~1E",
+    "value": "0~30",
+    "oasys": {
+     "ofs": 33,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@34.6~0",
+   "param": "Prog_EXi@34.6~0",
+   "group": "basic_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EXPRESSION LEVEL",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Expression Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 34,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 34,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@34.6~0_val",
+   "param": "Prog_EXi@34.6~0",
+   "group": "basic_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EXPRESSION LEVEL value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Basic",
+    "name": "Expression Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 34,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 34,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@0.7",
+   "param": "Prog_EXi@0.7",
+   "group": "drawbar_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRAWBAR MODE",
+   "x": 68.0,
+   "y": 299.0,
+   "w": 147.3,
+   "h": 16,
+   "text": [
+    "Normal"
+   ],
+   "options": "Normal~EX",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Drawbar Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 0,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Normal~EX",
+    "oasys": {
+     "ofs": 0,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@6.7",
+   "param": "Prog_EXi@6.7",
+   "group": "drawbar_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SPLIT ENABLE",
+   "x": 223.3,
+   "y": 300.0,
+   "w": 147.3,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Split Enable",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 6,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 6,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@7",
+   "param": "Prog_EXi@7",
+   "group": "drawbar_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPLIT ENABLE MOD SRC",
+   "x": 378.7,
+   "y": 299.0,
+   "w": 147.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Split Enable Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 7,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 7,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@8.0",
+   "param": "Prog_EXi@8.0",
+   "group": "drawbar_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPLIT ENABLE MODE",
+   "x": 68.0,
+   "y": 333.0,
+   "w": 147.3,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Split Enable Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 8,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 8,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@81.0",
+   "param": "Prog_EXi@81.0",
+   "group": "drawbar_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRAWBAR LEVEL CURVE",
+   "x": 223.3,
+   "y": 333.0,
+   "w": 147.3,
+   "h": 16,
+   "text": [
+    "Bright"
+   ],
+   "options": "Bright~Mellow",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Drawbar Level Curve",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 81,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Bright~Mellow",
+    "oasys": {
+     "ofs": 81,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@82.7~6",
+   "param": "Prog_EXi@82.7~6",
+   "group": "drawbar_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "UPPER DRAWBAR PRESET",
+   "x": 378.7,
+   "y": 333.0,
+   "w": 147.3,
+   "h": 16,
+   "text": [
+    "Preset1"
+   ],
+   "options": "Preset1~Custom",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Upper Drawbar Preset",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 82,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~05",
+    "value": "Preset1~Custom",
+    "oasys": {
+     "ofs": 82,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@86.7~5",
+   "param": "Prog_EXi@86.7~5",
+   "group": "drawbar_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOWER DRAWBAR PRESET",
+   "x": 68.0,
+   "y": 367.0,
+   "w": 147.3,
+   "h": 16,
+   "text": [
+    "Preset1"
+   ],
+   "options": "Preset1~Custom",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Lower Drawbar Preset",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 86,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "01~05",
+    "value": "Preset1~Custom",
+    "oasys": {
+     "ofs": 86,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@81.7~1",
+   "param": "Prog_EXi@81.7~1",
+   "group": "drawbar_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPLIT POINT",
+   "x": 558.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 578.996303142329,
+   "cy": 350.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Split Point",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 81,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 81,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@81.7~1_val",
+   "param": "Prog_EXi@81.7~1",
+   "group": "drawbar_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "SPLIT POINT value",
+   "x": 560.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Split Point",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 81,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 81,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@82.2~0",
+   "param": "Prog_EXi@82.2~0",
+   "group": "drawbar_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "UPPER OCTAVE SHIFT",
+   "x": 653.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 674.362292051756,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Upper Octave Shift",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 82,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 82,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@82.2~0_val",
+   "param": "Prog_EXi@82.2~0",
+   "group": "drawbar_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "UPPER OCTAVE SHIFT value",
+   "x": 655.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Upper Octave Shift",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 82,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 82,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@82.5~3",
+   "param": "Prog_EXi@82.5~3",
+   "group": "drawbar_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOWER OCTAVE SHIFT",
+   "x": 748.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 769.7282809611829,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Lower Octave Shift",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 82,
+    "bit": "5~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 82,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@82.5~3_val",
+   "param": "Prog_EXi@82.5~3",
+   "group": "drawbar_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LOWER OCTAVE SHIFT value",
+   "x": 750.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drawbar",
+    "name": "Lower Octave Shift",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 82,
+    "bit": "5~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 82,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@9.7",
+   "param": "Prog_EXi@9.7",
+   "group": "percussion_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ENABLE",
+   "x": 822.7,
+   "y": 300.0,
+   "w": 146.3,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Enable",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 9,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 9,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@10",
+   "param": "Prog_EXi@10",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ENABLE MOD.SOURCE",
+   "x": 977.0,
+   "y": 299.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Enable Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 10,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 10,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@11.0",
+   "param": "Prog_EXi@11.0",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ENABLE MODE",
+   "x": 1131.4,
+   "y": 299.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Enable Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 11,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 11,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@11.1",
+   "param": "Prog_EXi@11.1",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL",
+   "x": 1285.7,
+   "y": 299.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Soft"
+   ],
+   "options": "Soft~Loud",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Level",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 11,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Soft~Loud",
+    "oasys": {
+     "ofs": 11,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@11.7~2",
+   "param": "Prog_EXi@11.7~2",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 822.7,
+   "y": 333.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 11,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 11,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@12.2",
+   "param": "Prog_EXi@12.2",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MODE",
+   "x": 977.0,
+   "y": 333.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Level Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 12,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 12,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@15.0",
+   "param": "Prog_EXi@15.0",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DECAY",
+   "x": 1131.4,
+   "y": 333.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Slow"
+   ],
+   "options": "Slow~Fast",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Decay",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 15,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Slow~Fast",
+    "oasys": {
+     "ofs": 15,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@15.7~1",
+   "param": "Prog_EXi@15.7~1",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DECAY MOD.SOURCE",
+   "x": 1285.7,
+   "y": 333.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Decay Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 15,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 15,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@16.1",
+   "param": "Prog_EXi@16.1",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DECAY MODE",
+   "x": 822.7,
+   "y": 367.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Decay Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 16,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 16,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@18.7~1",
+   "param": "Prog_EXi@18.7~1",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HARMONIC MOD.SOURCE",
+   "x": 977.0,
+   "y": 367.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Harmonic Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 18,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 18,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@19.1",
+   "param": "Prog_EXi@19.1",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HARMONIC MODE",
+   "x": 1131.4,
+   "y": 367.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Harmonic Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 19,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 19,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@90.4",
+   "param": "Prog_EXi@90.4",
+   "group": "percussion_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PERCUSSION ASSIGN",
+   "x": 1285.7,
+   "y": 367.0,
+   "w": 146.3,
+   "h": 16,
+   "text": [
+    "Lower"
+   ],
+   "options": "Lower~Upper",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Percussion Assign",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 90,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Lower~Upper",
+    "oasys": {
+     "ofs": 90,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 1,
+ "pages_in_area": 3,
+ "apply": "exi:CX-3",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

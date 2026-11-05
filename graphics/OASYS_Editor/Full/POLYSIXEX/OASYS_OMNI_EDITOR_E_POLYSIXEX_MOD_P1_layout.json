@@ -1,0 +1,2798 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "MOD · 1/2",
+ "tab_index": 0,
+ "object": "Program · PolysixEX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_POLYSIXEX_MOD_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_POLYSIXEX_MOD_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · PolysixEX — MOD · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 185.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 257.6,
+   "y": 84,
+   "w": 155.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 415.6,
+   "y": 84,
+   "w": 164.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 582.7,
+   "y": 84,
+   "w": 173.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 758.7,
+   "y": 84,
+   "w": 151.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 913.2,
+   "y": 84,
+   "w": 153.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1069.6,
+   "y": 84,
+   "w": 156.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1229.5,
+   "y": 84,
+   "w": 151.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@26.4",
+   "param": "Prog_EXi@26.4",
+   "group": "arpeggiator_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ENABLE",
+   "x": 68.0,
+   "y": 154.0,
+   "w": 124.6,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:PolysixEX",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Enable",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 26,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 26,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@26.7~5",
+   "param": "Prog_EXi@26.7~5",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ENABLE MOD.SOURCE",
+   "x": 200.6,
+   "y": 153.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Enable Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 26,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 26,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@27.5",
+   "param": "Prog_EXi@27.5",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ENABLE MOD.SWITCH MODE",
+   "x": 333.1,
+   "y": 153.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Enable Mod.Switch Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 27,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 27,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@27.6",
+   "param": "Prog_EXi@27.6",
+   "group": "arpeggiator_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEY SYNC",
+   "x": 465.7,
+   "y": 154.0,
+   "w": 124.6,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:PolysixEX",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Key Sync",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 27,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 27,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@29.7~1",
+   "param": "Prog_EXi@29.7~1",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED MOD.SOURCE",
+   "x": 598.2,
+   "y": 153.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 29,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 29,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@31.7~4",
+   "param": "Prog_EXi@31.7~4",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED MOD INT.MOD SRC",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 31,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 31,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@33.7",
+   "param": "Prog_EXi@33.7",
+   "group": "arpeggiator_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MIDI SYNC",
+   "x": 200.6,
+   "y": 188.0,
+   "w": 124.6,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:PolysixEX",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "MIDI Sync",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 33,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 33,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@35",
+   "param": "Prog_EXi@35",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TIMES MOD.SOURCE",
+   "x": 333.1,
+   "y": 187.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 35,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 35,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@36.7~5",
+   "param": "Prog_EXi@36.7~5",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TIMES MOD INT.MOD SRC",
+   "x": 465.7,
+   "y": 187.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 36,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 36,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@38.7~4",
+   "param": "Prog_EXi@38.7~4",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RANGE MOD.SOURCE",
+   "x": 598.2,
+   "y": 187.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Range Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 38,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 38,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@39.7",
+   "param": "Prog_EXi@39.7",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Up"
+   ],
+   "options": "Up~Up/Down",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 39,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Up~Up/Down",
+    "oasys": {
+     "ofs": 39,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@40.7~1",
+   "param": "Prog_EXi@40.7~1",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE MOD.SOURCE",
+   "x": 200.6,
+   "y": 221.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Mode Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 40,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 40,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41.4",
+   "param": "Prog_EXi@41.4",
+   "group": "arpeggiator_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "LATCH",
+   "x": 333.1,
+   "y": 222.0,
+   "w": 124.6,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:PolysixEX",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Latch",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 41,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41.7~5",
+   "param": "Prog_EXi@41.7~5",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LATCH MOD.SOURCE",
+   "x": 465.7,
+   "y": 221.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Latch Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 41,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@42.5",
+   "param": "Prog_EXi@42.5",
+   "group": "arpeggiator_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LATCH MOD.SWITCH MODE",
+   "x": 598.2,
+   "y": 221.0,
+   "w": 124.6,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Latch Mod.Switch Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 42,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 42,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@27.7",
+   "param": "Prog_EXi@27.7",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED",
+   "x": 754.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 775.7555555555556,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 27,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 27,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@27.7_val",
+   "param": "Prog_EXi@27.7",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED value",
+   "x": 756.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 27,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00",
+    "oasys": {
+     "ofs": 27,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@30.7~1",
+   "param": "Prog_EXi@30.7~1",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED MOD.INT",
+   "x": 824.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 845.4493827160494,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 30,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 30,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@30.7~1_val",
+   "param": "Prog_EXi@30.7~1",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED MOD.INT value",
+   "x": 826.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 30,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 30,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@32.7~4",
+   "param": "Prog_EXi@32.7~4",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED MOD INT.MOD INT",
+   "x": 894.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 915.1432098765432,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 32,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 32,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@32.7~4_val",
+   "param": "Prog_EXi@32.7~4",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED MOD INT.MOD INT value",
+   "x": 896.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Speed Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 32,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00",
+    "oasys": {
+     "ofs": 32,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@34.3~0",
+   "param": "Prog_EXi@34.3~0",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BASE NOTE",
+   "x": 963.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 984.8370370370371,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Base Note",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 34,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1",
+    "oasys": {
+     "ofs": 34,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@34.3~0_val",
+   "param": "Prog_EXi@34.3~0",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BASE NOTE value",
+   "x": 965.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Base Note",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 34,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1",
+    "oasys": {
+     "ofs": 34,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@34.7~4",
+   "param": "Prog_EXi@34.7~4",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TIMES",
+   "x": 1033.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1054.530864197531,
+   "cy": 204.0,
+   "r": 12,
+   "range": "16~1",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 34,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "00~0F",
+    "value": "16~1",
+    "oasys": {
+     "ofs": 34,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@34.7~4_val",
+   "param": "Prog_EXi@34.7~4",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TIMES value",
+   "x": 1035.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "16"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 34,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "00~0F",
+    "value": "16~1",
+    "oasys": {
+     "ofs": 34,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@36.4~0",
+   "param": "Prog_EXi@36.4~0",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TIMES MOD.INT",
+   "x": 1103.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1124.2246913580248,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-15~+15",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 36,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "F1~0F",
+    "value": "-15~+15",
+    "oasys": {
+     "ofs": 36,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@36.4~0_val",
+   "param": "Prog_EXi@36.4~0",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TIMES MOD.INT value",
+   "x": 1105.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 36,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "F1~0F",
+    "value": "-15~+15",
+    "oasys": {
+     "ofs": 36,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@37.7~5",
+   "param": "Prog_EXi@37.7~5",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TIMES MOD INT.MOD INT",
+   "x": 1172.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1193.9185185185186,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-15~+15",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 37,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "F1~0F",
+    "value": "-15~+15",
+    "oasys": {
+     "ofs": 37,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@37.7~5_val",
+   "param": "Prog_EXi@37.7~5",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TIMES MOD INT.MOD INT value",
+   "x": 1174.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Times Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 37,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "F1~0F",
+    "value": "-15~+15",
+    "oasys": {
+     "ofs": 37,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@38.3~2",
+   "param": "Prog_EXi@38.3~2",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RANGE",
+   "x": 1242.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1263.6123456790124,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1 Octave~Full",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Range",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 38,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "1 Octave~Full",
+    "oasys": {
+     "ofs": 38,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@38.3~2_val",
+   "param": "Prog_EXi@38.3~2",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RANGE value",
+   "x": 1244.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1 Octav"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Range",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 38,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "1 Octave~Full",
+    "oasys": {
+     "ofs": 38,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@39.6~4",
+   "param": "Prog_EXi@39.6~4",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RANGE MOD.INT",
+   "x": 1312.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1333.3061728395062,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Range Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 39,
+    "bit": "6~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 39,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@39.6~4_val",
+   "param": "Prog_EXi@39.6~4",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RANGE MOD.INT value",
+   "x": 1314.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Range Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 39,
+    "bit": "6~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 39,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41.3~1",
+   "param": "Prog_EXi@41.3~1",
+   "group": "arpeggiator_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MODE MOD.INT",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Mode Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 41,
+    "bit": "3~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41.3~1_val",
+   "param": "Prog_EXi@41.3~1",
+   "group": "arpeggiator_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MODE MOD.INT value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Arpeggiator",
+    "name": "Mode Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 41,
+    "bit": "3~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@43",
+   "param": "Prog_EXi@43",
+   "group": "mod_mixer3_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 68.0,
+   "y": 299.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Gate",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 43,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "A+B~Gate",
+    "oasys": {
+     "ofs": 43,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@44",
+   "param": "Prog_EXi@44",
+   "group": "mod_mixer3_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE A",
+   "x": 204.1,
+   "y": 299.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Source A",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 44,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 44,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@46",
+   "param": "Prog_EXi@46",
+   "group": "mod_mixer3_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE B",
+   "x": 340.1,
+   "y": 299.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Source B",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 46,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 46,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@56",
+   "param": "Prog_EXi@56",
+   "group": "mod_mixer3_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE TYPE",
+   "x": 68.0,
+   "y": 333.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Symmetric"
+   ],
+   "options": "Symmetric~Asymmetri",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Shape Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 56,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Symmetric~Asymmetri",
+    "oasys": {
+     "ofs": 56,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@57.0",
+   "param": "Prog_EXi@57.0",
+   "group": "mod_mixer3_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CTRL AT NOTE ON ONLY",
+   "x": 204.1,
+   "y": 334.0,
+   "w": 128.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:PolysixEX",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Control At Note On Only",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 57,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 57,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@57.1",
+   "param": "Prog_EXi@57.1",
+   "group": "mod_mixer3_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BELOW THRESHOLD",
+   "x": 340.1,
+   "y": 333.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Fixed Value"
+   ],
+   "options": "Fixed Value~Mod.Sou",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Below Threshold",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 57,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Fixed Value~Mod.Sou",
+    "oasys": {
+     "ofs": 57,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@57.7~2",
+   "param": "Prog_EXi@57.7~2",
+   "group": "mod_mixer3_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AT&ABOVE THRESHOLD",
+   "x": 68.0,
+   "y": 367.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Fixed Value"
+   ],
+   "options": "Fixed Value~Mod.Sou",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "At&Above Threshold",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 57,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Fixed Value~Mod.Sou",
+    "oasys": {
+     "ofs": 57,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@58",
+   "param": "Prog_EXi@58",
+   "group": "mod_mixer3_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE",
+   "x": 204.1,
+   "y": 367.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 58,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 58,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@47",
+   "param": "Prog_EXi@47",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 500.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 521.2244245447034,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 47,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 47,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@47_val",
+   "param": "Prog_EXi@47",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 502.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 47,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 47,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@48",
+   "param": "Prog_EXi@48",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NUMBER OF STEPS",
+   "x": 569.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 590.6852386022067,
+   "cy": 350.0,
+   "r": 12,
+   "range": "2~32",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 48,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32",
+    "oasys": {
+     "ofs": 48,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@48_val",
+   "param": "Prog_EXi@48",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NUMBER OF STEPS value",
+   "x": 571.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "2"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 48,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32",
+    "oasys": {
+     "ofs": 48,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@51",
+   "param": "Prog_EXi@51",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 639.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 660.1460526597099,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-199~+199",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 51,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": 51,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@51_val",
+   "param": "Prog_EXi@51",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 641.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 51,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": 51,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@53",
+   "param": "Prog_EXi@53",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK",
+   "x": 708.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 729.6068667172132,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 53,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 53,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@53_val",
+   "param": "Prog_EXi@53",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK value",
+   "x": 710.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 53,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 53,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@54",
+   "param": "Prog_EXi@54",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 778.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 799.0676807747163,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 54,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 54,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@54_val",
+   "param": "Prog_EXi@54",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 780.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 54,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 54,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@55",
+   "param": "Prog_EXi@55",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 847.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 868.5284948322196,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 55,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 55,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@55_val",
+   "param": "Prog_EXi@55",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 849.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 55,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 55,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@59",
+   "param": "Prog_EXi@59",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "THRESHOLD",
+   "x": 917.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 937.9893088897229,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 59,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 59,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@59_val",
+   "param": "Prog_EXi@59",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "THRESHOLD value",
+   "x": 919.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 59,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 59,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@60",
+   "param": "Prog_EXi@60",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BELOW FIXED VALUE",
+   "x": 986.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1007.4501229472262,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Below Fixed Value",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 60,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 60,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@60_val",
+   "param": "Prog_EXi@60",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "BELOW FIXED VALUE value",
+   "x": 988.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Below Fixed Value",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 60,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 60,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@61",
+   "param": "Prog_EXi@61",
+   "group": "mod_mixer3_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AT&ABOVE FIXED VALUE",
+   "x": 1055.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1076.9109370047295,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "At&Above Fixed Value",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 61,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 61,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@61_val",
+   "param": "Prog_EXi@61",
+   "group": "mod_mixer3_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "AT&ABOVE FIXED VALUE value",
+   "x": 1057.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "At&Above Fixed Value",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 61,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 61,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@45#1",
+   "param": "Prog_EXi@45#1",
+   "group": "mod_mixer3_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@45#1",
+   "x": 1271.9,
+   "y": 296,
+   "w": 74.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 45,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 45,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@49#2",
+   "param": "Prog_EXi@49#2",
+   "group": "mod_mixer3_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@49#2",
+   "x": 1350.0,
+   "y": 296,
+   "w": 74.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-199~+199",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer3",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 49,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": 49,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "MOD",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "exi:PolysixEX",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

@@ -1,0 +1,2606 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA MODULE · 13/13",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_C_KARMA_MODULE_P13_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_C_KARMA_MODULE_P13_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — KARMA MODULE · 13/13"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 109.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 172.2,
+   "y": 84,
+   "w": 102.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 277.9,
+   "y": 84,
+   "w": 107.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 388.4,
+   "y": 84,
+   "w": 103.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 494.6,
+   "y": 84,
+   "w": 105.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 603.0,
+   "y": 84,
+   "w": 110.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 716.8,
+   "y": 84,
+   "w": 124.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 844.4,
+   "y": 84,
+   "w": 108.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 955.6,
+   "y": 84,
+   "w": 102.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_module",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA MODULE",
+   "x": 1061.1,
+   "y": 84,
+   "w": 135.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_a",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "A",
+   "x": 1209.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_b",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "B",
+   "x": 1234.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_c",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "C",
+   "x": 1259.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_d",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "D",
+   "x": 1284.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_pprev_pprev",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_pbox",
+   "group": "nav",
+   "type": "display",
+   "kind": "label",
+   "label": "13 / 13",
+   "x": 1343.0,
+   "y": 85,
+   "w": 72.0,
+   "h": 16,
+   "text": [
+    "13 / 13"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_pnext_pnext",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "▶",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2476",
+   "param": "CombiAndSongTimbreSet@2476",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2476",
+   "x": 150.0,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2476,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2477",
+   "param": "CombiAndSongTimbreSet@2477",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2477",
+   "x": 309.8,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2477,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2478",
+   "param": "CombiAndSongTimbreSet@2478",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2478",
+   "x": 469.5,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2478,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2479",
+   "param": "CombiAndSongTimbreSet@2479",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2479",
+   "x": 629.2,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2479,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2480",
+   "param": "CombiAndSongTimbreSet@2480",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2480",
+   "x": 789.0,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2480,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2481",
+   "param": "CombiAndSongTimbreSet@2481",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2481",
+   "x": 948.8,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2481,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2482",
+   "param": "CombiAndSongTimbreSet@2482",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2482",
+   "x": 1108.5,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2482,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2483",
+   "param": "CombiAndSongTimbreSet@2483",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2483",
+   "x": 1268.2,
+   "y": 150,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene1 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2483,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "0"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2486",
+   "param": "CombiAndSongTimbreSet@2486",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2486",
+   "x": 150.0,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2486,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2487",
+   "param": "CombiAndSongTimbreSet@2487",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2487",
+   "x": 309.8,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2487,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2488",
+   "param": "CombiAndSongTimbreSet@2488",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2488",
+   "x": 469.5,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2488,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2489",
+   "param": "CombiAndSongTimbreSet@2489",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2489",
+   "x": 629.2,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2489,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2490",
+   "param": "CombiAndSongTimbreSet@2490",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2490",
+   "x": 789.0,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2490,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2491",
+   "param": "CombiAndSongTimbreSet@2491",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2491",
+   "x": 948.8,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2491,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2492",
+   "param": "CombiAndSongTimbreSet@2492",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2492",
+   "x": 1108.5,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2492,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2493",
+   "param": "CombiAndSongTimbreSet@2493",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2493",
+   "x": 1268.2,
+   "y": 174,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene2 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2493,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "1"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2496",
+   "param": "CombiAndSongTimbreSet@2496",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2496",
+   "x": 150.0,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2496,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2497",
+   "param": "CombiAndSongTimbreSet@2497",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2497",
+   "x": 309.8,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2497,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2498",
+   "param": "CombiAndSongTimbreSet@2498",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2498",
+   "x": 469.5,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2498,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2499",
+   "param": "CombiAndSongTimbreSet@2499",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2499",
+   "x": 629.2,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2499,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2500",
+   "param": "CombiAndSongTimbreSet@2500",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2500",
+   "x": 789.0,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2500,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2501",
+   "param": "CombiAndSongTimbreSet@2501",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2501",
+   "x": 948.8,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2501,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2502",
+   "param": "CombiAndSongTimbreSet@2502",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2502",
+   "x": 1108.5,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2502,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2503",
+   "param": "CombiAndSongTimbreSet@2503",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2503",
+   "x": 1268.2,
+   "y": 198,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene3 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2503,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "2"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2506",
+   "param": "CombiAndSongTimbreSet@2506",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2506",
+   "x": 150.0,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2506,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2507",
+   "param": "CombiAndSongTimbreSet@2507",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2507",
+   "x": 309.8,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2507,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2508",
+   "param": "CombiAndSongTimbreSet@2508",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2508",
+   "x": 469.5,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2508,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2509",
+   "param": "CombiAndSongTimbreSet@2509",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2509",
+   "x": 629.2,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2509,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2510",
+   "param": "CombiAndSongTimbreSet@2510",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2510",
+   "x": 789.0,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2510,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2511",
+   "param": "CombiAndSongTimbreSet@2511",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2511",
+   "x": 948.8,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2511,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2512",
+   "param": "CombiAndSongTimbreSet@2512",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2512",
+   "x": 1108.5,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2512,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2513",
+   "param": "CombiAndSongTimbreSet@2513",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2513",
+   "x": 1268.2,
+   "y": 222,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene4 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2513,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "3"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2516",
+   "param": "CombiAndSongTimbreSet@2516",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2516",
+   "x": 150.0,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2516,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2517",
+   "param": "CombiAndSongTimbreSet@2517",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2517",
+   "x": 309.8,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2517,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2518",
+   "param": "CombiAndSongTimbreSet@2518",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2518",
+   "x": 469.5,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2518,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2519",
+   "param": "CombiAndSongTimbreSet@2519",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2519",
+   "x": 629.2,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2519,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2520",
+   "param": "CombiAndSongTimbreSet@2520",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2520",
+   "x": 789.0,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2520,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2521",
+   "param": "CombiAndSongTimbreSet@2521",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2521",
+   "x": 948.8,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2521,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2522",
+   "param": "CombiAndSongTimbreSet@2522",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2522",
+   "x": 1108.5,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2522,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2523",
+   "param": "CombiAndSongTimbreSet@2523",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2523",
+   "x": 1268.2,
+   "y": 246,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene5 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2523,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "4"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2526",
+   "param": "CombiAndSongTimbreSet@2526",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2526",
+   "x": 150.0,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2526,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2527",
+   "param": "CombiAndSongTimbreSet@2527",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2527",
+   "x": 309.8,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2527,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2528",
+   "param": "CombiAndSongTimbreSet@2528",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2528",
+   "x": 469.5,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2528,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2529",
+   "param": "CombiAndSongTimbreSet@2529",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2529",
+   "x": 629.2,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2529,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2530",
+   "param": "CombiAndSongTimbreSet@2530",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2530",
+   "x": 789.0,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2530,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2531",
+   "param": "CombiAndSongTimbreSet@2531",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2531",
+   "x": 948.8,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2531,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2532",
+   "param": "CombiAndSongTimbreSet@2532",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2532",
+   "x": 1108.5,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2532,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2533",
+   "param": "CombiAndSongTimbreSet@2533",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2533",
+   "x": 1268.2,
+   "y": 270,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene6 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2533,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "5"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2536",
+   "param": "CombiAndSongTimbreSet@2536",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2536",
+   "x": 150.0,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2536,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2537",
+   "param": "CombiAndSongTimbreSet@2537",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2537",
+   "x": 309.8,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2537,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2538",
+   "param": "CombiAndSongTimbreSet@2538",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2538",
+   "x": 469.5,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2538,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2539",
+   "param": "CombiAndSongTimbreSet@2539",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2539",
+   "x": 629.2,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2539,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2540",
+   "param": "CombiAndSongTimbreSet@2540",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2540",
+   "x": 789.0,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2540,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2541",
+   "param": "CombiAndSongTimbreSet@2541",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2541",
+   "x": 948.8,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2541,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2542",
+   "param": "CombiAndSongTimbreSet@2542",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2542",
+   "x": 1108.5,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2542,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2543",
+   "param": "CombiAndSongTimbreSet@2543",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2543",
+   "x": 1268.2,
+   "y": 294,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene7 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2543,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "6"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2546",
+   "param": "CombiAndSongTimbreSet@2546",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2546",
+   "x": 150.0,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2546,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "118",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2547",
+   "param": "CombiAndSongTimbreSet@2547",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2547",
+   "x": 309.8,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2547,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "119",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2548",
+   "param": "CombiAndSongTimbreSet@2548",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2548",
+   "x": 469.5,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2548,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "120",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2549",
+   "param": "CombiAndSongTimbreSet@2549",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2549",
+   "x": 629.2,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2549,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "121",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2550",
+   "param": "CombiAndSongTimbreSet@2550",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2550",
+   "x": 789.0,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2550,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "122",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2551",
+   "param": "CombiAndSongTimbreSet@2551",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2551",
+   "x": 948.8,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2551,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "123",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2552",
+   "param": "CombiAndSongTimbreSet@2552",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2552",
+   "x": 1108.5,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2552,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "124",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2553",
+   "param": "CombiAndSongTimbreSet@2553",
+   "group": "karma_module_scene_modified_state_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2553",
+   "x": 1268.2,
+   "y": 318,
+   "w": 155.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Scene8 - Modified State) Fader8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2553,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "125",
+     "IDX": "7"
+    },
+    "data": "FF~7F",
+    "value": "Off~127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA MODULE",
+ "page_number": 13,
+ "pages_in_area": 13,
+ "apply": "all",
+ "index": {
+  "label": "MODULE",
+  "instances": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "listed_by_korg": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "shown": "A",
+  "stride_bytes": 744,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ }
+}

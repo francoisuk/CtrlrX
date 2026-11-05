@@ -1,0 +1,3337 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "TIMBRE · 3/3",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_C_TIMBRE_P3_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_C_TIMBRE_P3_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — TIMBRE · 3/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 97.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 160.6,
+   "y": 84,
+   "w": 91.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 254.8,
+   "y": 84,
+   "w": 95.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 353.7,
+   "y": 84,
+   "w": 91.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 448.3,
+   "y": 84,
+   "w": 77.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 528.8,
+   "y": 84,
+   "w": 99.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 631.1,
+   "y": 84,
+   "w": 92.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 726.8,
+   "y": 84,
+   "w": 120.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 850.3,
+   "y": 84,
+   "w": 96.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 959.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 984.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1009.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1034.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1059.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1084.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_7",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "7",
+   "x": 1109.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_8",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "8",
+   "x": 1134.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_9",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "9",
+   "x": 1159.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_10",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "10",
+   "x": 1184.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_11",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "11",
+   "x": 1209.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_12",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "12",
+   "x": 1234.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_13",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "13",
+   "x": 1259.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_14",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "14",
+   "x": 1284.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_15",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "15",
+   "x": 1309.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_16",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "16",
+   "x": 1334.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2647",
+   "param": "CombiAndSongTimbreSet@2647",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2647",
+   "x": 210.0,
+   "y": 150,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Send1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2647,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2648",
+   "param": "CombiAndSongTimbreSet@2648",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2648",
+   "x": 286.1,
+   "y": 150,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Send2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2648,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2649",
+   "param": "CombiAndSongTimbreSet@2649",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2649",
+   "x": 210.0,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX1",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2649,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2650",
+   "param": "CombiAndSongTimbreSet@2650",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2650",
+   "x": 286.1,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX2",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2650,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "1"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2651",
+   "param": "CombiAndSongTimbreSet@2651",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2651",
+   "x": 362.2,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX3",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2651,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "2"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2652",
+   "param": "CombiAndSongTimbreSet@2652",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2652",
+   "x": 438.4,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX4",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2652,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "3"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2653",
+   "param": "CombiAndSongTimbreSet@2653",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2653",
+   "x": 514.5,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX5",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2653,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "4"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2654",
+   "param": "CombiAndSongTimbreSet@2654",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2654",
+   "x": 590.6,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX6",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2654,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "5"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2655",
+   "param": "CombiAndSongTimbreSet@2655",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2655",
+   "x": 666.8,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX7",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2655,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "6"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2656",
+   "param": "CombiAndSongTimbreSet@2656",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2656",
+   "x": 742.9,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX8",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2656,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "7"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2657",
+   "param": "CombiAndSongTimbreSet@2657",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2657",
+   "x": 819.0,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX9",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2657,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "8"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2658",
+   "param": "CombiAndSongTimbreSet@2658",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2658",
+   "x": 895.1,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX10",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2658,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "9"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2659",
+   "param": "CombiAndSongTimbreSet@2659",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2659",
+   "x": 971.2,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX11",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2659,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "10"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2660",
+   "param": "CombiAndSongTimbreSet@2660",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2660",
+   "x": 1047.4,
+   "y": 171,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Drum Kit Patch IFX12",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2660,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "11"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2686",
+   "param": "CombiAndSongTimbreSet@2686",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2686",
+   "x": 210.0,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob1 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2686,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2690",
+   "param": "CombiAndSongTimbreSet@2690",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2690",
+   "x": 286.1,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob2 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2690,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2694",
+   "param": "CombiAndSongTimbreSet@2694",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2694",
+   "x": 362.2,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob3 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2694,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2698",
+   "param": "CombiAndSongTimbreSet@2698",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2698",
+   "x": 438.4,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob4 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2698,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2702",
+   "param": "CombiAndSongTimbreSet@2702",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2702",
+   "x": 514.5,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob5 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2702,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "4"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2706",
+   "param": "CombiAndSongTimbreSet@2706",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2706",
+   "x": 590.6,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob6 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2706,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "5"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2710",
+   "param": "CombiAndSongTimbreSet@2710",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2710",
+   "x": 666.8,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob7 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2710,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "6"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2714",
+   "param": "CombiAndSongTimbreSet@2714",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2714",
+   "x": 742.9,
+   "y": 192,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob8 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2714,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "7"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2688",
+   "param": "CombiAndSongTimbreSet@2688",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2688",
+   "x": 210.0,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob1 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2688,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2692",
+   "param": "CombiAndSongTimbreSet@2692",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2692",
+   "x": 286.1,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob2 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2692,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "1"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2696",
+   "param": "CombiAndSongTimbreSet@2696",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2696",
+   "x": 362.2,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob3 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2696,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "2"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2700",
+   "param": "CombiAndSongTimbreSet@2700",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2700",
+   "x": 438.4,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob4 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2700,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "3"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2704",
+   "param": "CombiAndSongTimbreSet@2704",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2704",
+   "x": 514.5,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob5 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2704,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "4"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2708",
+   "param": "CombiAndSongTimbreSet@2708",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2708",
+   "x": 590.6,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob6 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2708,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "5"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2712",
+   "param": "CombiAndSongTimbreSet@2712",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2712",
+   "x": 666.8,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob7 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2712,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "6"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2716",
+   "param": "CombiAndSongTimbreSet@2716",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2716",
+   "x": 742.9,
+   "y": 213,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Knob8 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2716,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "7"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2718",
+   "param": "CombiAndSongTimbreSet@2718",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2718",
+   "x": 210.0,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch1 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2718,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2722",
+   "param": "CombiAndSongTimbreSet@2722",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2722",
+   "x": 286.1,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch2 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2722,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2726",
+   "param": "CombiAndSongTimbreSet@2726",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2726",
+   "x": 362.2,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch3 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2726,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2730",
+   "param": "CombiAndSongTimbreSet@2730",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2730",
+   "x": 438.4,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch4 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2730,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2734",
+   "param": "CombiAndSongTimbreSet@2734",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2734",
+   "x": 514.5,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch5 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2734,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "4"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2738",
+   "param": "CombiAndSongTimbreSet@2738",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2738",
+   "x": 590.6,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch6 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2738,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "5"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2742",
+   "param": "CombiAndSongTimbreSet@2742",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2742",
+   "x": 666.8,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch7 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2742,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "6"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2746",
+   "param": "CombiAndSongTimbreSet@2746",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2746",
+   "x": 742.9,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch8 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2746,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "7"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2750",
+   "param": "CombiAndSongTimbreSet@2750",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2750",
+   "x": 819.0,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch9 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2750,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "8"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2754",
+   "param": "CombiAndSongTimbreSet@2754",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2754",
+   "x": 895.1,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch10 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2754,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "9"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2758",
+   "param": "CombiAndSongTimbreSet@2758",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2758",
+   "x": 971.2,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch11 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2758,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "10"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2762",
+   "param": "CombiAndSongTimbreSet@2762",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2762",
+   "x": 1047.4,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch12 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2762,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "11"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2766",
+   "param": "CombiAndSongTimbreSet@2766",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2766",
+   "x": 1123.5,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch13 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2766,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "12"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2770",
+   "param": "CombiAndSongTimbreSet@2770",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2770",
+   "x": 1199.6,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch14 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2770,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "13"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2774",
+   "param": "CombiAndSongTimbreSet@2774",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2774",
+   "x": 1275.8,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch15 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2774,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "14"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2779.0",
+   "param": "CombiAndSongTimbreSet@2779.0",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "toggle",
+   "label": "CombiAndSongTimbreSet@2778",
+   "x": 1351.9,
+   "y": 234,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch16 Value",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2779,
+    "bit": "0",
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "15"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2724",
+   "param": "CombiAndSongTimbreSet@2724",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2724",
+   "x": 286.1,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch2 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2724,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "1"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2728",
+   "param": "CombiAndSongTimbreSet@2728",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2728",
+   "x": 362.2,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch3 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2728,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "2"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2732",
+   "param": "CombiAndSongTimbreSet@2732",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2732",
+   "x": 438.4,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch4 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2732,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "3"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2736",
+   "param": "CombiAndSongTimbreSet@2736",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2736",
+   "x": 514.5,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch5 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2736,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "4"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2740",
+   "param": "CombiAndSongTimbreSet@2740",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2740",
+   "x": 590.6,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch6 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2740,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "5"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2744",
+   "param": "CombiAndSongTimbreSet@2744",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2744",
+   "x": 666.8,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch7 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2744,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "6"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2748",
+   "param": "CombiAndSongTimbreSet@2748",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2748",
+   "x": 742.9,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch8 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2748,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "7"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2752",
+   "param": "CombiAndSongTimbreSet@2752",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2752",
+   "x": 819.0,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch9 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2752,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "8"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2756",
+   "param": "CombiAndSongTimbreSet@2756",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2756",
+   "x": 895.1,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch10 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2756,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "9"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2760",
+   "param": "CombiAndSongTimbreSet@2760",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2760",
+   "x": 971.2,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch11 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2760,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "10"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2764",
+   "param": "CombiAndSongTimbreSet@2764",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2764",
+   "x": 1047.4,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch12 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2764,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "11"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2768",
+   "param": "CombiAndSongTimbreSet@2768",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2768",
+   "x": 1123.5,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch13 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2768,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "12"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2772",
+   "param": "CombiAndSongTimbreSet@2772",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2772",
+   "x": 1199.6,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch14 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2772,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "13"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2776",
+   "param": "CombiAndSongTimbreSet@2776",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2776",
+   "x": 1275.8,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch15 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2776,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "14"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2780",
+   "param": "CombiAndSongTimbreSet@2780",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2780",
+   "x": 1351.9,
+   "y": 276,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Switch16 On Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2780,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "15"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2782",
+   "param": "CombiAndSongTimbreSet@2782",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2782",
+   "x": 210.0,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader1 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2782,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2786",
+   "param": "CombiAndSongTimbreSet@2786",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2786",
+   "x": 286.1,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader2 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2786,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2790",
+   "param": "CombiAndSongTimbreSet@2790",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2790",
+   "x": 362.2,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader3 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2790,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2794",
+   "param": "CombiAndSongTimbreSet@2794",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2794",
+   "x": 438.4,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader4 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2794,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2798",
+   "param": "CombiAndSongTimbreSet@2798",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2798",
+   "x": 514.5,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader5 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2798,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2802",
+   "param": "CombiAndSongTimbreSet@2802",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2802",
+   "x": 590.6,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader6 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2802,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "5"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2806",
+   "param": "CombiAndSongTimbreSet@2806",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2806",
+   "x": 666.8,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader7 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2806,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "6"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2810",
+   "param": "CombiAndSongTimbreSet@2810",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2810",
+   "x": 742.9,
+   "y": 297,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader8 Assign",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2810,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "7"
+    },
+    "data": "00~FF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2784",
+   "param": "CombiAndSongTimbreSet@2784",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2784",
+   "x": 210.0,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader1 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2784,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2788",
+   "param": "CombiAndSongTimbreSet@2788",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2788",
+   "x": 286.1,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader2 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2788,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2792",
+   "param": "CombiAndSongTimbreSet@2792",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2792",
+   "x": 362.2,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader3 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2792,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2796",
+   "param": "CombiAndSongTimbreSet@2796",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2796",
+   "x": 438.4,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader4 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2796,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "3"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2800",
+   "param": "CombiAndSongTimbreSet@2800",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2800",
+   "x": 514.5,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader5 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2800,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "4"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2804",
+   "param": "CombiAndSongTimbreSet@2804",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2804",
+   "x": 590.6,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader6 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2804,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "5"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2808",
+   "param": "CombiAndSongTimbreSet@2808",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2808",
+   "x": 666.8,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader7 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2808,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "6"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2812",
+   "param": "CombiAndSongTimbreSet@2812",
+   "group": "timbre_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@2812",
+   "x": 742.9,
+   "y": 318,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "Fader8 Value",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2812,
+    "sysex": {
+     "TYP": "28",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "7"
+    },
+    "data": "8000~7FFF",
+    "value": ""
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2818.5~0",
+   "param": "CombiAndSongTimbreSet@2818.5~0",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2818.5~0",
+   "x": 210.0,
+   "y": 339,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program~TFX2",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "EXi1 Input Source Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2818,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "FF~1C",
+    "value": "Program~TFX2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2819.5~0",
+   "param": "CombiAndSongTimbreSet@2819.5~0",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2819.5~0",
+   "x": 286.1,
+   "y": 339,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Program"
+   ],
+   "range": "Program~TFX2",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "EXi2 Input Source Bus",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2819,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "1"
+    },
+    "data": "FF~1C",
+    "value": "Program~TFX2"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2818.7~6",
+   "param": "CombiAndSongTimbreSet@2818.7~6",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2818.7~6",
+   "x": 210.0,
+   "y": 360,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Stereo/L+R"
+   ],
+   "range": "Stereo/L+R~Right",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "EXi1 Input Source Channel",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2818,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Stereo/L+R~Right"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@2819.7~6",
+   "param": "CombiAndSongTimbreSet@2819.7~6",
+   "group": "timbre_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@2819.7~6",
+   "x": 286.1,
+   "y": 360,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "Stereo/L+R"
+   ],
+   "range": "Stereo/L+R~Right",
+   "midi": null,
+   "korg": {
+    "group": "Timbre1",
+    "name": "EXi2 Input Source Channel",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 2819,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "1"
+    },
+    "data": "00~02",
+    "value": "Stereo/L+R~Right"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "TIMBRE",
+ "page_number": 3,
+ "pages_in_area": 3,
+ "apply": "all",
+ "index": {
+  "label": "TIMBRE",
+  "instances": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "9",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "9",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16"
+  ],
+  "shown": "1",
+  "stride_bytes": 188,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ }
+}

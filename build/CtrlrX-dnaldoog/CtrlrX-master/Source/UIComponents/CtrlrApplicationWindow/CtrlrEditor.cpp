@@ -1,0 +1,335 @@
+#include "CtrlrEditor.h"
+#include "CtrlrGenericHelp.h"
+#include "CtrlrInlineUtilitiesGUI.h"
+#include "CtrlrLog.h"
+#include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "CtrlrPanel/CtrlrPanelViewport.h"
+#include "CtrlrPanel/CtrlrViewport.h"
+#include "CtrlrProcessor.h"
+#include "stdafx.h"
+
+CtrlrEditor::CtrlrEditor(CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
+	: AudioProcessorEditor(_ownerFilter),
+	  ownerFilter(_ownerFilter),
+	  owner(_owner),
+	  resizer(this, 0),
+	  tempResult(Result::ok()),
+	  menuHandlerCalled(false),
+	  lastCommandInvocationMillis(0) {
+	currentLookAndFeel = std::make_unique<juce::LookAndFeel_V4>(juce::LookAndFeel_V4::getLightColourScheme());
+	gui::initLookAndFeelDefaults(*currentLookAndFeel);
+	tooltipWindow = std::make_unique<juce::TooltipWindow>(this);
+	setLookAndFeel(currentLookAndFeel.get());
+
+	menuBar = std::make_unique<juce::MenuBarComponent>(this);
+	addAndMakeVisible(menuBar.get());
+
+	Rectangle<int> editorRect;
+	owner.getCommandManager().setFirstCommandTarget(this);
+	setApplicationCommandManagerToWatch(&owner.getCommandManager());
+	owner.getCommandManager().registerAllCommandsForTarget(this);
+	owner.getCommandManager().registerAllCommandsForTarget(JUCEApplication::getInstance());
+
+	std::unique_ptr<juce::XmlElement> xml(juce::XmlDocument::parse(owner.getProperty(Ids::ctrlrKeyboardMapping)));
+	if (xml) {
+		owner.getCommandManager().getKeyMappings()->restoreFromXml(*xml);
+	}
+
+	owner.setEditor(this);
+	addAndMakeVisible(&owner.getCtrlrDocumentPanel());
+
+	if (!JUCEApplication::isStandaloneApp()) {
+		if (owner.getInstanceMode() != InstanceSingleRestricted) {
+			addAndMakeVisible(&resizer);
+			resizer.setAlwaysOnTop(false);
+			resizer.grabKeyboardFocus();
+			resizer.toFront(true);
+		}
+	}
+
+	if (owner.getProperty(Ids::ctrlrEditorBounds).toString() != "") {
+		if (owner.getInstanceMode() != InstanceSingle && owner.getInstanceMode() != InstanceSingleRestricted) {
+			editorRect = VAR2RECT(owner.getProperty(Ids::ctrlrEditorBounds));
+		} else if (owner.getActivePanel()) {
+    ValueTree editorTree = owner.getActivePanel()->getEditor()->getPanelEditorTree();
+    editorRect = VAR2RECT(owner.getProperty(Ids::ctrlrEditorBounds));
+    vpMenuBarVisible = editorTree.getProperty(Ids::uiPanelMenuBarVisible);
+
+    const auto vpMode =
+        gui::viewPortModeFromString(editorTree.getProperty(Ids::uiViewPortMode, "Scrollable").toString());
+
+    vpEnableResizableLimits = editorTree.getProperty(Ids::uiViewPortEnableResizeLimits);
+    vpMinWidth = editorTree.getProperty(Ids::uiViewPortMinWidth);
+    vpMinHeight = editorTree.getProperty(Ids::uiViewPortMinHeight);
+    vpMaxWidth = editorTree.getProperty(Ids::uiViewPortMaxWidth);
+    vpMaxHeight = editorTree.getProperty(Ids::uiViewPortMaxHeight);
+
+    Rectangle<int> canvasRect = VAR2RECT(editorTree.getProperty(Ids::uiPanelCanvasRectangle, "0 0 800 600"));
+    panelCanvasWidth = canvasRect.getWidth() <= 0 ? 800 : canvasRect.getWidth();
+    panelCanvasHeight = canvasRect.getHeight() <= 0 ? 600 : canvasRect.getHeight();
+    vpStandaloneAspectRatio = double(panelCanvasWidth) / double(panelCanvasHeight);
+
+    if ((bool)owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible)) {
+        setMenuBarVisible(true);
+        editorRect.setHeight(editorRect.getHeight() + (int)owner.getProperty(Ids::ctrlrMenuBarHeight, 24));
+    }
+
+    if (!JUCEApplication::isStandaloneApp() && owner.getInstanceMode() == InstanceSingleRestricted) {
+        if (vpMode == gui::ViewPortMode::Fixed) {
+            setResizable(false, false);
+        } else {
+            setResizable(true, true);
+
+            if (auto constrainer = getConstrainer()) {
+                if (vpMode == gui::ViewPortMode::Scaled) {
+                    constrainer->setFixedAspectRatio(vpStandaloneAspectRatio);
+
+                    if (vpEnableResizableLimits && vpMinWidth != 0 && vpMaxWidth != 0) {
+                        setResizeLimits(vpMinWidth, round(vpMinWidth / vpStandaloneAspectRatio), vpMaxWidth,
+                                         round(vpMaxWidth / vpStandaloneAspectRatio));
+                    } else if (vpEnableResizableLimits && vpMinWidth != 0 && vpMinHeight != 0 && vpMaxWidth != 0 &&
+                               vpMaxHeight != 0) {
+                        setResizeLimits(vpMinWidth, vpMinHeight, vpMaxWidth, vpMaxHeight);
+                    } else {
+                        constrainer->setMinimumSize(panelCanvasWidth, panelCanvasHeight);
+                    }
+                } else { // Scrollable
+                    constrainer->setFixedAspectRatio(0.0);
+                    if (vpEnableResizableLimits && vpMinWidth != 0 && vpMinHeight != 0 && vpMaxWidth != 0 &&
+                        vpMaxHeight != 0) {
+                        setResizeLimits(vpMinWidth, vpMinHeight, vpMaxWidth, vpMaxHeight);
+                    }
+                }
+            }
+        }
+    }
+}
+		setBounds(editorRect);
+	} else {
+		if (JUCEApplication::isStandaloneApp())
+			centreWithSize(800, 600);
+		else
+			setSize(800, 600);
+	}
+
+	// --- LOOK AND FEEL AND COLOUR SCHEME LOGIC ---
+	String lookAndFeelVersionToApply;
+	var colourSchemePropertyToApply;
+
+	bool isLegacyModeGlobal = owner.getProperty(Ids::ctrlrLegacyMode);
+
+	if (isLegacyModeGlobal) {
+		lookAndFeelVersionToApply = "V3";
+		colourSchemePropertyToApply = var();
+	} else {
+		lookAndFeelVersionToApply = owner.getProperty(Ids::ctrlrLookAndFeel).toString();
+		colourSchemePropertyToApply = owner.getProperty(Ids::ctrlrColourScheme);
+
+		if (lookAndFeelVersionToApply.isEmpty() && owner.getActivePanel()) {
+			lookAndFeelVersionToApply =
+				owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelLookAndFeel).toString();
+		}
+		if (colourSchemePropertyToApply.isUndefined() && owner.getActivePanel()) {
+			colourSchemePropertyToApply = owner.getActivePanel()->getEditor()->getProperty(Ids::ctrlrColourScheme);
+		}
+	}
+
+	setEditorLookAndFeel(lookAndFeelVersionToApply, colourSchemePropertyToApply);
+	menuBar->setLookAndFeel(currentLookAndFeel.get());
+	lookAndFeelChanged();
+
+	getLookAndFeel().setUsingNativeAlertWindows((bool)owner.getProperty(Ids::ctrlrNativeAlerts));
+
+	activeCtrlrChanged();
+
+	if (isRestricted() && owner.getActivePanel()) {
+		hideProgramsMenu = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelProgramsMenuHideOnExport);
+		hideMidiControllerMenu =
+			owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMidiControllerMenuHideOnExport);
+		hideMidiThruMenu = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMidiThruMenuHideOnExport);
+		hideMidiChannelMenu = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMidiChannelMenuHideOnExport);
+	}
+}
+CtrlrEditor::~CtrlrEditor() {
+	DBG("(B) CtrlrEditor DTOR called");
+	// 1. First, make sure all child components are detached from the LookAndFeel
+	setLookAndFeel(nullptr);
+
+	if (menuBar != nullptr)
+		menuBar->setLookAndFeel(nullptr);
+
+	// 2. Clear the global default LookAndFeel if it was set
+	// This is important if you ever call LookAndFeel::setDefaultLookAndFeel()
+	LookAndFeel::setDefaultLookAndFeel(nullptr);
+}
+
+void CtrlrEditor::paint(Graphics &g) {
+	g.fillAll(Component::findColour(DocumentWindow::backgroundColourId));
+}
+
+void CtrlrEditor::resized() {
+	if (menuBar->isVisible()) {
+		menuBar->setBounds(0, 0, getWidth(), (int)owner.getProperty(Ids::ctrlrMenuBarHeight, 24));
+		owner.getCtrlrDocumentPanel().setBounds(0, (int)owner.getProperty(Ids::ctrlrMenuBarHeight, 24), getWidth(),
+												getHeight() - ((int)owner.getProperty(Ids::ctrlrMenuBarHeight, 24)));
+	} else {
+		owner.getCtrlrDocumentPanel().setBounds(0, 0, getWidth(), getHeight());
+	}
+	resizer.setBounds(getWidth() - 24, getHeight() - 24, 24, 24);
+	owner.setProperty(Ids::ctrlrEditorBounds, getBounds().toString());
+}
+
+void CtrlrEditor::setEditorLookAndFeel(const String &lookAndFeelDesc, const var &colourSchemeProperty) {
+	std::unique_ptr<juce::LookAndFeel> newLookAndFeel(
+		gui::createLookAndFeelFromDescription(lookAndFeelDesc, juce::var()));
+
+	if (newLookAndFeel != nullptr) {
+		if (LookAndFeel_V4 *lnf4 = dynamic_cast<LookAndFeel_V4 *>(newLookAndFeel.get())) {
+			// Restore "Light" as the default fallback scheme when no scheme is specified in property
+			var effectiveScheme = (colourSchemeProperty.isString() && !colourSchemeProperty.toString().isEmpty())
+									  ? colourSchemeProperty
+									  : var("Light");
+
+			lnf4->setColourScheme(gui::colourSchemeFromProperty(effectiveScheme));
+
+			// Populate property and text editor fallbacks to prevent findColour assertions
+			lnf4->setColour(juce::PropertyComponent::labelTextColourId, juce::Colours::black);
+			lnf4->setColour(juce::TextEditor::textColourId, juce::Colours::black);
+			lnf4->setColour(juce::TextEditor::backgroundColourId, juce::Colours::white);
+		}
+
+		// Flush component styling links before replacing the instance
+		setLookAndFeel(nullptr);
+		if (menuBar != nullptr)
+			menuBar->setLookAndFeel(nullptr);
+
+		// Point global default at NEW instance before deleting the old one
+		LookAndFeel::setDefaultLookAndFeel(newLookAndFeel.get());
+
+		// Transfer ownership (old currentLookAndFeel destroyed safely here)
+		currentLookAndFeel = std::move(newLookAndFeel);
+		gui::initLookAndFeelDefaults(*currentLookAndFeel);
+		// Apply new LookAndFeel to Editor and MenuBar
+		setLookAndFeel(currentLookAndFeel.get());
+		if (menuBar != nullptr) {
+			menuBar->setLookAndFeel(currentLookAndFeel.get());
+
+			// Fix dark menu bar issue: Force MenuBar text & background to track light/dark mode
+			menuBar->setColour(juce::PopupMenu::backgroundColourId,
+							   currentLookAndFeel->findColour(juce::ResizableWindow::backgroundColourId));
+			menuBar->setColour(juce::PopupMenu::textColourId,
+							   currentLookAndFeel->findColour(juce::Label::textColourId));
+		}
+
+		lookAndFeelChanged();
+		repaint();
+	}
+}
+
+void CtrlrEditor::activeCtrlrChanged() {
+	ownerFilter->activePanelChanged();
+	bool menuBarVisible = true;
+
+	if (owner.getActivePanel() && owner.getActivePanel()->getEditor()) {
+		menuBarVisible = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible);
+
+		if (menuBarVisible != menuBar->isVisible()) {
+			setMenuBarVisible(menuBarVisible);
+		}
+
+		// Re-determine LookAndFeel and ColourScheme based on active panel
+		String lookAndFeelVersionToApply;
+		var colourSchemePropertyToApply;
+
+		// Check panel's legacy mode first (from uiPanelLegacyMode property on the panel)
+		bool isLegacyModePanel = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelLegacyMode);
+
+		if (isLegacyModePanel) {
+			lookAndFeelVersionToApply = "V3";	 // Force V3 if panel legacy mode is on
+			colourSchemePropertyToApply = var(); // No colour scheme for V3
+		} else {
+			// If not in panel's legacy mode, get L&F and color scheme from panel properties
+			lookAndFeelVersionToApply =
+				owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelLookAndFeel).toString();
+			colourSchemePropertyToApply = owner.getActivePanel()->getEditor()->getProperty(Ids::ctrlrColourScheme);
+		}
+
+		// Apply the determined LookAndFeel and ColourScheme
+		// This single call handles setting the L&F for the editor and explicitly for the menuBar
+		setEditorLookAndFeel(lookAndFeelVersionToApply, colourSchemePropertyToApply);
+
+		// String currentLookAndFeel =
+		// owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelLookAndFeel);
+		// setMenuBarLookAndFeel(currentLookAndFeel); // Updates the current component LookAndFeel :
+		// PanelEditor
+
+		lookAndFeelChanged();
+
+	} else // logic for no active panel
+	{
+		// No active panel, set L&F to "V4 Light"
+		setEditorLookAndFeel("V4 Light", juce::var());
+
+		// Also ensure menu bar visibility is handled when no panel is active.
+		// You might want the menu bar to always be visible, or hide if no panel.
+		// For fallback, let's assume it should be visible with the default L&F.
+		if (!menuBar->isVisible()) // If it was hidden by a panel before
+		{
+			setMenuBarVisible(true);
+		}
+	}
+}
+
+MenuBarComponent *CtrlrEditor::getMenuBar() {
+	return (menuBar.get());
+}
+
+CtrlrPanel *CtrlrEditor::getActivePanel() {
+	return (owner.getActivePanel());
+}
+
+bool CtrlrEditor::isRestricted() {
+	return (owner.getInstanceMode() == InstanceSingleRestricted);
+}
+
+CtrlrPanelEditor *CtrlrEditor::getActivePanelEditor() {
+	if (owner.getActivePanel()) {
+		return (owner.getActivePanel()->getEditor());
+	}
+
+	return (nullptr);
+}
+
+bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance) {
+	if (getActivePanel()) {
+		if (checkRestrictedInstance) {
+			if (owner.getInstanceMode() == InstanceSingleRestricted) {
+				return (false);
+			}
+
+			return (true);
+		} else {
+			return (true);
+		}
+	}
+
+	return (false);
+}
+
+void CtrlrEditor::setMenuBarVisible(const bool shouldBeVisible) {
+	menuBar->setVisible(shouldBeVisible);
+	resized();
+}
+
+void CtrlrEditor::recreateTooltipEngine() {
+	// 1. Force the engine to drop out of memory and clear all internal vector graphics caches
+	if (tooltipWindow != nullptr) {
+		tooltipWindow.reset();
+	}
+
+	// 2. Spawn a fresh, brand-new tooltip instance under the updated layout pipeline context
+	tooltipWindow = std::make_unique<juce::TooltipWindow>(this);
+}
+void CtrlrEditor::applyThemeToCombosDirectly(const String &themeName) {}

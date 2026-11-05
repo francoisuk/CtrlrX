@@ -1,0 +1,1276 @@
+Arp. Pattern Size: 556 byte										
+Object Version: 0										
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   OFS | bit | parameter             | parameter                                  | data(hex)    | value              |STEP|PID|TONE|
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|     0 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     1 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     2 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     3 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     4 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     5 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     6 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     7 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     8 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|     9 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    10 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    11 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    12 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    13 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    14 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    15 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    16 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    17 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    18 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    19 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    20 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    21 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    22 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
+|    23 |     | Common                | Name                                       | 00~FF        | ~                  |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    24 | 0~1 | Common                | Octave Motion                              | 00~03        | Up~Parallel        |   0|  4|   0|
+|       | 2~3 | Common                | Type                                       | 00~03        | As Played~Up&Down  |   0|  3|   0|
+|       |   4 | Common                | Tone Mode                                  | 00~01        | Normal~Fixed Note  |   0|  2|   0|
+|       |   5 | Common                | Fixed Note Mode                            | 00~01        | As Played~All Tones|   0|  5|   0|
+|    25 |     | Common                | Length                                     | 00~40        | 0~64               |   0|  0|   0|
+|    26 |     | Common                | Steps Per Beat                             | 00~02        | x1~x4              |   0|  6|   0|
+|    27 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    28 |     | Tone 01               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   0|
+|    29 |     | Tone 02               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   1|
+|    30 |     | Tone 03               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   2|
+|    31 |     | Tone 04               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   3|
+|    32 |     | Tone 05               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   4|
+|    33 |     | Tone 06               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   5|
+|    34 |     | Tone 07               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   6|
+|    35 |     | Tone 08               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   7|
+|    36 |     | Tone 09               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   8|
+|    37 |     | Tone 10               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|   9|
+|    38 |     | Tone 11               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|  10|
+|    39 |     | Tone 12               | Note Number                                | 00~7F        | C-1~G9             |   0| 11|  11|
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    40 |     | Step 01               | Pitch                                      | D0~30        | -48~+48            |   0|  7|   0|
+|    41 |     |                       | Gate                                       | 00~65        | Off~Legato         |   0|  8|   0|
+|    42 |     |                       | Velocity                                   | 01~80        | 1~Key              |   0|  9|   0|
+|    43 |     |                       | Flame                                      | 9D~63        | -99~+99            |   0| 10|   0|
+|    44 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   0| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   0| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   0| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   0| 12|   3|
+|    45 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   0| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   0| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   0| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   0| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   0| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   0| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   0| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   0| 12|  11|
+|    46 |     |                       | Accent                                     | 00~01        | Off~On             |   0| 12|  12|
+|    47 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    48 |     | Step 02               | Pitch                                      | D0~30        | -48~+48            |   1|  7|   0|
+|    49 |     |                       | Gate                                       | 00~65        | Off~Legato         |   1|  8|   0|
+|    50 |     |                       | Velocity                                   | 01~80        | 1~Key              |   1|  9|   0|
+|    51 |     |                       | Flame                                      | 9D~63        | -99~+99            |   1| 10|   0|
+|    52 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   1| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   1| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   1| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   1| 12|   3|
+|    53 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   1| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   1| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   1| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   1| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   1| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   1| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   1| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   1| 12|  11|
+|    54 |     |                       | Accent                                     | 00~01        | Off~On             |   1| 12|  12|
+|    55 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    56 |     | Step 03               | Pitch                                      | D0~30        | -48~+48            |   2|  7|   0|
+|    57 |     |                       | Gate                                       | 00~65        | Off~Legato         |   2|  8|   0|
+|    58 |     |                       | Velocity                                   | 01~80        | 1~Key              |   2|  9|   0|
+|    59 |     |                       | Flame                                      | 9D~63        | -99~+99            |   2| 10|   0|
+|    60 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   2| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   2| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   2| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   2| 12|   3|
+|    61 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   2| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   2| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   2| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   2| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   2| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   2| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   2| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   2| 12|  11|
+|    62 |     |                       | Accent                                     | 00~01        | Off~On             |   2| 12|  12|
+|    63 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    64 |     | Step 04               | Pitch                                      | D0~30        | -48~+48            |   3|  7|   0|
+|    65 |     |                       | Gate                                       | 00~65        | Off~Legato         |   3|  8|   0|
+|    66 |     |                       | Velocity                                   | 01~80        | 1~Key              |   3|  9|   0|
+|    67 |     |                       | Flame                                      | 9D~63        | -99~+99            |   3| 10|   0|
+|    68 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   3| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   3| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   3| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   3| 12|   3|
+|    69 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   3| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   3| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   3| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   3| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   3| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   3| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   3| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   3| 12|  11|
+|    70 |     |                       | Accent                                     | 00~01        | Off~On             |   3| 12|  12|
+|    71 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    72 |     | Step 05               | Pitch                                      | D0~30        | -48~+48            |   4|  7|   0|
+|    73 |     |                       | Gate                                       | 00~65        | Off~Legato         |   4|  8|   0|
+|    74 |     |                       | Velocity                                   | 01~80        | 1~Key              |   4|  9|   0|
+|    75 |     |                       | Flame                                      | 9D~63        | -99~+99            |   4| 10|   0|
+|    76 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   4| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   4| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   4| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   4| 12|   3|
+|    77 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   4| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   4| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   4| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   4| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   4| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   4| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   4| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   4| 12|  11|
+|    78 |     |                       | Accent                                     | 00~01        | Off~On             |   4| 12|  12|
+|    79 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    80 |     | Step 06               | Pitch                                      | D0~30        | -48~+48            |   5|  7|   0|
+|    81 |     |                       | Gate                                       | 00~65        | Off~Legato         |   5|  8|   0|
+|    82 |     |                       | Velocity                                   | 01~80        | 1~Key              |   5|  9|   0|
+|    83 |     |                       | Flame                                      | 9D~63        | -99~+99            |   5| 10|   0|
+|    84 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   5| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   5| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   5| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   5| 12|   3|
+|    85 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   5| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   5| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   5| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   5| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   5| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   5| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   5| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   5| 12|  11|
+|    86 |     |                       | Accent                                     | 00~01        | Off~On             |   5| 12|  12|
+|    87 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    88 |     | Step 07               | Pitch                                      | D0~30        | -48~+48            |   6|  7|   0|
+|    89 |     |                       | Gate                                       | 00~65        | Off~Legato         |   6|  8|   0|
+|    90 |     |                       | Velocity                                   | 01~80        | 1~Key              |   6|  9|   0|
+|    91 |     |                       | Flame                                      | 9D~63        | -99~+99            |   6| 10|   0|
+|    92 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   6| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   6| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   6| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   6| 12|   3|
+|    93 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   6| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   6| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   6| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   6| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   6| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   6| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   6| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   6| 12|  11|
+|    94 |     |                       | Accent                                     | 00~01        | Off~On             |   6| 12|  12|
+|    95 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|    96 |     | Step 08               | Pitch                                      | D0~30        | -48~+48            |   7|  7|   0|
+|    97 |     |                       | Gate                                       | 00~65        | Off~Legato         |   7|  8|   0|
+|    98 |     |                       | Velocity                                   | 01~80        | 1~Key              |   7|  9|   0|
+|    99 |     |                       | Flame                                      | 9D~63        | -99~+99            |   7| 10|   0|
+|   100 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   7| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   7| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   7| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   7| 12|   3|
+|   101 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   7| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   7| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   7| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   7| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   7| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   7| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   7| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   7| 12|  11|
+|   102 |     |                       | Accent                                     | 00~01        | Off~On             |   7| 12|  12|
+|   103 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   104 |     | Step 09               | Pitch                                      | D0~30        | -48~+48            |   8|  7|   0|
+|   105 |     |                       | Gate                                       | 00~65        | Off~Legato         |   8|  8|   0|
+|   106 |     |                       | Velocity                                   | 01~80        | 1~Key              |   8|  9|   0|
+|   107 |     |                       | Flame                                      | 9D~63        | -99~+99            |   8| 10|   0|
+|   108 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   8| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   8| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   8| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   8| 12|   3|
+|   109 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   8| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   8| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   8| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   8| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   8| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   8| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   8| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   8| 12|  11|
+|   110 |     |                       | Accent                                     | 00~01        | Off~On             |   8| 12|  12|
+|   111 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   112 |     | Step 10               | Pitch                                      | D0~30        | -48~+48            |   9|  7|   0|
+|   113 |     |                       | Gate                                       | 00~65        | Off~Legato         |   9|  8|   0|
+|   114 |     |                       | Velocity                                   | 01~80        | 1~Key              |   9|  9|   0|
+|   115 |     |                       | Flame                                      | 9D~63        | -99~+99            |   9| 10|   0|
+|   116 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |   9| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |   9| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |   9| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |   9| 12|   3|
+|   117 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |   9| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |   9| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |   9| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |   9| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |   9| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |   9| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |   9| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |   9| 12|  11|
+|   118 |     |                       | Accent                                     | 00~01        | Off~On             |   9| 12|  12|
+|   119 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   120 |     | Step 11               | Pitch                                      | D0~30        | -48~+48            |  10|  7|   0|
+|   121 |     |                       | Gate                                       | 00~65        | Off~Legato         |  10|  8|   0|
+|   122 |     |                       | Velocity                                   | 01~80        | 1~Key              |  10|  9|   0|
+|   123 |     |                       | Flame                                      | 9D~63        | -99~+99            |  10| 10|   0|
+|   124 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  10| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  10| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  10| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  10| 12|   3|
+|   125 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  10| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  10| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  10| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  10| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  10| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  10| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  10| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  10| 12|  11|
+|   126 |     |                       | Accent                                     | 00~01        | Off~On             |  10| 12|  12|
+|   127 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   128 |     | Step 12               | Pitch                                      | D0~30        | -48~+48            |  11|  7|   0|
+|   129 |     |                       | Gate                                       | 00~65        | Off~Legato         |  11|  8|   0|
+|   130 |     |                       | Velocity                                   | 01~80        | 1~Key              |  11|  9|   0|
+|   131 |     |                       | Flame                                      | 9D~63        | -99~+99            |  11| 10|   0|
+|   132 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  11| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  11| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  11| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  11| 12|   3|
+|   133 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  11| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  11| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  11| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  11| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  11| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  11| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  11| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  11| 12|  11|
+|   134 |     |                       | Accent                                     | 00~01        | Off~On             |  11| 12|  12|
+|   135 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   136 |     | Step 13               | Pitch                                      | D0~30        | -48~+48            |  12|  7|   0|
+|   137 |     |                       | Gate                                       | 00~65        | Off~Legato         |  12|  8|   0|
+|   138 |     |                       | Velocity                                   | 01~80        | 1~Key              |  12|  9|   0|
+|   139 |     |                       | Flame                                      | 9D~63        | -99~+99            |  12| 10|   0|
+|   140 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  12| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  12| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  12| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  12| 12|   3|
+|   141 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  12| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  12| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  12| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  12| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  12| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  12| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  12| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  12| 12|  11|
+|   142 |     |                       | Accent                                     | 00~01        | Off~On             |  12| 12|  12|
+|   143 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   144 |     | Step 14               | Pitch                                      | D0~30        | -48~+48            |  13|  7|   0|
+|   145 |     |                       | Gate                                       | 00~65        | Off~Legato         |  13|  8|   0|
+|   146 |     |                       | Velocity                                   | 01~80        | 1~Key              |  13|  9|   0|
+|   147 |     |                       | Flame                                      | 9D~63        | -99~+99            |  13| 10|   0|
+|   148 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  13| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  13| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  13| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  13| 12|   3|
+|   149 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  13| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  13| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  13| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  13| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  13| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  13| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  13| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  13| 12|  11|
+|   150 |     |                       | Accent                                     | 00~01        | Off~On             |  13| 12|  12|
+|   151 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   152 |     | Step 15               | Pitch                                      | D0~30        | -48~+48            |  14|  7|   0|
+|   153 |     |                       | Gate                                       | 00~65        | Off~Legato         |  14|  8|   0|
+|   154 |     |                       | Velocity                                   | 01~80        | 1~Key              |  14|  9|   0|
+|   155 |     |                       | Flame                                      | 9D~63        | -99~+99            |  14| 10|   0|
+|   156 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  14| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  14| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  14| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  14| 12|   3|
+|   157 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  14| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  14| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  14| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  14| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  14| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  14| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  14| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  14| 12|  11|
+|   158 |     |                       | Accent                                     | 00~01        | Off~On             |  14| 12|  12|
+|   159 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   160 |     | Step 16               | Pitch                                      | D0~30        | -48~+48            |  15|  7|   0|
+|   161 |     |                       | Gate                                       | 00~65        | Off~Legato         |  15|  8|   0|
+|   162 |     |                       | Velocity                                   | 01~80        | 1~Key              |  15|  9|   0|
+|   163 |     |                       | Flame                                      | 9D~63        | -99~+99            |  15| 10|   0|
+|   164 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  15| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  15| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  15| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  15| 12|   3|
+|   165 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  15| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  15| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  15| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  15| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  15| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  15| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  15| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  15| 12|  11|
+|   166 |     |                       | Accent                                     | 00~01        | Off~On             |  15| 12|  12|
+|   167 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   168 |     | Step 17               | Pitch                                      | D0~30        | -48~+48            |  16|  7|   0|
+|   169 |     |                       | Gate                                       | 00~65        | Off~Legato         |  16|  8|   0|
+|   170 |     |                       | Velocity                                   | 01~80        | 1~Key              |  16|  9|   0|
+|   171 |     |                       | Flame                                      | 9D~63        | -99~+99            |  16| 10|   0|
+|   172 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  16| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  16| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  16| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  16| 12|   3|
+|   173 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  16| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  16| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  16| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  16| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  16| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  16| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  16| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  16| 12|  11|
+|   174 |     |                       | Accent                                     | 00~01        | Off~On             |  16| 12|  12|
+|   175 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   176 |     | Step 18               | Pitch                                      | D0~30        | -48~+48            |  17|  7|   0|
+|   177 |     |                       | Gate                                       | 00~65        | Off~Legato         |  17|  8|   0|
+|   178 |     |                       | Velocity                                   | 01~80        | 1~Key              |  17|  9|   0|
+|   179 |     |                       | Flame                                      | 9D~63        | -99~+99            |  17| 10|   0|
+|   180 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  17| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  17| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  17| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  17| 12|   3|
+|   181 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  17| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  17| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  17| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  17| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  17| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  17| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  17| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  17| 12|  11|
+|   182 |     |                       | Accent                                     | 00~01        | Off~On             |  17| 12|  12|
+|   183 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   184 |     | Step 19               | Pitch                                      | D0~30        | -48~+48            |  18|  7|   0|
+|   185 |     |                       | Gate                                       | 00~65        | Off~Legato         |  18|  8|   0|
+|   186 |     |                       | Velocity                                   | 01~80        | 1~Key              |  18|  9|   0|
+|   187 |     |                       | Flame                                      | 9D~63        | -99~+99            |  18| 10|   0|
+|   188 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  18| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  18| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  18| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  18| 12|   3|
+|   189 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  18| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  18| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  18| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  18| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  18| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  18| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  18| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  18| 12|  11|
+|   190 |     |                       | Accent                                     | 00~01        | Off~On             |  18| 12|  12|
+|   191 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   192 |     | Step 20               | Pitch                                      | D0~30        | -48~+48            |  19|  7|   0|
+|   193 |     |                       | Gate                                       | 00~65        | Off~Legato         |  19|  8|   0|
+|   194 |     |                       | Velocity                                   | 01~80        | 1~Key              |  19|  9|   0|
+|   195 |     |                       | Flame                                      | 9D~63        | -99~+99            |  19| 10|   0|
+|   196 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  19| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  19| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  19| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  19| 12|   3|
+|   197 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  19| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  19| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  19| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  19| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  19| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  19| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  19| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  19| 12|  11|
+|   198 |     |                       | Accent                                     | 00~01        | Off~On             |  19| 12|  12|
+|   199 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   200 |     | Step 21               | Pitch                                      | D0~30        | -48~+48            |  20|  7|   0|
+|   201 |     |                       | Gate                                       | 00~65        | Off~Legato         |  20|  8|   0|
+|   202 |     |                       | Velocity                                   | 01~80        | 1~Key              |  20|  9|   0|
+|   203 |     |                       | Flame                                      | 9D~63        | -99~+99            |  20| 10|   0|
+|   204 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  20| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  20| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  20| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  20| 12|   3|
+|   205 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  20| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  20| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  20| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  20| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  20| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  20| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  20| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  20| 12|  11|
+|   206 |     |                       | Accent                                     | 00~01        | Off~On             |  20| 12|  12|
+|   207 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   208 |     | Step 22               | Pitch                                      | D0~30        | -48~+48            |  21|  7|   0|
+|   209 |     |                       | Gate                                       | 00~65        | Off~Legato         |  21|  8|   0|
+|   210 |     |                       | Velocity                                   | 01~80        | 1~Key              |  21|  9|   0|
+|   211 |     |                       | Flame                                      | 9D~63        | -99~+99            |  21| 10|   0|
+|   212 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  21| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  21| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  21| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  21| 12|   3|
+|   213 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  21| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  21| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  21| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  21| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  21| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  21| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  21| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  21| 12|  11|
+|   214 |     |                       | Accent                                     | 00~01        | Off~On             |  21| 12|  12|
+|   215 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   216 |     | Step 23               | Pitch                                      | D0~30        | -48~+48            |  22|  7|   0|
+|   217 |     |                       | Gate                                       | 00~65        | Off~Legato         |  22|  8|   0|
+|   218 |     |                       | Velocity                                   | 01~80        | 1~Key              |  22|  9|   0|
+|   219 |     |                       | Flame                                      | 9D~63        | -99~+99            |  22| 10|   0|
+|   220 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  22| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  22| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  22| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  22| 12|   3|
+|   221 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  22| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  22| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  22| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  22| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  22| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  22| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  22| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  22| 12|  11|
+|   222 |     |                       | Accent                                     | 00~01        | Off~On             |  22| 12|  12|
+|   223 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   224 |     | Step 24               | Pitch                                      | D0~30        | -48~+48            |  23|  7|   0|
+|   225 |     |                       | Gate                                       | 00~65        | Off~Legato         |  23|  8|   0|
+|   226 |     |                       | Velocity                                   | 01~80        | 1~Key              |  23|  9|   0|
+|   227 |     |                       | Flame                                      | 9D~63        | -99~+99            |  23| 10|   0|
+|   228 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  23| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  23| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  23| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  23| 12|   3|
+|   229 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  23| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  23| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  23| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  23| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  23| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  23| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  23| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  23| 12|  11|
+|   230 |     |                       | Accent                                     | 00~01        | Off~On             |  23| 12|  12|
+|   231 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   232 |     | Step 25               | Pitch                                      | D0~30        | -48~+48            |  24|  7|   0|
+|   233 |     |                       | Gate                                       | 00~65        | Off~Legato         |  24|  8|   0|
+|   234 |     |                       | Velocity                                   | 01~80        | 1~Key              |  24|  9|   0|
+|   235 |     |                       | Flame                                      | 9D~63        | -99~+99            |  24| 10|   0|
+|   236 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  24| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  24| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  24| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  24| 12|   3|
+|   237 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  24| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  24| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  24| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  24| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  24| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  24| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  24| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  24| 12|  11|
+|   238 |     |                       | Accent                                     | 00~01        | Off~On             |  24| 12|  12|
+|   239 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   240 |     | Step 26               | Pitch                                      | D0~30        | -48~+48            |  25|  7|   0|
+|   241 |     |                       | Gate                                       | 00~65        | Off~Legato         |  25|  8|   0|
+|   242 |     |                       | Velocity                                   | 01~80        | 1~Key              |  25|  9|   0|
+|   243 |     |                       | Flame                                      | 9D~63        | -99~+99            |  25| 10|   0|
+|   244 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  25| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  25| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  25| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  25| 12|   3|
+|   245 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  25| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  25| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  25| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  25| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  25| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  25| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  25| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  25| 12|  11|
+|   246 |     |                       | Accent                                     | 00~01        | Off~On             |  25| 12|  12|
+|   247 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   248 |     | Step 27               | Pitch                                      | D0~30        | -48~+48            |  26|  7|   0|
+|   249 |     |                       | Gate                                       | 00~65        | Off~Legato         |  26|  8|   0|
+|   250 |     |                       | Velocity                                   | 01~80        | 1~Key              |  26|  9|   0|
+|   251 |     |                       | Flame                                      | 9D~63        | -99~+99            |  26| 10|   0|
+|   252 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  26| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  26| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  26| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  26| 12|   3|
+|   253 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  26| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  26| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  26| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  26| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  26| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  26| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  26| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  26| 12|  11|
+|   254 |     |                       | Accent                                     | 00~01        | Off~On             |  26| 12|  12|
+|   255 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   256 |     | Step 28               | Pitch                                      | D0~30        | -48~+48            |  27|  7|   0|
+|   257 |     |                       | Gate                                       | 00~65        | Off~Legato         |  27|  8|   0|
+|   258 |     |                       | Velocity                                   | 01~80        | 1~Key              |  27|  9|   0|
+|   259 |     |                       | Flame                                      | 9D~63        | -99~+99            |  27| 10|   0|
+|   260 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  27| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  27| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  27| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  27| 12|   3|
+|   261 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  27| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  27| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  27| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  27| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  27| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  27| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  27| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  27| 12|  11|
+|   262 |     |                       | Accent                                     | 00~01        | Off~On             |  27| 12|  12|
+|   263 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   264 |     | Step 29               | Pitch                                      | D0~30        | -48~+48            |  28|  7|   0|
+|   265 |     |                       | Gate                                       | 00~65        | Off~Legato         |  28|  8|   0|
+|   266 |     |                       | Velocity                                   | 01~80        | 1~Key              |  28|  9|   0|
+|   267 |     |                       | Flame                                      | 9D~63        | -99~+99            |  28| 10|   0|
+|   268 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  28| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  28| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  28| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  28| 12|   3|
+|   269 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  28| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  28| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  28| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  28| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  28| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  28| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  28| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  28| 12|  11|
+|   270 |     |                       | Accent                                     | 00~01        | Off~On             |  28| 12|  12|
+|   271 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   272 |     | Step 30               | Pitch                                      | D0~30        | -48~+48            |  29|  7|   0|
+|   273 |     |                       | Gate                                       | 00~65        | Off~Legato         |  29|  8|   0|
+|   274 |     |                       | Velocity                                   | 01~80        | 1~Key              |  29|  9|   0|
+|   275 |     |                       | Flame                                      | 9D~63        | -99~+99            |  29| 10|   0|
+|   276 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  29| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  29| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  29| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  29| 12|   3|
+|   277 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  29| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  29| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  29| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  29| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  29| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  29| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  29| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  29| 12|  11|
+|   278 |     |                       | Accent                                     | 00~01        | Off~On             |  29| 12|  12|
+|   279 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   280 |     | Step 31               | Pitch                                      | D0~30        | -48~+48            |  30|  7|   0|
+|   281 |     |                       | Gate                                       | 00~65        | Off~Legato         |  30|  8|   0|
+|   282 |     |                       | Velocity                                   | 01~80        | 1~Key              |  30|  9|   0|
+|   283 |     |                       | Flame                                      | 9D~63        | -99~+99            |  30| 10|   0|
+|   284 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  30| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  30| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  30| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  30| 12|   3|
+|   285 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  30| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  30| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  30| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  30| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  30| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  30| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  30| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  30| 12|  11|
+|   286 |     |                       | Accent                                     | 00~01        | Off~On             |  30| 12|  12|
+|   287 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   288 |     | Step 32               | Pitch                                      | D0~30        | -48~+48            |  31|  7|   0|
+|   289 |     |                       | Gate                                       | 00~65        | Off~Legato         |  31|  8|   0|
+|   290 |     |                       | Velocity                                   | 01~80        | 1~Key              |  31|  9|   0|
+|   291 |     |                       | Flame                                      | 9D~63        | -99~+99            |  31| 10|   0|
+|   292 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  31| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  31| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  31| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  31| 12|   3|
+|   293 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  31| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  31| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  31| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  31| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  31| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  31| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  31| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  31| 12|  11|
+|   294 |     |                       | Accent                                     | 00~01        | Off~On             |  31| 12|  12|
+|   295 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   296 |     | Step 33               | Pitch                                      | D0~30        | -48~+48            |  32|  7|   0|
+|   297 |     |                       | Gate                                       | 00~65        | Off~Legato         |  32|  8|   0|
+|   298 |     |                       | Velocity                                   | 01~80        | 1~Key              |  32|  9|   0|
+|   299 |     |                       | Flame                                      | 9D~63        | -99~+99            |  32| 10|   0|
+|   300 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  32| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  32| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  32| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  32| 12|   3|
+|   301 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  32| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  32| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  32| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  32| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  32| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  32| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  32| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  32| 12|  11|
+|   302 |     |                       | Accent                                     | 00~01        | Off~On             |  32| 12|  12|
+|   303 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   304 |     | Step 34               | Pitch                                      | D0~30        | -48~+48            |  33|  7|   0|
+|   305 |     |                       | Gate                                       | 00~65        | Off~Legato         |  33|  8|   0|
+|   306 |     |                       | Velocity                                   | 01~80        | 1~Key              |  33|  9|   0|
+|   307 |     |                       | Flame                                      | 9D~63        | -99~+99            |  33| 10|   0|
+|   308 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  33| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  33| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  33| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  33| 12|   3|
+|   309 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  33| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  33| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  33| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  33| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  33| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  33| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  33| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  33| 12|  11|
+|   310 |     |                       | Accent                                     | 00~01        | Off~On             |  33| 12|  12|
+|   311 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   312 |     | Step 35               | Pitch                                      | D0~30        | -48~+48            |  34|  7|   0|
+|   313 |     |                       | Gate                                       | 00~65        | Off~Legato         |  34|  8|   0|
+|   314 |     |                       | Velocity                                   | 01~80        | 1~Key              |  34|  9|   0|
+|   315 |     |                       | Flame                                      | 9D~63        | -99~+99            |  34| 10|   0|
+|   316 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  34| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  34| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  34| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  34| 12|   3|
+|   317 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  34| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  34| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  34| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  34| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  34| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  34| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  34| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  34| 12|  11|
+|   318 |     |                       | Accent                                     | 00~01        | Off~On             |  34| 12|  12|
+|   319 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   320 |     | Step 36               | Pitch                                      | D0~30        | -48~+48            |  35|  7|   0|
+|   321 |     |                       | Gate                                       | 00~65        | Off~Legato         |  35|  8|   0|
+|   322 |     |                       | Velocity                                   | 01~80        | 1~Key              |  35|  9|   0|
+|   323 |     |                       | Flame                                      | 9D~63        | -99~+99            |  35| 10|   0|
+|   324 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  35| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  35| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  35| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  35| 12|   3|
+|   325 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  35| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  35| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  35| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  35| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  35| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  35| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  35| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  35| 12|  11|
+|   326 |     |                       | Accent                                     | 00~01        | Off~On             |  35| 12|  12|
+|   327 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   328 |     | Step 37               | Pitch                                      | D0~30        | -48~+48            |  36|  7|   0|
+|   329 |     |                       | Gate                                       | 00~65        | Off~Legato         |  36|  8|   0|
+|   330 |     |                       | Velocity                                   | 01~80        | 1~Key              |  36|  9|   0|
+|   331 |     |                       | Flame                                      | 9D~63        | -99~+99            |  36| 10|   0|
+|   332 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  36| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  36| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  36| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  36| 12|   3|
+|   333 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  36| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  36| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  36| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  36| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  36| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  36| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  36| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  36| 12|  11|
+|   334 |     |                       | Accent                                     | 00~01        | Off~On             |  36| 12|  12|
+|   335 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   336 |     | Step 38               | Pitch                                      | D0~30        | -48~+48            |  37|  7|   0|
+|   337 |     |                       | Gate                                       | 00~65        | Off~Legato         |  37|  8|   0|
+|   338 |     |                       | Velocity                                   | 01~80        | 1~Key              |  37|  9|   0|
+|   339 |     |                       | Flame                                      | 9D~63        | -99~+99            |  37| 10|   0|
+|   340 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  37| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  37| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  37| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  37| 12|   3|
+|   341 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  37| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  37| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  37| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  37| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  37| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  37| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  37| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  37| 12|  11|
+|   342 |     |                       | Accent                                     | 00~01        | Off~On             |  37| 12|  12|
+|   343 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   344 |     | Step 39               | Pitch                                      | D0~30        | -48~+48            |  38|  7|   0|
+|   345 |     |                       | Gate                                       | 00~65        | Off~Legato         |  38|  8|   0|
+|   346 |     |                       | Velocity                                   | 01~80        | 1~Key              |  38|  9|   0|
+|   347 |     |                       | Flame                                      | 9D~63        | -99~+99            |  38| 10|   0|
+|   348 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  38| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  38| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  38| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  38| 12|   3|
+|   349 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  38| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  38| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  38| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  38| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  38| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  38| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  38| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  38| 12|  11|
+|   350 |     |                       | Accent                                     | 00~01        | Off~On             |  38| 12|  12|
+|   351 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   352 |     | Step 40               | Pitch                                      | D0~30        | -48~+48            |  39|  7|   0|
+|   353 |     |                       | Gate                                       | 00~65        | Off~Legato         |  39|  8|   0|
+|   354 |     |                       | Velocity                                   | 01~80        | 1~Key              |  39|  9|   0|
+|   355 |     |                       | Flame                                      | 9D~63        | -99~+99            |  39| 10|   0|
+|   356 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  39| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  39| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  39| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  39| 12|   3|
+|   357 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  39| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  39| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  39| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  39| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  39| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  39| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  39| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  39| 12|  11|
+|   358 |     |                       | Accent                                     | 00~01        | Off~On             |  39| 12|  12|
+|   359 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   360 |     | Step 41               | Pitch                                      | D0~30        | -48~+48            |  40|  7|   0|
+|   361 |     |                       | Gate                                       | 00~65        | Off~Legato         |  40|  8|   0|
+|   362 |     |                       | Velocity                                   | 01~80        | 1~Key              |  40|  9|   0|
+|   363 |     |                       | Flame                                      | 9D~63        | -99~+99            |  40| 10|   0|
+|   364 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  40| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  40| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  40| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  40| 12|   3|
+|   365 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  40| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  40| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  40| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  40| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  40| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  40| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  40| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  40| 12|  11|
+|   366 |     |                       | Accent                                     | 00~01        | Off~On             |  40| 12|  12|
+|   367 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   368 |     | Step 42               | Pitch                                      | D0~30        | -48~+48            |  41|  7|   0|
+|   369 |     |                       | Gate                                       | 00~65        | Off~Legato         |  41|  8|   0|
+|   370 |     |                       | Velocity                                   | 01~80        | 1~Key              |  41|  9|   0|
+|   371 |     |                       | Flame                                      | 9D~63        | -99~+99            |  41| 10|   0|
+|   372 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  41| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  41| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  41| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  41| 12|   3|
+|   373 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  41| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  41| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  41| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  41| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  41| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  41| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  41| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  41| 12|  11|
+|   374 |     |                       | Accent                                     | 00~01        | Off~On             |  41| 12|  12|
+|   375 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   376 |     | Step 43               | Pitch                                      | D0~30        | -48~+48            |  42|  7|   0|
+|   377 |     |                       | Gate                                       | 00~65        | Off~Legato         |  42|  8|   0|
+|   378 |     |                       | Velocity                                   | 01~80        | 1~Key              |  42|  9|   0|
+|   379 |     |                       | Flame                                      | 9D~63        | -99~+99            |  42| 10|   0|
+|   380 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  42| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  42| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  42| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  42| 12|   3|
+|   381 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  42| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  42| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  42| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  42| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  42| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  42| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  42| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  42| 12|  11|
+|   382 |     |                       | Accent                                     | 00~01        | Off~On             |  42| 12|  12|
+|   383 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   384 |     | Step 44               | Pitch                                      | D0~30        | -48~+48            |  43|  7|   0|
+|   385 |     |                       | Gate                                       | 00~65        | Off~Legato         |  43|  8|   0|
+|   386 |     |                       | Velocity                                   | 01~80        | 1~Key              |  43|  9|   0|
+|   387 |     |                       | Flame                                      | 9D~63        | -99~+99            |  43| 10|   0|
+|   388 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  43| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  43| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  43| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  43| 12|   3|
+|   389 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  43| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  43| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  43| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  43| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  43| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  43| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  43| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  43| 12|  11|
+|   390 |     |                       | Accent                                     | 00~01        | Off~On             |  43| 12|  12|
+|   391 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   392 |     | Step 45               | Pitch                                      | D0~30        | -48~+48            |  44|  7|   0|
+|   393 |     |                       | Gate                                       | 00~65        | Off~Legato         |  44|  8|   0|
+|   394 |     |                       | Velocity                                   | 01~80        | 1~Key              |  44|  9|   0|
+|   395 |     |                       | Flame                                      | 9D~63        | -99~+99            |  44| 10|   0|
+|   396 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  44| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  44| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  44| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  44| 12|   3|
+|   397 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  44| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  44| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  44| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  44| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  44| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  44| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  44| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  44| 12|  11|
+|   398 |     |                       | Accent                                     | 00~01        | Off~On             |  44| 12|  12|
+|   399 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   400 |     | Step 46               | Pitch                                      | D0~30        | -48~+48            |  45|  7|   0|
+|   401 |     |                       | Gate                                       | 00~65        | Off~Legato         |  45|  8|   0|
+|   402 |     |                       | Velocity                                   | 01~80        | 1~Key              |  45|  9|   0|
+|   403 |     |                       | Flame                                      | 9D~63        | -99~+99            |  45| 10|   0|
+|   404 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  45| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  45| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  45| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  45| 12|   3|
+|   405 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  45| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  45| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  45| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  45| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  45| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  45| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  45| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  45| 12|  11|
+|   406 |     |                       | Accent                                     | 00~01        | Off~On             |  45| 12|  12|
+|   407 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   408 |     | Step 47               | Pitch                                      | D0~30        | -48~+48            |  46|  7|   0|
+|   409 |     |                       | Gate                                       | 00~65        | Off~Legato         |  46|  8|   0|
+|   410 |     |                       | Velocity                                   | 01~80        | 1~Key              |  46|  9|   0|
+|   411 |     |                       | Flame                                      | 9D~63        | -99~+99            |  46| 10|   0|
+|   412 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  46| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  46| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  46| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  46| 12|   3|
+|   413 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  46| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  46| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  46| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  46| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  46| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  46| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  46| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  46| 12|  11|
+|   414 |     |                       | Accent                                     | 00~01        | Off~On             |  46| 12|  12|
+|   415 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   416 |     | Step 48               | Pitch                                      | D0~30        | -48~+48            |  47|  7|   0|
+|   417 |     |                       | Gate                                       | 00~65        | Off~Legato         |  47|  8|   0|
+|   418 |     |                       | Velocity                                   | 01~80        | 1~Key              |  47|  9|   0|
+|   419 |     |                       | Flame                                      | 9D~63        | -99~+99            |  47| 10|   0|
+|   420 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  47| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  47| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  47| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  47| 12|   3|
+|   421 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  47| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  47| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  47| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  47| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  47| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  47| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  47| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  47| 12|  11|
+|   422 |     |                       | Accent                                     | 00~01        | Off~On             |  47| 12|  12|
+|   423 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   424 |     | Step 49               | Pitch                                      | D0~30        | -48~+48            |  48|  7|   0|
+|   425 |     |                       | Gate                                       | 00~65        | Off~Legato         |  48|  8|   0|
+|   426 |     |                       | Velocity                                   | 01~80        | 1~Key              |  48|  9|   0|
+|   427 |     |                       | Flame                                      | 9D~63        | -99~+99            |  48| 10|   0|
+|   428 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  48| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  48| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  48| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  48| 12|   3|
+|   429 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  48| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  48| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  48| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  48| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  48| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  48| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  48| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  48| 12|  11|
+|   430 |     |                       | Accent                                     | 00~01        | Off~On             |  48| 12|  12|
+|   431 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   432 |     | Step 50               | Pitch                                      | D0~30        | -48~+48            |  49|  7|   0|
+|   433 |     |                       | Gate                                       | 00~65        | Off~Legato         |  49|  8|   0|
+|   434 |     |                       | Velocity                                   | 01~80        | 1~Key              |  49|  9|   0|
+|   435 |     |                       | Flame                                      | 9D~63        | -99~+99            |  49| 10|   0|
+|   436 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  49| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  49| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  49| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  49| 12|   3|
+|   437 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  49| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  49| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  49| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  49| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  49| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  49| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  49| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  49| 12|  11|
+|   438 |     |                       | Accent                                     | 00~01        | Off~On             |  49| 12|  12|
+|   439 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   440 |     | Step 51               | Pitch                                      | D0~30        | -48~+48            |  50|  7|   0|
+|   441 |     |                       | Gate                                       | 00~65        | Off~Legato         |  50|  8|   0|
+|   442 |     |                       | Velocity                                   | 01~80        | 1~Key              |  50|  9|   0|
+|   443 |     |                       | Flame                                      | 9D~63        | -99~+99            |  50| 10|   0|
+|   444 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  50| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  50| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  50| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  50| 12|   3|
+|   445 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  50| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  50| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  50| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  50| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  50| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  50| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  50| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  50| 12|  11|
+|   446 |     |                       | Accent                                     | 00~01        | Off~On             |  50| 12|  12|
+|   447 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   448 |     | Step 52               | Pitch                                      | D0~30        | -48~+48            |  51|  7|   0|
+|   449 |     |                       | Gate                                       | 00~65        | Off~Legato         |  51|  8|   0|
+|   450 |     |                       | Velocity                                   | 01~80        | 1~Key              |  51|  9|   0|
+|   451 |     |                       | Flame                                      | 9D~63        | -99~+99            |  51| 10|   0|
+|   452 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  51| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  51| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  51| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  51| 12|   3|
+|   453 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  51| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  51| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  51| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  51| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  51| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  51| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  51| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  51| 12|  11|
+|   454 |     |                       | Accent                                     | 00~01        | Off~On             |  51| 12|  12|
+|   455 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   456 |     | Step 53               | Pitch                                      | D0~30        | -48~+48            |  52|  7|   0|
+|   457 |     |                       | Gate                                       | 00~65        | Off~Legato         |  52|  8|   0|
+|   458 |     |                       | Velocity                                   | 01~80        | 1~Key              |  52|  9|   0|
+|   459 |     |                       | Flame                                      | 9D~63        | -99~+99            |  52| 10|   0|
+|   460 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  52| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  52| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  52| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  52| 12|   3|
+|   461 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  52| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  52| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  52| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  52| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  52| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  52| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  52| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  52| 12|  11|
+|   462 |     |                       | Accent                                     | 00~01        | Off~On             |  52| 12|  12|
+|   463 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   464 |     | Step 54               | Pitch                                      | D0~30        | -48~+48            |  53|  7|   0|
+|   465 |     |                       | Gate                                       | 00~65        | Off~Legato         |  53|  8|   0|
+|   466 |     |                       | Velocity                                   | 01~80        | 1~Key              |  53|  9|   0|
+|   467 |     |                       | Flame                                      | 9D~63        | -99~+99            |  53| 10|   0|
+|   468 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  53| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  53| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  53| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  53| 12|   3|
+|   469 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  53| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  53| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  53| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  53| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  53| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  53| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  53| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  53| 12|  11|
+|   470 |     |                       | Accent                                     | 00~01        | Off~On             |  53| 12|  12|
+|   471 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   472 |     | Step 55               | Pitch                                      | D0~30        | -48~+48            |  54|  7|   0|
+|   473 |     |                       | Gate                                       | 00~65        | Off~Legato         |  54|  8|   0|
+|   474 |     |                       | Velocity                                   | 01~80        | 1~Key              |  54|  9|   0|
+|   475 |     |                       | Flame                                      | 9D~63        | -99~+99            |  54| 10|   0|
+|   476 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  54| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  54| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  54| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  54| 12|   3|
+|   477 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  54| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  54| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  54| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  54| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  54| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  54| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  54| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  54| 12|  11|
+|   478 |     |                       | Accent                                     | 00~01        | Off~On             |  54| 12|  12|
+|   479 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   480 |     | Step 56               | Pitch                                      | D0~30        | -48~+48            |  55|  7|   0|
+|   481 |     |                       | Gate                                       | 00~65        | Off~Legato         |  55|  8|   0|
+|   482 |     |                       | Velocity                                   | 01~80        | 1~Key              |  55|  9|   0|
+|   483 |     |                       | Flame                                      | 9D~63        | -99~+99            |  55| 10|   0|
+|   484 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  55| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  55| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  55| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  55| 12|   3|
+|   485 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  55| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  55| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  55| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  55| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  55| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  55| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  55| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  55| 12|  11|
+|   486 |     |                       | Accent                                     | 00~01        | Off~On             |  55| 12|  12|
+|   487 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   488 |     | Step 57               | Pitch                                      | D0~30        | -48~+48            |  56|  7|   0|
+|   489 |     |                       | Gate                                       | 00~65        | Off~Legato         |  56|  8|   0|
+|   490 |     |                       | Velocity                                   | 01~80        | 1~Key              |  56|  9|   0|
+|   491 |     |                       | Flame                                      | 9D~63        | -99~+99            |  56| 10|   0|
+|   492 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  56| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  56| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  56| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  56| 12|   3|
+|   493 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  56| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  56| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  56| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  56| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  56| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  56| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  56| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  56| 12|  11|
+|   494 |     |                       | Accent                                     | 00~01        | Off~On             |  56| 12|  12|
+|   495 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   496 |     | Step 58               | Pitch                                      | D0~30        | -48~+48            |  57|  7|   0|
+|   497 |     |                       | Gate                                       | 00~65        | Off~Legato         |  57|  8|   0|
+|   498 |     |                       | Velocity                                   | 01~80        | 1~Key              |  57|  9|   0|
+|   499 |     |                       | Flame                                      | 9D~63        | -99~+99            |  57| 10|   0|
+|   500 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  57| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  57| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  57| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  57| 12|   3|
+|   501 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  57| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  57| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  57| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  57| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  57| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  57| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  57| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  57| 12|  11|
+|   502 |     |                       | Accent                                     | 00~01        | Off~On             |  57| 12|  12|
+|   503 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   504 |     | Step 59               | Pitch                                      | D0~30        | -48~+48            |  58|  7|   0|
+|   505 |     |                       | Gate                                       | 00~65        | Off~Legato         |  58|  8|   0|
+|   506 |     |                       | Velocity                                   | 01~80        | 1~Key              |  58|  9|   0|
+|   507 |     |                       | Flame                                      | 9D~63        | -99~+99            |  58| 10|   0|
+|   508 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  58| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  58| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  58| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  58| 12|   3|
+|   509 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  58| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  58| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  58| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  58| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  58| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  58| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  58| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  58| 12|  11|
+|   510 |     |                       | Accent                                     | 00~01        | Off~On             |  58| 12|  12|
+|   511 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   512 |     | Step 60               | Pitch                                      | D0~30        | -48~+48            |  59|  7|   0|
+|   513 |     |                       | Gate                                       | 00~65        | Off~Legato         |  59|  8|   0|
+|   514 |     |                       | Velocity                                   | 01~80        | 1~Key              |  59|  9|   0|
+|   515 |     |                       | Flame                                      | 9D~63        | -99~+99            |  59| 10|   0|
+|   516 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  59| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  59| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  59| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  59| 12|   3|
+|   517 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  59| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  59| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  59| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  59| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  59| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  59| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  59| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  59| 12|  11|
+|   518 |     |                       | Accent                                     | 00~01        | Off~On             |  59| 12|  12|
+|   519 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   520 |     | Step 61               | Pitch                                      | D0~30        | -48~+48            |  60|  7|   0|
+|   521 |     |                       | Gate                                       | 00~65        | Off~Legato         |  60|  8|   0|
+|   522 |     |                       | Velocity                                   | 01~80        | 1~Key              |  60|  9|   0|
+|   523 |     |                       | Flame                                      | 9D~63        | -99~+99            |  60| 10|   0|
+|   524 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  60| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  60| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  60| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  60| 12|   3|
+|   525 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  60| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  60| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  60| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  60| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  60| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  60| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  60| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  60| 12|  11|
+|   526 |     |                       | Accent                                     | 00~01        | Off~On             |  60| 12|  12|
+|   527 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   528 |     | Step 62               | Pitch                                      | D0~30        | -48~+48            |  61|  7|   0|
+|   529 |     |                       | Gate                                       | 00~65        | Off~Legato         |  61|  8|   0|
+|   530 |     |                       | Velocity                                   | 01~80        | 1~Key              |  61|  9|   0|
+|   531 |     |                       | Flame                                      | 9D~63        | -99~+99            |  61| 10|   0|
+|   532 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  61| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  61| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  61| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  61| 12|   3|
+|   533 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  61| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  61| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  61| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  61| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  61| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  61| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  61| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  61| 12|  11|
+|   534 |     |                       | Accent                                     | 00~01        | Off~On             |  61| 12|  12|
+|   535 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   536 |     | Step 63               | Pitch                                      | D0~30        | -48~+48            |  62|  7|   0|
+|   537 |     |                       | Gate                                       | 00~65        | Off~Legato         |  62|  8|   0|
+|   538 |     |                       | Velocity                                   | 01~80        | 1~Key              |  62|  9|   0|
+|   539 |     |                       | Flame                                      | 9D~63        | -99~+99            |  62| 10|   0|
+|   540 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  62| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  62| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  62| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  62| 12|   3|
+|   541 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  62| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  62| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  62| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  62| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  62| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  62| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  62| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  62| 12|  11|
+|   542 |     |                       | Accent                                     | 00~01        | Off~On             |  62| 12|  12|
+|   543 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   544 |     | Step 64               | Pitch                                      | D0~30        | -48~+48            |  63|  7|   0|
+|   545 |     |                       | Gate                                       | 00~65        | Off~Legato         |  63|  8|   0|
+|   546 |     |                       | Velocity                                   | 01~80        | 1~Key              |  63|  9|   0|
+|   547 |     |                       | Flame                                      | 9D~63        | -99~+99            |  63| 10|   0|
+|   548 |   0 |                       | Tone09 Enable                              | 00~01        | Disable~Enable     |  63| 12|   0|
+|       |   1 |                       | Tone10 Enable                              | 00~01        | Disable~Enable     |  63| 12|   1|
+|       |   2 |                       | Tone11 Enable                              | 00~01        | Disable~Enable     |  63| 12|   2|
+|       |   3 |                       | Tone12 Enable                              | 00~01        | Disable~Enable     |  63| 12|   3|
+|   549 |   0 |                       | Tone01 Enable                              | 00~01        | Disable~Enable     |  63| 12|   4|
+|       |   1 |                       | Tone02 Enable                              | 00~01        | Disable~Enable     |  63| 12|   5|
+|       |   2 |                       | Tone03 Enable                              | 00~01        | Disable~Enable     |  63| 12|   6|
+|       |   3 |                       | Tone04 Enable                              | 00~01        | Disable~Enable     |  63| 12|   7|
+|       |   4 |                       | Tone05 Enable                              | 00~01        | Disable~Enable     |  63| 12|   8|
+|       |   5 |                       | Tone06 Enable                              | 00~01        | Disable~Enable     |  63| 12|   9|
+|       |   6 |                       | Tone07 Enable                              | 00~01        | Disable~Enable     |  63| 12|  10|
+|       |   7 |                       | Tone08 Enable                              | 00~01        | Disable~Enable     |  63| 12|  11|
+|   550 |     |                       | Accent                                     | 00~01        | Off~On             |  63| 12|  12|
+|   551 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+|   552 |     | Common                | Category                                   | 00~10        | Keyboard~Off       |    |   |    |
+|   553 |     | Common                | Sub Category                               | 00~07        |                    |    |   |    |
+|   554 |     | Common                | Meter                                      | 10~3F        | 1/4~16/16          |   0|  1|   0|
+|   555 |     | <reserved>            |                                            |              |                    |    |   |    |
++=======+=====+=======================+============================================+==============+====================+====+===+====+										
+
+-Revision History-
+Rev     Date			Description
+1.0     Aug 02 2021		Initial Release.

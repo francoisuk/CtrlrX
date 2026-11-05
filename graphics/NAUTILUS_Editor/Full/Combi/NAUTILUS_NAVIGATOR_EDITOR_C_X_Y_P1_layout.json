@@ -1,0 +1,1451 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "X-Y · 1/2",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_C_X_Y_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_C_X_Y_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — X-Y · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 145.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 208.8,
+   "y": 84,
+   "w": 139.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 351.2,
+   "y": 84,
+   "w": 144.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 498.4,
+   "y": 84,
+   "w": 139.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 641.2,
+   "y": 84,
+   "w": 125.7,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 769.9,
+   "y": 84,
+   "w": 147.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 920.4,
+   "y": 84,
+   "w": 141.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1064.4,
+   "y": 84,
+   "w": 168.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1236.1,
+   "y": 84,
+   "w": 144.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1206",
+   "param": "CombiAndSongTimbreSet@1206",
+   "group": "x_y_control_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "JS +X ASSIGN",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 113.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "JS +X Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1206,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~A2",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1207",
+   "param": "CombiAndSongTimbreSet@1207",
+   "group": "x_y_control_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "JS -X ASSIGN",
+   "x": 189.8,
+   "y": 153.0,
+   "w": 113.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "JS -X Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1207,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~A2",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1208",
+   "param": "CombiAndSongTimbreSet@1208",
+   "group": "x_y_control_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "JS +Y ASSIGN",
+   "x": 311.6,
+   "y": 153.0,
+   "w": 113.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "JS +Y Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1208,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~A2",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1209",
+   "param": "CombiAndSongTimbreSet@1209",
+   "group": "x_y_control_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "JS -Y ASSIGN",
+   "x": 433.3,
+   "y": 153.0,
+   "w": 113.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~CC#119",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "JS -Y Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1209,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~A2",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1210.1~0",
+   "param": "CombiAndSongTimbreSet@1210.1~0",
+   "group": "x_y_control_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "X MODE",
+   "x": 555.1,
+   "y": 153.0,
+   "w": 113.8,
+   "h": 16,
+   "text": [
+    "Pos"
+   ],
+   "options": "Pos~Split",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "X Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1210,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Pos~Split"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1210.3~2",
+   "param": "CombiAndSongTimbreSet@1210.3~2",
+   "group": "x_y_control_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Y MODE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 113.8,
+   "h": 16,
+   "text": [
+    "Pos"
+   ],
+   "options": "Pos~Split",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Y Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1210,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Pos~Split"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1211.0",
+   "param": "CombiAndSongTimbreSet@1211.0",
+   "group": "x_y_control_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ENABLE VECTOR",
+   "x": 189.8,
+   "y": 188.0,
+   "w": 113.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Enable Vector",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1211,
+    "bit": "0",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1211.1",
+   "param": "CombiAndSongTimbreSet@1211.1",
+   "group": "x_y_control_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ENABLE CONTROL CHANGE",
+   "x": 311.6,
+   "y": 188.0,
+   "w": 113.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Enable Control Change",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1211,
+    "bit": "1",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1211.2",
+   "param": "CombiAndSongTimbreSet@1211.2",
+   "group": "x_y_control_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ENABLE VOLUME CONTROL",
+   "x": 433.3,
+   "y": 188.0,
+   "w": 113.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Enable Volume Control",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1211,
+    "bit": "2",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1211.3",
+   "param": "CombiAndSongTimbreSet@1211.3",
+   "group": "x_y_control_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "EQUAL POWER",
+   "x": 555.1,
+   "y": 188.0,
+   "w": 113.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Equal Power",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1211,
+    "bit": "3",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1211.4",
+   "param": "CombiAndSongTimbreSet@1211.4",
+   "group": "x_y_control_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "TEMPO BASED",
+   "x": 68.0,
+   "y": 222.0,
+   "w": 113.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Tempo Based",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1211,
+    "bit": "4",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1211.5",
+   "param": "CombiAndSongTimbreSet@1211.5",
+   "group": "x_y_control_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEY SYNC",
+   "x": 189.8,
+   "y": 222.0,
+   "w": 113.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Key Sync",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1211,
+    "bit": "5",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1250",
+   "param": "CombiAndSongTimbreSet@1250",
+   "group": "x_y_control_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOOP REPEAT",
+   "x": 311.6,
+   "y": 221.0,
+   "w": 113.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Loop Repeat",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1250,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "Off~Inf"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1229",
+   "param": "CombiAndSongTimbreSet@1229",
+   "group": "x_y_control_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "(3TOLOOP) TRANSITION TIME",
+   "x": 700.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 721.9045521292218,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~60000",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3toLoop) Transition Time",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1229,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "3"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1229_val",
+   "param": "CombiAndSongTimbreSet@1229",
+   "group": "x_y_control_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "(3TOLOOP) TRANSITION TIME value",
+   "x": 702.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3toLoop) Transition Time",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1229,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "3"
+    },
+    "data": "00~C3",
+    "value": "0~60000"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1242",
+   "param": "CombiAndSongTimbreSet@1242",
+   "group": "x_y_control_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "(3TOLOOP) TRANSITION TIME BASE NOTE",
+   "x": 767.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 788.037689672051,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3toLoop) Transition Time Base Note",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1242,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "3"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1242_val",
+   "param": "CombiAndSongTimbreSet@1242",
+   "group": "x_y_control_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "(3TOLOOP) TRANSITION TIME BASE NOTE value",
+   "x": 769.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3toLoop) Transition Time Base Note",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1242,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "3"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1247",
+   "param": "CombiAndSongTimbreSet@1247",
+   "group": "x_y_control_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "(3TOLOOP) TRANSITION TIME TIMES",
+   "x": 833.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 854.1708272148801,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3toLoop) Transition Time Times",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1247,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "3"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1247_val",
+   "param": "CombiAndSongTimbreSet@1247",
+   "group": "x_y_control_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "(3TOLOOP) TRANSITION TIME TIMES value",
+   "x": 835.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3toLoop) Transition Time Times",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1247,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "3"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1249.2~0",
+   "param": "CombiAndSongTimbreSet@1249.2~0",
+   "group": "x_y_control_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOOP DIRECTION",
+   "x": 899.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 920.3039647577093,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0->3~1<->3",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Loop Direction",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1249,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "0->3~1<->3"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1249.2~0_val",
+   "param": "CombiAndSongTimbreSet@1249.2~0",
+   "group": "x_y_control_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "LOOP DIRECTION value",
+   "x": 901.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0->3"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "Loop Direction",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1249,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "0->3~1<->3"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1212",
+   "param": "CombiAndSongTimbreSet@1212",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1212",
+   "x": 1115.3,
+   "y": 150,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(0) Position X",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1212,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1214",
+   "param": "CombiAndSongTimbreSet@1214",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1214",
+   "x": 1177.8,
+   "y": 150,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(1) Position X",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1214,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "1"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1216",
+   "param": "CombiAndSongTimbreSet@1216",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1216",
+   "x": 1240.4,
+   "y": 150,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(2) Position X",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1216,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "2"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1218",
+   "param": "CombiAndSongTimbreSet@1218",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1218",
+   "x": 1302.9,
+   "y": 150,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3) Position X",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1218,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "3"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1220",
+   "param": "CombiAndSongTimbreSet@1220",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1220",
+   "x": 1365.5,
+   "y": 150,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(4) Position X",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1220,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "4"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1213",
+   "param": "CombiAndSongTimbreSet@1213",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1213",
+   "x": 1115.3,
+   "y": 171,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(0) Position Y",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1213,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1215",
+   "param": "CombiAndSongTimbreSet@1215",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1215",
+   "x": 1177.8,
+   "y": 171,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(1) Position Y",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1215,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "1"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1217",
+   "param": "CombiAndSongTimbreSet@1217",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1217",
+   "x": 1240.4,
+   "y": 171,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(2) Position Y",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1217,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "2"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1219",
+   "param": "CombiAndSongTimbreSet@1219",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1219",
+   "x": 1302.9,
+   "y": 171,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(3) Position Y",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1219,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "3"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1221",
+   "param": "CombiAndSongTimbreSet@1221",
+   "group": "x_y_control_3_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1221",
+   "x": 1365.5,
+   "y": 171,
+   "w": 58.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-127~+127",
+   "midi": null,
+   "korg": {
+    "group": "X-Y Control",
+    "name": "(4) Position Y",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1221,
+    "sysex": {
+     "TYP": "22",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "4"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "X-Y",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "all"
+}

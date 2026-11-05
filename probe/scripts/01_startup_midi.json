@@ -1,0 +1,21 @@
+{
+  "settleMs": 600,
+  "quietMs": 60,
+  "steps": [
+    { "action": "eval", "lua": "local t={} for i=1,8 do t[i]=panel:getModulatorByName('kkMix'..i):getValueMapped() end return t" },
+    { "action": "wait", "ms": 3000 },
+    { "action": "eval", "lua": "return { ver=KK_VERSION, ch=KK.ch, mode=KK.mode, msb=KK.msb, lsb=KK.lsb, prog=KK.prog }" },
+    { "action": "eval", "lua": "local t={} for i=1,8 do t[i]=panel:getModulatorByName('kkMix'..i):getValueMapped() end return t" },
+    { "action": "eval", "lua": "local t={} for i=1,8 do t[i]=panel:getModulatorByName(string.format('kkEnc%02d',i)):getValueMapped() end for i=1,9 do t[8+i]=panel:getModulatorByName('kkFdr'..i):getValueMapped() end return t" },
+    { "action": "eval", "lua": "return { string.byte(KRONOS_DATA.tav[0], 1, 17) }" },
+    { "action": "click", "modulator": "kkBtnPAN" },
+    { "action": "eval", "lua": "local t={} for i=1,8 do t[i]=panel:getModulatorByName('kkMix'..i):getValueMapped() end return t" },
+    { "action": "click", "modulator": "kkBtnMIXER" },
+    { "action": "setValue", "modulator": "kkMix1", "value": 100 },
+    { "action": "setValue", "modulator": "kkEnc01", "value": 90 },
+    { "action": "click", "modulator": "kkBtnBank02" },
+    { "action": "eval", "lua": "return { msb=KK.msb, lsb=KK.lsb, prog=KK.prog, name=panel:getComponent('kkProgName'):getProperty('uiComboContent'):sub(1,40) }" },
+    { "action": "eval", "lua": "local t={} for i=1,8 do t[i]=panel:getModulatorByName('kkMix'..i):getValueMapped() end return t" },
+    { "action": "screenshot", "file": "out/01_rack.png" }
+  ]
+}

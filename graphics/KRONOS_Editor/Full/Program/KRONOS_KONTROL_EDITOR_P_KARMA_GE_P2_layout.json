@@ -1,0 +1,957 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA GE · 2/4",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_P_KARMA_GE_P2_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_P_KARMA_GE_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — KARMA GE · 2/4"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 75.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 138.0,
+   "y": 84,
+   "w": 56.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 197.5,
+   "y": 84,
+   "w": 65.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 266.1,
+   "y": 84,
+   "w": 57.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 326.7,
+   "y": 84,
+   "w": 71.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 401.3,
+   "y": 84,
+   "w": 95.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 500.0,
+   "y": 84,
+   "w": 53.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 556.0,
+   "y": 84,
+   "w": 76.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 635.3,
+   "y": 84,
+   "w": 68.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 706.7,
+   "y": 84,
+   "w": 73.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 783.0,
+   "y": 84,
+   "w": 69.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 855.0,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 929.3,
+   "y": 84,
+   "w": 76.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 1009.0,
+   "y": 84,
+   "w": 90.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1102.4,
+   "y": 84,
+   "w": 74.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1179.5,
+   "y": 84,
+   "w": 68.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1250.9,
+   "y": 84,
+   "w": 80.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@1833.0",
+   "param": "Prog_HD-1@1833.0",
+   "group": "karma_module_transmit_filter_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PITCH BEND",
+   "x": 68.0,
+   "y": 154.0,
+   "w": 184.2,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Transmit Filter) Pitch Bend",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1833,
+    "bit": "0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1833.1",
+   "param": "Prog_HD-1@1833.1",
+   "group": "karma_module_transmit_filter_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CC-A",
+   "x": 260.2,
+   "y": 154.0,
+   "w": 184.2,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Transmit Filter) CC-A",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1833,
+    "bit": "1",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1833.2",
+   "param": "Prog_HD-1@1833.2",
+   "group": "karma_module_transmit_filter_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CC-B",
+   "x": 68.0,
+   "y": 188.0,
+   "w": 184.2,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Transmit Filter) CC-B",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1833,
+    "bit": "2",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1833.6",
+   "param": "Prog_HD-1@1833.6",
+   "group": "karma_module_transmit_filter_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "GE NOTES",
+   "x": 260.2,
+   "y": 188.0,
+   "w": 184.2,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Transmit Filter) GE Notes",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1833,
+    "bit": "6",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1833.5",
+   "param": "Prog_HD-1@1833.5",
+   "group": "karma_module_transmit_filter_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "WAVEFORM",
+   "x": 68.0,
+   "y": 222.0,
+   "w": 184.2,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Transmit Filter) Envelope3",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1833,
+    "bit": "5",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1834.0",
+   "param": "Prog_HD-1@1834.0",
+   "group": "karma_module_receive_filter",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PITCH BEND",
+   "x": 989.7,
+   "y": 154.0,
+   "w": 142.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Receive Filter) Pitch Bend",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1834,
+    "bit": "0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1834.1",
+   "param": "Prog_HD-1@1834.1",
+   "group": "karma_module_receive_filter",
+   "type": "button",
+   "kind": "toggle",
+   "label": "AFTER TOUCH",
+   "x": 1139.8,
+   "y": 154.0,
+   "w": 142.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Receive Filter) After Touch",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1834,
+    "bit": "1",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1834.2",
+   "param": "Prog_HD-1@1834.2",
+   "group": "karma_module_receive_filter",
+   "type": "button",
+   "kind": "toggle",
+   "label": "DAMPER",
+   "x": 1289.9,
+   "y": 154.0,
+   "w": 142.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Receive Filter) Damper",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1834,
+    "bit": "2",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1834.3",
+   "param": "Prog_HD-1@1834.3",
+   "group": "karma_module_receive_filter",
+   "type": "button",
+   "kind": "toggle",
+   "label": "JOY STICK(+Y)",
+   "x": 989.7,
+   "y": 188.0,
+   "w": 142.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Receive Filter) Joy Stick(+Y)",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1834,
+    "bit": "3",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1834.4",
+   "param": "Prog_HD-1@1834.4",
+   "group": "karma_module_receive_filter",
+   "type": "button",
+   "kind": "toggle",
+   "label": "JOY STICK(-Y)",
+   "x": 1139.8,
+   "y": 188.0,
+   "w": 142.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Receive Filter) Joy Stick(-Y)",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1834,
+    "bit": "4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1834.5",
+   "param": "Prog_HD-1@1834.5",
+   "group": "karma_module_receive_filter",
+   "type": "button",
+   "kind": "toggle",
+   "label": "OTHER CC",
+   "x": 1289.9,
+   "y": 188.0,
+   "w": 142.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Receive Filter) Other CC",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1834,
+    "bit": "5",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1834.6",
+   "param": "Prog_HD-1@1834.6",
+   "group": "karma_module_receive_filter",
+   "type": "button",
+   "kind": "toggle",
+   "label": "RIBBON",
+   "x": 989.7,
+   "y": 222.0,
+   "w": 142.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "(Receive Filter) Ribbon",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1834,
+    "bit": "6",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "92",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA GE",
+ "page_number": 2,
+ "pages_in_area": 4,
+ "apply": "all"
+}

@@ -1,0 +1,2000 @@
+{
+ "panel": "KRONOS_KONTROL",
+ "theme": "KRONOS_KONTROL",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; multiplier par 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_fond.png",
+ "background_2x": "KRONOS_KONTROL_fond@2x.png",
+ "background_notext": "KRONOS_KONTROL_notext.png",
+ "background_notext_2x": "KRONOS_KONTROL_notext@2x.png",
+ "backgrounds": "_fond : sans parties actives, libellés d'exemple gravés dans les afficheurs (FILTER FREQ…, SLIDER 1-8, GATE…) ; _notext : idem mais afficheurs vides, pour des libellés dynamiques (type display / menu : à écrire par l'éditeur, cf. text)",
+ "types": {
+  "button": "bouton (rectangle x, y, w, h)",
+  "knob": "encodeur : rectangle = encodeur + couronne ; cx, cy, r = centre et rayon du bouton",
+  "slider": "curseur vertical : rectangle = course du chapeau ; cx = axe, y0 / y1 = haut / bas de la fente",
+  "display": "afficheur ; text = libellés d’exemple, dynamic = contenu variable",
+  "menu": "afficheur à menu déroulant (▼)",
+  "xy_pad": "pavé X-Y",
+  "led": "voyant",
+  "logo": "logo Kronoscopie"
+ },
+ "led_render": "Voyants (type led) : le fond ne porte que la lunette. Poser par-dessus, à x, y (17 x 17), l'image render.images.on ou .off selon l'état (ou la bande strip : 2 images verticales, éteint puis allumé ; @2x pour le PNG @2x), ou dessiner : cercle de lunette (bezel.r, fill, stroke) puis lampe de rayon lamp.r centrée en cx, cy, remplie d'un dégradé radial dont le centre (cx, cy) et le rayon (r) sont en fraction du carré de la lampe (2 x lamp.r), stops = [position 0-1, couleur]. state = état montré sur la maquette.",
+ "controls": [
+  {
+   "id": "encoders_1",
+   "group": "encoders",
+   "type": "knob",
+   "label": "1",
+   "x": 75.1,
+   "y": 36,
+   "w": 48,
+   "h": 48,
+   "cx": 99.09375,
+   "cy": 60,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "encoders_2",
+   "group": "encoders",
+   "type": "knob",
+   "label": "2",
+   "x": 163.3,
+   "y": 36,
+   "w": 48,
+   "h": 48,
+   "cx": 187.28125,
+   "cy": 60,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "encoders_3",
+   "group": "encoders",
+   "type": "knob",
+   "label": "3",
+   "x": 251.5,
+   "y": 36,
+   "w": 48,
+   "h": 48,
+   "cx": 275.46875,
+   "cy": 60,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "encoders_4",
+   "group": "encoders",
+   "type": "knob",
+   "label": "4",
+   "x": 339.7,
+   "y": 36,
+   "w": 48,
+   "h": 48,
+   "cx": 363.65625,
+   "cy": 60,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "encoders_display1",
+   "group": "encoders",
+   "type": "display",
+   "label": "",
+   "x": 55,
+   "y": 86,
+   "w": 352.8,
+   "h": 30,
+   "text": [
+    "FILTER FREQ",
+    "KNOB MOD 1",
+    "FILTER RESO",
+    "KNOB MOD 2",
+    "FILTER EG",
+    "KNOB MOD 3",
+    "EG RELEASE",
+    "KNOB MOD 4"
+   ],
+   "midi": null
+  },
+  {
+   "id": "encoders_5",
+   "group": "encoders",
+   "type": "knob",
+   "label": "5",
+   "x": 75.1,
+   "y": 126,
+   "w": 48,
+   "h": 48,
+   "cx": 99.09375,
+   "cy": 150,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "encoders_6",
+   "group": "encoders",
+   "type": "knob",
+   "label": "6",
+   "x": 163.3,
+   "y": 126,
+   "w": 48,
+   "h": 48,
+   "cx": 187.28125,
+   "cy": 150,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "encoders_7",
+   "group": "encoders",
+   "type": "knob",
+   "label": "7",
+   "x": 251.5,
+   "y": 126,
+   "w": 48,
+   "h": 48,
+   "cx": 275.46875,
+   "cy": 150,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "encoders_8",
+   "group": "encoders",
+   "type": "knob",
+   "label": "8",
+   "x": 339.7,
+   "y": 126,
+   "w": 48,
+   "h": 48,
+   "cx": 363.65625,
+   "cy": 150,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "volume",
+   "group": "volume",
+   "type": "slider",
+   "label": "VOLUME",
+   "x": 429.0,
+   "y": 44.0,
+   "w": 24,
+   "h": 132,
+   "cx": 441.0,
+   "y0": 50,
+   "y1": 170,
+   "midi": null
+  },
+  {
+   "id": "volume_display1",
+   "group": "volume",
+   "type": "display",
+   "label": "",
+   "x": 423.0,
+   "y": 184,
+   "w": 36,
+   "h": 14,
+   "text": [
+    "102"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "sliders_1",
+   "group": "sliders",
+   "type": "slider",
+   "label": "1",
+   "x": 61.0,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 73.0,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display1",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 55.0,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "FLT EG",
+    "ATK"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_2",
+   "group": "sliders",
+   "type": "slider",
+   "label": "2",
+   "x": 106.2,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 118.25,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display2",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 100.2,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "FLT EG",
+    "DEC"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_3",
+   "group": "sliders",
+   "type": "slider",
+   "label": "3",
+   "x": 151.5,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 163.5,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display3",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 145.5,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "FLT EG",
+    "SUS"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_4",
+   "group": "sliders",
+   "type": "slider",
+   "label": "4",
+   "x": 196.8,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 208.75,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display4",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 190.8,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "FLT EG",
+    "REL"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_5",
+   "group": "sliders",
+   "type": "slider",
+   "label": "5",
+   "x": 242.0,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 254.0,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display5",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 236.0,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "AMP EG",
+    "ATK"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_6",
+   "group": "sliders",
+   "type": "slider",
+   "label": "6",
+   "x": 287.2,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 299.25,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display6",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 281.2,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "AMP EG",
+    "DEC"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_7",
+   "group": "sliders",
+   "type": "slider",
+   "label": "7",
+   "x": 332.5,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 344.5,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display7",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 326.5,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "AMP EG",
+    "SUS"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_8",
+   "group": "sliders",
+   "type": "slider",
+   "label": "8",
+   "x": 377.8,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 389.75,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display8",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 371.8,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "AMP EG",
+    "REL"
+   ],
+   "midi": null
+  },
+  {
+   "id": "sliders_9",
+   "group": "sliders",
+   "type": "slider",
+   "label": "9",
+   "x": 429.0,
+   "y": 244.0,
+   "w": 24,
+   "h": 124,
+   "cx": 441.0,
+   "y0": 250,
+   "y1": 362,
+   "midi": null
+  },
+  {
+   "id": "sliders_display9",
+   "group": "sliders",
+   "type": "display",
+   "label": "",
+   "x": 423.0,
+   "y": 378,
+   "w": 36,
+   "h": 24,
+   "text": [
+    "-"
+   ],
+   "midi": null
+  },
+  {
+   "id": "program_display1",
+   "group": "program",
+   "type": "display",
+   "label": "",
+   "x": 486,
+   "y": 38,
+   "w": 72,
+   "h": 34,
+   "text": [
+    "000"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "program_display2",
+   "group": "program",
+   "type": "display",
+   "label": "",
+   "x": 486,
+   "y": 82,
+   "w": 190,
+   "h": 15,
+   "text": [
+    "I-A000  K-Lab: Katja’s House"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "program_up",
+   "group": "program",
+   "type": "button",
+   "label": "▲",
+   "x": 486,
+   "y": 106,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "program_down",
+   "group": "program",
+   "type": "button",
+   "label": "▼",
+   "x": 486,
+   "y": 128,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "program_combi",
+   "group": "program",
+   "type": "button",
+   "label": "COMBI",
+   "x": 540,
+   "y": 106,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "program_prog",
+   "group": "program",
+   "type": "button",
+   "label": "PROG",
+   "x": 594,
+   "y": 106,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "program_sw1",
+   "group": "program",
+   "type": "button",
+   "label": "SW1",
+   "x": 648,
+   "y": 106,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "program_sw2",
+   "group": "program",
+   "type": "button",
+   "label": "SW2",
+   "x": 702,
+   "y": 106,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "xy_hold",
+   "group": "xy",
+   "type": "button",
+   "label": "HOLD",
+   "x": 756,
+   "y": 106,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "exi_exi1",
+   "group": "exi",
+   "type": "button",
+   "label": "EXi1",
+   "x": 702,
+   "y": 80.5,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "exi_exi2",
+   "group": "exi",
+   "type": "button",
+   "label": "EXi2",
+   "x": 756,
+   "y": 80.5,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "timbre_menu1",
+   "group": "timbre",
+   "type": "menu",
+   "label": "",
+   "x": 884,
+   "y": 131,
+   "w": 43,
+   "h": 12,
+   "text": [
+    "16"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "bank_select_i_a",
+   "group": "bank_select",
+   "type": "button",
+   "label": "I-A",
+   "x": 668,
+   "y": 38,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_a",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-A",
+   "x": 668,
+   "y": 58,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_i_b",
+   "group": "bank_select",
+   "type": "button",
+   "label": "I-B",
+   "x": 706,
+   "y": 38,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_b",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-B",
+   "x": 706,
+   "y": 58,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_i_c",
+   "group": "bank_select",
+   "type": "button",
+   "label": "I-C",
+   "x": 744,
+   "y": 38,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_c",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-C",
+   "x": 744,
+   "y": 58,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_i_d",
+   "group": "bank_select",
+   "type": "button",
+   "label": "I-D",
+   "x": 782,
+   "y": 38,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_d",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-D",
+   "x": 782,
+   "y": 58,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_i_e",
+   "group": "bank_select",
+   "type": "button",
+   "label": "I-E",
+   "x": 820,
+   "y": 38,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_e",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-E",
+   "x": 820,
+   "y": 58,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_i_f",
+   "group": "bank_select",
+   "type": "button",
+   "label": "I-F",
+   "x": 858,
+   "y": 38,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_f",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-F",
+   "x": 858,
+   "y": 58,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_i_g",
+   "group": "bank_select",
+   "type": "button",
+   "label": "I-G",
+   "x": 896,
+   "y": 38,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_g",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-G",
+   "x": 896,
+   "y": 58,
+   "w": 35,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "bank_select_u_a_aa",
+   "group": "bank_select",
+   "type": "button",
+   "label": "U-A/AA",
+   "x": 598,
+   "y": 47,
+   "w": 56,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "gm_menu1",
+   "group": "gm",
+   "type": "menu",
+   "label": "",
+   "x": 848,
+   "y": 82,
+   "w": 82,
+   "h": 15,
+   "text": [
+    "GM"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx1",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX1",
+   "x": 486,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx7",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX7",
+   "x": 486,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx2",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX2",
+   "x": 540,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx8",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX8",
+   "x": 540,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx3",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX3",
+   "x": 594,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx9",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX9",
+   "x": 594,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx4",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX4",
+   "x": 648,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx10",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX10",
+   "x": 648,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx5",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX5",
+   "x": 702,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx11",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX11",
+   "x": 702,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx6",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX6",
+   "x": 756,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_ifx12",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "IFX12",
+   "x": 756,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_mfx1",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "MFX1",
+   "x": 827,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_tfx1",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "TFX1",
+   "x": 827,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_mfx2",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "MFX2",
+   "x": 881,
+   "y": 159,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "fx_switches_tfx2",
+   "group": "fx_switches",
+   "type": "button",
+   "label": "TFX2",
+   "x": 881,
+   "y": 181,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "editor",
+   "group": "editor",
+   "type": "button",
+   "label": "EDITOR",
+   "x": 486,
+   "y": 223,
+   "w": 103,
+   "h": 32,
+   "midi": null
+  },
+  {
+   "id": "import",
+   "group": "import",
+   "type": "button",
+   "label": "IMPORT",
+   "x": 486,
+   "y": 259,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "write",
+   "group": "write",
+   "type": "button",
+   "label": "WRITE",
+   "x": 540,
+   "y": 259,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "play",
+   "group": "play",
+   "type": "button",
+   "label": "PLAY",
+   "x": 486,
+   "y": 281,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "save",
+   "group": "save",
+   "type": "button",
+   "label": "SAVE",
+   "x": 486,
+   "y": 308,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "pcg",
+   "group": "pcg",
+   "type": "button",
+   "label": "PCG",
+   "x": 486,
+   "y": 330,
+   "w": 49,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "pcg_bank_name",
+   "group": "pcg",
+   "type": "display",
+   "label": "BANK NAME",
+   "x": 543,
+   "y": 331,
+   "w": 387,
+   "h": 16,
+   "text": [
+    "PRELOAD.PCG"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "xy",
+   "group": "xy",
+   "type": "xy_pad",
+   "label": "X-Y",
+   "x": 635,
+   "y": 226,
+   "w": 140,
+   "h": 74,
+   "midi": null
+  },
+  {
+   "id": "mixer",
+   "group": "mixer",
+   "type": "button",
+   "label": "MIXER",
+   "x": 486,
+   "y": 370,
+   "w": 50,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "mixer_pan",
+   "group": "mixer",
+   "type": "button",
+   "label": "PAN",
+   "x": 486,
+   "y": 391,
+   "w": 50,
+   "h": 17,
+   "midi": null
+  },
+  {
+   "id": "mixer_1",
+   "group": "mixer",
+   "type": "knob",
+   "label": "1",
+   "x": 542,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 566,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "mixer_2",
+   "group": "mixer",
+   "type": "knob",
+   "label": "2",
+   "x": 592,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 616,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "mixer_3",
+   "group": "mixer",
+   "type": "knob",
+   "label": "3",
+   "x": 642,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 666,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "mixer_4",
+   "group": "mixer",
+   "type": "knob",
+   "label": "4",
+   "x": 692,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 716,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "mixer_5",
+   "group": "mixer",
+   "type": "knob",
+   "label": "5",
+   "x": 742,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 766,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "mixer_6",
+   "group": "mixer",
+   "type": "knob",
+   "label": "6",
+   "x": 792,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 816,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "mixer_7",
+   "group": "mixer",
+   "type": "knob",
+   "label": "7",
+   "x": 842,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 866,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "mixer_8",
+   "group": "mixer",
+   "type": "knob",
+   "label": "8",
+   "x": 892,
+   "y": 361,
+   "w": 48,
+   "h": 48,
+   "cx": 916,
+   "cy": 385,
+   "r": 15,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_1",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "1",
+   "x": 964,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_2",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "2",
+   "x": 1004,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_3",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "3",
+   "x": 1044,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_4",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "4",
+   "x": 1084,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_5",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "5",
+   "x": 1124,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_6",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "6",
+   "x": 1164,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_7",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "7",
+   "x": 1204,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_switches_8",
+   "group": "karma_switches",
+   "type": "button",
+   "label": "8",
+   "x": 1244,
+   "y": 38,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_menu1",
+   "group": "karma",
+   "type": "menu",
+   "label": "",
+   "x": 964,
+   "y": 82,
+   "w": 108,
+   "h": 16,
+   "text": [
+    "Arpeggio"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "karma_on_off",
+   "group": "karma",
+   "type": "button",
+   "label": "ON/OFF",
+   "x": 1082,
+   "y": 80,
+   "w": 56,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "karma_latch",
+   "group": "karma",
+   "type": "button",
+   "label": "LATCH",
+   "x": 1144,
+   "y": 80,
+   "w": 52,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "karma_module_ctrl",
+   "group": "karma",
+   "type": "button",
+   "label": "MODULE CTRL",
+   "x": 1202,
+   "y": 80,
+   "w": 82,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "karma_menu2",
+   "group": "karma",
+   "type": "menu",
+   "label": "",
+   "x": 964,
+   "y": 108,
+   "w": 320,
+   "h": 16,
+   "text": [
+    "0 : Arp Model 01 Up/Dn"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "karma_up",
+   "group": "karma",
+   "type": "button",
+   "label": "▲",
+   "x": 964,
+   "y": 134,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_down",
+   "group": "karma",
+   "type": "button",
+   "label": "▼",
+   "x": 964,
+   "y": 156,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "drum_track_on_off",
+   "group": "drum_track",
+   "type": "button",
+   "label": "ON/OFF",
+   "x": 1146,
+   "y": 150,
+   "w": 56,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "drum_track_mute",
+   "group": "drum_track",
+   "type": "button",
+   "label": "MUTE",
+   "x": 1208,
+   "y": 150,
+   "w": 52,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "module_master",
+   "group": "module",
+   "type": "led",
+   "label": "MASTER",
+   "x": 1311.5,
+   "y": 53.5,
+   "w": 17,
+   "h": 17,
+   "cx": 1320,
+   "cy": 62,
+   "state": "on",
+   "render": {
+    "shape": "circle",
+    "bezel": {
+     "r": 8.5,
+     "fill": "#0a0a0a",
+     "stroke": "#555",
+     "stroke_width": 1
+    },
+    "lamp": {
+     "r": 6.5,
+     "on": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#ff8a80"
+       ],
+       [
+        0.5,
+        "#ff1a1a"
+       ],
+       [
+        1,
+        "#8a0000"
+       ]
+      ]
+     },
+     "off": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#5a2a2a"
+       ],
+       [
+        1,
+        "#1a0606"
+       ]
+      ]
+     }
+    },
+    "images": {
+     "off": "KRONOS_KONTROL_led_off.png",
+     "on": "KRONOS_KONTROL_led_on.png",
+     "strip": "KRONOS_KONTROL_led_strip.png",
+     "strip_frames": [
+      "off",
+      "on"
+     ],
+     "strip_orientation": "vertical",
+     "size": [
+      17,
+      17
+     ],
+     "hidpi": "@2x"
+    }
+   },
+   "midi": null
+  },
+  {
+   "id": "module_a",
+   "group": "module",
+   "type": "led",
+   "label": "A",
+   "x": 1311.5,
+   "y": 80.5,
+   "w": 17,
+   "h": 17,
+   "cx": 1320,
+   "cy": 89,
+   "state": "off",
+   "render": {
+    "shape": "circle",
+    "bezel": {
+     "r": 8.5,
+     "fill": "#0a0a0a",
+     "stroke": "#555",
+     "stroke_width": 1
+    },
+    "lamp": {
+     "r": 6.5,
+     "on": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#ff8a80"
+       ],
+       [
+        0.5,
+        "#ff1a1a"
+       ],
+       [
+        1,
+        "#8a0000"
+       ]
+      ]
+     },
+     "off": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#5a2a2a"
+       ],
+       [
+        1,
+        "#1a0606"
+       ]
+      ]
+     }
+    },
+    "images": {
+     "off": "KRONOS_KONTROL_led_off.png",
+     "on": "KRONOS_KONTROL_led_on.png",
+     "strip": "KRONOS_KONTROL_led_strip.png",
+     "strip_frames": [
+      "off",
+      "on"
+     ],
+     "strip_orientation": "vertical",
+     "size": [
+      17,
+      17
+     ],
+     "hidpi": "@2x"
+    }
+   },
+   "midi": null
+  },
+  {
+   "id": "module_b",
+   "group": "module",
+   "type": "led",
+   "label": "B",
+   "x": 1311.5,
+   "y": 107.5,
+   "w": 17,
+   "h": 17,
+   "cx": 1320,
+   "cy": 116,
+   "state": "off",
+   "render": {
+    "shape": "circle",
+    "bezel": {
+     "r": 8.5,
+     "fill": "#0a0a0a",
+     "stroke": "#555",
+     "stroke_width": 1
+    },
+    "lamp": {
+     "r": 6.5,
+     "on": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#ff8a80"
+       ],
+       [
+        0.5,
+        "#ff1a1a"
+       ],
+       [
+        1,
+        "#8a0000"
+       ]
+      ]
+     },
+     "off": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#5a2a2a"
+       ],
+       [
+        1,
+        "#1a0606"
+       ]
+      ]
+     }
+    },
+    "images": {
+     "off": "KRONOS_KONTROL_led_off.png",
+     "on": "KRONOS_KONTROL_led_on.png",
+     "strip": "KRONOS_KONTROL_led_strip.png",
+     "strip_frames": [
+      "off",
+      "on"
+     ],
+     "strip_orientation": "vertical",
+     "size": [
+      17,
+      17
+     ],
+     "hidpi": "@2x"
+    }
+   },
+   "midi": null
+  },
+  {
+   "id": "module_c",
+   "group": "module",
+   "type": "led",
+   "label": "C",
+   "x": 1311.5,
+   "y": 134.5,
+   "w": 17,
+   "h": 17,
+   "cx": 1320,
+   "cy": 143,
+   "state": "off",
+   "render": {
+    "shape": "circle",
+    "bezel": {
+     "r": 8.5,
+     "fill": "#0a0a0a",
+     "stroke": "#555",
+     "stroke_width": 1
+    },
+    "lamp": {
+     "r": 6.5,
+     "on": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#ff8a80"
+       ],
+       [
+        0.5,
+        "#ff1a1a"
+       ],
+       [
+        1,
+        "#8a0000"
+       ]
+      ]
+     },
+     "off": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#5a2a2a"
+       ],
+       [
+        1,
+        "#1a0606"
+       ]
+      ]
+     }
+    },
+    "images": {
+     "off": "KRONOS_KONTROL_led_off.png",
+     "on": "KRONOS_KONTROL_led_on.png",
+     "strip": "KRONOS_KONTROL_led_strip.png",
+     "strip_frames": [
+      "off",
+      "on"
+     ],
+     "strip_orientation": "vertical",
+     "size": [
+      17,
+      17
+     ],
+     "hidpi": "@2x"
+    }
+   },
+   "midi": null
+  },
+  {
+   "id": "module_d",
+   "group": "module",
+   "type": "led",
+   "label": "D",
+   "x": 1311.5,
+   "y": 161.5,
+   "w": 17,
+   "h": 17,
+   "cx": 1320,
+   "cy": 170,
+   "state": "off",
+   "render": {
+    "shape": "circle",
+    "bezel": {
+     "r": 8.5,
+     "fill": "#0a0a0a",
+     "stroke": "#555",
+     "stroke_width": 1
+    },
+    "lamp": {
+     "r": 6.5,
+     "on": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#ff8a80"
+       ],
+       [
+        0.5,
+        "#ff1a1a"
+       ],
+       [
+        1,
+        "#8a0000"
+       ]
+      ]
+     },
+     "off": {
+      "type": "radial",
+      "cx": 0.4,
+      "cy": 0.35,
+      "r": 0.7,
+      "stops": [
+       [
+        0,
+        "#5a2a2a"
+       ],
+       [
+        1,
+        "#1a0606"
+       ]
+      ]
+     }
+    },
+    "images": {
+     "off": "KRONOS_KONTROL_led_off.png",
+     "on": "KRONOS_KONTROL_led_on.png",
+     "strip": "KRONOS_KONTROL_led_strip.png",
+     "strip_frames": [
+      "off",
+      "on"
+     ],
+     "strip_orientation": "vertical",
+     "size": [
+      17,
+      17
+     ],
+     "hidpi": "@2x"
+    }
+   },
+   "midi": null
+  },
+  {
+   "id": "scenes_1",
+   "group": "scenes",
+   "type": "button",
+   "label": "1",
+   "x": 964,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "scenes_2",
+   "group": "scenes",
+   "type": "button",
+   "label": "2",
+   "x": 1004,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "scenes_3",
+   "group": "scenes",
+   "type": "button",
+   "label": "3",
+   "x": 1044,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "scenes_4",
+   "group": "scenes",
+   "type": "button",
+   "label": "4",
+   "x": 1084,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "scenes_5",
+   "group": "scenes",
+   "type": "button",
+   "label": "5",
+   "x": 1124,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "scenes_6",
+   "group": "scenes",
+   "type": "button",
+   "label": "6",
+   "x": 1164,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "scenes_7",
+   "group": "scenes",
+   "type": "button",
+   "label": "7",
+   "x": 1204,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "scenes_8",
+   "group": "scenes",
+   "type": "button",
+   "label": "8",
+   "x": 1244,
+   "y": 212,
+   "w": 34,
+   "h": 18,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_1",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "1",
+   "x": 969,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 995,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_2",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "2",
+   "x": 1028,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 1054,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_3",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "3",
+   "x": 1087,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 1113,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_4",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "4",
+   "x": 1146,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 1172,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_5",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "5",
+   "x": 1205,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 1231,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_6",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "6",
+   "x": 1264,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 1290,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_7",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "7",
+   "x": 1323,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 1349,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_8",
+   "group": "karma_sliders",
+   "type": "knob",
+   "label": "8",
+   "x": 1382,
+   "y": 308,
+   "w": 52,
+   "h": 52,
+   "cx": 1408,
+   "cy": 334,
+   "r": 17,
+   "midi": null
+  },
+  {
+   "id": "karma_sliders_display1",
+   "group": "karma_sliders",
+   "type": "display",
+   "label": "",
+   "x": 964,
+   "y": 366,
+   "w": 474,
+   "h": 16,
+   "text": [
+    "SLIDER 1",
+    "SLIDER 2",
+    "SLIDER 3",
+    "SLIDER 4",
+    "SLIDER 5",
+    "SLIDER 6",
+    "SLIDER 7",
+    "SLIDER 8"
+   ],
+   "midi": null
+  },
+  {
+   "id": "messages_sysex_lua",
+   "group": "messages",
+   "type": "display",
+   "label": "SYSEX / LUA",
+   "x": 964,
+   "y": 396,
+   "w": 474,
+   "h": 14,
+   "text": [
+    "Lua: ready   |   SysEx IN: —"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ]
+}

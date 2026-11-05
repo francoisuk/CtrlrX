@@ -1,0 +1,2149 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "MOD · 2/6",
+ "tab_index": 0,
+ "object": "Program · MOD-7",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P2_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MOD-7 — MOD · 2/6"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 172.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 244.1,
+   "y": 84,
+   "w": 145.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 392.8,
+   "y": 84,
+   "w": 141.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 537.4,
+   "y": 84,
+   "w": 150.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 691.1,
+   "y": 84,
+   "w": 159.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 853.6,
+   "y": 84,
+   "w": 138.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 994.6,
+   "y": 84,
+   "w": 139.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1137.6,
+   "y": 84,
+   "w": 143.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@40",
+   "param": "Prog_EXi@40",
+   "group": "mod_mixer5",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 97.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Amt A*B",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer5",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 40,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "A+B~Amt A*B",
+    "oasys": {
+     "ofs": 40,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@41",
+   "param": "Prog_EXi@41",
+   "group": "mod_mixer5",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE A",
+   "x": 223.3,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer5",
+    "name": "Source A",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 41,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 41,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@43",
+   "param": "Prog_EXi@43",
+   "group": "mod_mixer5",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE B",
+   "x": 348.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer5",
+    "name": "Source B",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 43,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 43,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@42",
+   "param": "Prog_EXi@42",
+   "group": "mod_mixer5",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT A",
+   "x": 205.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 226.33333333333331,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer5",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 42,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 42,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@42_val",
+   "param": "Prog_EXi@42",
+   "group": "mod_mixer5",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT A value",
+   "x": 207.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer5",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 42,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 42,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@44",
+   "param": "Prog_EXi@44",
+   "group": "mod_mixer5",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 327.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 348.3333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer5",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 44,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 44,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@44_val",
+   "param": "Prog_EXi@44",
+   "group": "mod_mixer5",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 329.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer5",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 44,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 44,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@45",
+   "param": "Prog_EXi@45",
+   "group": "mod_mixer6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 560.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Amt A*B",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer6",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 45,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "A+B~Amt A*B",
+    "oasys": {
+     "ofs": 45,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@46",
+   "param": "Prog_EXi@46",
+   "group": "mod_mixer6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE A",
+   "x": 685.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer6",
+    "name": "Source A",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 46,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 46,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@48",
+   "param": "Prog_EXi@48",
+   "group": "mod_mixer6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE B",
+   "x": 810.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer6",
+    "name": "Source B",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 48,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 48,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@47",
+   "param": "Prog_EXi@47",
+   "group": "mod_mixer6",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT A",
+   "x": 668.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 689.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer6",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 47,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 47,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@47_val",
+   "param": "Prog_EXi@47",
+   "group": "mod_mixer6",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT A value",
+   "x": 670.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer6",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 47,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 47,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@49",
+   "param": "Prog_EXi@49",
+   "group": "mod_mixer6",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 790.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 811.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer6",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 49,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 49,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@49_val",
+   "param": "Prog_EXi@49",
+   "group": "mod_mixer6",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 792.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer6",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 49,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 49,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@50",
+   "param": "Prog_EXi@50",
+   "group": "mod_mixer7",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 1023.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Amt A*B",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer7",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 50,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "A+B~Amt A*B",
+    "oasys": {
+     "ofs": 50,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@51",
+   "param": "Prog_EXi@51",
+   "group": "mod_mixer7",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE A",
+   "x": 1148.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer7",
+    "name": "Source A",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 51,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 51,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@53",
+   "param": "Prog_EXi@53",
+   "group": "mod_mixer7",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE B",
+   "x": 1273.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer7",
+    "name": "Source B",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 53,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 53,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@52",
+   "param": "Prog_EXi@52",
+   "group": "mod_mixer7",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT A",
+   "x": 1130.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1151.6666666666665,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer7",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 52,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 52,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@52_val",
+   "param": "Prog_EXi@52",
+   "group": "mod_mixer7",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT A value",
+   "x": 1132.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer7",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 52,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 52,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@54",
+   "param": "Prog_EXi@54",
+   "group": "mod_mixer7",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 1252.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1273.6666666666665,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer7",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 54,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 54,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@54_val",
+   "param": "Prog_EXi@54",
+   "group": "mod_mixer7",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 1254.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer7",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 54,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 54,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@55",
+   "param": "Prog_EXi@55",
+   "group": "mod_mixer8",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 97.9,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Amt A*B",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer8",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 55,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "A+B~Amt A*B",
+    "oasys": {
+     "ofs": 55,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@56",
+   "param": "Prog_EXi@56",
+   "group": "mod_mixer8",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE A",
+   "x": 223.3,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer8",
+    "name": "Source A",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 56,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 56,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@58",
+   "param": "Prog_EXi@58",
+   "group": "mod_mixer8",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE B",
+   "x": 348.2,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer8",
+    "name": "Source B",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 58,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 58,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@57",
+   "param": "Prog_EXi@57",
+   "group": "mod_mixer8",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT A",
+   "x": 243.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 264.3662551440329,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer8",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 57,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 57,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@57_val",
+   "param": "Prog_EXi@57",
+   "group": "mod_mixer8",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT A value",
+   "x": 245.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer8",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 57,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 57,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@59",
+   "param": "Prog_EXi@59",
+   "group": "mod_mixer8",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 365.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 386.3662551440329,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer8",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 59,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 59,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@59_val",
+   "param": "Prog_EXi@59",
+   "group": "mod_mixer8",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 367.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Mod.Mixer8",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 59,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 59,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@357.0",
+   "param": "Prog_EXi@357.0",
+   "group": "step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 639.4,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Loop"
+   ],
+   "options": "Loop~One Shot",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 357,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Loop~One Shot",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@358.7~5",
+   "param": "Prog_EXi@358.7~5",
+   "group": "step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "START STEP MOD SRC",
+   "x": 811.7,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Start Step Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 358,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@361.3",
+   "param": "Prog_EXi@361.3",
+   "group": "step_sequence_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEY SYNC",
+   "x": 891.7,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:MOD-7",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Key Sync",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 361,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@361.7~4",
+   "param": "Prog_EXi@361.7~4",
+   "group": "step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 1048.2,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 361,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@363.7~4",
+   "param": "Prog_EXi@363.7~4",
+   "group": "step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VALUE INPUT",
+   "x": 1186.1,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Value Input",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 363,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@357.6~1",
+   "param": "Prog_EXi@357.6~1",
+   "group": "step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "END STEP",
+   "x": 757.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 778.3662551440328,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "End Step",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 357,
+    "bit": "6~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@357.6~1_val",
+   "param": "Prog_EXi@357.6~1",
+   "group": "step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "END STEP value",
+   "x": 759.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "End Step",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 357,
+    "bit": "6~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@357.7",
+   "param": "Prog_EXi@357.7",
+   "group": "step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START STEP",
+   "x": 853.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 874.7662551440328,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Start Step",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 357,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@357.7_val",
+   "param": "Prog_EXi@357.7",
+   "group": "step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "START STEP value",
+   "x": 855.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Start Step",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 357,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@359.7~5",
+   "param": "Prog_EXi@359.7~5",
+   "group": "step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START STEP MOD.INT",
+   "x": 950.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 971.1662551440329,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-32~+32",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Start Step Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 359,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "E0~20",
+    "value": "-32~+32",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@359.7~5_val",
+   "param": "Prog_EXi@359.7~5",
+   "group": "step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "START STEP MOD.INT value",
+   "x": 952.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Start Step Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 359,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "E0~20",
+    "value": "-32~+32",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@360.7~4",
+   "param": "Prog_EXi@360.7~4",
+   "group": "step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK",
+   "x": 1046.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1067.5662551440328,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 360,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@360.7~4_val",
+   "param": "Prog_EXi@360.7~4",
+   "group": "step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK value",
+   "x": 1048.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 360,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@362.7~4",
+   "param": "Prog_EXi@362.7~4",
+   "group": "step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESET THRESHOLD",
+   "x": 1143.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1163.9662551440329,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 362,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@362.7~4_val",
+   "param": "Prog_EXi@362.7~4",
+   "group": "step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "RESET THRESHOLD value",
+   "x": 1145.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 362,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@436.7~4",
+   "param": "Prog_EXi@436.7~4",
+   "group": "step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 1239.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1260.366255144033,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 436,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@436.7~4_val",
+   "param": "Prog_EXi@436.7~4",
+   "group": "step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 1241.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step Sequence",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 436,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "26",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "MOD",
+ "page_number": 2,
+ "pages_in_area": 6,
+ "apply": "exi:MOD-7",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

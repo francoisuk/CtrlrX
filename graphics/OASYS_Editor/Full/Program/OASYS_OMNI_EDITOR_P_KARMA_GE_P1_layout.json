@@ -1,0 +1,2802 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA GE · 1/4",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_P_KARMA_GE_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_P_KARMA_GE_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — KARMA GE · 1/4"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 80.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 143.9,
+   "y": 84,
+   "w": 62.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 209.2,
+   "y": 84,
+   "w": 71.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 283.6,
+   "y": 84,
+   "w": 63.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 350.1,
+   "y": 84,
+   "w": 77.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 430.5,
+   "y": 84,
+   "w": 101.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 535.1,
+   "y": 84,
+   "w": 58.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 596.9,
+   "y": 84,
+   "w": 82.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 682.0,
+   "y": 84,
+   "w": 74.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 759.2,
+   "y": 84,
+   "w": 79.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 841.4,
+   "y": 84,
+   "w": 74.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 919.3,
+   "y": 84,
+   "w": 77.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 999.4,
+   "y": 84,
+   "w": 82.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1084.9,
+   "y": 84,
+   "w": 79.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1167.8,
+   "y": 84,
+   "w": 74.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1245.0,
+   "y": 84,
+   "w": 86.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@1821.0",
+   "param": "Prog_HD-1@1821.0",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ROOT POSITION",
+   "x": 68.0,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Root Position",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1821,
+    "bit": "0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 1809,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1821.7~6",
+   "param": "Prog_HD-1@1821.7~6",
+   "group": "karma_module_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CLOCK ADVANCE MODE",
+   "x": 296.7,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Auto"
+   ],
+   "options": "Auto~Auto + Dynamic",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Clock Advance Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1821,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Auto~Auto + Dynamic",
+    "oasys": {
+     "ofs": 1809,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1822.2~0",
+   "param": "Prog_HD-1@1822.2~0",
+   "group": "karma_module_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CLOCK ADVANCE CHORD TRIGGER",
+   "x": 525.3,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Chord - 2nd",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Clock Advance Chord Trigger",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1822,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Off~Chord - 2nd",
+    "oasys": {
+     "ofs": 1810,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1829.3~0",
+   "param": "Prog_HD-1@1829.3~0",
+   "group": "karma_module_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "NOTE TRIGGER MODE",
+   "x": 754.0,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Any Note + Dynamic"
+   ],
+   "options": "Any Note + Dynamic",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Note Trigger Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1829,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Any Note + Dynamic",
+    "oasys": {
+     "ofs": 1817,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1829.4",
+   "param": "Prog_HD-1@1829.4",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "NOTE LATCH",
+   "x": 982.7,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Note Latch",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1829,
+    "bit": "4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 1817,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1839.7",
+   "param": "Prog_HD-1@1839.7",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "FREEZE LOOP RETRIGGER",
+   "x": 1211.3,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Freeze Loop Retrigger",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1839,
+    "bit": "7",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 1827,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2108.0",
+   "param": "Prog_HD-1@2108.0",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "QUANTIZE TRIGGER",
+   "x": 68.0,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Quantize Trigger",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2108,
+    "bit": "0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2096,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2108.3",
+   "param": "Prog_HD-1@2108.3",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEYBOARD THRU IN ZONE",
+   "x": 296.7,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Keyboard Thru In Zone",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2108,
+    "bit": "3",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2096,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2108.4",
+   "param": "Prog_HD-1@2108.4",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEYBOARD THRU OUT ZONE",
+   "x": 525.3,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Keyboard Thru Out Zone",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2108,
+    "bit": "4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2096,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2108.6",
+   "param": "Prog_HD-1@2108.6",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "UPDATE ON RELEASE",
+   "x": 754.0,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Update On Release",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2108,
+    "bit": "6",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "91",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2096,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2108.7",
+   "param": "Prog_HD-1@2108.7",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "LINK TO DRUM TRACK",
+   "x": 982.7,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Link To Drum Track",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2108,
+    "bit": "7",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "127",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2096,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2214",
+   "param": "Prog_HD-1@2214",
+   "group": "karma_module_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "NOTE MAP TABLE",
+   "x": 1211.3,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Custom"
+   ],
+   "options": "Custom~maj7 -> oct",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Note Map Table",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2214,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "0"
+    },
+    "data": "00~40",
+    "value": "Custom~maj7 -> oct",
+    "oasys": {
+     "ofs": 2202,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2215.1~0",
+   "param": "Prog_HD-1@2215.1~0",
+   "group": "karma_module_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "NOTE MAP ON MODE",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~All Notes",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Note Map On Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2215,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Off~All Notes",
+    "oasys": {
+     "ofs": 2203,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2215.6",
+   "param": "Prog_HD-1@2215.6",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CHORD TRACK ON",
+   "x": 296.7,
+   "y": 222.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Chord Track On",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2215,
+    "bit": "6",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2203,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2215.7",
+   "param": "Prog_HD-1@2215.7",
+   "group": "karma_module_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "KEYBOARD TRACK ON",
+   "x": 525.3,
+   "y": 222.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Keyboard Track On",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2215,
+    "bit": "7",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "89",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2203,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2216",
+   "param": "Prog_HD-1@2216",
+   "group": "karma_module_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FORCE RANGE WRAP",
+   "x": 754.0,
+   "y": 221.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "C"
+   ],
+   "options": "C~B",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Force Range Wrap",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2216,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "90",
+     "IDX": "0"
+    },
+    "data": "00~0B",
+    "value": "C~B",
+    "oasys": {
+     "ofs": 2204,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1814",
+   "param": "Prog_HD-1@1814",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "GE NUMBER",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0000:Arp Model 01 U",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "GE Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1814,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0000~0DFF",
+    "value": "0000:Arp Model 01 U",
+    "oasys": {
+     "ofs": 1802,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1814_val",
+   "param": "Prog_HD-1@1814",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "GE NUMBER value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0000:Ar"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "GE Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1814,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0000~0DFF",
+    "value": "0000:Arp Model 01 U",
+    "oasys": {
+     "ofs": 1802,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1818",
+   "param": "Prog_HD-1@1818",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSPOSE",
+   "x": 139.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 160.0563909774436,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-36~+36",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1818,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36",
+    "oasys": {
+     "ofs": 1806,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1818_val",
+   "param": "Prog_HD-1@1818",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSPOSE value",
+   "x": 141.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1818,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36",
+    "oasys": {
+     "ofs": 1806,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1819",
+   "param": "Prog_HD-1@1819",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY ZONE TOP",
+   "x": 202.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 223.11278195488723,
+   "cy": 350.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Key Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1819,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 1807,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1819_val",
+   "param": "Prog_HD-1@1819",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY ZONE TOP value",
+   "x": 204.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Key Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1819,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 1807,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1820",
+   "param": "Prog_HD-1@1820",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY ZONE BOTTOM",
+   "x": 265.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 286.16917293233087,
+   "cy": 350.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Key Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1820,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 1808,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1820_val",
+   "param": "Prog_HD-1@1820",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY ZONE BOTTOM value",
+   "x": 267.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Key Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1820,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 1808,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1821.5~3",
+   "param": "Prog_HD-1@1821.5~3",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FORCE RANGE",
+   "x": 328.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 349.22556390977445,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~C3-B3 [2]",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Force Range",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1821,
+    "bit": "5~3",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Off~C3-B3 [2]",
+    "oasys": {
+     "ofs": 1809,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1821.5~3_val",
+   "param": "Prog_HD-1@1821.5~3",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "FORCE RANGE value",
+   "x": 330.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Force Range",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1821,
+    "bit": "5~3",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Off~C3-B3 [2]",
+    "oasys": {
+     "ofs": 1809,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1822.7~4",
+   "param": "Prog_HD-1@1822.7~4",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CLOCK ADVANCE SIZE",
+   "x": 391.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 412.2819548872181,
+   "cy": 350.0,
+   "r": 12,
+   "range": "64T~Event",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Clock Advance Size",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1822,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~0B",
+    "value": "64T~Event",
+    "oasys": {
+     "ofs": 1810,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1822.7~4_val",
+   "param": "Prog_HD-1@1822.7~4",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "CLOCK ADVANCE SIZE value",
+   "x": 393.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "64T"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Clock Advance Size",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1822,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~0B",
+    "value": "64T~Event",
+    "oasys": {
+     "ofs": 1810,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1823",
+   "param": "Prog_HD-1@1823",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CLOCK ADVANCE VEL SENSE",
+   "x": 454.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 475.33834586466173,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Clock Advance Velocity Sense",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1823,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": 1811,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1823_val",
+   "param": "Prog_HD-1@1823",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "CLOCK ADVANCE VEL SENSE value",
+   "x": 456.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Clock Advance Velocity Sense",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1823,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": 1811,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1824",
+   "param": "Prog_HD-1@1824",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY START MS",
+   "x": 517.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 538.3947368421053,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~5000",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Delay Start ms",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1824,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "0000~1388",
+    "value": "0~5000",
+    "oasys": {
+     "ofs": 1812,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1824_val",
+   "param": "Prog_HD-1@1824",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY START MS value",
+   "x": 519.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Delay Start ms",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1824,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "0000~1388",
+    "value": "0~5000",
+    "oasys": {
+     "ofs": 1812,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1826",
+   "param": "Prog_HD-1@1826",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY START MODE",
+   "x": 580.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 601.4511278195489,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Delay Start Mode",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1826,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "Off~4",
+    "oasys": {
+     "ofs": 1814,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1826_val",
+   "param": "Prog_HD-1@1826",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY START MODE value",
+   "x": 582.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Delay Start Mode",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1826,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "Off~4",
+    "oasys": {
+     "ofs": 1814,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1829.7~5",
+   "param": "Prog_HD-1@1829.7~5",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "QUANTIZE WINDOW",
+   "x": 643.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 664.5075187969926,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/16T~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Quantize Window",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1829,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "00~05",
+    "value": "1/16T~1/4",
+    "oasys": {
+     "ofs": 1817,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1829.7~5_val",
+   "param": "Prog_HD-1@1829.7~5",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "QUANTIZE WINDOW value",
+   "x": 645.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/16T"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Quantize Window",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1829,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "126",
+     "IDX": "0"
+    },
+    "data": "00~05",
+    "value": "1/16T~1/4",
+    "oasys": {
+     "ofs": 1817,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1837",
+   "param": "Prog_HD-1@1837",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KBD THRU IN ZONE TRANSP",
+   "x": 706.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 727.5639097744362,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-36~+36",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Keyboard Thru In Zone Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1837,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36",
+    "oasys": {
+     "ofs": 1825,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1837_val",
+   "param": "Prog_HD-1@1837",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "KBD THRU IN ZONE TRANSP value",
+   "x": 708.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Keyboard Thru In Zone Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1837,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36",
+    "oasys": {
+     "ofs": 1825,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1838",
+   "param": "Prog_HD-1@1838",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KBD THRU OUT ZONE TRANSP",
+   "x": 769.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 790.6203007518798,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-36~+36",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Keyboard Thru Out Zone Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1838,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36",
+    "oasys": {
+     "ofs": 1826,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1838_val",
+   "param": "Prog_HD-1@1838",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "KBD THRU OUT ZONE TRANSP value",
+   "x": 771.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Keyboard Thru Out Zone Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1838,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36",
+    "oasys": {
+     "ofs": 1826,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1839.5~0",
+   "param": "Prog_HD-1@1839.5~0",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREEZE LOOP",
+   "x": 832.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 853.6766917293235,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~32",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Freeze Loop",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1839,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "00~20",
+    "value": "Off~32",
+    "oasys": {
+     "ofs": 1827,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1839.5~0_val",
+   "param": "Prog_HD-1@1839.5~0",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "FREEZE LOOP value",
+   "x": 834.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Freeze Loop",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1839,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "00~20",
+    "value": "Off~32",
+    "oasys": {
+     "ofs": 1827,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1840",
+   "param": "Prog_HD-1@1840",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START SEED",
+   "x": 895.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 916.733082706767,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-2147483648~+214748",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Start Seed",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1840,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "0"
+    },
+    "data": "80000000~7FFF",
+    "value": "-2147483648~+214748",
+    "oasys": {
+     "ofs": 1828,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1840_val",
+   "param": "Prog_HD-1@1840",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "START SEED value",
+   "x": 897.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Start Seed",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1840,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "0"
+    },
+    "data": "80000000~7FFF",
+    "value": "-2147483648~+214748",
+    "oasys": {
+     "ofs": 1828,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2217",
+   "param": "Prog_HD-1@2217",
+   "group": "karma_module_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOTE MAP TRANSPOSE",
+   "x": 958.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 979.7894736842106,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-12~+12",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Note Map Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2217,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "93",
+     "IDX": "0"
+    },
+    "data": "F4~0C",
+    "value": "-12~+12",
+    "oasys": {
+     "ofs": 2205,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2217_val",
+   "param": "Prog_HD-1@2217",
+   "group": "karma_module_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NOTE MAP TRANSPOSE value",
+   "x": 960.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Note Map Transpose",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2217,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "93",
+     "IDX": "0"
+    },
+    "data": "F4~0C",
+    "value": "-12~+12",
+    "oasys": {
+     "ofs": 2205,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1830.3~0",
+   "param": "Prog_HD-1@1830.3~0",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1830.3~0",
+   "x": 1174.8,
+   "y": 296,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Any Note + "
+   ],
+   "range": "Any Note + Dynamic",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Envelope1 Trigger Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1830,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Any Note + Dynamic",
+    "oasys": {
+     "ofs": 1818,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1831.3~0",
+   "param": "Prog_HD-1@1831.3~0",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1831.3~0",
+   "x": 1238.1,
+   "y": 296,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Any Note + "
+   ],
+   "range": "Any Note + Dynamic",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Envelope2 Trigger Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1831,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Any Note + Dynamic",
+    "oasys": {
+     "ofs": 1819,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1832.3~0",
+   "param": "Prog_HD-1@1832.3~0",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1832.3~0",
+   "x": 1301.4,
+   "y": 296,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Any Note + "
+   ],
+   "range": "Any Note + Dynamic",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Envelope3 Trigger Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1832,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Any Note + Dynamic",
+    "oasys": {
+     "ofs": 1820,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1830.7~4",
+   "param": "Prog_HD-1@1830.7~4",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1830.7~4",
+   "x": 1174.8,
+   "y": 317,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Ignore Sustain,",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Envelope1 Latch Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1830,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Off~Ignore Sustain,",
+    "oasys": {
+     "ofs": 1818,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1831.7~4",
+   "param": "Prog_HD-1@1831.7~4",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1831.7~4",
+   "x": 1238.1,
+   "y": 317,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Ignore Sustain,",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Envelope2 Latch Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1831,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Off~Ignore Sustain,",
+    "oasys": {
+     "ofs": 1819,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1832.7~4",
+   "param": "Prog_HD-1@1832.7~4",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1832.7~4",
+   "x": 1301.4,
+   "y": 317,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Ignore Sustain,",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "Envelope3 Latch Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1832,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "Off~Ignore Sustain,",
+    "oasys": {
+     "ofs": 1820,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2100",
+   "param": "Prog_HD-1@2100",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2100",
+   "x": 1174.8,
+   "y": 338,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#95",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control1 Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2100,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "FF~5F",
+    "value": "Off~CC#95",
+    "oasys": {
+     "ofs": 2088,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2102",
+   "param": "Prog_HD-1@2102",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2102",
+   "x": 1238.1,
+   "y": 338,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#95",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control2 Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2102,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "1"
+    },
+    "data": "FF~5F",
+    "value": "Off~CC#95",
+    "oasys": {
+     "ofs": 2090,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2104",
+   "param": "Prog_HD-1@2104",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2104",
+   "x": 1301.4,
+   "y": 338,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#95",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control3 Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2104,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "2"
+    },
+    "data": "FF~5F",
+    "value": "Off~CC#95",
+    "oasys": {
+     "ofs": 2092,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2106",
+   "param": "Prog_HD-1@2106",
+   "group": "karma_module_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2106",
+   "x": 1364.7,
+   "y": 338,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#95",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control4 Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2106,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "3"
+    },
+    "data": "FF~5F",
+    "value": "Off~CC#95",
+    "oasys": {
+     "ofs": 2094,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2101",
+   "param": "Prog_HD-1@2101",
+   "group": "karma_module_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2101",
+   "x": 1174.8,
+   "y": 359,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control1 Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2101,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2089,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2103",
+   "param": "Prog_HD-1@2103",
+   "group": "karma_module_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2103",
+   "x": 1238.1,
+   "y": 359,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control2 Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2103,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2091,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2105",
+   "param": "Prog_HD-1@2105",
+   "group": "karma_module_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2105",
+   "x": 1301.4,
+   "y": 359,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control3 Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2105,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2093,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@2107",
+   "param": "Prog_HD-1@2107",
+   "group": "karma_module_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2107",
+   "x": 1364.7,
+   "y": 359,
+   "w": 59.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module",
+    "name": "CC Control4 Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2107,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 2095,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA GE",
+ "page_number": 1,
+ "pages_in_area": 4,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

@@ -1,0 +1,715 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "SET LIST",
+ "tab_index": 0,
+ "object": "Set List",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_L_SET_LIST_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_L_SET_LIST_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "— : Set List"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Set List — SET LIST"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_set_list",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SET LIST",
+   "x": 60,
+   "y": 84,
+   "w": 694.8,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_slot",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SLOT",
+   "x": 757.8,
+   "y": 84,
+   "w": 682.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "SetList@69528.0",
+   "param": "SetList@69528.0",
+   "group": "set_list_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EQ BYPASS",
+   "x": 121.7,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "1=bypassed"
+   ],
+   "options": "1=bypassed",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "EQ Bypass",
+    "kind": "menu",
+    "file": "SetList.txt",
+    "ofs": 69528,
+    "bit": "0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "1=bypassed"
+   }
+  },
+  {
+   "id": "SetList@69528.7~1",
+   "param": "SetList@69528.7~1",
+   "group": "set_list_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EQ INPUT TRIM",
+   "x": 125.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 146.68411214953272,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "EQ Input Trim",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69528,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "63~00",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "SetList@69528.7~1_val",
+   "param": "SetList@69528.7~1",
+   "group": "set_list_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EQ INPUT TRIM value",
+   "x": 127.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "EQ Input Trim",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69528,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "63~00",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "SetList@0",
+   "param": "SetList@0",
+   "group": "set_list_2_3",
+   "type": "display",
+   "kind": "text",
+   "label": "NAME (24 ASCII CHARACTERS)",
+   "x": 249.4,
+   "y": 187.0,
+   "w": 264.4,
+   "h": 16,
+   "text": [
+    "Name"
+   ],
+   "dynamic": true,
+   "max_chars": 24,
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Name (24 ascii characters)",
+    "kind": "text",
+    "file": "SetList.txt",
+    "ofs": 0,
+    "data": "ascii",
+    "value": "~"
+   }
+  },
+  {
+   "id": "SetList@69529.7~0",
+   "param": "SetList@69529.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69529.7~0",
+   "x": 679.8,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 1 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69529,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69530.7~0",
+   "param": "SetList@69530.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69530.7~0",
+   "x": 762.9,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 2 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69530,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69531.7~0",
+   "param": "SetList@69531.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69531.7~0",
+   "x": 846.1,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 3 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69531,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69532.7~0",
+   "param": "SetList@69532.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69532.7~0",
+   "x": 929.2,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 4 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69532,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69533.7~0",
+   "param": "SetList@69533.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69533.7~0",
+   "x": 1012.3,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 5 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69533,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69534.7~0",
+   "param": "SetList@69534.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69534.7~0",
+   "x": 1095.5,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 6 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69534,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69535.7~0",
+   "param": "SetList@69535.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69535.7~0",
+   "x": 1178.6,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 7 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69535,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69536.7~0",
+   "param": "SetList@69536.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69536.7~0",
+   "x": 1261.7,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 8 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69536,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SetList@69537.7~0",
+   "param": "SetList@69537.7~0",
+   "group": "set_list_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SetList@69537.7~0",
+   "x": 1344.9,
+   "y": 150,
+   "w": 79.1,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-18.0~+18.0",
+   "midi": null,
+   "korg": {
+    "group": "Set List",
+    "name": "Band 9 Level",
+    "kind": "knob",
+    "file": "SetList.txt",
+    "ofs": 69537,
+    "bit": "7~0",
+    "sysex": {
+     "TYP": "37",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "SET LIST",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all"
+}

@@ -1,0 +1,2627 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "FX · 1/3",
+ "tab_index": 0,
+ "object": "Program · EP-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_EP1_FX_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_EP1_FX_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · EP-1 — FX · 1/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 338.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 410.8,
+   "y": 84,
+   "w": 308.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 722.1,
+   "y": 84,
+   "w": 326.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1051.3,
+   "y": 84,
+   "w": 304.7,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@69.5~0",
+   "param": "Prog_EXi@69.5~0",
+   "group": "ifx_small_phaser",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WETDRY D.MOD SRC",
+   "x": 158.1,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "WetDry D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 69,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@72.7~5",
+   "param": "Prog_EXi@72.7~5",
+   "group": "ifx_small_phaser",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED D.MOD SRC",
+   "x": 294.1,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Speed D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 72,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@74.3",
+   "param": "Prog_EXi@74.3",
+   "group": "ifx_small_phaser",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COLOR",
+   "x": 352.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:EP-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Color",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 74,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@68.0",
+   "param": "Prog_EXi@68.0",
+   "group": "ifx_small_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BYPASS",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 68,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@68.0_val",
+   "param": "Prog_EXi@68.0",
+   "group": "ifx_small_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "BYPASS value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 68,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@68.7~1",
+   "param": "Prog_EXi@68.7~1",
+   "group": "ifx_small_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY",
+   "x": 165.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 186.77642758347042,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Dry~Wet",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 68,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@68.7~1_val",
+   "param": "Prog_EXi@68.7~1",
+   "group": "ifx_small_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY value",
+   "x": 167.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Dry"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 68,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@69.7~6",
+   "param": "Prog_EXi@69.7~6",
+   "group": "ifx_small_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY D.MOD INTENSITY",
+   "x": 255.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 276.55285516694084,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 69,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@69.7~6_val",
+   "param": "Prog_EXi@69.7~6",
+   "group": "ifx_small_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY D.MOD INTENSITY value",
+   "x": 257.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 69,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@70.7~6",
+   "param": "Prog_EXi@70.7~6",
+   "group": "ifx_small_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "INPUT TRIM",
+   "x": 345.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 366.32928275041127,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 70,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@70.7~6_val",
+   "param": "Prog_EXi@70.7~6",
+   "group": "ifx_small_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "INPUT TRIM value",
+   "x": 347.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 70,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@71.7~5",
+   "param": "Prog_EXi@71.7~5",
+   "group": "ifx_small_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED",
+   "x": 435.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 456.1057103338817,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.10~10.00",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 71,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "05~D2",
+    "value": "0.10~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@71.7~5_val",
+   "param": "Prog_EXi@71.7~5",
+   "group": "ifx_small_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED value",
+   "x": 437.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.10"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 71,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "05~D2",
+    "value": "0.10~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@73.7~3",
+   "param": "Prog_EXi@73.7~3",
+   "group": "ifx_small_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED D.MOD INTENSITY",
+   "x": 524.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 545.8821379173521,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Speed D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 73,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "97~69",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@73.7~3_val",
+   "param": "Prog_EXi@73.7~3",
+   "group": "ifx_small_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED D.MOD INTENSITY value",
+   "x": 526.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Small Phaser",
+    "name": "Speed D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 73,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "97~69",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@76.5~0",
+   "param": "Prog_EXi@76.5~0",
+   "group": "ifx_orange_black_phaser",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WETDRY D.MOD SRC",
+   "x": 689.0,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "WetDry D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 76,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@79.7~5",
+   "param": "Prog_EXi@79.7~5",
+   "group": "ifx_orange_black_phaser",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED D.MOD SRC",
+   "x": 825.0,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Speed D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 79,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@82.7~2",
+   "param": "Prog_EXi@82.7~2",
+   "group": "ifx_orange_black_phaser",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEPTH D.MOD SRC",
+   "x": 962.1,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Depth D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 82,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@75.0",
+   "param": "Prog_EXi@75.0",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BYPASS",
+   "x": 606.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 627.8821379173521,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 75,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@75.0_val",
+   "param": "Prog_EXi@75.0",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "BYPASS value",
+   "x": 608.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 75,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@75.7~1",
+   "param": "Prog_EXi@75.7~1",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY",
+   "x": 693.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 714.0063448154241,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Dry~Wet",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 75,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@75.7~1_val",
+   "param": "Prog_EXi@75.7~1",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY value",
+   "x": 695.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Dry"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 75,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@76.7~6",
+   "param": "Prog_EXi@76.7~6",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY D.MOD INTENSITY",
+   "x": 779.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 800.1305517134962,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 76,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@76.7~6_val",
+   "param": "Prog_EXi@76.7~6",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY D.MOD INTENSITY value",
+   "x": 781.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 76,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@77.7~6",
+   "param": "Prog_EXi@77.7~6",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "INPUT TRIM",
+   "x": 865.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 886.2547586115681,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 77,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@77.7~6_val",
+   "param": "Prog_EXi@77.7~6",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "INPUT TRIM value",
+   "x": 867.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 77,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@78.7~5",
+   "param": "Prog_EXi@78.7~5",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED",
+   "x": 951.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 972.3789655096402,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.10~10.00",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 78,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "05~D2",
+    "value": "0.10~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@78.7~5_val",
+   "param": "Prog_EXi@78.7~5",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED value",
+   "x": 953.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.10"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 78,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "05~D2",
+    "value": "0.10~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@80.7~3",
+   "param": "Prog_EXi@80.7~3",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED D.MOD INTENSITY",
+   "x": 1037.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1058.503172407712,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Speed D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 80,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "97~69",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@80.7~3_val",
+   "param": "Prog_EXi@80.7~3",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED D.MOD INTENSITY value",
+   "x": 1039.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Speed D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 80,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "97~69",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@81.7~3",
+   "param": "Prog_EXi@81.7~3",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DEPTH",
+   "x": 1123.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1144.6273793057842,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Depth",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 81,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@81.7~3_val",
+   "param": "Prog_EXi@81.7~3",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "DEPTH value",
+   "x": 1125.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Depth",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 81,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@83",
+   "param": "Prog_EXi@83",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DEPTH D.MOD INTENSITY",
+   "x": 1209.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1230.7515862038563,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Depth D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 83,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@83_val",
+   "param": "Prog_EXi@83",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "DEPTH D.MOD INTENSITY value",
+   "x": 1211.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Depth D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 83,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@84.6~0",
+   "param": "Prog_EXi@84.6~0",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESONANCE",
+   "x": 1295.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1316.8757931019281,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Resonance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 84,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@84.6~0_val",
+   "param": "Prog_EXi@84.6~0",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "RESONANCE value",
+   "x": 1297.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Resonance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 84,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@84.7",
+   "param": "Prog_EXi@84.7",
+   "group": "ifx_orange_black_phaser",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MANUAL",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0000000000002,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Manual",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 84,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@84.7_val",
+   "param": "Prog_EXi@84.7",
+   "group": "ifx_orange_black_phaser",
+   "type": "display",
+   "kind": "value",
+   "label": "MANUAL value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Orange Black Phaser",
+    "name": "Manual",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 84,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@87.5~0",
+   "param": "Prog_EXi@87.5~0",
+   "group": "ifx_vintage_chorus",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WETDRY D.MOD SRC",
+   "x": 173.7,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "WetDry D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 87,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@90.7~5",
+   "param": "Prog_EXi@90.7~5",
+   "group": "ifx_vintage_chorus",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED D.MOD SRC",
+   "x": 309.7,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Speed D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 90,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@94.6~1",
+   "param": "Prog_EXi@94.6~1",
+   "group": "ifx_vintage_chorus",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEPTH D.MOD SRC",
+   "x": 446.8,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Depth D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 94,
+    "bit": "6~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@95.7",
+   "param": "Prog_EXi@95.7",
+   "group": "ifx_vintage_chorus",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OUTPUT MODE",
+   "x": 568.6,
+   "y": 284,
+   "w": 47.2,
+   "h": 16,
+   "text": [
+    "Mono"
+   ],
+   "options": "Mono~Stereo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Output Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 95,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Mono~Stereo"
+   }
+  },
+  {
+   "id": "Prog_EXi@86.0",
+   "param": "Prog_EXi@86.0",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BYPASS",
+   "x": 144.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 165.19999999999993,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 86,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@86.0_val",
+   "param": "Prog_EXi@86.0",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "BYPASS value",
+   "x": 146.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 86,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@86.7~1",
+   "param": "Prog_EXi@86.7~1",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY",
+   "x": 238.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 259.19999999999993,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Dry~Wet",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 86,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@86.7~1_val",
+   "param": "Prog_EXi@86.7~1",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY value",
+   "x": 240.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Dry"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 86,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@87.7~6",
+   "param": "Prog_EXi@87.7~6",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY D.MOD INTENSITY",
+   "x": 332.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 353.19999999999993,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 87,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@87.7~6_val",
+   "param": "Prog_EXi@87.7~6",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY D.MOD INTENSITY value",
+   "x": 334.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 87,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@88.7~6",
+   "param": "Prog_EXi@88.7~6",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "INPUT TRIM",
+   "x": 426.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 447.19999999999993,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 88,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@88.7~6_val",
+   "param": "Prog_EXi@88.7~6",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "INPUT TRIM value",
+   "x": 428.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 88,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@89.7~5",
+   "param": "Prog_EXi@89.7~5",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED",
+   "x": 520.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 541.1999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.10~10.00",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 89,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "05~D2",
+    "value": "0.10~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@89.7~5_val",
+   "param": "Prog_EXi@89.7~5",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED value",
+   "x": 522.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.10"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 89,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "05~D2",
+    "value": "0.10~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@91.7~3",
+   "param": "Prog_EXi@91.7~3",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED D.MOD INTENSITY",
+   "x": 614.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 635.1999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Speed D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 91,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "97~69",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@91.7~3_val",
+   "param": "Prog_EXi@91.7~3",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED D.MOD INTENSITY value",
+   "x": 616.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Speed D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 91,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "97~69",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@92.7~3",
+   "param": "Prog_EXi@92.7~3",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MANUAL",
+   "x": 708.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 729.1999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Manual",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 92,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@92.7~3_val",
+   "param": "Prog_EXi@92.7~3",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "MANUAL value",
+   "x": 710.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Manual",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 92,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@93.7~2",
+   "param": "Prog_EXi@93.7~2",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DEPTH",
+   "x": 802.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 823.1999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Depth",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 93,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@93.7~2_val",
+   "param": "Prog_EXi@93.7~2",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "DEPTH value",
+   "x": 804.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Depth",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 93,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@94.7",
+   "param": "Prog_EXi@94.7",
+   "group": "ifx_vintage_chorus",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DEPTH D.MOD INTENSITY",
+   "x": 896.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 917.1999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Depth D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 94,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@94.7_val",
+   "param": "Prog_EXi@94.7",
+   "group": "ifx_vintage_chorus",
+   "type": "display",
+   "kind": "value",
+   "label": "DEPTH D.MOD INTENSITY value",
+   "x": 898.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vintage Chorus",
+    "name": "Depth D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 94,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@97.5~0",
+   "param": "Prog_EXi@97.5~0",
+   "group": "ifx_black_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WETDRY D.MOD SOURCE",
+   "x": 1022.8,
+   "y": 299.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Black Chorus",
+    "name": "WetDry D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 97,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@100.7~5",
+   "param": "Prog_EXi@100.7~5",
+   "group": "ifx_black_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED D.MOD SOURCE",
+   "x": 1223.6,
+   "y": 299.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Black Chorus",
+    "name": "Speed D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 100,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@103.7~2",
+   "param": "Prog_EXi@103.7~2",
+   "group": "ifx_black_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "INTENSITY D.MOD SOURCE",
+   "x": 1022.8,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Black Chorus",
+    "name": "Intensity D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 103,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@105.1~0",
+   "param": "Prog_EXi@105.1~0",
+   "group": "ifx_black_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 1223.6,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Chorus"
+   ],
+   "options": "Chorus~Flanger",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Black Chorus",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 105,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Chorus~Flanger"
+   }
+  },
+  {
+   "id": "Prog_EXi@106.6~1",
+   "param": "Prog_EXi@106.6~1",
+   "group": "ifx_black_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WIDTH D.MOD SOURCE",
+   "x": 1022.8,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Black Chorus",
+    "name": "Width D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 106,
+    "bit": "6~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@107.7",
+   "param": "Prog_EXi@107.7",
+   "group": "ifx_black_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OUTPUT MODE",
+   "x": 1223.6,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Mono"
+   ],
+   "options": "Mono~Stereo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Black Chorus",
+    "name": "Output Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 107,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Mono~Stereo"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "FX",
+ "page_number": 1,
+ "pages_in_area": 3,
+ "apply": "exi:EP-1"
+}

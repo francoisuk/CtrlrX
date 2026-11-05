@@ -1,0 +1,3176 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "EG · 2/5",
+ "tab_index": 0,
+ "object": "Program · AL-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_AL1_EG_P2_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_AL1_EG_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · AL-1 — EG · 2/5"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 175.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 247.2,
+   "y": 84,
+   "w": 148.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 399.1,
+   "y": 84,
+   "w": 144.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 546.8,
+   "y": 84,
+   "w": 153.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 703.6,
+   "y": 84,
+   "w": 162.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 869.2,
+   "y": 84,
+   "w": 141.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1013.4,
+   "y": 84,
+   "w": 143.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1159.4,
+   "y": 84,
+   "w": 146.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@151.7~4",
+   "param": "Prog_EXi@151.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 156.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 151,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 151,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@174.7~4",
+   "param": "Prog_EXi@174.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 301.4,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 174,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 174,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@141",
+   "param": "Prog_EXi@141",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START LEVEL",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 141,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 141,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@141_val",
+   "param": "Prog_EXi@141",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START LEVEL value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 141,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 141,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@142",
+   "param": "Prog_EXi@142",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK LEVEL",
+   "x": 157.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 178.625,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 142,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 142,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@142_val",
+   "param": "Prog_EXi@142",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK LEVEL value",
+   "x": 159.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 142,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 142,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@143",
+   "param": "Prog_EXi@143",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BREAK LEVEL",
+   "x": 239.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 260.25,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 143,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 143,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@143_val",
+   "param": "Prog_EXi@143",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BREAK LEVEL value",
+   "x": 241.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 143,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 143,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@144",
+   "param": "Prog_EXi@144",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUSTAIN LEVEL",
+   "x": 320.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 341.87500000000006,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 144,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 144,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@144_val",
+   "param": "Prog_EXi@144",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUSTAIN LEVEL value",
+   "x": 322.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 144,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 144,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@145",
+   "param": "Prog_EXi@145",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE LEVEL",
+   "x": 402.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 423.50000000000006,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 145,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 145,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@145_val",
+   "param": "Prog_EXi@145",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE LEVEL value",
+   "x": 404.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 145,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 145,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@146.6~0",
+   "param": "Prog_EXi@146.6~0",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME",
+   "x": 484.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 505.12500000000006,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 146,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 146,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@146.6~0_val",
+   "param": "Prog_EXi@146.6~0",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME value",
+   "x": 486.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 146,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 146,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@146.7",
+   "param": "Prog_EXi@146.7",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME",
+   "x": 565.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 586.7500000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 146,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 146,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@146.7_val",
+   "param": "Prog_EXi@146.7",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME value",
+   "x": 567.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 146,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 146,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@147.7~6",
+   "param": "Prog_EXi@147.7~6",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME",
+   "x": 647.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 668.3750000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 147,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 147,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@147.7~6_val",
+   "param": "Prog_EXi@147.7~6",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME value",
+   "x": 649.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 147,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 147,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@148.7~5",
+   "param": "Prog_EXi@148.7~5",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME",
+   "x": 729.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0000000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 148,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 148,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@148.7~5_val",
+   "param": "Prog_EXi@148.7~5",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME value",
+   "x": 731.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 148,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 148,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@149.7~4",
+   "param": "Prog_EXi@149.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME EG CURVE",
+   "x": 810.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 831.6250000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 149,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 149,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@149.7~4_val",
+   "param": "Prog_EXi@149.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME EG CURVE value",
+   "x": 812.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 149,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 149,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@150.3~0",
+   "param": "Prog_EXi@150.3~0",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME EG CURVE",
+   "x": 892.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 913.2500000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 150,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 150,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@150.3~0_val",
+   "param": "Prog_EXi@150.3~0",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME EG CURVE value",
+   "x": 894.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 150,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 150,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@150.7~4",
+   "param": "Prog_EXi@150.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME EG CURVE",
+   "x": 973.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 994.8750000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 150,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 150,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@150.7~4_val",
+   "param": "Prog_EXi@150.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME EG CURVE value",
+   "x": 975.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 150,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 150,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@151.3~0",
+   "param": "Prog_EXi@151.3~0",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REL TIME EG CURVE",
+   "x": 1055.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1076.5000000000002,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 151,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 151,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@151.3~0_val",
+   "param": "Prog_EXi@151.3~0",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REL TIME EG CURVE value",
+   "x": 1057.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 151,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 151,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@152.7~4",
+   "param": "Prog_EXi@152.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT → START LVL",
+   "x": 1137.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1158.1250000000002,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 152,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 152,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@152.7~4_val",
+   "param": "Prog_EXi@152.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT → START LVL value",
+   "x": 1139.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 152,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 152,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@153.7~4",
+   "param": "Prog_EXi@153.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT TO ATK LVL",
+   "x": 1218.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1239.7500000000002,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 153,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 153,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@153.7~4_val",
+   "param": "Prog_EXi@153.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT TO ATK LVL value",
+   "x": 1220.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 153,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 153,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@154.7~4",
+   "param": "Prog_EXi@154.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT → BREAK LVL",
+   "x": 1300.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1321.3750000000002,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 154,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 154,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@154.7~4_val",
+   "param": "Prog_EXi@154.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT → BREAK LVL value",
+   "x": 1302.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 154,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 154,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@175.7~4",
+   "param": "Prog_EXi@175.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESET THRESHOLD",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0000000000002,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 175,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 175,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@175.7~4_val",
+   "param": "Prog_EXi@175.7~4",
+   "group": "eg2_pitch_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RESET THRESHOLD value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2 (Pitch)",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 175,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 175,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@187.7~4",
+   "param": "Prog_EXi@187.7~4",
+   "group": "eg3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 156.9,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 187,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 187,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@210.7~4",
+   "param": "Prog_EXi@210.7~4",
+   "group": "eg3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 301.4,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 210,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 210,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@177",
+   "param": "Prog_EXi@177",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START LEVEL",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 177,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 177,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@177_val",
+   "param": "Prog_EXi@177",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START LEVEL value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 177,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 177,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@178",
+   "param": "Prog_EXi@178",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK LEVEL",
+   "x": 157.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 178.625,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 178,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 178,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@178_val",
+   "param": "Prog_EXi@178",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK LEVEL value",
+   "x": 159.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 178,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 178,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@179",
+   "param": "Prog_EXi@179",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BREAK LEVEL",
+   "x": 239.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 260.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 179,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 179,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@179_val",
+   "param": "Prog_EXi@179",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BREAK LEVEL value",
+   "x": 241.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 179,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 179,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@180",
+   "param": "Prog_EXi@180",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUSTAIN LEVEL",
+   "x": 320.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 341.87500000000006,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 180,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 180,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@180_val",
+   "param": "Prog_EXi@180",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUSTAIN LEVEL value",
+   "x": 322.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 180,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 180,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@181",
+   "param": "Prog_EXi@181",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE LEVEL",
+   "x": 402.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 423.50000000000006,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 181,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 181,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@181_val",
+   "param": "Prog_EXi@181",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE LEVEL value",
+   "x": 404.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 181,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 181,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@182.6~0",
+   "param": "Prog_EXi@182.6~0",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME",
+   "x": 484.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 505.12500000000006,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 182,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 182,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@182.6~0_val",
+   "param": "Prog_EXi@182.6~0",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME value",
+   "x": 486.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 182,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 182,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@182.7",
+   "param": "Prog_EXi@182.7",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME",
+   "x": 565.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 586.7500000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 182,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 182,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@182.7_val",
+   "param": "Prog_EXi@182.7",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME value",
+   "x": 567.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 182,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 182,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@183.7~6",
+   "param": "Prog_EXi@183.7~6",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME",
+   "x": 647.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 668.3750000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 183,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 183,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@183.7~6_val",
+   "param": "Prog_EXi@183.7~6",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME value",
+   "x": 649.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 183,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 183,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@184.7~5",
+   "param": "Prog_EXi@184.7~5",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME",
+   "x": 729.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0000000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 184,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 184,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@184.7~5_val",
+   "param": "Prog_EXi@184.7~5",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME value",
+   "x": 731.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 184,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 184,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@185.7~4",
+   "param": "Prog_EXi@185.7~4",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME EG CURVE",
+   "x": 810.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 831.6250000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 185,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 185,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@185.7~4_val",
+   "param": "Prog_EXi@185.7~4",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME EG CURVE value",
+   "x": 812.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 185,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 185,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@186.3~0",
+   "param": "Prog_EXi@186.3~0",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME EG CURVE",
+   "x": 892.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 913.2500000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 186,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 186,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@186.3~0_val",
+   "param": "Prog_EXi@186.3~0",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME EG CURVE value",
+   "x": 894.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 186,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 186,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@186.7~4",
+   "param": "Prog_EXi@186.7~4",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME EG CURVE",
+   "x": 973.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 994.8750000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 186,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 186,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@186.7~4_val",
+   "param": "Prog_EXi@186.7~4",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME EG CURVE value",
+   "x": 975.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 186,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 186,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@187.3~0",
+   "param": "Prog_EXi@187.3~0",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REL TIME EG CURVE",
+   "x": 1055.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1076.5000000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 187,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 187,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@187.3~0_val",
+   "param": "Prog_EXi@187.3~0",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REL TIME EG CURVE value",
+   "x": 1057.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 187,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 187,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@188.7~4",
+   "param": "Prog_EXi@188.7~4",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT → START LVL",
+   "x": 1137.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1158.1250000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 188,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 188,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@188.7~4_val",
+   "param": "Prog_EXi@188.7~4",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT → START LVL value",
+   "x": 1139.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 188,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 188,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@189.7~4",
+   "param": "Prog_EXi@189.7~4",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT TO ATK LVL",
+   "x": 1218.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1239.7500000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 189,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 189,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@189.7~4_val",
+   "param": "Prog_EXi@189.7~4",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT TO ATK LVL value",
+   "x": 1220.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 189,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 189,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@190.7~4",
+   "param": "Prog_EXi@190.7~4",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT → BREAK LVL",
+   "x": 1300.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1321.3750000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 190,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 190,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@190.7~4_val",
+   "param": "Prog_EXi@190.7~4",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT → BREAK LVL value",
+   "x": 1302.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 190,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 190,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@211.7~4",
+   "param": "Prog_EXi@211.7~4",
+   "group": "eg3_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESET THRESHOLD",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0000000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:AL-1",
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 211,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 211,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@211.7~4_val",
+   "param": "Prog_EXi@211.7~4",
+   "group": "eg3_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RESET THRESHOLD value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG3",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (AL-1)",
+    "ofs": 211,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 211,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "EG",
+ "page_number": 2,
+ "pages_in_area": 5,
+ "apply": "exi:AL-1",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

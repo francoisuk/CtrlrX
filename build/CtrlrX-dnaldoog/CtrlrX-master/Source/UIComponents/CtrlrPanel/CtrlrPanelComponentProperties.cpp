@@ -1,0 +1,561 @@
+#include "CtrlrPanelComponentProperties.h"
+#include "CtrlrComponents/CtrlrComponent.h"
+#include "CtrlrFuzzyMatch.h"
+#include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "CtrlrPanel/CtrlrPanelResource.h"
+#include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
+#include "stdafx.h"
+
+CtrlrPanelComponentProperties::CtrlrPanelComponentProperties(CtrlrPanelEditor &_owner)
+	: owner(_owner), panelPropertyOpennessState("invalid"), modulatorPropertyOpennessState("invalid") {
+	propertyPanel = std::make_unique<PropertyPanel>();
+	addAndMakeVisible(propertyPanel.get());
+	propertyPanel->getViewport().setScrollBarThickness(
+		owner.getOwner().getOwner().getProperty(Ids::ctrlrScrollbarThickness));
+	//[UserPreSize]
+	selectedItems = -1;
+	owner.getOwner().getCtrlrManagerOwner().addListener(this);
+	selectionTree.addListener(this);
+	refreshDynamicData();
+	if (owner.getSelection()) {
+		owner.getSelection()->addChangeListener(this);
+	}
+	//[/UserPreSize]
+
+	setSize(216, 400);
+
+	//[Constructor] You can add your own custom stuff here..
+	//[/Constructor]
+}
+CtrlrPanelComponentProperties::~CtrlrPanelComponentProperties() {
+	// 1. Safely unhook from selection change broadcaster
+	if (auto *sel = owner.getSelection()) {
+		sel->removeChangeListener(this);
+	}
+
+	// 2. Clear any active selection tree listeners
+	selectionTree.removeListener(this);
+	selectionTree = juce::ValueTree();
+
+	propertyPanel = nullptr;
+}
+//==============================================================================
+void CtrlrPanelComponentProperties::paint(Graphics &g) {
+	//[UserPrePaint] Add your own custom painting code here..
+	//[/UserPrePaint]
+
+	g.fillAll(findColour(DocumentWindow::backgroundColourId).brighter(0.2f)); // Was missing before v5.6.29
+
+	//[UserPaint] Add your own custom painting code here..
+	//[/UserPaint]
+}
+
+void CtrlrPanelComponentProperties::resized() {
+	propertyPanel->setBounds(0, 0, getWidth() - 0, getHeight() - 0);
+	//[UserResized] Add your own custom resize handling here..
+	//[/UserResized]
+}
+
+//[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+PropertyComponent *CtrlrPanelComponentProperties::getPropertyEditor(const Value &valueToEdit,
+																	const Identifier &valueIdentifier) {
+	return (new TextPropertyComponent(valueToEdit, valueIdentifier.toString(), 1024, false));
+}
+
+CtrlrIDManager &CtrlrPanelComponentProperties::getIDManager() {
+	return owner.getOwner().getCtrlrManagerOwner().getIDManager();
+}
+
+void CtrlrPanelComponentProperties::setTree(const ValueTree &_treeToEdit, const bool force) {
+	// If the tree isn't valid, simply clear existing property components and exit early!
+	// if (!_treeToEdit.isValid())
+	// {
+	//     deleteAllChildren(); // Clear old property components safely
+	//     return;
+	// } // prevents crash when closing panel
+	if (owner.getOwner().getOwner().isShuttingDown())
+		return;
+	if (_treeToEdit == treeToEdit && force == false) {
+		return;
+	}
+	// Build once, locally, filtered to SVG resources only — feeds the new
+	// uiPanelIconResource picker so it only offers vector icons.
+	StringArray svgResourceList;
+	svgResourceList.add(COMBO_NONE_ITEM); // Add the "None" option to the list);
+	for (auto *res : owner.getOwner().getResourceManager().getResourcesCopy()) {
+		if (res != nullptr && res->getSourceFile().hasFileExtension("svg"))
+			svgResourceList.add(res->getName());
+	}
+	ScopedPointer<XmlElement> xml(propertyPanel->getOpennessState().release());
+	if (treeToEdit.hasType(Ids::panel)) {
+		panelPropertyOpennessState = *xml;
+	} else if (treeToEdit.hasType(Ids::modulator)) {
+		modulatorPropertyOpennessState = *xml;
+	}
+
+	treeToEdit = _treeToEdit;
+
+	/** Panel properties **/
+	if (treeToEdit.hasType(Ids::panel)) {
+		Array<PropertyComponent *> panelProperties;
+		Array<PropertyComponent *> panelEditorProperties;
+		Array<PropertyComponent *> panelMidiProperties;
+		Array<PropertyComponent *> panelOSCProperties;
+
+		for (int i = 0; i < treeToEdit.getNumProperties(); i++) {
+			if (treeToEdit.getPropertyName(i) == Ids::uiPanelImageResource) {
+				panelProperties.add(getIDManager().createComponentForProperty(
+					treeToEdit.getPropertyName(i), treeToEdit, &owner.getOwner(), &resourceList, &resourceList));
+			} else if (treeToEdit.getPropertyName(i) == Ids::uiPanelIconResource) {
+				panelProperties.add(getIDManager().createComponentForProperty(
+					treeToEdit.getPropertyName(i), treeToEdit, &owner.getOwner(), &svgResourceList, &svgResourceList));
+			} else if (treeToEdit.getPropertyName(i) == Ids::panelMidiInputDevice) {
+				panelMidiProperties.add(
+					getIDManager().createComponentForProperty(treeToEdit.getPropertyName(i), treeToEdit,
+															  &owner.getOwner(), &midiInputDevices, &midiInputDevices));
+			} else if (treeToEdit.getPropertyName(i) == Ids::panelMidiOutputDevice) {
+				panelMidiProperties.add(getIDManager().createComponentForProperty(
+					treeToEdit.getPropertyName(i), treeToEdit, &owner.getOwner(), &midiOutputDevices,
+					&midiOutputDevices));
+			} else if (treeToEdit.getPropertyName(i) == Ids::panelMidiControllerDevice) {
+				panelMidiProperties.add(
+					getIDManager().createComponentForProperty(treeToEdit.getPropertyName(i), treeToEdit,
+															  &owner.getOwner(), &midiInputDevices, &midiInputDevices));
+			} else if (treeToEdit.getPropertyName(i).toString().startsWith("panelMidi")) {
+				panelMidiProperties.add(getIDManager().createComponentForProperty(treeToEdit.getPropertyName(i),
+																				  treeToEdit, &owner.getOwner()));
+			} else if (treeToEdit.getPropertyName(i).toString().startsWith("panelOSC")) {
+				panelOSCProperties.add(getIDManager().createComponentForProperty(treeToEdit.getPropertyName(i),
+																				 treeToEdit, &owner.getOwner()));
+			} else {
+				panelProperties.add(getIDManager().createComponentForProperty(treeToEdit.getPropertyName(i), treeToEdit,
+																			  &owner.getOwner()));
+			}
+		}
+
+		/** Panel editor properties **/
+		if (treeToEdit.getChildWithName(Ids::uiPanelEditor).isValid()) {
+			for (int i = 0; i < treeToEdit.getChildWithName(Ids::uiPanelEditor).getNumProperties(); i++) {
+				if (treeToEdit.getChildWithName(Ids::uiPanelEditor).getPropertyName(i) == Ids::uiPanelImageResource) {
+					panelEditorProperties.add(getIDManager().createComponentForProperty(
+						treeToEdit.getChildWithName(Ids::uiPanelEditor).getPropertyName(i),
+						treeToEdit.getChildWithName(Ids::uiPanelEditor), &owner.getOwner(), &resourceList,
+						&resourceList));
+				} else if (treeToEdit.getChildWithName(Ids::uiPanelEditor).getPropertyName(i) ==
+						   Ids::uiPanelLinuxExpDest) {
+#if JUCE_LINUX
+					panelEditorProperties.add(getIDManager().createComponentForProperty(
+						treeToEdit.getChildWithName(Ids::uiPanelEditor).getPropertyName(i),
+						treeToEdit.getChildWithName(Ids::uiPanelEditor), &owner.getOwner()));
+#endif
+					// Deliberately add nothing on non-Linux platforms — the property may
+					// still exist in the loaded panel data (e.g. last saved on Linux),
+					// but there's no reason to show or let someone edit a Linux-only
+					// export setting from Windows or macOS.
+
+				} else if (treeToEdit.getChildWithName(Ids::uiPanelEditor).getPropertyName(i) ==
+						   Ids::uiPanelIconResource) {
+					panelEditorProperties.add(getIDManager().createComponentForProperty(
+						treeToEdit.getChildWithName(Ids::uiPanelEditor).getPropertyName(i),
+						treeToEdit.getChildWithName(Ids::uiPanelEditor), &owner.getOwner(), &svgResourceList,
+						&svgResourceList));
+				} else {
+					panelEditorProperties.add(getIDManager().createComponentForProperty(
+						treeToEdit.getChildWithName(Ids::uiPanelEditor).getPropertyName(i),
+						treeToEdit.getChildWithName(Ids::uiPanelEditor), &owner.getOwner()));
+				}
+			}
+		}
+
+		propertyPanel->clear();
+
+		if (panelProperties.size() != 0)
+			propertyPanel->addSection("Panel", filterProperties(panelProperties));
+
+		if (panelMidiProperties.size() != 0)
+			propertyPanel->addSection("MIDI", filterProperties(panelMidiProperties));
+
+		if (panelOSCProperties.size() != 0)
+			propertyPanel->addSection("OSC", filterProperties(panelOSCProperties));
+
+		if (panelMidiProperties.size() != 0)
+			propertyPanel->addSection("Editor", filterProperties(panelEditorProperties));
+
+		(propertyPanel);
+	}
+
+	/** Modulator properties **/
+
+	if (treeToEdit.hasType(Ids::modulator)) {
+		propertyPanel->clear();
+
+		refreshTargetModulationPropertyList(treeToEdit);
+
+		Array<PropertyComponent *> modulatorProperties;
+		Array<PropertyComponent *> componentProperties;
+		Array<PropertyComponent *> midiProperties;
+		Array<PropertyComponent *> componentUIProperties;
+
+		for (int i = 0; i < treeToEdit.getNumProperties(); i++) {
+			if (treeToEdit.getPropertyName(i) == Ids::modulatorLinkedToModulator) {
+				modulatorProperties.add(getIDManager().createComponentForProperty(
+					treeToEdit.getPropertyName(i), treeToEdit, &owner.getOwner(), &modulatorList, &modulatorList));
+			} else if (treeToEdit.getPropertyName(i) == Ids::modulatorLinkedToModulatorProperty) {
+				modulatorProperties.add(getIDManager().createComponentForProperty(
+					treeToEdit.getPropertyName(i), treeToEdit, &owner.getOwner(), &modulatorPropertyList,
+					&modulatorPropertyList));
+			} else if (treeToEdit.getPropertyName(i) == Ids::modulatorLinkedToPanelProperty) {
+				modulatorProperties.add(getIDManager().createComponentForProperty(
+					treeToEdit.getPropertyName(i), treeToEdit, &owner.getOwner(), &panelPropertyList,
+					&panelPropertyList));
+			} else {
+				modulatorProperties.add(getIDManager().createComponentForProperty(
+					treeToEdit.getPropertyName(i), treeToEdit, &owner.getOwner(), &emptyValueSet, &emptyValueSet));
+			}
+		}
+
+		for (int i = 0; i < treeToEdit.getNumChildren(); i++) {
+			/** MIDI properties **/
+			if (treeToEdit.getChild(i).hasType(Ids::midi)) {
+				for (int j = 0; j < treeToEdit.getChild(i).getNumProperties(); j++) {
+					const Identifier n = treeToEdit.getChild(i).getPropertyName(j);
+
+					if (treeToEdit.getChild(i).getPropertyName(j) == Ids::midiMessageType) {
+						midiProperties.add(getIDManager().createComponentForProperty(
+							treeToEdit.getChild(i).getPropertyName(j), treeToEdit.getChild(i), &owner.getOwner(),
+							&midiTemplateNames, &emptyValueSet));
+					} else {
+						midiProperties.add(getIDManager().createComponentForProperty(
+							treeToEdit.getChild(i).getPropertyName(j), treeToEdit.getChild(i), &owner.getOwner()));
+					}
+				}
+			}
+
+			/** Component properties **/
+			if (treeToEdit.getChild(i).hasType(Ids::component)) {
+				if (treeToEdit.getChild(i).getNumChildren() >= 0) {
+					for (int j = 0; j < treeToEdit.getChild(i).getNumChildren(); j++) {
+						ValueTree child = treeToEdit.getChild(i).getChild(j);
+
+						for (int k = 0; k < child.getNumProperties(); k++) {
+							if (child.getPropertyName(k) == Ids::uiTabsTabBackgroundImage) {
+								componentProperties.add(getIDManager().createComponentForProperty(
+									child.getPropertyName(k), child, &owner.getOwner(), &resourceList, &resourceList));
+							} else if (child.getPropertyName(k) == Ids::uiEnvelopePointLinkX ||
+									   child.getPropertyName(k) == Ids::uiEnvelopePointLinkY) {
+								componentProperties.add(getIDManager().createComponentForProperty(
+									child.getPropertyName(k), child, &owner.getOwner(), &modulatorList,
+									&modulatorList));
+							} else {
+								componentProperties.add(getIDManager().createComponentForProperty(
+									child.getPropertyName(k), child, &owner.getOwner()));
+							}
+						}
+					}
+				}
+
+				for (int j = 0; j < treeToEdit.getChild(i).getNumProperties(); j++) {
+					const Identifier n = treeToEdit.getChild(i).getPropertyName(j);
+
+					if (n == Ids::uiImageResource || n == Ids::uiImageSliderResource ||
+						n == Ids::uiImageButtonResource || n == Ids::uiGroupBackgroundImage ||
+						n == Ids::uiTabsTabBackgroundImage || n == Ids::uiXYSurfaceBgImageResource) {
+						componentProperties.add(getIDManager().createComponentForProperty(
+							treeToEdit.getChild(i).getPropertyName(j), treeToEdit.getChild(i), &owner.getOwner(),
+							&resourceList, &resourceList));
+					} else if (n.toString().startsWith("ui")) {
+						componentUIProperties.add(getIDManager().createComponentForProperty(
+							treeToEdit.getChild(i).getPropertyName(j), treeToEdit.getChild(i), &owner.getOwner()));
+					} else {
+						componentProperties.add(getIDManager().createComponentForProperty(
+							treeToEdit.getChild(i).getPropertyName(j), treeToEdit.getChild(i), &owner.getOwner()));
+					}
+				}
+			}
+		}
+
+		if (modulatorProperties.size() != 0)
+			propertyPanel->addSection("Modulator", filterProperties(modulatorProperties));
+
+		if (midiProperties.size() != 0)
+			propertyPanel->addSection("MIDI", filterProperties(midiProperties));
+
+		if (componentProperties.size() != 0)
+			propertyPanel->addSection("Component generic", filterProperties(componentProperties));
+
+		if (componentUIProperties.size() != 0)
+			propertyPanel->addSection("Component", filterProperties(componentUIProperties));
+	}
+}
+void CtrlrPanelComponentProperties::changeListenerCallback(juce::ChangeBroadcaster *source) {
+	// 1. Guard against 'this' component being deleted or mid-destruction
+	juce::Component::SafePointer<CtrlrPanelComponentProperties> safeThis(this);
+	if (safeThis == nullptr)
+		return;
+
+	// 2. Do not process if propertyPanel is already null
+	if (propertyPanel == nullptr)
+		return;
+
+	// 3. DO NOT traverse owner.getOwner().getOwner().
+	// Check if this component is visible and showing on screen instead.
+	// If the panel or editor is tearing down, isShowing() returns false.
+	if (!isShowing())
+		return;
+
+	// 4. Safely obtain selection
+	auto *selection = owner.getSelection();
+	if (selection == nullptr)
+		return;
+
+	// ---------------- CORE LOGIC ----------------
+	int numSelected = selection->getNumSelected();
+
+	// Multi-selection
+	if (selectedItems != numSelected && numSelected > 1) {
+		selectedItems = numSelected;
+		selectionTree = juce::ValueTree(Ids::modulator);
+		selectionTree.removeListener(this);
+
+		for (int i = 0; i < numSelected; i++) {
+			auto *item = selection->getSelectedItem(i);
+			if (item == nullptr)
+				continue;
+
+			juce::ValueTree modTree = item->getOwner().getModulatorTree();
+			if (!modTree.isValid())
+				continue;
+
+			copyProperties(modTree, selectionTree);
+
+			for (int j = 0; j < modTree.getNumChildren(); j++) {
+				if (!selectionTree.getChildWithName(modTree.getChild(j).getType()).isValid())
+					selectionTree.addChild(modTree.getChild(j).createCopy(), j, 0);
+			}
+		}
+
+		if (selectionTree.getChildWithName(Ids::component).isValid()) {
+			selectionTree.getChildWithName(Ids::component).setProperty(Ids::uiType, "uiMultipleSelection", 0);
+		}
+
+		selectionTree.addListener(this);
+		setTree(selectionTree);
+		return;
+	}
+
+	// Zero items selected
+	if (numSelected == 0) {
+		// Safely check if the panel tree is still valid before passing it to setTree
+		juce::ValueTree panelTree = owner.getOwner().getPanelTree();
+		if (panelTree.isValid()) {
+			setTree(panelTree);
+			if (propertyPanel != nullptr)
+				propertyPanel->restoreOpennessState(panelPropertyOpennessState);
+		}
+		return;
+	}
+
+	// 1 item selected
+	if (numSelected == 1) {
+		auto *selectedItem = selection->getSelectedItem(0);
+		if (selectedItem != nullptr) {
+			juce::ValueTree modTree = selectedItem->getOwner().getModulatorTree();
+			if (modTree.isValid()) {
+				refreshTargetModulationPropertyList(modTree);
+				refreshDynamicData();
+				setTree(modTree);
+				if (propertyPanel != nullptr)
+					propertyPanel->restoreOpennessState(modulatorPropertyOpennessState);
+			}
+		}
+	}
+}
+
+void CtrlrPanelComponentProperties::refreshDynamicData() {
+	midiOutputDevices.clear();
+	midiOutputDevices =
+		owner.getOwner().getCtrlrManagerOwner().getCtrlrMidiDeviceManager().getManagedDevices(outputDevice);
+	midiOutputDevices.add(COMBO_NONE_ITEM);
+
+	midiInputDevices.clear();
+	midiInputDevices =
+		owner.getOwner().getCtrlrManagerOwner().getCtrlrMidiDeviceManager().getManagedDevices(inputDevice);
+	midiInputDevices.add(COMBO_NONE_ITEM);
+
+	midiTemplateNames = owner.getOwner().getSysExProcessor().templatesPrepare();
+
+	possibleMidiReferences.clear();
+	resourceList.clear();
+
+	Array<CtrlrModulator *> ar = owner.getOwner().getModulatorsByMidiType(SysEx);
+
+	possibleMidiReferences.add(COMBO_NONE_ITEM);
+	for (int i = 0; i < ar.size(); i++) {
+		possibleMidiReferences.add(ar[i]->getProperty(Ids::name));
+	}
+
+	resourceList.add(COMBO_NONE_ITEM);
+	for (int i = 0; i < owner.getOwner().getResourceManager().getNumResources(); i++) {
+		resourceList.add(owner.getOwner().getResourceManager().getResource(i)->getName());
+	}
+
+	modulatorList.clear();
+	modulatorList.add(COMBO_NONE_ITEM);
+
+	for (int i = 0; i < owner.getOwner().getModulators().size(); i++) {
+		modulatorList.add(owner.getOwner().getModulators()[i]->getProperty(Ids::name));
+	}
+
+	panelPropertyList.clear();
+	panelPropertyList.add(COMBO_NONE_ITEM);
+	for (int i = 0; i < owner.getOwner().getPanelTree().getNumProperties(); i++) {
+		panelPropertyList.add(owner.getOwner().getPanelTree().getPropertyName(i).toString());
+	}
+
+	// This can't be done everytime, once is enough
+	// we should use the FontManager to provide this
+	// and update when needed
+
+	// Font::findFonts (fonts);
+
+	componentGroupList.clear();
+	Array<CtrlrModulator *> groupModulators = owner.getOwner().getModulatorsByUIType(Ids::uiGroup);
+	for (int i = 0; i < groupModulators.size(); i++) {
+		componentGroupList.add(groupModulators[i]->getProperty(Ids::uiGroupText));
+	}
+
+	luaMethodList.clear();
+}
+
+void CtrlrPanelComponentProperties::refreshAll() {
+	refreshDynamicData();
+	propertyPanel->refreshAll();
+	setTree(treeToEdit, true);
+}
+
+void CtrlrPanelComponentProperties::copyProperties(ValueTree &sourceTree, ValueTree &destinationTree) {
+	for (int i = 0; i < sourceTree.getNumProperties(); i++) {
+		if (!destinationTree.hasProperty(sourceTree.getPropertyName(i))) {
+			if (sourceTree.getPropertyName(i) != Ids::vstIndex)
+				destinationTree.setProperty(sourceTree.getPropertyName(i),
+											sourceTree.getPropertyAsValue(sourceTree.getPropertyName(i), 0), 0);
+		}
+	}
+}
+
+void CtrlrPanelComponentProperties::valueTreePropertyChanged(ValueTree &treeWhosePropertyHasChanged,
+															 const Identifier &property) {
+	if (owner.getSelection() == nullptr)
+		return;
+
+	for (int i = 0; i < owner.getSelection()->getNumSelected(); i++) {
+		if (treeWhosePropertyHasChanged.hasType(Ids::modulator)) {
+			owner.getSelection()->getSelectedItem(i)->getOwner().setProperty(
+				property, treeWhosePropertyHasChanged.getPropertyAsValue(property, 0));
+		}
+		if (treeWhosePropertyHasChanged.hasType(Ids::component)) {
+			owner.getSelection()->getSelectedItem(i)->setProperty(
+				property, treeWhosePropertyHasChanged.getPropertyAsValue(property, 0));
+		}
+		if (treeWhosePropertyHasChanged.hasType(Ids::midi)) {
+			if (owner.getSelection()->getSelectedItem(i)->getOwner().getMidiMessagePtr()) {
+				owner.getSelection()->getSelectedItem(i)->getOwner().getMidiMessage().setProperty(
+					property, treeWhosePropertyHasChanged.getPropertyAsValue(property, 0));
+			}
+		}
+	}
+}
+
+void CtrlrPanelComponentProperties::managerStateChanged(const CtrlrManager::CtrlrManagerState newState) {
+	if (newState == CtrlrManager::PanelsLoaded) {
+		refreshAll();
+	}
+}
+
+void CtrlrPanelComponentProperties::refreshTargetModulationPropertyList(const ValueTree &sourceModulationTree) {
+	CtrlrModulator *target =
+		owner.getOwner().getModulator(sourceModulationTree.getProperty(Ids::modulatorLinkedToModulator));
+
+	if (target) {
+		modulatorPropertyList.clear();
+		modulatorPropertyList.add(COMBO_NONE_ITEM);
+
+		if ((int)sourceModulationTree.getProperty(Ids::modulatorLinkedToComponent) == 1) {
+			CtrlrComponent *c = target->getComponent();
+			if (c) {
+				for (int i = 0; i < c->getComponentTree().getNumProperties(); i++) {
+					modulatorPropertyList.add(c->getComponentTree().getPropertyName(i).toString());
+				}
+			}
+		}
+		if ((int)sourceModulationTree.getProperty(Ids::modulatorLinkedToComponent) == 0) {
+			for (int i = 0; i < target->getModulatorTree().getNumProperties(); i++) {
+				modulatorPropertyList.add(target->getModulatorTree().getPropertyName(i).toString());
+			}
+		}
+		if ((int)sourceModulationTree.getProperty(Ids::modulatorLinkedToComponent) == 2) {
+			if (target->getMidiMessagePtr()) {
+				for (int i = 0; i < target->getMidiMessage().getMidiTree().getNumProperties(); i++) {
+					modulatorPropertyList.add(target->getMidiMessage().getMidiTree().getPropertyName(i).toString());
+				}
+			}
+		}
+	}
+}
+
+void CtrlrPanelComponentProperties::visibilityChanged() 
+{
+    // 1. Only do work when the component BECOMES VISIBLE, not when being hidden
+    if (!isVisible())
+        return;
+
+    // 2. Guard against accessing dead parent managers during teardown
+    if (auto* editor = findParentComponentOfClass<CtrlrPanelEditor>())
+    {
+        if (!editor->getOwner().getCtrlrManagerOwner().isShuttingDown())
+        {
+            if (propertyPanel != nullptr)
+                propertyPanel->clear();
+
+            refreshAll();
+        }
+    }
+}
+
+const String CtrlrPanelComponentProperties::setFilter(const String &filter) {
+	currentFilter = filter.trim(); // plain text now, no asterisks added
+	visibilityChanged();
+	return currentFilter;
+}
+
+Array<PropertyComponent *> CtrlrPanelComponentProperties::filterProperties(Array<PropertyComponent *> &propsToFilter) {
+	if (currentFilter.isEmpty())
+		return propsToFilter;
+
+	// keep wildcard support for anyone who types * or ? deliberately
+	const bool useWildcard = currentFilter.containsAnyOf("*?");
+	const String pattern = "*" + currentFilter + "*";
+
+	Array<PropertyComponent *> leftovers;
+	for (auto v : propsToFilter) {
+		bool keep = false;
+
+		if (auto *p = dynamic_cast<CtrlrPropertyComponent *>(v)) {
+			const String name = p->getPropertyName();
+			const String text = p->getVisibleText();
+
+			if (useWildcard)
+				keep = name.matchesWildcard(pattern, true) || text.matchesWildcard(pattern, true);
+			else
+				keep = CtrlrFuzz::scoreMatch(currentFilter, name) > 0.0 ||
+					   CtrlrFuzz::scoreMatch(currentFilter, text) > 0.0;
+		}
+
+		if (keep)
+			leftovers.add(v);
+		else
+			delete v; // caller owns these, as in the original
+	}
+
+	return leftovers;
+}

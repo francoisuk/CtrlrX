@@ -1,0 +1,11 @@
+block;oasys_start;oasys_end;kronos_start;kronos_end;size_oasys;size_kronos;content;conversion
+R;2676;4385;2718;4959;1710;2242;EXi engine payload region (osc mode = 3; the HD-1 OSC blocks are unused there);PARTIAL map added in v1.6.3: three verbatim copy regions (E1/E2/E3 below) + unmapped gaps (G1..G6, stay zero, reported); v1.6.1/v1.6.2 zeroed the whole payload
+E1;2676;2809;2718;2851;134;134;EXi common tail;COPY shift -42 (K = O + 42); plain copy; verified 0 diff bytes on 580 v2 + 201 v0 name-matched factory pairs
+E2;2848;3175;2908;3235;328;328;EXi 1 engine head (KRONOS engine block @2908 per tables/Moteur_*.csv; inside the MQ editor-8277 EXi1 span 2815..3866);COPY shift -60 (K = O + 60); plain copy; verified 0 diff bytes on the 201 v0 pairs; 4 diff bytes total on the 580 v2 pairs
+E3;3636;3963;3960;4287;328;328;EXi 2 engine head (KRONOS engine block @3960);COPY shift -324 (K = O + 324); plain copy; verified 0 diff bytes on 580 v2 + 201 v0 pairs
+G1;2810;2847;;;38;0;OASYS EXi gap between E1 and E2;UNMAPPED: no verified KRONOS map; stays zero; reported in the defaulted sections
+G2;;;2852;2907;0;56;KRONOS EXi gap between E1 and E2;UNMAPPED: no verified OASYS map; stays zero; reported in the defaulted sections
+G3;3176;3635;;;460;0;OASYS EXi gap between E2 and E3;UNMAPPED: no verified KRONOS map; stays zero; reported in the defaulted sections
+G4;;;3236;3959;0;724;KRONOS EXi gap between E2 and E3;UNMAPPED: no verified OASYS map; stays zero; reported in the defaulted sections
+G5;3964;4385;;;422;0;OASYS EXi gap after E3 (to the end of the mapped region);UNMAPPED: no verified KRONOS map; stays zero; reported in the defaulted sections
+G6;;;4288;4959;0;672;KRONOS EXi gap after E3 (to the end of the slot);UNMAPPED: no verified OASYS map; stays zero; reported in the defaulted sections

@@ -1,0 +1,1989 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "IFX 1-4 / 5-8 / 9-12",
+ "tab_index": 4,
+ "object": "Combi",
+ "navigation": "Combi : kkEdTabsC garde ses 43 onglets, barre d’onglets masquée. Boutons de page → onglet (GENERAL = 0 et 1, LFO & CTRL = 9 et 10, voir README). Timbre t (1-16), page p (1-2) → onglet 9 + 2t + (p - 1) ; paramètres kkC_<onglet>_nnn. La page des timbres sert aux 16 timbres : seul le numéro de modulateur change.",
+ "shared": "onglets 4, 5 et 6 : param = IFX 1-4, param_alt = [IFX 5-8, IFX 9-12] ; IFX11 sans Chain To, IFX12 sans Chain",
+ "width": 1500,
+ "height": 414,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_C_IFX_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_C_IFX_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — IFX 1-4 / 5-8 / 9-12"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_general",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 68.1,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    0,
+    1
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_vector",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "VECTOR",
+   "x": 133.3,
+   "y": 84,
+   "w": 62.9,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    2
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_drum_track",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "DRUM TRACK",
+   "x": 201.3,
+   "y": 84,
+   "w": 89.7,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    3
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_ifx_1_4",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "IFX 1-4",
+   "x": 296.1,
+   "y": 84,
+   "w": 55.8,
+   "h": 18,
+   "state": "on",
+   "tab": [
+    4
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_ifx_5_8",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "IFX 5-8",
+   "x": 357.0,
+   "y": 84,
+   "w": 57.6,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    5
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_ifx_9_12",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "IFX 9-12",
+   "x": 419.7,
+   "y": 84,
+   "w": 62.0,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    6
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_mfx_tfx",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "MFX·TFX",
+   "x": 486.9,
+   "y": 84,
+   "w": 67.0,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    7
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_audio_in",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "AUDIO IN",
+   "x": 559.1,
+   "y": 84,
+   "w": 66.9,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    8
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_lfo_ctrl",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "LFO & CTRL",
+   "x": 631.2,
+   "y": 84,
+   "w": 78.9,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    9,
+    10
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T1",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "1",
+   "x": 733.2,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T2",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "2",
+   "x": 771.8,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T3",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "3",
+   "x": 810.3,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T4",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "4",
+   "x": 848.9,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T5",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "5",
+   "x": 887.4,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T6",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "6",
+   "x": 926.0,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T7",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "7",
+   "x": 964.5,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T8",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "8",
+   "x": 1003.1,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T9",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "9",
+   "x": 1041.6,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T10",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "10",
+   "x": 1080.2,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T11",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "11",
+   "x": 1118.7,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T12",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "12",
+   "x": 1157.3,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T13",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "13",
+   "x": 1195.8,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T14",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "14",
+   "x": 1234.4,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T15",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "15",
+   "x": 1272.9,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T16",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "16",
+   "x": 1311.5,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_P1",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "page 1 ou 2 du timbre choisi",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_P2",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "2",
+   "x": 1406.6,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "page 1 ou 2 du timbre choisi",
+   "midi": null
+  },
+  {
+   "id": "kkEdIFXnumC1",
+   "group": "ifx_strip1",
+   "type": "display",
+   "kind": "label",
+   "label": "IFX NUMBER",
+   "x": 188.0,
+   "y": 118,
+   "w": 46,
+   "h": 16,
+   "text": [
+    "IFX 1"
+   ],
+   "dynamic": true,
+   "note": "IFX 1-4, 5-8 ou 9-12 selon la page",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_003",
+   "param": "kkC_04_003",
+   "group": "ifx_strip1",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ON",
+   "x": 345.0,
+   "y": 118,
+   "w": 44,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_003",
+    "kkC_06_003"
+   ],
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_001",
+   "param": "kkC_04_001",
+   "group": "ifx_strip1",
+   "type": "menu",
+   "kind": "fxcombo",
+   "label": "EFFECT TYPE",
+   "x": 70.0,
+   "y": 150,
+   "w": 319.0,
+   "h": 16,
+   "text": [
+    "Stereo Chorus"
+   ],
+   "options": "FX type list (331, idx 0..330)",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_001",
+    "kkC_06_001"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_002",
+   "param": "kkC_04_002",
+   "group": "ifx_strip1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CHANNEL",
+   "x": 70.0,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "options": "1..16 | …",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_002",
+    "kkC_06_002"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_007",
+   "param": "kkC_04_007",
+   "group": "ifx_strip1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SELECT",
+   "x": 233.5,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R | … ",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_007",
+    "kkC_06_007"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_008",
+   "param": "kkC_04_008",
+   "group": "ifx_strip1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FX CTRL BUS",
+   "x": 70.0,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1 | FX Control2",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_008",
+    "kkC_06_008"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_011",
+   "param": "kkC_04_011",
+   "group": "ifx_strip1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REC BUS",
+   "x": 233.5,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1..4 | 3/4",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_011",
+    "kkC_06_011"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_004",
+   "param": "kkC_04_004",
+   "group": "ifx_strip1",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CHAIN",
+   "x": 70.0,
+   "y": 262,
+   "w": 70,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_004",
+    "kkC_06_004"
+   ],
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_005",
+   "param": "kkC_04_005",
+   "group": "ifx_strip1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHAIN TO",
+   "x": 77.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 98.0,
+   "cy": 330,
+   "r": 12,
+   "range": "2..12",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_005",
+    "kkC_06_005"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_005_val",
+   "param": "kkC_04_005",
+   "group": "ifx_strip1",
+   "type": "display",
+   "kind": "value",
+   "label": "CHAIN TO value",
+   "x": 79.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "IFX2"
+   ],
+   "param_alt": [
+    "kkC_05_005",
+    "kkC_06_005"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_006",
+   "param": "kkC_04_006",
+   "group": "ifx_strip1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PANPOT",
+   "x": 164.7,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 185.66666666666669,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_006",
+    "kkC_06_006"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_006_val",
+   "param": "kkC_04_006",
+   "group": "ifx_strip1",
+   "type": "display",
+   "kind": "value",
+   "label": "PANPOT value",
+   "x": 166.7,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "C064"
+   ],
+   "param_alt": [
+    "kkC_05_006",
+    "kkC_06_006"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_009",
+   "param": "kkC_04_009",
+   "group": "ifx_strip1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 1",
+   "x": 252.3,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 273.33333333333337,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_009",
+    "kkC_06_009"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_009_val",
+   "param": "kkC_04_009",
+   "group": "ifx_strip1",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 1 value",
+   "x": 254.3,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_009",
+    "kkC_06_009"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_010",
+   "param": "kkC_04_010",
+   "group": "ifx_strip1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 2",
+   "x": 340.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 361.0,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_010",
+    "kkC_06_010"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_010_val",
+   "param": "kkC_04_010",
+   "group": "ifx_strip1",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 2 value",
+   "x": 342.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_010",
+    "kkC_06_010"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkEdIFXnumC2",
+   "group": "ifx_strip2",
+   "type": "display",
+   "kind": "label",
+   "label": "IFX NUMBER",
+   "x": 535.0,
+   "y": 118,
+   "w": 46,
+   "h": 16,
+   "text": [
+    "IFX 2"
+   ],
+   "dynamic": true,
+   "note": "IFX 1-4, 5-8 ou 9-12 selon la page",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_014",
+   "param": "kkC_04_014",
+   "group": "ifx_strip2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ON",
+   "x": 692.0,
+   "y": 118,
+   "w": 44,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_014",
+    "kkC_06_014"
+   ],
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_012",
+   "param": "kkC_04_012",
+   "group": "ifx_strip2",
+   "type": "menu",
+   "kind": "fxcombo",
+   "label": "EFFECT TYPE",
+   "x": 417.0,
+   "y": 150,
+   "w": 319.0,
+   "h": 16,
+   "text": [
+    "L/C/R Delay"
+   ],
+   "options": "FX type list (331, idx 0..330)",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_012",
+    "kkC_06_012"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_013",
+   "param": "kkC_04_013",
+   "group": "ifx_strip2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CHANNEL",
+   "x": 417.0,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "options": "1..16 | …",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_013",
+    "kkC_06_013"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_018",
+   "param": "kkC_04_018",
+   "group": "ifx_strip2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SELECT",
+   "x": 580.5,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R | … ",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_018",
+    "kkC_06_018"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_019",
+   "param": "kkC_04_019",
+   "group": "ifx_strip2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FX CTRL BUS",
+   "x": 417.0,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1 | FX Control2",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_019",
+    "kkC_06_019"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_022",
+   "param": "kkC_04_022",
+   "group": "ifx_strip2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REC BUS",
+   "x": 580.5,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1..4 | 3/4",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_022",
+    "kkC_06_022"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_015",
+   "param": "kkC_04_015",
+   "group": "ifx_strip2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CHAIN",
+   "x": 417.0,
+   "y": 262,
+   "w": 70,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_015",
+    "kkC_06_015"
+   ],
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_016",
+   "param": "kkC_04_016",
+   "group": "ifx_strip2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHAIN TO",
+   "x": 424.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 445.0,
+   "cy": 330,
+   "r": 12,
+   "range": "2..12",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_016",
+    "kkC_06_016"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_016_val",
+   "param": "kkC_04_016",
+   "group": "ifx_strip2",
+   "type": "display",
+   "kind": "value",
+   "label": "CHAIN TO value",
+   "x": 426.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "IFX3"
+   ],
+   "param_alt": [
+    "kkC_05_016",
+    "kkC_06_016"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_017",
+   "param": "kkC_04_017",
+   "group": "ifx_strip2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PANPOT",
+   "x": 511.7,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 532.6666666666666,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_017",
+    "kkC_06_017"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_017_val",
+   "param": "kkC_04_017",
+   "group": "ifx_strip2",
+   "type": "display",
+   "kind": "value",
+   "label": "PANPOT value",
+   "x": 513.7,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "C064"
+   ],
+   "param_alt": [
+    "kkC_05_017",
+    "kkC_06_017"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_020",
+   "param": "kkC_04_020",
+   "group": "ifx_strip2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 1",
+   "x": 599.3,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 620.3333333333334,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_020",
+    "kkC_06_020"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_020_val",
+   "param": "kkC_04_020",
+   "group": "ifx_strip2",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 1 value",
+   "x": 601.3,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_020",
+    "kkC_06_020"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_021",
+   "param": "kkC_04_021",
+   "group": "ifx_strip2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 2",
+   "x": 687.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 708.0,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_021",
+    "kkC_06_021"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_021_val",
+   "param": "kkC_04_021",
+   "group": "ifx_strip2",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 2 value",
+   "x": 689.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_021",
+    "kkC_06_021"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkEdIFXnumC3",
+   "group": "ifx_strip3",
+   "type": "display",
+   "kind": "label",
+   "label": "IFX NUMBER",
+   "x": 882.0,
+   "y": 118,
+   "w": 46,
+   "h": 16,
+   "text": [
+    "IFX 3"
+   ],
+   "dynamic": true,
+   "note": "IFX 1-4, 5-8 ou 9-12 selon la page",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_025",
+   "param": "kkC_04_025",
+   "group": "ifx_strip3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "OFF",
+   "x": 1039.0,
+   "y": 118,
+   "w": 44,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_025",
+    "kkC_06_025"
+   ],
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_023",
+   "param": "kkC_04_023",
+   "group": "ifx_strip3",
+   "type": "menu",
+   "kind": "fxcombo",
+   "label": "EFFECT TYPE",
+   "x": 764.0,
+   "y": 150,
+   "w": 319.0,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "options": "FX type list (331, idx 0..330)",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_023",
+    "kkC_06_023"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_024",
+   "param": "kkC_04_024",
+   "group": "ifx_strip3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CHANNEL",
+   "x": 764.0,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "options": "1..16 | …",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_024",
+    "kkC_06_024"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_029",
+   "param": "kkC_04_029",
+   "group": "ifx_strip3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SELECT",
+   "x": 927.5,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R | … ",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_029",
+    "kkC_06_028"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_030",
+   "param": "kkC_04_030",
+   "group": "ifx_strip3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FX CTRL BUS",
+   "x": 764.0,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1 | FX Control2",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_030",
+    "kkC_06_029"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_033",
+   "param": "kkC_04_033",
+   "group": "ifx_strip3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REC BUS",
+   "x": 927.5,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1..4 | 3/4",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_033",
+    "kkC_06_032"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_026",
+   "param": "kkC_04_026",
+   "group": "ifx_strip3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CHAIN",
+   "x": 764.0,
+   "y": 262,
+   "w": 70,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_026",
+    "kkC_06_026"
+   ],
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_027",
+   "param": "kkC_04_027",
+   "group": "ifx_strip3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHAIN TO",
+   "x": 771.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 792.0,
+   "cy": 330,
+   "r": 12,
+   "range": "2..12",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_027",
+    null
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_027_val",
+   "param": "kkC_04_027",
+   "group": "ifx_strip3",
+   "type": "display",
+   "kind": "value",
+   "label": "CHAIN TO value",
+   "x": 773.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "IFX4"
+   ],
+   "param_alt": [
+    "kkC_05_027",
+    null
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_028",
+   "param": "kkC_04_028",
+   "group": "ifx_strip3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PANPOT",
+   "x": 858.7,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 879.6666666666666,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_028",
+    "kkC_06_027"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_028_val",
+   "param": "kkC_04_028",
+   "group": "ifx_strip3",
+   "type": "display",
+   "kind": "value",
+   "label": "PANPOT value",
+   "x": 860.7,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "C064"
+   ],
+   "param_alt": [
+    "kkC_05_028",
+    "kkC_06_027"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_031",
+   "param": "kkC_04_031",
+   "group": "ifx_strip3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 1",
+   "x": 946.3,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 967.3333333333334,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_031",
+    "kkC_06_030"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_031_val",
+   "param": "kkC_04_031",
+   "group": "ifx_strip3",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 1 value",
+   "x": 948.3,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_031",
+    "kkC_06_030"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_032",
+   "param": "kkC_04_032",
+   "group": "ifx_strip3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 2",
+   "x": 1034.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 1055.0,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_032",
+    "kkC_06_031"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_032_val",
+   "param": "kkC_04_032",
+   "group": "ifx_strip3",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 2 value",
+   "x": 1036.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_032",
+    "kkC_06_031"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkEdIFXnumC4",
+   "group": "ifx_strip4",
+   "type": "display",
+   "kind": "label",
+   "label": "IFX NUMBER",
+   "x": 1229.0,
+   "y": 118,
+   "w": 46,
+   "h": 16,
+   "text": [
+    "IFX 4"
+   ],
+   "dynamic": true,
+   "note": "IFX 1-4, 5-8 ou 9-12 selon la page",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_036",
+   "param": "kkC_04_036",
+   "group": "ifx_strip4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "OFF",
+   "x": 1386.0,
+   "y": 118,
+   "w": 44,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_036",
+    "kkC_06_035"
+   ],
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_034",
+   "param": "kkC_04_034",
+   "group": "ifx_strip4",
+   "type": "menu",
+   "kind": "fxcombo",
+   "label": "EFFECT TYPE",
+   "x": 1111.0,
+   "y": 150,
+   "w": 319.0,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "options": "FX type list (331, idx 0..330)",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_034",
+    "kkC_06_033"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_035",
+   "param": "kkC_04_035",
+   "group": "ifx_strip4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CHANNEL",
+   "x": 1111.0,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "options": "1..16 | …",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_035",
+    "kkC_06_034"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_040",
+   "param": "kkC_04_040",
+   "group": "ifx_strip4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SELECT",
+   "x": 1274.5,
+   "y": 186,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R | … ",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_040",
+    "kkC_06_037"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_041",
+   "param": "kkC_04_041",
+   "group": "ifx_strip4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FX CTRL BUS",
+   "x": 1111.0,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1 | FX Control2",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_041",
+    "kkC_06_038"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_044",
+   "param": "kkC_04_044",
+   "group": "ifx_strip4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REC BUS",
+   "x": 1274.5,
+   "y": 220,
+   "w": 155.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off | 1..4 | 3/4",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_044",
+    "kkC_06_041"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_037",
+   "param": "kkC_04_037",
+   "group": "ifx_strip4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CHAIN",
+   "x": 1111.0,
+   "y": 262,
+   "w": 70,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_037",
+    null
+   ],
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkC_04_038",
+   "param": "kkC_04_038",
+   "group": "ifx_strip4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHAIN TO",
+   "x": 1118.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 1139.0,
+   "cy": 330,
+   "r": 12,
+   "range": "2..12",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_038",
+    null
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_038_val",
+   "param": "kkC_04_038",
+   "group": "ifx_strip4",
+   "type": "display",
+   "kind": "value",
+   "label": "CHAIN TO value",
+   "x": 1120.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "IFX5"
+   ],
+   "param_alt": [
+    "kkC_05_038",
+    null
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_039",
+   "param": "kkC_04_039",
+   "group": "ifx_strip4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PANPOT",
+   "x": 1205.7,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 1226.6666666666667,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_039",
+    "kkC_06_036"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_039_val",
+   "param": "kkC_04_039",
+   "group": "ifx_strip4",
+   "type": "display",
+   "kind": "value",
+   "label": "PANPOT value",
+   "x": 1207.7,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "C064"
+   ],
+   "param_alt": [
+    "kkC_05_039",
+    "kkC_06_036"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_042",
+   "param": "kkC_04_042",
+   "group": "ifx_strip4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 1",
+   "x": 1293.3,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 1314.3333333333333,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_042",
+    "kkC_06_039"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_042_val",
+   "param": "kkC_04_042",
+   "group": "ifx_strip4",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 1 value",
+   "x": 1295.3,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_042",
+    "kkC_06_039"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkC_04_043",
+   "param": "kkC_04_043",
+   "group": "ifx_strip4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SEND 2",
+   "x": 1381.0,
+   "y": 309,
+   "w": 42,
+   "h": 42,
+   "cx": 1402.0,
+   "cy": 330,
+   "r": 12,
+   "range": "0..127",
+   "apply": "combi",
+   "param_alt": [
+    "kkC_05_043",
+    "kkC_06_040"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkC_04_043_val",
+   "param": "kkC_04_043",
+   "group": "ifx_strip4",
+   "type": "display",
+   "kind": "value",
+   "label": "SEND 2 value",
+   "x": 1383.0,
+   "y": 354,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "param_alt": [
+    "kkC_05_043",
+    "kkC_06_040"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ]
+}

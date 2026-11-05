@@ -1,0 +1,10 @@
+{
+  "settleMs": 3000,
+  "quietMs": 200,
+  "steps": [
+    { "action": "wait", "ms": 3000 },
+    { "action": "eval", "lua": "return type(KK)" },
+    { "action": "eval", "lua": "return { kkRefresh = type(kkRefresh), kkMixTrack = type(kkMixTrack), kkMixValues = type(kkMixValues), KRONOS_DATA = type(KRONOS_DATA) }" },
+    { "action": "screenshot", "file": "out/00_load.png" }
+  ]
+}

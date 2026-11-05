@@ -1,0 +1,1049 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AMP·MIX · 2/2",
+ "tab_index": 0,
+ "object": "Program · MS-20EX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_MS20EX_AMP_MIX_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_MS20EX_AMP_MIX_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MS-20EX — AMP·MIX · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 207.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 279.6,
+   "y": 84,
+   "w": 177.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 459.8,
+   "y": 84,
+   "w": 186.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 648.9,
+   "y": 84,
+   "w": 195.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 847.0,
+   "y": 84,
+   "w": 173.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1023.6,
+   "y": 84,
+   "w": 175.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1202.0,
+   "y": 84,
+   "w": 179.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@339.7~3",
+   "param": "Prog_EXi@339.7~3",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@339.7~3",
+   "x": 664.8,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-10.00~+10.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input A Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 339,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@342.7~1",
+   "param": "Prog_EXi@342.7~1",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@342.7~1",
+   "x": 819.0,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-10.00~+10.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input A Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 342,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@340.7~6",
+   "param": "Prog_EXi@340.7~6",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@340.7~6",
+   "x": 664.8,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-10.00~+10.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input B Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 340,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@343.7~4",
+   "param": "Prog_EXi@343.7~4",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@343.7~4",
+   "x": 819.0,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-10.00~+10.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input B Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 343,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@444.7~2",
+   "param": "Prog_EXi@444.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@444.7~2",
+   "x": 664.8,
+   "y": 192,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input A Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 444,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@446.7~2",
+   "param": "Prog_EXi@446.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@446.7~2",
+   "x": 819.0,
+   "y": 192,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input A Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 446,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "2"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@445.7~2",
+   "param": "Prog_EXi@445.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@445.7~2",
+   "x": 664.8,
+   "y": 213,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input B Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 445,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "1"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@447.7~2",
+   "param": "Prog_EXi@447.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@447.7~2",
+   "x": 819.0,
+   "y": 213,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input B Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 447,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "3"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@448.7~2",
+   "param": "Prog_EXi@448.7~2",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@448.7~2",
+   "x": 664.8,
+   "y": 234,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input A Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 448,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "0"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@451.7~2",
+   "param": "Prog_EXi@451.7~2",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@451.7~2",
+   "x": 819.0,
+   "y": 234,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input A Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 451,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "2"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@449.7~6",
+   "param": "Prog_EXi@449.7~6",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@449.7~6",
+   "x": 664.8,
+   "y": 255,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input B Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 449,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "1"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@452.7~6",
+   "param": "Prog_EXi@452.7~6",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@452.7~6",
+   "x": 819.0,
+   "y": 255,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input B Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 452,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "3"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@454.7~2",
+   "param": "Prog_EXi@454.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@454.7~2",
+   "x": 664.8,
+   "y": 276,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input A Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 454,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@456.7~2",
+   "param": "Prog_EXi@456.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@456.7~2",
+   "x": 819.0,
+   "y": 276,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input A Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 456,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "2"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@455.7~2",
+   "param": "Prog_EXi@455.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@455.7~2",
+   "x": 664.8,
+   "y": 297,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input B Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 455,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "1"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@457.7~2",
+   "param": "Prog_EXi@457.7~2",
+   "group": "mixer",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@457.7~2",
+   "x": 819.0,
+   "y": 297,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input B Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 457,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "3"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@458.7~2",
+   "param": "Prog_EXi@458.7~2",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@458.7~2",
+   "x": 664.8,
+   "y": 318,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input A Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 458,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "89",
+     "IDX": "0"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@461.7~2",
+   "param": "Prog_EXi@461.7~2",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@461.7~2",
+   "x": 819.0,
+   "y": 318,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input A Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 461,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "89",
+     "IDX": "2"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@459.7~6",
+   "param": "Prog_EXi@459.7~6",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@459.7~6",
+   "x": 664.8,
+   "y": 339,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer1 Input B Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 459,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "89",
+     "IDX": "1"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@462.7~6",
+   "param": "Prog_EXi@462.7~6",
+   "group": "mixer",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@462.7~6",
+   "x": 819.0,
+   "y": 339,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-20.00~+20.00",
+   "midi": null,
+   "korg": {
+    "group": "Mixer",
+    "name": "Mixer2 Input B Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 462,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "89",
+     "IDX": "3"
+    },
+    "data": "F830~07D0",
+    "value": "-20.00~+20.00"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AMP·MIX",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "exi:MS-20EX"
+}

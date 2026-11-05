@@ -1,0 +1,1136 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "GENERAL",
+ "tab_index": 0,
+ "object": "Wave Seq",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_W_GENERAL_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_W_GENERAL_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "5 : Wave Seq"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Wave Seq — GENERAL"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 696.2,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP",
+   "x": 759.2,
+   "y": 84,
+   "w": 680.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "WaveSequence@24.0",
+   "param": "WaveSequence@24.0",
+   "group": "common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RUN SEQUENCE",
+   "x": 138.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Stop"
+   ],
+   "options": "Stop,Run",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Run Sequence",
+    "kind": "menu",
+    "file": "WaveSequence.txt",
+    "ofs": 24,
+    "bit": "0",
+    "sysex": {
+     "IDX": "0",
+     "PID": "0"
+    },
+    "data": "00~01",
+    "value": "Stop,Run"
+   }
+  },
+  {
+   "id": "WaveSequence@24.1",
+   "param": "WaveSequence@24.1",
+   "group": "common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TIME/TEMPO MODE",
+   "x": 299.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Time"
+   ],
+   "options": "Time,Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Time/Tempo Mode",
+    "kind": "menu",
+    "file": "WaveSequence.txt",
+    "ofs": 24,
+    "bit": "1",
+    "sysex": {
+     "IDX": "0",
+     "PID": "2"
+    },
+    "data": "00~01",
+    "value": "Time,Tempo"
+   }
+  },
+  {
+   "id": "WaveSequence@24.2",
+   "param": "WaveSequence@24.2",
+   "group": "common_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "NOTE-ON ADVANCE",
+   "x": 379.6,
+   "y": 137,
+   "w": 92.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Note-On Advance",
+    "kind": "toggle",
+    "file": "WaveSequence.txt",
+    "ofs": 24,
+    "bit": "2",
+    "sysex": {
+     "IDX": "0",
+     "PID": "1"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "WaveSequence@25",
+   "param": "WaveSequence@25",
+   "group": "common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SWING RESOLUTION",
+   "x": 562.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Swing Resolution",
+    "kind": "menu",
+    "file": "WaveSequence.txt",
+    "ofs": 25,
+    "sysex": {
+     "IDX": "0",
+     "PID": "3"
+    },
+    "data": "00~06",
+    "value": ""
+   }
+  },
+  {
+   "id": "WaveSequence@38",
+   "param": "WaveSequence@38",
+   "group": "common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOOP DIRECTION",
+   "x": 713.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Forward"
+   ],
+   "options": "Forward,Backward, Alternative",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Loop Direction",
+    "kind": "menu",
+    "file": "WaveSequence.txt",
+    "ofs": 38,
+    "sysex": {
+     "IDX": "0",
+     "PID": "15"
+    },
+    "data": "00~02",
+    "value": "Forward,Backward, Alternative"
+   }
+  },
+  {
+   "id": "WaveSequence@26",
+   "param": "WaveSequence@26",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "END STEP",
+   "x": 96.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 117.01943844492439,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "End Step",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 26,
+    "sysex": {
+     "IDX": "0",
+     "PID": "5"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@26_val",
+   "param": "WaveSequence@26",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "END STEP value",
+   "x": 98.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "End Step",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 26,
+    "sysex": {
+     "IDX": "0",
+     "PID": "5"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@27",
+   "param": "WaveSequence@27",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START STEP",
+   "x": 189.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 210.21943844492438,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Start Step",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 27,
+    "sysex": {
+     "IDX": "0",
+     "PID": "4"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@27_val",
+   "param": "WaveSequence@27",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START STEP value",
+   "x": 191.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Start Step",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 27,
+    "sysex": {
+     "IDX": "0",
+     "PID": "4"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@28",
+   "param": "WaveSequence@28",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START STEP AMS SOURCE",
+   "x": 282.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 303.41943844492437,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~76",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Start Step AMS Source",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 28,
+    "sysex": {
+     "IDX": "0",
+     "PID": "6"
+    },
+    "data": "00~4C",
+    "value": "0~76"
+   }
+  },
+  {
+   "id": "WaveSequence@28_val",
+   "param": "WaveSequence@28",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START STEP AMS SOURCE value",
+   "x": 284.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Start Step AMS Source",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 28,
+    "sysex": {
+     "IDX": "0",
+     "PID": "6"
+    },
+    "data": "00~4C",
+    "value": "0~76"
+   }
+  },
+  {
+   "id": "WaveSequence@29",
+   "param": "WaveSequence@29",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START STEP AMS INT",
+   "x": 375.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 396.6194384449244,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-63~+63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Start Step AMS Intensity",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 29,
+    "sysex": {
+     "IDX": "0",
+     "PID": "7"
+    },
+    "data": "C1~3F",
+    "value": "-63~+63"
+   }
+  },
+  {
+   "id": "WaveSequence@29_val",
+   "param": "WaveSequence@29",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START STEP AMS INT value",
+   "x": 377.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Start Step AMS Intensity",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 29,
+    "sysex": {
+     "IDX": "0",
+     "PID": "7"
+    },
+    "data": "C1~3F",
+    "value": "-63~+63"
+   }
+  },
+  {
+   "id": "WaveSequence@30",
+   "param": "WaveSequence@30",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "POSITION AMS SOURCE",
+   "x": 468.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 489.8194384449244,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~76",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Position AMS Source",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 30,
+    "sysex": {
+     "IDX": "0",
+     "PID": "10"
+    },
+    "data": "00~4C",
+    "value": "0~76"
+   }
+  },
+  {
+   "id": "WaveSequence@30_val",
+   "param": "WaveSequence@30",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "POSITION AMS SOURCE value",
+   "x": 470.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Position AMS Source",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 30,
+    "sysex": {
+     "IDX": "0",
+     "PID": "10"
+    },
+    "data": "00~4C",
+    "value": "0~76"
+   }
+  },
+  {
+   "id": "WaveSequence@31",
+   "param": "WaveSequence@31",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "POSITION AMS INT",
+   "x": 562.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 583.0194384449244,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-63~+63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Position AMS Intensity",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 31,
+    "sysex": {
+     "IDX": "0",
+     "PID": "11"
+    },
+    "data": "C1~3F",
+    "value": "-63~+63"
+   }
+  },
+  {
+   "id": "WaveSequence@31_val",
+   "param": "WaveSequence@31",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "POSITION AMS INT value",
+   "x": 564.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Position AMS Intensity",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 31,
+    "sysex": {
+     "IDX": "0",
+     "PID": "11"
+    },
+    "data": "C1~3F",
+    "value": "-63~+63"
+   }
+  },
+  {
+   "id": "WaveSequence@32",
+   "param": "WaveSequence@32",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DURATION AMS SOURCE",
+   "x": 655.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 676.2194384449244,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~76",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Duration AMS Source",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 32,
+    "sysex": {
+     "IDX": "0",
+     "PID": "8"
+    },
+    "data": "00~4C",
+    "value": "0~76"
+   }
+  },
+  {
+   "id": "WaveSequence@32_val",
+   "param": "WaveSequence@32",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DURATION AMS SOURCE value",
+   "x": 657.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Duration AMS Source",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 32,
+    "sysex": {
+     "IDX": "0",
+     "PID": "8"
+    },
+    "data": "00~4C",
+    "value": "0~76"
+   }
+  },
+  {
+   "id": "WaveSequence@34",
+   "param": "WaveSequence@34",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DURATION AMS INT",
+   "x": 748.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 769.4194384449244,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~400[%]",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Duration AMS Intensity",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 34,
+    "sysex": {
+     "IDX": "0",
+     "PID": "9"
+    },
+    "data": "001~190",
+    "value": "1~400[%]"
+   }
+  },
+  {
+   "id": "WaveSequence@34_val",
+   "param": "WaveSequence@34",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DURATION AMS INT value",
+   "x": 750.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Duration AMS Intensity",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 34,
+    "sysex": {
+     "IDX": "0",
+     "PID": "9"
+    },
+    "data": "001~190",
+    "value": "1~400[%]"
+   }
+  },
+  {
+   "id": "WaveSequence@36",
+   "param": "WaveSequence@36",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOOP START",
+   "x": 841.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 862.6194384449244,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Loop Start",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 36,
+    "sysex": {
+     "IDX": "0",
+     "PID": "12"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@36_val",
+   "param": "WaveSequence@36",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LOOP START value",
+   "x": 843.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Loop Start",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 36,
+    "sysex": {
+     "IDX": "0",
+     "PID": "12"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@37",
+   "param": "WaveSequence@37",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOOP END",
+   "x": 934.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 955.8194384449245,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~63",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Loop End",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 37,
+    "sysex": {
+     "IDX": "0",
+     "PID": "13"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@37_val",
+   "param": "WaveSequence@37",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LOOP END value",
+   "x": 936.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Loop End",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 37,
+    "sysex": {
+     "IDX": "0",
+     "PID": "13"
+    },
+    "data": "00~3F",
+    "value": "0~63"
+   }
+  },
+  {
+   "id": "WaveSequence@39",
+   "param": "WaveSequence@39",
+   "group": "common_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOOP REPEAT",
+   "x": 1028.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1049.0194384449244,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~128",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Loop Repeat",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 39,
+    "sysex": {
+     "IDX": "0",
+     "PID": "14"
+    },
+    "data": "00~80",
+    "value": "0~128"
+   }
+  },
+  {
+   "id": "WaveSequence@39_val",
+   "param": "WaveSequence@39",
+   "group": "common_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LOOP REPEAT value",
+   "x": 1030.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Loop Repeat",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 39,
+    "sysex": {
+     "IDX": "0",
+     "PID": "14"
+    },
+    "data": "00~80",
+    "value": "0~128"
+   }
+  },
+  {
+   "id": "WaveSequence@0",
+   "param": "WaveSequence@0",
+   "group": "common_2_2",
+   "type": "display",
+   "kind": "text",
+   "label": "NAME",
+   "x": 1122.0,
+   "y": 187.0,
+   "w": 310.0,
+   "h": 16,
+   "text": [
+    "Name"
+   ],
+   "dynamic": true,
+   "max_chars": 24,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Name",
+    "kind": "text",
+    "file": "WaveSequence.txt",
+    "ofs": 0,
+    "data": "00~FF",
+    "value": "~"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "GENERAL",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

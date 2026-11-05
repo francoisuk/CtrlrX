@@ -1,0 +1,67 @@
+{
+ "object": "Program · EP-1",
+ "areas": [
+  {
+   "label": "OSC",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:EP-1",
+   "link": null
+  },
+  {
+   "label": "AMP·MIX",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:EP-1",
+   "link": null
+  },
+  {
+   "label": "FX",
+   "pages": 3,
+   "index": null,
+   "instances": [],
+   "apply": "exi:EP-1",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_OSC_P1",
+   "area": "OSC",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_OSC_P2",
+   "area": "OSC",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_AMP_MIX_P1",
+   "area": "AMP·MIX",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_FX_P1",
+   "area": "FX",
+   "n": 1,
+   "of": 3
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_FX_P2",
+   "area": "FX",
+   "n": 2,
+   "of": 3
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_FX_P3",
+   "area": "FX",
+   "n": 3,
+   "of": 3
+  }
+ ]
+}

@@ -1,0 +1,818 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "CONTROL",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_C_CONTROL_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_C_CONTROL_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — CONTROL"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 150.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 213.4,
+   "y": 84,
+   "w": 143.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 360.3,
+   "y": 84,
+   "w": 148.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 511.9,
+   "y": 84,
+   "w": 144.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 659.3,
+   "y": 84,
+   "w": 146.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 808.9,
+   "y": 84,
+   "w": 152.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 963.9,
+   "y": 84,
+   "w": 149.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1116.3,
+   "y": 84,
+   "w": 143.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_module",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA MODULE",
+   "x": 1263.0,
+   "y": 84,
+   "w": 177.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1252.2~0",
+   "param": "CombiAndSongTimbreSet@1252.2~0",
+   "group": "controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CONTROL ASSIGN",
+   "x": 122.0,
+   "y": 170.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "Timbre1-8"
+   ],
+   "options": "Timbre1-8~Custom Mo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Control Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1252,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Timbre1-8~Custom Mo",
+    "oasys": {
+     "ofs": 1252,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1252.7",
+   "param": "CombiAndSongTimbreSet@1252.7",
+   "group": "controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KNOB MODE",
+   "x": 322.8,
+   "y": 170.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "Channel Strip"
+   ],
+   "options": "Channel Strip~Indiv",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Knob Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1252,
+    "bit": "7",
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Channel Strip~Indiv",
+    "oasys": {
+     "ofs": 1252,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1253",
+   "param": "CombiAndSongTimbreSet@1253",
+   "group": "controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SELECTED TIMBRE",
+   "x": 122.0,
+   "y": 204.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "Timbre1"
+   ],
+   "options": "Timbre1~Timbre16",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Selected Timbre",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1253,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~0F",
+    "value": "Timbre1~Timbre16",
+    "oasys": {
+     "ofs": 1253,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1254",
+   "param": "CombiAndSongTimbreSet@1254",
+   "group": "controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SELECTED AUDIO",
+   "x": 322.8,
+   "y": 204.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "Audio Input 1"
+   ],
+   "options": "Audio Input 1~S/PDI",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Selected Audio",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1254,
+    "data": "00~05",
+    "value": "Audio Input 1~S/PDI",
+    "oasys": {
+     "ofs": 1254,
+     "rule": "zone A identical"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4796.4~0",
+   "param": "CombiAndSongTimbreSet@4796.4~0",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@4796.4~0",
+   "x": 681.6,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Chord Switch",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Switch1 Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4796,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~0F",
+    "value": "Off~Chord Switch",
+    "oasys": {
+     "ofs": 4784,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4797.4~0",
+   "param": "CombiAndSongTimbreSet@4797.4~0",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@4797.4~0",
+   "x": 797.0,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Chord Switch",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Switch2 Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4797,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "00~0F",
+    "value": "Off~Chord Switch",
+    "oasys": {
+     "ofs": 4785,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4796.6",
+   "param": "CombiAndSongTimbreSet@4796.6",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@4796.6",
+   "x": 681.6,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "range": "Toggle~Momentary",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Switch1 Mode",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4796,
+    "bit": "6",
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary",
+    "oasys": {
+     "ofs": 4784,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4797.7",
+   "param": "CombiAndSongTimbreSet@4797.7",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "toggle",
+   "label": "CombiAndSongTimbreSet@4797.6",
+   "x": 797.0,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "range": "Toggle~Momentary",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Switch2 Status",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4797,
+    "bit": "7",
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 4785,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4798",
+   "param": "CombiAndSongTimbreSet@4798",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@4798",
+   "x": 912.4,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Knob5 Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4798,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119",
+    "oasys": {
+     "ofs": 4786,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4799",
+   "param": "CombiAndSongTimbreSet@4799",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@4799",
+   "x": 1027.8,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Knob6 Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4799,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119",
+    "oasys": {
+     "ofs": 4787,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4800",
+   "param": "CombiAndSongTimbreSet@4800",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@4800",
+   "x": 1143.2,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Knob7 Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4800,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119",
+    "oasys": {
+     "ofs": 4788,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@4801",
+   "param": "CombiAndSongTimbreSet@4801",
+   "group": "assignable_controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@4801",
+   "x": 1258.6,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "Assignable Controller",
+    "name": "Knob8 Assign",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 4801,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119",
+    "oasys": {
+     "ofs": 4789,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "CONTROL",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

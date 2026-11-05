@@ -1,0 +1,2284 @@
+#include "CtrlrPanel.h"
+#include "CtrlrComponents/CtrlrComponent.h"
+#include "CtrlrComponents/CtrlrComponentTypeManager.h"
+#include "CtrlrInlineUtilitiesGUI.h"
+#include "CtrlrLog.h"
+#include "CtrlrLuaManager.h"
+#include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
+#include "CtrlrMacros.h"
+#include "CtrlrPanel/CtrlrPanelCanvas.h"
+#include "CtrlrPanel/CtrlrPanelComponentProperties.h"
+#include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "CtrlrPanel/CtrlrPanelProperties.h"
+#include "CtrlrProcessor.h"
+#include "CtrlrUtilities.h"
+#include "JuceClasses/LMemoryBlock.h"
+#include "stdafx.h"
+
+CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
+	: owner(_owner),
+	  panelTree(Ids::panel),
+	  panelWindowManager(*this),
+	  globalVariables({}),
+	  ctrlrSysexProcessor(*this),
+	  processor(*this),
+	  snapshot(*this),
+	  panelEvaluationScope(*this),
+	  globalEvaluationScope(*this),
+	  resourceManager(*this),
+	  midiInputThread(*this, inputDevice),
+	  midiControllerInputThread(*this, controllerDevice),
+	  ctrlrLuaManager(nullptr),
+	  currentActionIndex(0),
+	  indexOfSavedState(-1) {}
+
+CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int idx)
+	: owner(_owner),
+	  panelTree(Ids::panel),
+	  panelWindowManager(*this),
+	  ctrlrSysexProcessor(*this),
+	  processor(*this),
+	  snapshot(*this),
+	  panelEvaluationScope(*this),
+	  globalEvaluationScope(*this),
+	  resourceManager(*this),
+	  midiInputThread(*this, inputDevice),
+	  midiControllerInputThread(*this, controllerDevice),
+	  restoreStateStatus(true),
+	  //   ctrlrLuaManager(0),
+	  ctrlrPanelEditor(nullptr),
+	  initialProgram(Ids::panelState),
+	  boostrapStateStatus(false),
+	  outputDevicePtr(nullptr),
+	  // ctrlrPanelUndoManager(nullptr),
+	  currentActionIndex(0),
+	  indexOfSavedState(-1) {
+	ctrlrPanelUndoManager.reset(new CtrlrPanelUndoManager(*this));
+	ctrlrLuaManager = new CtrlrLuaManager(*this);
+	// ctrlrLuaManager = std::make_unique<CtrlrLuaManager>(*this);
+	lfV1 = std::make_unique<juce::LookAndFeel_V1>();
+	gui::initLookAndFeelDefaults(*lfV1);
+	lfV2 = std::make_unique<juce::LookAndFeel_V2>();
+	gui::initLookAndFeelDefaults(*lfV2);
+	lfV3 = std::make_unique<juce::LookAndFeel_V3>();
+	gui::initLookAndFeelDefaults(*lfV3);
+	if ((bool)getCtrlrManagerOwner().getProperty(Ids::ctrlrLuaDisabled) == false) {
+		ctrlrLuaManager->getMethodManager().setDebug((bool)owner.getProperty(Ids::ctrlrLuaDebug));
+	}
+
+	ctrlrPanelUndoManager->addChangeListener(this);
+
+	getUndoManager()->beginNewTransaction("Panel::ctor");
+	setProperty(Ids::name, panelName);
+	panelTree.addChild(ctrlrLuaManager->getLuaManagerTree(), -1, 0);
+	panelTree.addChild(panelWindowManager.getManagerTree(), -1, 0);
+	panelTree.addChild(resourceManager.getManagerTree(), -1, 0);
+
+	panelTree.addListener(this);
+
+	setProperty(Ids::panelScheme, CTRLR_PANEL_SCHEME);
+	setProperty(Ids::panelShowDialogs, true);
+	setProperty(Ids::panelMessageTime, 2000); // Updated v5.6.34. Was 10s !
+	setProperty(Ids::panelAuthorName, "");
+	setProperty(Ids::panelAuthorEmail, "");
+	setProperty(Ids::panelAuthorDonateUrl, "");
+	setProperty(Ids::panelAuthorUrl, "");
+	setProperty(Ids::panelAuthorDesc, "");
+	setProperty(Ids::panelVersionMajor, 1);
+	setProperty(Ids::panelVersionMinor, 0);
+	setProperty(Ids::panelVersionName, "");
+	setProperty(Ids::panelVendor, "");
+	setProperty(Ids::panelDevice, "");
+
+
+	// Exported Instance management
+	// Get application type
+	File me = File::getSpecialLocation(File::currentApplicationFile);
+	String fileExtension = me.getFileExtension();
+	// If OS is macOS
+	if ((juce::SystemStats::getOperatingSystemType() & juce::SystemStats::MacOSX) != 0) {
+		setProperty(Ids::panelExportResourceEncryption,
+					1); // Added v5.6.33. Helps with debugging crash at export on Apple Silicon
+		setProperty(Ids::panelExportDelayBtwSteps,
+					1); // Added v5.6.33. Helps with debugging crash at export on Apple Silicon
+						// For VST2 & VST3
+		if (fileExtension == ".vst3" || fileExtension == ".vst" ||
+			fileExtension == ".aaxplugin") {				// Updated v5.6.34. AAX added
+			setProperty(Ids::panelReplaceVst3PluginIds, 1); // Added v5.6.32
+		}
+		setProperty(Ids::panelExportCodesign,
+					1); // Added v5.6.33. Helps with debugging crash at export on Apple Silicon
+		setProperty(Ids::panelCertificateMacSelectId, 0); // Added v5.6.32
+		setProperty(Ids::panelCertificateMacId, "");	  // Added v5.6.32
+	}
+	// if OS is WINDOWS
+	// else if ((juce::SystemStats::getOperatingSystemType() & juce::SystemStats::Windows) != 0) { // v5.6.32. Won't
+	// work with WIN10 or will require an addon in Manifest
+	// https://forum.juce.com/t/bug-systemstats-getoperatingsystemname-on-windows-10/21659/3
+	else {
+		// For VST2 & VST3
+		if (fileExtension == ".vst3" || fileExtension == ".dll") {
+			setProperty(Ids::panelReplaceVst3PluginIds, 1); // Added v5.6.32
+		}
+		setProperty(Ids::panelCertificateWinSelectPath, ""); // Added v5.6.32
+		setProperty(Ids::panelCertificateWinPassCode, "");	 // Added v5.6.32
+	}
+	setProperty(Ids::panelPlugType, "Instrument|Synth"); // Added v5.6.32
+
+	// Store the public key string (modulus,exponent) in a property.
+	// This is the key your plugin will use to verify the server's signature.
+	setProperty(Ids::panelExportPublicKey, "");
+
+	// Set the server URL property
+	// This could also be a development server URL that changes for release
+	setProperty(Ids::panelExportServerAuthURL,
+				"https://localhost:8000/auth/authenticate"); // Example local dev server URL
+
+	setProperty(Ids::panelMidiSnapshotAfterLoad, false);
+	setProperty(Ids::panelMidiSnapshotAfterProgramChange, false);
+	setProperty(Ids::panelMidiSnapshotDelay, 10);
+	setProperty(Ids::panelMidiSnapshotShowProgress, false);
+	setProperty(Ids::panelMidiInputDevice, COMBO_NONE_ITEM);
+	setProperty(Ids::panelMidiInputChannelDevice, 1);
+	setProperty(Ids::panelMidiControllerDevice, COMBO_NONE_ITEM);
+	setProperty(Ids::panelMidiControllerChannelDevice, 1);
+	setProperty(Ids::panelMidiOutputDevice, COMBO_NONE_ITEM);
+	setProperty(Ids::panelMidiOutputChannelDevice, 1);
+
+	if (!JUCEApplication::isStandaloneApp()) // Added v5.6.34. Set CtrlrX to receive THE MIDI IN MESSAGES from the HOST
+											 // MIDI IN on ALL Channels.
+	{
+		setProperty(Ids::panelMidiInputFromHost, true);
+		setProperty(Ids::panelMidiInputChannelHost, 0);
+		setProperty(Ids::panelMidiInputFromHostCompare, true);
+		setProperty(Ids::panelMidiOutputToHost, false);
+		setProperty(Ids::panelMidiOutputChannelHost, 1);
+		setProperty(Ids::panelMidiThruH2H, false);
+		setProperty(Ids::panelMidiThruH2HChannelize, false);
+		setProperty(Ids::panelMidiThruH2D, false);
+		setProperty(Ids::panelMidiThruH2DChannelize, false);
+		setProperty(Ids::panelMidiThruD2H, false);
+		setProperty(Ids::panelMidiThruD2HChannelize, false);
+	}
+	setProperty(Ids::panelMidiThruD2D, false);
+	setProperty(Ids::panelMidiThruD2DChannelize, false);
+	setProperty(
+		Ids::panelMidiRealtimeIgnore,
+		false); // Updated v5.6.34. Was (true). Useless and does not make any sense to ignore MIDI IN Messages by
+				// default. Ref: void CtrlrPanelMIDIInputThread::handleMIDIFromDevice (const MidiMessage &message)
+	setProperty(Ids::panelMidiInputThreadPriority, 7);
+	setProperty(Ids::panelMidiProgram, 0);
+	setProperty(Ids::panelMidiBankLsb, 0);
+	setProperty(Ids::panelMidiBankMsb, 0);
+	setProperty(Ids::panelMidiSendProgramChangeOnLoad, false);
+	setProperty(Ids::panelMidiProgramCalloutOnprogramChange, false);
+	setProperty(Ids::panelMidiMatchCacheSize, 32);
+	setProperty(Ids::panelMidiGlobalDelay, 0);
+	setProperty(Ids::panelMidiPauseOut, false);
+	setProperty(Ids::panelMidiPauseIn, false);
+
+	setProperty(Ids::panelOSCEnabled, false);
+	setProperty(Ids::panelOSCPort, -1);
+	setProperty(Ids::panelOSCProtocol, 0);
+
+	setProperty(Ids::luaPanelMidiChannelChanged, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelMidiReceived, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelMidiMultiReceived, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelLoaded, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelBeforeLoad, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelSaved, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelResourcesLoaded, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelProgramChanged, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelGlobalChanged, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelMessageHandler, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelModulatorValueChanged, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelSaveState, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelRestoreState, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelMidiSnapshotPost, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelMidiSnapshotPre, COMBO_ITEM_NONE);
+	setProperty(Ids::luaAudioProcessBlock, COMBO_ITEM_NONE);
+	setProperty(Ids::luaPanelOSCReceived, COMBO_ITEM_NONE);
+
+	setProperty(Ids::panelFilePath, "");
+	setProperty(Ids::panelLastSaveDir, "");
+
+	setProperty(Ids::panelUID, generateRandomUnique());
+	setProperty(Ids::panelInstanceUID, generateRandomUniquePluginId());
+	setProperty(Ids::panelInstanceManufacturerID, generateRandomUniquePluginId());
+	setProperty(Ids::panelModulatorListColumns, COMBO_ITEM_NONE);
+	setProperty(Ids::panelModulatorListCsvDelimiter, ",");
+	setProperty(Ids::panelModulatorListXmlRoot, "ctrlrModulatorList");
+	setProperty(Ids::panelModulatorListXmlModulator, "ctrlrModulator");
+	setProperty(Ids::panelModulatorListSortOption, true);
+	setProperty(Ids::panelGlobalVariables,
+				"-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:"
+				"-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1");
+	setProperty(Ids::panelResources, COMBO_ITEM_NONE);
+	setProperty(Ids::panelPropertyDisplayIDs, false);
+
+	owner.addChangeListener(this);
+	midiMessageCollector.reset(SAMPLERATE);
+	midiInputThread.startThread(juce::Thread::Priority::normal);
+	midiControllerInputThread.startThread(juce::Thread::Priority::normal);
+}
+
+CtrlrPanel::~CtrlrPanel() {
+	DBG("(G) CtrlrPanel DTOR");
+
+	// 1. FORCE STOP THREADS FIRST
+	// Must complete before any panel members or memory structures are invalidated
+	midiInputThread.signalThreadShouldExit();
+	midiInputThread.stopThread(3000);
+
+	midiControllerInputThread.signalThreadShouldExit();
+	midiControllerInputThread.stopThread(3000);
+
+	if (ctrlrPanelEditor != nullptr) {
+		ctrlrPanelEditor.release();
+	}
+
+	// 2. UNHOOK EXTERNAL LISTENERS
+	// Prevent incoming changes/events from triggering callbacks into this panel
+	owner.removeChangeListener(this);
+	panelTree.removeListener(this);
+
+	// 3. DESTROY UI EDITOR FIRST
+	// Synchronously destroys CtrlrPanelEditor, unbinding all UI child controls,
+	// properties views, and notifiers while Modulators are still 100% alive
+	ctrlrPanelEditor.reset();
+
+	// 4. CLEAR MODULATORS
+	// Synchronously runs ~CtrlrModulator and ~CtrlrSlider now
+	ctrlrModulators.clear();
+	DBG("(G) >> modulators cleared OK");
+
+	// 5. CLEAN UP SUBSYSTEMS (LUA MANAGER)
+	if (ctrlrLuaManager != nullptr) {
+		deleteAndZero(ctrlrLuaManager); // Or ctrlrLuaManager.reset() if std::unique_ptr
+	}
+
+	// 6. TREE DETACHMENT
+	// Avoid tree mutations during application shutdown to prevent use-after-free
+	if (!owner.isShuttingDown()) {
+		owner.getManagerTree().removeChild(panelTree, nullptr);
+	}
+
+	// 7. CLEAR MASTER REFERENCE LAST
+	// Keep 'this' valid via WeakReference until all child teardowns complete
+	masterReference.clear();
+}
+
+void CtrlrPanel::setRestoreState(const bool _restoreStateStatus) {
+	const ScopedWriteLock lock(panelLock);
+
+	getUndoManager()->clearUndoHistory();
+	restoreStateStatus = _restoreStateStatus;
+}
+
+void CtrlrPanel::setProgramState(const bool _programState) {
+	const ScopedWriteLock lock(panelLock);
+
+	programState = _programState;
+}
+
+void CtrlrPanel::sendSnapshotOnLoad() {
+	if ((bool)getProperty(Ids::panelMidiSnapshotAfterLoad) == true) {
+		_INF("Snapshot on load selected, sending now");
+		snapshot.sendSnapshot();
+	}
+}
+
+
+void CtrlrPanel::bootstrapPanel(const bool setInitialProgram) {
+	_DBG("CtrlrPanel::bootstrapPanel");
+	if (getRestoreState())
+		return;
+
+	boostrapStateStatus = true;
+	_DBG("[Gate] bootstrap START, isLoading=" + String(isLoading() ? "true" : "false"));
+
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		ctrlrModulators[i]->allModulatorsInitialized();
+	}
+
+	if (setInitialProgram)
+		setProgram(initialProgram);
+
+	if (luaPanelLoadedCbk.get()) {
+		if (luaPanelLoadedCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelLoadedCbk, (uint8)owner.getInstanceMode());
+		}
+	}
+
+	if ((bool)getProperty(Ids::panelMidiSendProgramChangeOnLoad) == true) {
+		sendMidiProgramChange();
+	}
+
+	editModeChanged(getProperty(Ids::uiPanelEditMode));
+
+	sendSnapshotOnLoad();
+
+	// Synchronously dispatch any pending change message in each modulator to prevent Lua Callback functions beeing
+	// called on startup
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		ctrlrModulators[i]->getProcessor().handleUpdateNowIfNeeded();
+	}
+
+	boostrapStateStatus = false;
+	postBootstrapGate = true;
+	const double gateStartMs = juce::Time::getMillisecondCounterHiRes();
+	_DBG("[Gate] bootstrap END, isLoading=" + String(isLoading() ? "true" : "false"));
+
+	juce::MessageManager::callAsync([safe = juce::WeakReference<CtrlrPanel>(this), gateStartMs] {
+		if (safe == nullptr)
+			return;
+
+		_DBG("[Gate] hop 1 reached, +" +
+			 String(juce::Time::getMillisecondCounterHiRes() - gateStartMs, 3) +
+			 " ms, isLoading=" + String(safe->isLoading() ? "true" : "false"));
+
+		juce::MessageManager::callAsync([safe, gateStartMs] {
+			if (safe != nullptr) {
+				safe->postBootstrapGate = false;
+				_DBG("[Gate] hop 2 reached, gate CLOSED, +" +
+					 String(juce::Time::getMillisecondCounterHiRes() - gateStartMs, 3) +
+					 " ms, isLoading=" + String(safe->isLoading() ? "true" : "false"));
+			}
+		});
+	});
+}
+
+CtrlrPanelEditor *CtrlrPanel::getEditor(const bool createNewEditorIfNeeded) {
+	// 1. Never instantiate a new editor if shutting down!
+	if (!createNewEditorIfNeeded) {
+        return ctrlrPanelEditor.get();
+    }
+	
+	if (owner.isShuttingDown()) {
+		return ctrlrPanelEditor.get();
+	}
+
+	if (ctrlrPanelEditor == nullptr) {
+		if (createNewEditorIfNeeded) {
+			// std::make_unique handles memory ownership cleanly
+			ctrlrPanelEditor = std::make_unique<CtrlrPanelEditor>(*this, owner, getPanelWindowTitle());
+
+			getPanelTree().addChild(ctrlrPanelEditor->getPanelEditorTree(), -1, nullptr);
+		}
+	}
+
+	return ctrlrPanelEditor.get();
+}
+
+void CtrlrPanel::setProperty(const Identifier &name, const var &newValue, const bool isUndoable) {
+	if (isUndoable) {
+		panelTree.setProperty(name, newValue, getPanelUndoManager());
+	} else {
+		panelTree.setProperty(name, newValue, nullptr);
+	}
+}
+
+// 1. SIGNATURE CHANGE: Changed return type from juce::String to void, and added the callback parameter.
+void CtrlrPanel::getCodeSigningIdentityFromPopup(std::function<void(juce::String)> completionCallback) {
+	juce::String debugType = "MAC_SIGNING";
+
+	juce::StringArray commandParts;
+	commandParts.add("security");
+	commandParts.add("find-identity");
+	commandParts.add("-v");
+	commandParts.add("-p");
+	commandParts.add("codesigning");
+
+	juce::String command = commandParts.joinIntoString(" ");
+	std::cout << debugType << " - Executing command: " << command << std::endl;
+
+	juce::ChildProcess childProcess;
+	if (childProcess.start(commandParts)) {
+		childProcess.waitForProcessToFinish(-1);
+
+		if (!childProcess.isRunning()) {
+			int exitCode = childProcess.getExitCode();
+			juce::String output = childProcess.readAllProcessOutput();
+
+			std::cout << debugType << " - Command finished. Exit Code: " << exitCode << std::endl;
+			std::cout << debugType << " - Full Combined Output (Stdout + Stderr):\n" << output << std::endl;
+
+			if (exitCode == 0) {
+				// Parsing logic
+				juce::StringArray identities;
+				juce::StringArray lines;
+				lines.addLines(output);
+
+				for (auto &line : lines) {
+					if (line.contains(" \"") && line.contains(" valid identities found") == false) {
+						int startIndex = line.indexOf("\"") + 1;
+						int endIndex = line.lastIndexOf("\"");
+
+						if (startIndex != -1 && endIndex != -1 && startIndex < endIndex) {
+							juce::String identity = line.substring(startIndex, endIndex);
+							identities.add(identity);
+							std::cout << debugType << " - Successfully extracted identity: " << identity << std::endl;
+						}
+					}
+				}
+
+				if (identities.isEmpty()) {
+					std::cout << debugType
+							  << " - WARNING: Parsing completed, but no identities were extracted. Using fallback."
+							  << std::endl;
+					identities.add("Developer ID Application: Ad-HocSigning (No Certificate)");
+				} else {
+					std::cout << debugType << " - Found and parsed " << identities.size()
+							  << " identities. Launching popup." << std::endl;
+				}
+
+				// Populate the PopupMenu item options
+				juce::PopupMenu menu;
+				for (int i = 0; i < identities.size(); ++i) {
+					menu.addItem(i + 1, identities[i]);
+				}
+
+				// 2. MODERN REFACTOR: Pass the menu context out to your cross-version wrapper class
+				// Pass 'this' if CtrlrPanel inherits from juce::Component. Otherwise pass nullptr.
+				PU::showMenuAsyncSafe(menu, nullptr, [identities, debugType, completionCallback](int result) {
+					if (result > 0) {
+						juce::String selected = identities[result - 1];
+						std::cout << debugType << " - Selected Identity: " << selected << std::endl;
+
+						if (completionCallback != nullptr)
+							completionCallback(selected); // Pass selected identity string back out
+					} else {
+						if (completionCallback != nullptr)
+							completionCallback(""); // User canceled the menu selection
+					}
+				});
+
+			} else {
+				juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::WarningIcon, "Error",
+													   "Failed to retrieve code signing identities. Error code: " +
+														   juce::String(exitCode) + "\nCombined Output:\n" + output,
+													   "OK", nullptr, juce::ModalCallbackFunction::create([](int) {}));
+				if (completionCallback != nullptr)
+					completionCallback("");
+			}
+		} else {
+			juce::Result::fail("Error: Code signing identity retrieval process did not finish properly.");
+			if (completionCallback != nullptr)
+				completionCallback("");
+		}
+	} else {
+		juce::Result::fail("Error: Failed to start the code signing identity retrieval process.");
+		if (completionCallback != nullptr)
+			completionCallback("");
+	}
+}
+
+void CtrlrPanel::valueTreePropertyChanged(ValueTree &treeWhosePropertyHasChanged, const Identifier &property) {
+	// Resolve a callback property to its method; an empty property CLEARS the callback
+	// (previously an emptied property left the old method wired up).
+	auto resolveLuaCallback = [this](WeakReference<CtrlrLuaMethod> &callback, const Identifier &prop) {
+		const String methodName = getProperty(prop).toString();
+		callback = methodName.isNotEmpty() ? getCtrlrLuaManager().getMethodManager().getMethod(methodName) : nullptr;
+	};
+	if (treeWhosePropertyHasChanged.hasType(Ids::modulator)) {
+		return;
+	} else if (property == Ids::ctrlrLuaExternalEditorEnabled)
+    {
+        bool isEnabled = (bool)getProperty(Ids::ctrlrLuaExternalEditorEnabled);
+
+        if (ctrlrLuaManager != nullptr) {
+            ctrlrLuaManager->setExternalScriptSyncEnabled(isEnabled);
+        }
+
+	} else if (property == Ids::panelMidiInputDevice) {
+		if (getProperty(property).toString().isEmpty() || getProperty(property).toString() == COMBO_ITEM_NONE) {
+			midiInputThread.closeInputDevice();
+		} else {
+			const bool result = midiInputThread.openInputDevice(getProperty(property));
+			if (getEditor()) {
+				notify(STR(result ? "Open OK: [" : "Open FAILED: [") + getProperty(property).toString() + "]", nullptr,
+					   result ? NotifySuccess : NotifyFailure);
+			}
+		}
+	} else if (property == Ids::panelMidiOutputDevice) {
+		if (getProperty(property).toString().isEmpty() || getProperty(property).toString() == COMBO_ITEM_NONE) {
+			if (outputDevicePtr != nullptr) {
+				outputDevicePtr->closeDevice();
+			}
+		} else {
+			outputDevicePtr =
+				owner.getCtrlrMidiDeviceManager().getDeviceByName(getProperty(property).toString(), outputDevice, true);
+
+			if (getEditor()) {
+				notify(STR(outputDevicePtr ? "Open OK: [" : "Open FAILED: [") + getProperty(property).toString() + "]",
+					   nullptr, outputDevicePtr ? NotifySuccess : NotifyFailure);
+			}
+		}
+	} else if (property == Ids::panelMidiControllerDevice) {
+		if (getProperty(property).toString().isEmpty() || getProperty(property).toString() == COMBO_ITEM_NONE) {
+			midiControllerInputThread.closeInputDevice();
+		} else {
+			midiControllerInputThread.openInputDevice(getProperty(property));
+		}
+	} else if (property == Ids::panelMidiInputChannelDevice || property == Ids::panelMidiOutputChannelDevice ||
+			   property == Ids::panelMidiInputChannelHost || property == Ids::panelMidiOutputChannelHost ||
+			   property == Ids::panelMidiControllerChannelDevice) {
+		setMidiChannel(midiChannelFromString(property), (uint8)(int)getProperty(property));
+	} else if (property == Ids::panelMidiInputFromHost || property == Ids::panelMidiInputFromHostCompare ||
+			   property == Ids::panelMidiOutputToHost || property == Ids::panelMidiThruH2H ||
+			   property == Ids::panelMidiThruH2HChannelize || property == Ids::panelMidiThruH2D ||
+			   property == Ids::panelMidiThruH2DChannelize || property == Ids::panelMidiThruD2D ||
+			   property == Ids::panelMidiThruD2DChannelize || property == Ids::panelMidiThruD2H ||
+			   property == Ids::panelMidiThruD2HChannelize || property == Ids::panelMidiRealtimeIgnore) {
+		setMidiOptionBool(midiOptionFromString(property), getProperty(property));
+	} else if (property == Ids::name) {
+		if (ctrlrPanelEditor) {
+			ctrlrPanelEditor->setProperty(Ids::name, getProperty(Ids::name));
+		}
+	} else if (property == Ids::panelVersionMajor || property == Ids::panelVersionMinor) {
+		juce::var currentValue = getProperty(property);
+		int intValueToStore = static_cast<int>(currentValue);
+
+		if (currentValue.isDouble() || (currentValue.isInt() && static_cast<int>(currentValue) != intValueToStore)) {
+			setProperty(property, juce::var(intValueToStore), false);
+		}
+	} else if (property == Ids::panelCertificateMacSelectId) {
+		if (getRestoreState())
+			return;
+
+		if ((bool)getProperty(property) == true) {
+			setProperty(property, false);
+
+			getCodeSigningIdentityFromPopup([this](juce::String selectedIdentity) {
+				if (selectedIdentity.isNotEmpty()) {
+					setProperty(Ids::panelCertificateMacId, selectedIdentity);
+				}
+			});
+		}
+	} else if (property == Ids::panelCertificateMacId) {
+		if (ctrlrPanelEditor) {
+			ctrlrPanelEditor->getPropertiesPanel()->refreshAll();
+			if (ctrlrPanelEditor->getSelection()) {
+				ctrlrPanelEditor->getSelection()->sendChangeMessage();
+			}
+		}
+	} else if (property == Ids::luaPanelMidiReceived) {
+		resolveLuaCallback(luaPanelMidiReceivedCbk, property);
+	} else if (property == Ids::luaPanelMidiMultiReceived) {
+		resolveLuaCallback(luaPanelMidiMultiReceivedCbk, property);
+	} else if (property == Ids::luaPanelMidiChannelChanged) {
+		resolveLuaCallback(luaPanelMidiChannelChangedCbk, property);
+	} else if (property == Ids::luaPanelMessageHandler) {
+		resolveLuaCallback(luaPanelMessageHandlerCbk, property);
+	} else if (property == Ids::luaPanelSaved) {
+		resolveLuaCallback(luaPanelSavedCbk, property);
+	} else if (property == Ids::luaPanelLoaded) {
+		resolveLuaCallback(luaPanelLoadedCbk, property);
+	} else if (property == Ids::luaPanelGlobalChanged) {
+		resolveLuaCallback(luaPanelGlobalChangedCbk, property);
+	} else if (property == Ids::luaPanelBeforeLoad) {
+		resolveLuaCallback(luaPanelBeforeLoadCbk, property);
+	} else if (property == Ids::luaPanelProgramChanged) {
+		resolveLuaCallback(luaPanelProgramChangedCbk, property);
+	} else if (property == Ids::luaPanelResourcesLoaded) {
+		resolveLuaCallback(luaPanelResourcesLoadedCbk, property);
+	} else if (property == Ids::luaPanelModulatorValueChanged) {
+		resolveLuaCallback(luaPanelModulatorValueChangedCbk, property);
+	} else if (property == Ids::luaPanelSaveState) {
+		resolveLuaCallback(luaPanelSaveStateCbk, property);
+	} else if (property == Ids::luaPanelRestoreState) {
+		resolveLuaCallback(luaPanelRestoreStateCbk, property);
+	} else if (property == Ids::luaPanelMidiSnapshotPost) {
+		// assumes setPostLuaCallback() takes a CtrlrLuaMethod* (it is passed getMethod()'s result today)
+		const String name = getProperty(property).toString();
+		snapshot.setPostLuaCallback(name.isNotEmpty() ? getCtrlrLuaManager().getMethodManager().getMethod(name)
+													  : nullptr);
+	} else if (property == Ids::luaPanelMidiSnapshotPre) {
+		const String name = getProperty(property).toString();
+		snapshot.setPreLuaCallback(name.isNotEmpty() ? getCtrlrLuaManager().getMethodManager().getMethod(name)
+													 : nullptr);
+	} else if (property == Ids::panelGlobalVariables) {
+		globalVariables = globalsFromString(getProperty(property));
+	} else if (property == Ids::panelResources) {
+		panelResources = globalsFromString(getProperty(property));
+	} else if (property == Ids::panelMidiSnapshotDelay) {
+		snapshot.setDelay(getProperty(property));
+	} else if (property == Ids::panelMidiProgram || property == Ids::panelMidiBankLsb ||
+			   property == Ids::panelMidiBankMsb) {
+		sendMidiProgramChange();
+	} else if (property == Ids::panelUID) {
+		resourceManager.panelUIDChanged();
+	} else if (property == Ids::panelMidiGlobalDelay) {
+		globalMidiDelay = getProperty(property);
+	} else if (property == Ids::panelPropertyDisplayIDs) {
+		if (ctrlrPanelEditor) {
+			ctrlrPanelEditor->getPropertiesPanel()->refreshAll();
+			if (ctrlrPanelEditor->getSelection()) {
+				ctrlrPanelEditor->getSelection()->sendChangeMessage();
+			}
+		}
+	}
+}
+void CtrlrPanel::removeModulator(CtrlrModulator *modulatorToDelete) {
+	if (ctrlrModulators.contains(modulatorToDelete)) {
+		owner.removeModulator(modulatorToDelete);
+		radioGrouppedComponent.removeAllInstancesOf(modulatorToDelete->getComponent());
+
+		listeners.call(&CtrlrPanel::Listener::modulatorRemoved, modulatorToDelete);
+
+		panelTree.removeChild(modulatorToDelete->getModulatorTree(), 0);
+		ctrlrModulators.removeObject(modulatorToDelete);
+	}
+}
+
+void CtrlrPanel::addModulator(CtrlrModulator *modulatorToAdd) {
+	/* add it to the panels array */
+	ctrlrModulators.add(modulatorToAdd);
+
+	/* add it to the hash table, that uses the names to access the pointers,
+		it should be faster then normal linear access */
+	hashName(modulatorToAdd);
+
+	/* add it to the Manager array, this is needed for the VST manager to work */
+	owner.addModulator(modulatorToAdd);
+
+	/* add the modulator tree to our tree */
+	panelTree.addChild(modulatorToAdd->getModulatorTree(), -1, nullptr);
+
+	/* call listeners to tell them */
+	listeners.call(&CtrlrPanel::Listener::modulatorAdded, modulatorToAdd);
+}
+
+CtrlrModulator *CtrlrPanel::createNewModulator(const Identifier &guiType) {
+	CtrlrModulator *newModulator = nullptr;
+
+	if (CtrlrComponentTypeManager::isStatic(guiType)) {
+		newModulator = new CtrlrModulator(*this);
+	} else {
+		newModulator = new CtrlrModulator(*this, owner.getNextVstIndex());
+	}
+
+	newModulator->setProperty(Ids::name, getUniqueModulatorName("modulator-1"));
+	addModulator(newModulator);
+
+	return (newModulator);
+}
+
+bool CtrlrPanel::containsCtrlrComponent(const CtrlrComponent *const componentToLookFor) const {
+	if (componentToLookFor == 0)
+		return (false);
+
+	return (ctrlrModulators.contains(&componentToLookFor->getOwner()));
+}
+
+const Array<CtrlrModulator *> CtrlrPanel::getModulatorsByMidiType(const CtrlrMidiMessageType typeToFilter) {
+	Array<CtrlrModulator *> ret;
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		if (ctrlrModulators[i]->getMidiMessagePtr()) {
+			if (ctrlrModulators[i]->getMidiMessage().getMidiMessageType() == typeToFilter) {
+				ret.add(ctrlrModulators[i]);
+			}
+		}
+	}
+
+	return (ret);
+}
+
+const Array<CtrlrModulator *> CtrlrPanel::getModulatorsByUIType(const Identifier &typeToFilter) {
+	Array<CtrlrModulator *> ret;
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		if (ctrlrModulators[i]->getComponentType() == typeToFilter) {
+			ret.add(ctrlrModulators[i]);
+		}
+	}
+
+	return (ret);
+}
+
+const Array<CtrlrModulator *> CtrlrPanel::getModulatorsWithProperty(const Identifier &propertyName,
+																	const var &propertyValue) {
+	Array<CtrlrModulator *> ret;
+
+	// Always convert to string and trim for consistent comparison
+	String searchValue = propertyValue.toString().trim();
+
+	// Handle edge case: if the var is numeric 0, toString() works fine
+	// but let's be explicit about it
+	if (propertyValue.isInt() || propertyValue.isInt64() || propertyValue.isDouble()) {
+		searchValue = String((int)propertyValue);
+	}
+
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		String modValue = ctrlrModulators[i]->getProperty(propertyName).toString().trim();
+
+		if (modValue == searchValue) {
+			ret.addIfNotAlreadyThere(ctrlrModulators[i]);
+		}
+
+		if (ctrlrModulators[i]->getComponent()) {
+			String compValue = ctrlrModulators[i]->getComponent()->getProperty(propertyName).toString().trim();
+
+			if (compValue == searchValue) {
+				ret.addIfNotAlreadyThere(ctrlrModulators[i]);
+			}
+		}
+	}
+	return ret;
+}
+
+const String CtrlrPanel::getUniqueModulatorName(const String &proposedName) {
+	if (getRestoreState())
+		return (proposedName);
+
+	uint32 marker = 0;
+	String basename = "";
+	String nameToLookFor;
+
+	if (proposedName.fromLastOccurrenceOf("-", false, true) != "") {
+		basename = proposedName.upToLastOccurrenceOf("-", false, true);
+		marker = proposedName.fromLastOccurrenceOf("-", false, true).getIntValue();
+		nameToLookFor = proposedName;
+	} else {
+		basename = proposedName;
+		marker = ctrlrModulators.size();
+		nameToLookFor = basename + "-" + String(marker);
+	}
+
+	while (getModulator(nameToLookFor, true)) {
+		nameToLookFor = basename + "-" + String(++marker);
+	}
+
+	return (nameToLookFor);
+}
+
+void CtrlrPanel::changeListenerCallback(ChangeBroadcaster *source) {
+	if (source == ctrlrPanelUndoManager.get()) {
+		Array<const UndoableAction *> actions;
+		ctrlrPanelUndoManager->getActionsInCurrentTransaction(actions);
+	} else {
+		if (ctrlrPanelEditor) {
+			ctrlrPanelEditor->getPropertiesPanel()->refreshAll();
+			if (ctrlrPanelEditor->getSelection()) {
+				ctrlrPanelEditor->getSelection()->sendChangeMessage();
+			}
+		}
+	}
+}
+
+void CtrlrPanel::setMidiChannelToAllModulators(const int newChannel) {
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		if (ctrlrModulators[i]->getMidiMessagePtr()) {
+			ctrlrModulators[i]->getMidiMessage().setChannel(newChannel);
+		}
+	}
+}
+
+void CtrlrPanel::setInitialProgramValue(const String &modulatorName, const var &value) {
+	ValueTree v(Ids::value);
+	v.setProperty(Ids::name, modulatorName, 0);
+	v.setProperty(Ids::value, value, 0);
+	initialProgram.addChild(v, -1, nullptr);
+}
+
+ValueTree CtrlrPanel::getProgram(ValueTree treeToWriteTo) {
+	if (treeToWriteTo.isValid()) {
+		treeToWriteTo.removeAllChildren(0);
+	}
+
+	ValueTree program(Ids::panelState);
+	program.setProperty(Ids::panelVersionMajor, getProperty(Ids::panelVersionMajor), 0);
+	program.setProperty(Ids::panelVersionMinor, getProperty(Ids::panelVersionMinor), 0);
+	program.setProperty(Ids::time, Time::getCurrentTime().currentTimeMillis(), 0);
+
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		CtrlrModulator *m = ctrlrModulators[i];
+
+		ValueTree v(Ids::value);
+
+		if ((bool)m->getProperty(Ids::modulatorIsStatic) == true)
+			continue;
+
+		v.setProperty(Ids::name, m->getName(), 0);
+		v.setProperty(Ids::value, m->getModulatorValue(), 0);
+
+		if (treeToWriteTo.isValid()) {
+			treeToWriteTo.addChild(v, -1, 0);
+		} else {
+			program.addChild(v, -1, 0);
+		}
+	}
+
+	return (program);
+}
+
+ValueTree CtrlrPanel::getCustomData() {
+	ValueTree customData(Ids::panelCustomData);
+
+	if (luaPanelSaveStateCbk && !luaPanelSaveStateCbk.wasObjectDeleted()) {
+		if (luaPanelSaveStateCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelSaveStateCbk, customData);
+		}
+	}
+
+	return (customData);
+}
+
+void CtrlrPanel::generateCustomData() {
+	if (panelTree.getChildWithName(Ids::panelCustomData).isValid()) {
+		panelTree.removeChild(panelTree.getChildWithName(Ids::panelCustomData), nullptr);
+	}
+
+	panelTree.addChild(getCustomData(), -1, nullptr);
+}
+
+void CtrlrPanel::setCustomData(const ValueTree &customData) {
+	if (luaPanelRestoreStateCbk && !luaPanelRestoreStateCbk.wasObjectDeleted()) {
+		if (luaPanelRestoreStateCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelRestoreStateCbk, customData);
+		}
+	}
+}
+
+void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow) {
+	_DBG("CtrlrPanel::setProgram");
+
+	ValueTree program;
+
+	if (programTree.hasType(Ids::panelState)) {
+		program = programTree;
+	} else {
+		if (programTree.getChildWithName(Ids::panelState).isValid()) {
+			program = programTree.getChildWithName(Ids::panelState);
+		}
+	}
+
+	setProgramState(true);
+
+	if (program.isValid()) {
+		for (int i = 0; i < program.getNumChildren(); i++) {
+			if (program.getChild(i).hasType(Ids::value)) {
+				CtrlrModulator *m = getModulator(program.getChild(i).getProperty(Ids::name));
+				if (m) {
+					m->setRestoreState(true);
+					m->getProcessor().setValueGeneric(CtrlrModulatorValue(program.getChild(i).getProperty(Ids::value),
+																		  CtrlrModulatorValue::changedByProgram),
+													  true);
+					if (m->getComponent()) {
+						m->getComponent()->setComponentValue(program.getChild(i).getProperty(Ids::value), false);
+					}
+					m->getProcessor().handleUpdateNowIfNeeded();
+					m->setRestoreState(false);
+				}
+			}
+
+			if (program.getChild(i).hasType(Ids::panelCustomData)) {
+				setCustomData(program.getChild(i));
+			}
+		}
+
+		if ((bool)getProperty(Ids::panelMidiSnapshotAfterProgramChange) == true) {
+			snapshot.sendSnapshot();
+		}
+
+		// --- DEFENSIVE CRASH FIX ---
+		// Ensure the Lua manager is fully alive and ready before evaluating callbacks
+		if (getCtrlrLuaManager().getLuaState() != nullptr) {
+			if (luaPanelProgramChangedCbk && !luaPanelProgramChangedCbk.wasObjectDeleted()) {
+				if (luaPanelProgramChangedCbk->isValid()) {
+					getCtrlrLuaManager().getMethodManager().call(luaPanelProgramChangedCbk);
+				}
+			}
+		}
+	}
+
+	setProgramState(false);
+
+	if (sendSnapshotNow) {
+		sendSnapshot();
+	}
+}
+
+int CtrlrPanel::getCurrentProgramNumber() {
+	return (3);
+}
+
+int CtrlrPanel::getCurrentBankNumber() {
+	return (4);
+}
+
+int CtrlrPanel::getPanelIndex() {
+	return (getProperty(Ids::panelIndex));
+}
+
+bool CtrlrPanel::getEditMode() {
+	return editMode;
+}
+
+void CtrlrPanel::editModeChanged(const bool isInEditMode) {
+	midiInputThread.panelEditModeChanged(isInEditMode);
+	midiControllerInputThread.panelEditModeChanged(isInEditMode);
+	editMode = isInEditMode;
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		if (ctrlrModulators[i]->getComponent()) {
+			ctrlrModulators[i]->getComponent()->panelEditModeChanged(isInEditMode);
+		}
+	}
+}
+
+const String CtrlrPanel::getVersionString(const bool includeVersionName, const bool includeTime,
+										  const String versionSeparator) {
+	String r;
+	String sep;
+
+	if (versionSeparator == "")
+		sep = owner.getProperty(Ids::ctrlrVersionSeparator).toString();
+	else
+		sep = versionSeparator;
+
+	int versionMajor = getProperty(Ids::panelVersionMajor);
+	int versionMinor = getProperty(Ids::panelVersionMinor);
+
+	r << versionMajor << sep << versionMinor;
+
+	if (includeVersionName && getProperty(Ids::panelVersionName).toString() != "") {
+		r << sep + getProperty(Ids::panelVersionName).toString();
+	}
+
+	if (includeTime) {
+		Time t = Time::getCurrentTime();
+
+		r << sep + t.formatted("%Y-%m-%d_%H-%M");
+	}
+
+	return (r);
+}
+
+int CtrlrPanel::cleanBogusProperties() {
+	return (cleanBogusPropertiesFromChild(panelTree));
+}
+
+int CtrlrPanel::cleanBogusPropertiesFromChild(ValueTree &treeToClean) {
+	int removedProperties = 0;
+
+	for (int j = 0; j < treeToClean.getNumProperties(); j++) {
+		/*if (Ids::ctrlrIdContainer->getVid (treeToClean.getPropertyName(j)) < 0)
+		{
+			removedProperties++;
+			treeToClean.removeProperty(treeToClean.getPropertyName(j), 0);
+		}
+		*/
+	}
+
+	if (treeToClean.getNumChildren() > 0) {
+		for (int i = 0; i < treeToClean.getNumChildren(); i++) {
+			ValueTree child = treeToClean.getChild(i);
+			const int r = cleanBogusPropertiesFromChild(child);
+			removedProperties = removedProperties + r;
+		}
+	}
+
+	return (removedProperties);
+}
+
+void CtrlrPanel::sync() {}
+
+/** @brief Get the canvas for this panel
+
+*/
+CtrlrPanelCanvas *CtrlrPanel::getCanvas() {
+	if (getEditor()) {
+		return (getEditor()->getCanvas());
+	}
+
+	return (0);
+}
+
+CtrlrPanelWindowManager &CtrlrPanel::getWindowManager() {
+	return (panelWindowManager);
+}
+
+void CtrlrPanel::panelReceivedMidi(const MidiBuffer &buffer, const CtrlrMIDIDeviceType source) {
+	MidiBuffer::Iterator i(buffer);
+	MidiMessage m;
+	int samplePosition;
+
+	while (i.getNextEvent(m, samplePosition)) {
+		midiMessageCollector.addMessageToQueue(m);
+	}
+
+	triggerAsyncUpdate();
+}
+
+void CtrlrPanel::handleAsyncUpdate() {
+	/* let's check any pending multi midi messages
+	   in the queue */
+	for (int i = 0; i < multiMidiQueue.size(); i++) {
+		if (luaPanelMidiMultiReceivedCbk)
+			getCtrlrLuaManager().getMethodManager().call(luaPanelMidiMultiReceivedCbk, multiMidiQueue[i]);
+
+		multiMidiQueue.remove(i);
+	}
+
+	MidiBuffer buffer;
+
+	midiMessageCollector.removeNextBlockOfMessages(buffer, SAMPLERATE * 512);
+
+	/* We mute here, so we don't have to lock the value tree in the MIDI thread
+		we need to empty the queue so it doesn't grow */
+	if (isMidiInPaused()) {
+		return;
+	}
+
+	MidiBuffer::Iterator i(buffer);
+	int time;
+	MidiMessage m;
+	bool luaValid = false;
+
+	if (luaPanelMidiReceivedCbk)
+		luaValid = luaPanelMidiReceivedCbk->isValid();
+
+	while (i.getNextEvent(m, time)) {
+		if (luaValid)
+			getCtrlrLuaManager().getMethodManager().call(luaPanelMidiReceivedCbk, CtrlrMidiMessage(m));
+
+		listeners.call(&CtrlrPanel::Listener::midiReceived, m, inputDevice);
+	}
+}
+
+bool CtrlrPanel::getMidiOptionBool(const CtrlrPanelMidiOption optionToCheck) {
+	const uint32 opt = midiOptions.get();
+
+	return ((opt & optionToCheck) != 0);
+}
+
+void CtrlrPanel::setMidiOptionBool(const CtrlrPanelMidiOption optionToSet, const bool isSet) {
+	if (isSet) {
+		uint32 opt = midiOptions.get();
+		opt |= optionToSet;
+		midiOptions.set(opt);
+	} else {
+		uint32 opt = midiOptions.get();
+		opt &= ~optionToSet;
+		midiOptions.set(opt);
+	}
+	BigInteger bi(midiOptions.get());
+
+	processor.midiOptionChanged(optionToSet);
+	midiInputThread.midiOptionChanged(optionToSet);
+	midiControllerInputThread.midiOptionChanged(optionToSet);
+}
+
+uint8 CtrlrPanel::getMidiChannel(const CtrlrPanelMidiChannel channelToGet) {
+	switch (channelToGet) {
+	case panelMidiInputChannelDevice:
+		return (deviceInputChannel.get());
+
+	case panelMidiOutputChannelDevice:
+		return (deviceOutputChannel.get());
+
+	case panelMidiInputChannelHost:
+		return (hostInputChannel.get());
+
+	case panelMidiOutputChannelHost:
+		return (hostOutputChannel.get());
+
+	case panelMidiControllerChannel:
+		return (controllerInputChannel.get());
+	}
+	return (0);
+}
+
+void CtrlrPanel::setMidiChannel(const CtrlrPanelMidiChannel optionToSet, const uint8 value) {
+	switch (optionToSet) {
+	case panelMidiInputChannelDevice:
+		deviceInputChannel.set(value);
+		break;
+
+	case panelMidiOutputChannelDevice:
+		deviceOutputChannel.set(value);
+		setMidiChannelToAllModulators(jlimit<uint8>(1, 16, value));
+		break;
+
+	case panelMidiInputChannelHost:
+		hostInputChannel.set(value);
+		break;
+
+	case panelMidiOutputChannelHost:
+		hostOutputChannel.set(value);
+		break;
+
+	case panelMidiControllerChannel:
+		controllerInputChannel.set(value);
+		break;
+	}
+
+	processor.midiChannelChaned(optionToSet);
+	midiInputThread.midiChannelChaned(optionToSet);
+	midiControllerInputThread.midiChannelChaned(optionToSet);
+
+	if (luaPanelMidiChannelChangedCbk && !luaPanelMidiChannelChangedCbk.wasObjectDeleted()) {
+		if (luaPanelMidiChannelChangedCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelMidiChannelChangedCbk, (int)optionToSet, (int)value);
+		}
+	}
+}
+
+CtrlrPanelMidiChannel CtrlrPanel::midiChannelFromString(const Identifier &i) {
+	if (Ids::panelMidiInputChannelDevice == i) {
+		return (panelMidiInputChannelDevice);
+	} else if (Ids::panelMidiOutputChannelDevice == i) {
+		return (panelMidiOutputChannelDevice);
+	} else if (Ids::panelMidiInputChannelHost == i) {
+		return (panelMidiInputChannelHost);
+	} else if (Ids::panelMidiOutputChannelHost == i) {
+		return (panelMidiOutputChannelHost);
+	} else if (Ids::panelMidiControllerChannelDevice == i) {
+		return (panelMidiControllerChannel);
+	}
+	return (panelMidiInputChannelDevice);
+}
+
+CtrlrPanelMidiOption CtrlrPanel::midiOptionFromString(const Identifier &i) {
+	if (Ids::panelMidiInputFromHost == i) {
+		return (panelMidiInputFromHost);
+	} else if (Ids::panelMidiInputFromHostCompare == i) {
+		return (panelMidiInputFromHostCompare);
+	} else if (Ids::panelMidiOutputToHost == i) {
+		return (panelMidiOutputToHost);
+	} else if (Ids::panelMidiThruH2H == i) {
+		return (panelMidiThruH2H);
+	} else if (Ids::panelMidiThruH2HChannelize == i) {
+		return (panelMidiThruH2HChannelize);
+	} else if (Ids::panelMidiThruH2D == i) {
+		return (panelMidiThruH2D);
+	} else if (Ids::panelMidiThruH2DChannelize == i) {
+		return (panelMidiThruH2DChannelize);
+	} else if (Ids::panelMidiThruD2D == i) {
+		return (panelMidiThruD2D);
+	} else if (Ids::panelMidiThruD2DChannelize == i) {
+		return (panelMidiThruD2DChannelize);
+	} else if (Ids::panelMidiThruD2H == i) {
+		return (panelMidiThruD2H);
+	} else if (Ids::panelMidiThruD2HChannelize == i) {
+		return (panelMidiThruD2HChannelize);
+	} else if (Ids::panelMidiRealtimeIgnore == i) {
+		return (panelMidiRealtimeIgnore);
+	}
+	return (panelMidiInputFromHost);
+}
+
+void CtrlrPanel::modulatorValueChanged(CtrlrModulator *m) {
+	if (m->getComponent()) {
+		m->getComponent()->setComponentValue(m->getProperty(Ids::modulatorValue), false);
+	}
+
+	if (luaPanelModulatorValueChangedCbk && !luaPanelModulatorValueChangedCbk.wasObjectDeleted()) {
+		if (luaPanelModulatorValueChangedCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelModulatorValueChangedCbk, m, m->getValueNonMapped());
+		}
+	}
+
+	listeners.call(&CtrlrPanel::Listener::modulatorChanged, m);
+}
+
+/** Radio group stuff
+
+*/
+void CtrlrPanel::setRadioGroupId(CtrlrComponent *componentMember, const int groupId) {
+	if (groupId == 0) {
+		radioGrouppedComponent.removeAllInstancesOf(componentMember);
+	} else {
+		radioGrouppedComponent.addIfNotAlreadyThere(componentMember);
+	}
+}
+
+bool CtrlrPanel::componentIsInRadioGroup(CtrlrComponent *component) {
+	return (radioGrouppedComponent.contains(component));
+}
+
+bool CtrlrPanel::checkRadioGroup(CtrlrComponent *c, const bool componentToggleState) {
+	if (c->isToggleButton()) {
+		const int groupId = c->getProperty(Ids::componentRadioGroupId);
+		if (groupId > 0) {
+			Array<ComponentReference> componentsToRemove;
+
+			for (int i = 0; i < radioGrouppedComponent.size(); i++) {
+				if (radioGrouppedComponent[i].wasObjectDeleted()) {
+					componentsToRemove.addIfNotAlreadyThere(radioGrouppedComponent[i]);
+				} else {
+					if ((int)radioGrouppedComponent[i]->getProperty(Ids::componentRadioGroupId) == groupId &&
+						radioGrouppedComponent[i]->getToggleState() == componentToggleState &&
+						radioGrouppedComponent[i].get() != c && componentToggleState == true) {
+						/* need to change that state, only one in the group can have this state */
+						radioGrouppedComponent[i]->setToggleState(false, false);
+						radioGrouppedComponent[i]->getOwner().setProperty(Ids::modulatorValue, false);
+					} else if (componentToggleState == false && radioGrouppedComponent[i].get() == c) {
+						c->setToggleState(true, false);
+					}
+				}
+			}
+		}
+	}
+
+	return (true);
+}
+
+void CtrlrPanel::sendSnapshot() {
+	snapshot.sendSnapshot();
+}
+
+void CtrlrPanel::loadSnapshotFromFile() {
+	snapshot.loadSnapshotFromFile();
+}
+
+void CtrlrPanel::saveSnapshotToFile() {
+	snapshot.saveSnapshotToFile();
+}
+
+bool CtrlrPanel::getRestoreState() {
+	const ScopedReadLock lock(panelLock);
+	return (restoreStateStatus);
+}
+
+bool CtrlrPanel::getProgramState() {
+	const ScopedReadLock lock(panelLock);
+	return (programState);
+}
+
+bool CtrlrPanel::getBootstrapState() {
+	const ScopedReadLock lock(panelLock);
+	return (boostrapStateStatus);
+}
+
+/** MIDI Stuff */
+
+void CtrlrPanel::queueMessageForHostOutput(const CtrlrMidiMessage &m) {
+	if (isMidiInPaused())
+		return;
+
+	if (getMidiOptionBool(panelMidiOutputToHost)) {
+		owner.getProcessorOwner()->addMidiToOutputQueue(m);
+	}
+}
+
+void CtrlrPanel::queueMessageForHostOutput(const MidiMessage &m) {
+	if (isMidiInPaused())
+		return;
+
+	if (getMidiOptionBool(panelMidiOutputToHost)) {
+		owner.getProcessorOwner()->addMidiToOutputQueue(m);
+	}
+}
+
+void CtrlrPanel::queueMessagesForHostOutput(const MidiBuffer &messages) {
+	if (isMidiInPaused())
+		return;
+
+	if (getMidiOptionBool(panelMidiOutputToHost)) {
+		owner.getProcessorOwner()->addMidiToOutputQueue(messages);
+	}
+}
+
+void CtrlrPanel::sendMidi(const MidiBuffer &messages, double millisecondCounterToStartAt) {
+	if (isMidiOutPaused())
+		return;
+
+	if (outputDevicePtr) {
+		outputDevicePtr->sendMidiBuffer(messages, globalMidiDelay + millisecondCounterToStartAt);
+	}
+
+	queueMessagesForHostOutput(messages);
+}
+
+void CtrlrPanel::sendMidi(const MidiMessage &message, double millisecondCounterToStartAt) {
+	if (isMidiOutPaused())
+		return;
+
+	if (outputDevicePtr) {
+		outputDevicePtr->sendMidiMessage(message, globalMidiDelay + millisecondCounterToStartAt);
+	}
+
+	if (millisecondCounterToStartAt >= 0)
+		queueMessageForHostOutput(MidiMessage(message, millisecondCounterToStartAt));
+	else
+		queueMessageForHostOutput(message);
+}
+
+void CtrlrPanel::sendMidi(CtrlrMidiMessage &m, double millisecondCounterToStartAt) {
+	if (isMidiOutPaused())
+		return;
+
+	if (!outputDevicePtr)
+		return;
+
+	const double sendTime = globalMidiDelay + millisecondCounterToStartAt;
+	const bool latchEnabled = (bool)m.getProperty(Ids::midiMessageLatchAndStream);
+
+	if (m.getMidiMessageType() == Multi && latchEnabled) {
+		const int incomingNumber = m.getNumber();
+		const String incomingFormula = m.getProperty(Ids::midiMessageMultiList).toString();
+
+		// Reset latch when parameter number OR formula type changes
+		if (incomingNumber != nrpnLatchedNumber || incomingFormula != nrpnLatchedFormula) {
+			_DBG("NRPN latch: reset - number=" + String(incomingNumber) + " formula=" + incomingFormula);
+			nrpnHeaderLatched = false;
+			nrpnLatchedNumber = incomingNumber;
+			nrpnLatchedFormula = incomingFormula;
+		}
+
+		auto &messages = m.getMidiMessageArray();
+		_DBG("NRPN latch: arraySize=" + String(messages.size()) + " latched=" + String((int)nrpnHeaderLatched) +
+			 " number=" + String(incomingNumber));
+
+		MidiBuffer filtered;
+		int sample = 0;
+
+		for (int i = 0; i < messages.size(); i++) {
+			const MidiMessage &msg = messages.getReference(i).m;
+			const int cc = msg.getControllerNumber();
+
+			const bool isHeader = msg.isController() && (cc == 99 || cc == 98		 // NRPN MSB/LSB
+														 || cc == 101 || cc == 100); // RPN MSB/LSB
+
+			if (isHeader && nrpnHeaderLatched) {
+				_DBG("NRPN latch: skipping header CC" + String(cc));
+				continue;
+			}
+
+			filtered.addEvent(msg, sample++);
+		}
+
+		nrpnHeaderLatched = true;
+		outputDevicePtr->sendMidiBuffer(filtered, sendTime);
+		queueMessagesForHostOutput(filtered);
+	} else {
+		outputDevicePtr->sendMidiBuffer(m.getMidiBuffer(), sendTime);
+		queueMessageForHostOutput(m);
+	}
+}
+
+bool CtrlrPanel::isMidiOutPaused() {
+	return (getProperty(Ids::panelMidiPauseOut));
+}
+
+bool CtrlrPanel::isMidiInPaused() {
+	return (getProperty(Ids::panelMidiPauseIn));
+}
+
+void CtrlrPanel::luaSavePanel(const CtrlrPanelFileType fileType, const File &file) {
+	if (luaPanelSavedCbk && !luaPanelSavedCbk.wasObjectDeleted()) {
+		if (luaPanelSavedCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelSavedCbk, (int)fileType, file);
+		}
+	}
+
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		ctrlrModulators[i]->getProcessor().handleUpdateNowIfNeeded();
+	}
+}
+
+void CtrlrPanel::setLuaDebug(const bool _debug) {
+	if (ctrlrLuaManager) {
+		ctrlrLuaManager->getMethodManager().setDebug(_debug);
+	}
+}
+
+void CtrlrPanel::sendMidiProgramChange() {
+	if (getRestoreState())
+		return;
+
+	const int midiCh = (int)getProperty(Ids::panelMidiOutputChannelDevice, 1);
+	const int program = (int)getProperty(Ids::panelMidiProgram);
+	const int bankLsb = (int)getProperty(Ids::panelMidiBankLsb);
+	const int bankMsb = (int)getProperty(Ids::panelMidiBankMsb);
+
+	sendMidi(MidiMessage::controllerEvent(midiCh, 0, bankMsb));
+	sendMidi(MidiMessage::controllerEvent(midiCh, 32, bankLsb));
+	sendMidi(MidiMessage::programChange(midiCh, program));
+
+	if (luaPanelProgramChangedCbk && !luaPanelProgramChangedCbk.wasObjectDeleted()) {
+		if (luaPanelProgramChangedCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelProgramChangedCbk, program, bankLsb, bankMsb);
+		}
+	}
+}
+
+const String CtrlrPanel::globalsToString(const Array<int, CriticalSection> &arrayOfGlobals) {
+	String ret;
+
+	for (int i = 0; i < arrayOfGlobals.size(); i++) {
+		ret << String(arrayOfGlobals[i]) + ":";
+	}
+
+	return (ret.upToLastOccurrenceOf(":", false, true));
+}
+
+const Array<int, CriticalSection> CtrlrPanel::globalsFromString(const String &globalsString) {
+	Array<int, CriticalSection> ar;
+	ar.insertMultiple(0, 0, 64);
+	StringArray temp;
+	temp.addTokens(globalsString, ":", "\'\"");
+
+	for (int i = 0; i < temp.size(); i++) {
+		ar.set(i, temp[i].getIntValue());
+	}
+
+	return (ar);
+}
+
+CtrlrModulator *CtrlrPanel::getModulator(const String &name) const {
+	return getModulator(name, true);
+} // this is the default version of the method, as found probably in nearly every panel. We don't want to break it!
+
+// Update this line to match the header signature (minus the default "= true")
+CtrlrModulator *CtrlrPanel::getModulator(const String &name, bool forwardToComponents) const {
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		if (ctrlrModulators[i]->getProperty(Ids::name) == name) {
+			return (ctrlrModulators[i]);
+		}
+	}
+	return (nullptr);
+}
+
+CtrlrModulator *CtrlrPanel::getModulatorByVstIndex(const int vstIndex) {
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		if (ctrlrModulators[i]->getVstIndex() == vstIndex)
+			return (ctrlrModulators[i]);
+	}
+	return (nullptr);
+}
+
+CtrlrModulator *CtrlrPanel::getModulatorByCustomIndex(const int customIndex) {
+	for (int i = 0; i < ctrlrModulators.size(); i++) {
+		if ((int)ctrlrModulators[i]->getProperty(Ids::modulatorCustomIndex) == customIndex)
+			return (ctrlrModulators[i]);
+	}
+	return (nullptr);
+}
+
+int CtrlrPanel::getModulatorIndex(const CtrlrModulator *const modulatorToFind) const {
+	return (ctrlrModulators.indexOf(modulatorToFind));
+}
+
+int CtrlrPanel::getModulatorIndex(const String &modulatorToFind) const {
+	return (ctrlrModulators.indexOf(getModulator(modulatorToFind)));
+}
+
+void CtrlrPanel::setInstanceProperties(const ValueTree &instanceState) {
+	/* here we need to set all the MIDI properties for the instance */
+	if (instanceState.hasType(Ids::panelState.toString())) {
+		for (int i = 0; i < instanceState.getNumProperties(); i++) {
+			if (instanceState.getPropertyName(i).toString().startsWith("panelMidi")) {
+				// _DBG("\t"+instanceState.getPropertyName(i).toString() + "=" +
+				// instanceState.getProperty(instanceState.getPropertyName(i)).toString());
+				setProperty(instanceState.getPropertyName(i),
+							instanceState.getProperty(instanceState.getPropertyName(i)));
+			}
+		}
+	}
+}
+
+void CtrlrPanel::initEmbeddedInstance() {
+	bootstrapPanel(false);
+}
+
+void CtrlrPanel::dumpComparatorTables() {
+	_INF("\n----------------- MIDI INPUT START");
+	_INF(midiInputThread.getInputComparator().dumpTables());
+	_INF("\n----------------- MIDI INPUT END");
+	_INF(".");
+	_INF(".");
+	_INF("\n----------------- MIDI CONTROLLER START");
+	_INF(midiControllerInputThread.getInputComparator().dumpTables());
+	_INF("\n----------------- MIDI CONTROLLER END");
+}
+
+void CtrlrPanel::addPanelResource(const int hashCode) {
+	panelResources.addIfNotAlreadyThere(hashCode);
+	setProperty(Ids::panelResources, globalsToString(panelResources));
+}
+
+void CtrlrPanel::removePanelResource(const int hashCode) {
+	panelResources.removeFirstMatchingValue(hashCode);
+	setProperty(Ids::panelResources, globalsToString(panelResources));
+}
+
+bool CtrlrPanel::isPanelResource(const int hashCode) {
+	return (panelResources.contains(hashCode));
+}
+
+const File CtrlrPanel::getPanelDirectory() {
+	return (owner.getCtrlrPropertiesDirectory().getChildFile(getProperty(Ids::panelUID).toString()));
+}
+
+CtrlrPanelResourceManager &CtrlrPanel::getResourceManager() {
+	return (resourceManager);
+}
+
+const String CtrlrPanel::getName() {
+	return (getProperty(Ids::name));
+}
+
+void CtrlrPanel::undo() {
+	getUndoManager()->undo();
+}
+
+void CtrlrPanel::redo() {
+	getUndoManager()->redo();
+}
+
+bool CtrlrPanel::isSchemeAtLeast(const int minimumLevel) {
+	if ((int)getProperty(Ids::panelScheme) >= minimumLevel) {
+		return (true);
+	} else {
+		return (false);
+	}
+}
+
+void CtrlrPanel::notify(const String &notification, CtrlrNotificationCallback *callback,
+						const CtrlrNotificationType ctrlrNotificationType) {
+	if (luaPanelMessageHandlerCbk && !luaPanelMessageHandlerCbk.wasObjectDeleted()) {
+		if (luaPanelMessageHandlerCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelMessageHandlerCbk, notification,
+														 ctrlrNotificationType);
+		}
+	}
+
+	if (getEditor()) // Added back v5.6.31 for file management bottom notification bar
+	{
+		getEditor()->notify(notification, callback, ctrlrNotificationType);
+	} else {
+		_INF(notification);
+	}
+}
+
+bool CtrlrPanel::getDialogStatus() {
+	return ((bool)getProperty(Ids::panelShowDialogs));
+}
+
+void CtrlrPanel::upgradeScheme() {}
+
+void CtrlrPanel::hashName(CtrlrModulator *modulator) {
+	modulatorsByName.set(modulator->getName(), modulator);
+}
+
+void CtrlrPanel::modulatorNameChanged(CtrlrModulator *modulatorThatChanged, const String &newName) {
+	modulatorsByName.removeValue(modulatorThatChanged);
+	modulatorsByName.set(newName, modulatorThatChanged);
+}
+
+void CtrlrPanel::dumpDebugData() {
+	_DBG("CtrlrPanel::dumpDebugData");
+
+	_DBG("---------- modulators by name hash table ----------");
+	HashMap<String, CtrlrModulator *>::Iterator it(modulatorsByName);
+
+	while (it.next()) {
+		_DBG("[" + it.getKey() + "]: " + it.getValue()->getName());
+	}
+	_DBG("---------- modulators by name hash table ----------");
+}
+
+const Identifier CtrlrPanel::getMidiOptionIdentifier(const CtrlrPanelMidiOption option) {
+	switch (option) {
+	case panelMidiInputFromHost:
+		return (Ids::panelMidiInputFromHost);
+	case panelMidiInputFromHostCompare:
+		return (Ids::panelMidiInputFromHostCompare);
+	case panelMidiOutputToHost:
+		return (Ids::panelMidiOutputToHost);
+	case panelMidiThruH2H:
+		return (Ids::panelMidiThruH2H);
+	case panelMidiThruH2HChannelize:
+		return (Ids::panelMidiThruH2HChannelize);
+	case panelMidiThruH2D:
+		return (Ids::panelMidiThruH2D);
+	case panelMidiThruH2DChannelize:
+		return (Ids::panelMidiThruH2DChannelize);
+	case panelMidiThruD2D:
+		return (Ids::panelMidiThruD2D);
+	case panelMidiThruD2DChannelize:
+		return (Ids::panelMidiThruD2DChannelize);
+	case panelMidiThruD2H:
+		return (Ids::panelMidiThruD2H);
+	case panelMidiThruD2HChannelize:
+		return (Ids::panelMidiThruD2HChannelize);
+	case panelMidiRealtimeIgnore:
+		return (Ids::panelMidiRealtimeIgnore);
+	case panelMidiControllerToLua:
+		return (Ids::panelMidiControllerToLua);
+	default:
+		break;
+	}
+	return (Ids::null);
+}
+
+int CtrlrPanel::getMidiChannelForOwnedMidiMessages() {
+	return (getProperty(Ids::panelMidiOutputChannelDevice));
+}
+
+CtrlrSysexProcessor *CtrlrPanel::getSysexProcessor() {
+	return (&ctrlrSysexProcessor);
+}
+
+Array<int, CriticalSection> &CtrlrPanel::getGlobalVariables() {
+	return (globalVariables);
+}
+
+void CtrlrPanel::resourceImportFinished() {
+	owner.getFontManager().reloadImportedFonts(this);
+
+	if (luaPanelResourcesLoadedCbk && !luaPanelResourcesLoadedCbk.wasObjectDeleted()) {
+		if (luaPanelResourcesLoadedCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelResourcesLoadedCbk);
+		}
+	}
+}
+
+const String CtrlrPanel::getPanelInstanceID() {
+	if (getProperty(Ids::panelInstanceUID).toString().length() < 4) {
+		setProperty(Ids::panelInstanceUID, generateRandomUniquePluginId());
+	}
+
+	return (getProperty(Ids::panelInstanceUID).toString());
+}
+
+const String CtrlrPanel::getPanelInstanceManufacturerID() {
+	if (getProperty(Ids::panelInstanceManufacturerID).toString().length() < 4) {
+		setProperty(Ids::panelInstanceManufacturerID, generateRandomUniquePluginId());
+	}
+
+	return (getProperty(Ids::panelInstanceManufacturerID).toString());
+}
+
+const String CtrlrPanel::getPanelInstanceVersionString() {
+	return (getVersionString(false, false, "."));
+}
+
+int CtrlrPanel::getPanelInstanceVersionInt() {
+	return (getVersionAsHexInteger(getVersionString(false, false, ".")));
+}
+
+const String CtrlrPanel::getPanelInstanceName() {
+	return (getProperty(Ids::name).toString());
+}
+
+const String CtrlrPanel::getPanelInstanceManufacturer() {
+	return (getProperty(Ids::panelAuthorName).toString());
+}
+
+void CtrlrPanel::addMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToAdd) {}
+
+void CtrlrPanel::removeMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToRemove) {}
+
+void CtrlrPanel::performInternalComponentFunction(CtrlrComponent *sourceComponent) {
+	const CtrlrComponentInternalFunctions functionId =
+		(CtrlrComponentInternalFunctions)(int)sourceComponent->getProperty(Ids::componentInternalFunction);
+
+	switch (functionId) {
+	case MIDIDeviceSelection:
+		CtrlrMIDISettingsDialog::showDialog(*this);
+		break;
+	case MIDIMonitor:
+		owner.getWindowManager().toggle(CtrlrManagerWindowManager::MidiMonWindow, true);
+		break;
+	case AboutBox:
+		owner.getWindowManager().toggle(CtrlrManagerWindowManager::AboutWindow, true);
+		break;
+	case SendSnapshot:
+		owner.getActivePanel()->sendSnapshot();
+		break;
+	case none:
+	default:
+		break;
+	}
+}
+
+String CtrlrPanel::getInternalFunctionsProperty(CtrlrComponent *component) {
+	if (CtrlrComponentTypeManager::findType(component) == Ids::uiButton) {
+		return (_STR(COMBO_ITEM_NONE) + "\nShow MIDI device settings");
+	}
+	return ("");
+}
+
+void CtrlrPanel::multiMidiReceived(CtrlrMidiMessage &multiMidiMessage) {
+	multiMidiQueue.add(multiMidiMessage);
+	triggerAsyncUpdate();
+}
+
+void CtrlrPanel::saveLayerVisibilityStates() // Added v5.6.34. Thanks to @dnaldoog. Required for layer management
+{
+	// Clear any previous states
+	layerVisibilityBackup.clear();
+	// Get the canvas from the editor
+	CtrlrPanelCanvas *canvas = getCanvas();
+
+	if (canvas) {
+		// Loop through all layers and save their current visibility state
+		for (int i = 0; i < canvas->getNumLayers(); ++i) {
+			CtrlrPanelCanvasLayer *layer = canvas->getLayerFromArray(i);
+			if (layer) {
+				layerVisibilityBackup.add(layer->getProperty(Ids::uiPanelCanvasLayerVisibility, true));
+			}
+		}
+	}
+}
+
+void CtrlrPanel::restoreLayerVisibilityStates() // Added v5.6.34. Thanks to @dnaldoog. Required for layer management
+{
+	// Get the canvas from the editor
+	CtrlrPanelCanvas *canvas = getCanvas();
+
+	if (canvas && hasLayerVisibilityStates()) {
+		// Loop through layers and restore visibility from the backup
+		for (int i = 0; i < canvas->getNumLayers() && i < layerVisibilityBackup.size(); ++i) {
+			CtrlrPanelCanvasLayer *layer = canvas->getLayerFromArray(i);
+			if (layer) {
+				layer->setProperty(Ids::uiPanelCanvasLayerVisibility, layerVisibilityBackup.getUnchecked(i));
+			}
+		}
+	}
+	// Clear the backup after restoring
+	layerVisibilityBackup.clear();
+}
+
+bool CtrlrPanel::isLoading() const
+{
+    return restoreStateStatus.load()
+        || programState.load()
+        || boostrapStateStatus.load()
+        || postBootstrapGate.load();
+}
+
+
+void CtrlrPanel::setLookAndFeel(LookAndFeel *newLookAndFeel) // Added JUCE 8
+{
+	// JUCE's Component::setLookAndFeel is protected, so we need to cast to Component.
+	// CtrlrPanel inherits from juce::LookAndFeel_V4, but not from Component directly.
+	// If CtrlrPanel is not a Component, you must set the LookAndFeel on the editor or canvas.
+	// If you want to set the LookAndFeel for the editor, you can do:
+	if (ctrlrPanelEditor != nullptr) {
+		ctrlrPanelEditor->setLookAndFeel(newLookAndFeel);
+	}
+	// If you want to set it for the canvas:
+	else if (getCanvas() != nullptr) {
+		getCanvas()->setLookAndFeel(newLookAndFeel);
+	}
+	// Otherwise, do nothing.
+}
+
+void CtrlrPanel::promptForMidiDelay(const juce::Identifier &propertyId, 
+                                    const juce::String &dialogTitle, 
+                                    const juce::String &instructions, 
+                                    int minMs, int maxMs) 
+{
+    juce::WeakReference<CtrlrPanel> safeThis(this);
+
+    int currentVal = getProperty(propertyId);
+
+    auto *alert = new juce::AlertWindow(dialogTitle, instructions, juce::AlertWindow::QuestionIcon);
+    
+    // Add text editor pre-populated with current value
+    alert->addTextEditor("delayInput", juce::String(currentVal), "Delay (ms):");
+    
+    // Limit input to numbers only
+    if (auto *editor = alert->getTextEditor("delayInput")) {
+        editor->setInputRestrictions(5, "0123456789");
+    }
+
+    alert->addButton("OK", 1, juce::KeyPress(juce::KeyPress::returnKey));
+    alert->addButton("Cancel", 0, juce::KeyPress(juce::KeyPress::escapeKey));
+
+    alert->enterModalState(true, juce::ModalCallbackFunction::create([safeThis, alert, propertyId, minMs, maxMs](int result) {
+        if (result == 1 && !safeThis.wasObjectDeleted()) {
+            int newVal = alert->getTextEditorContents("delayInput").getIntValue();
+            newVal = juce::jlimit(minMs, maxMs, newVal);
+            
+            safeThis->setProperty(propertyId, newVal);
+        }
+        delete alert;
+    }));
+}
+
+void CtrlrPanel::promptForMidiDelayWithSlider(const juce::Identifier &propertyId, 
+                                              const juce::String &dialogTitle, 
+                                              int minMs, int maxMs) 
+{
+    juce::WeakReference<CtrlrPanel> safeThis(this);
+    int currentVal = getProperty(propertyId);
+
+    auto *alert = new juce::AlertWindow(dialogTitle, "Adjust delay in milliseconds:", juce::AlertWindow::NoIcon);
+    
+    // Create a custom slider component
+    auto slider = std::make_unique<juce::Slider>(juce::Slider::LinearHorizontal, juce::Slider::TextBoxRight);
+    slider->setRange(minMs, maxMs, 1);
+    slider->setValue(currentVal);
+    slider->setTextValueSuffix(" ms");
+    slider->setSize(280, 30);
+
+    // addCustomComponent takes ownership or references depending on JUCE version
+    alert->addCustomComponent(slider.get());
+
+    alert->addButton("OK", 1, juce::KeyPress(juce::KeyPress::returnKey));
+    alert->addButton("Cancel", 0, juce::KeyPress(juce::KeyPress::escapeKey));
+
+    // Move ownership into callback lambda
+    juce::Slider *rawSlider = slider.release();
+
+    alert->enterModalState(true, juce::ModalCallbackFunction::create([safeThis, alert, rawSlider, propertyId](int result) {
+        if (result == 1 && !safeThis.wasObjectDeleted()) {
+            safeThis->setProperty(propertyId, (int)rawSlider->getValue());
+        }
+        delete rawSlider;
+        delete alert;
+    }));
+}
+
+// Snapshot Delay Action Callback
+void CtrlrPanel::setSnapshotDelay() {
+    promptForMidiDelay(
+        Ids::panelMidiSnapshotDelay,
+        "Snapshot Transmission Delay",
+        "Set delay between MIDI messages during snapshot send (0 - 20000 ms).\nUseful for older synth buffers (e.g. TX81Z):",
+        0, 20000
+    );
+}
+
+// Global MIDI Delay Action Callback
+void CtrlrPanel::setGlobalMidiDelay() {
+    promptForMidiDelay(
+        Ids::panelMidiGlobalDelay,
+        "Global MIDI Message Delay",
+        "Set global inter-message delay for outgoing MIDI stream (0 - 500 ms):",
+        0, 500
+    );
+}
+
+void CtrlrPanel::savePatchToJSON() {
+    juce::DynamicObject::Ptr rootObj = new juce::DynamicObject();
+    juce::DynamicObject::Ptr headerObj = new juce::DynamicObject();
+    juce::DynamicObject::Ptr patchObj = new juce::DynamicObject();
+    juce::DynamicObject::Ptr labelsObj = new juce::DynamicObject();
+
+    // 1. Metadata Header
+    headerObj->setProperty("panelName", getProperty(Ids::name));
+    headerObj->setProperty("UID", getProperty(Ids::panelUID));
+
+    // 2. Modulator & Label Extraction
+// 2. Modulator & Label Extraction
+// 2. Modulator & Label Extraction
+int savedCount = 0;
+int labelCount = 0;
+
+for (int i = 0; i < getNumModulators(); ++i) {
+    CtrlrModulator *mod = getModulatorByIndex(i);
+    if (mod == nullptr)
+        continue;
+
+    const bool userExplicitSave = mod->getProperty(Ids::modulatorValueSaveToFile, true);
+    const bool isStatic = mod->getProperty(Ids::modulatorIsStatic, false);
+
+    // Respect the "Save To File" matrix setting
+    if (!userExplicitSave)
+        continue;
+
+    CtrlrComponent *comp = mod->getComponent();
+    
+    // Check if the component type is explicitly a Label (uiLabel)
+    bool isLabelComponent = false;
+    if (comp != nullptr) {
+        // Option A: Check property directly from component tree
+        const juce::String uiType = comp->getProperty(Ids::uiType).toString();
+        
+        // Option B: Fallback check against component type string if uiType is empty
+        isLabelComponent = (uiType == "uiLabel"); // || comp->getComponentType() == Ids::uiLabel);
+    }
+
+    if (isLabelComponent) {
+        // Fetch text from component
+        juce::String labelText = comp->getComponentText();
+        
+        // Fallback to component property if getComponentText() returns empty
+        if (labelText.isEmpty()) {
+            labelText = comp->getProperty(Ids::uiLabelText).toString();
+        }
+
+        labelsObj->setProperty(mod->getName(), labelText);
+        labelCount++;
+        
+        // Skip adding to numeric 'patch' object
+        continue; 
+    }
+
+    // Standard Numeric Modulators: Skip if static
+    if (isStatic)
+        continue;
+
+    patchObj->setProperty(mod->getName(), mod->getModulatorValue());
+    savedCount++;
+}
+
+    rootObj->setProperty("header", headerObj.get());
+    rootObj->setProperty("patch", patchObj.get());
+    if (labelCount > 0) {
+        rootObj->setProperty("labels", labelsObj.get());
+    }
+
+    juce::String jsonText = juce::JSON::toString(juce::var(rootObj.get()), true);
+
+    // 3. Async File Save
+    juce::WeakReference<CtrlrPanel> safeThis(this);
+    juce::File defaultFile =
+        juce::File::getSpecialLocation(juce::File::userDocumentsDirectory).getChildFile(getName() + "_Patch.json");
+
+    FC::saveFileAsync("Save Patch to JSON", defaultFile, "*.json", true,
+                      [safeThis, jsonText, savedCount, labelCount](const juce::File &targetFile) {
+                          if (safeThis.wasObjectDeleted() || targetFile == juce::File())
+                              return;
+
+                          juce::File fileToSave = targetFile.withFileExtension(".json");
+                          if (fileToSave.replaceWithText(jsonText)) {
+                              safeThis->notify("Saved " + juce::String(savedCount) + " parameters & " +
+                                                   juce::String(labelCount) + " labels to " +
+                                                   fileToSave.getFileName(),
+                                               nullptr, NotifySuccess);
+                          } else {
+                              safeThis->notify("Failed to write JSON patch file.", nullptr, NotifyFailure);
+                          }
+                      });
+}
+
+void CtrlrPanel::loadPatchFromJSON() {
+    juce::WeakReference<CtrlrPanel> safeThis(this);
+
+    AW::showOkCancelAsyncSafe(
+        AW::Warning, "Load JSON Patch",
+        "Loading a new patch will overwrite your current panel settings.\n\nAre you sure you want to proceed?",
+        [safeThis](bool confirmed) {
+            if (!confirmed || safeThis.wasObjectDeleted())
+                return;
+
+            FC::openFileAsync(
+                "Load Patch from JSON", juce::File::getSpecialLocation(juce::File::userDocumentsDirectory), "*.json",
+                true, [safeThis](const juce::File &sourceFile) {
+                    if (safeThis.wasObjectDeleted() || sourceFile == juce::File())
+                        return;
+
+                    juce::var parsedData = juce::JSON::parse(sourceFile);
+                    juce::DynamicObject *rootObj = parsedData.getDynamicObject();
+
+                    if (rootObj == nullptr) {
+                        safeThis->notify("Invalid JSON patch file.", nullptr, NotifyFailure);
+                        return;
+                    }
+
+                    // 1. Identity Verification Header
+                    juce::var headerVar = rootObj->getProperty("header");
+                    juce::DynamicObject *headerObj = headerVar.getDynamicObject();
+
+                    if (headerObj != nullptr) {
+                        const juce::String fileUID = headerObj->getProperty("UID").toString();
+                        const juce::String fileName = headerObj->getProperty("panelName").toString();
+
+                        const juce::String currentUID = safeThis->getProperty(Ids::panelUID).toString();
+                        const juce::String currentName = safeThis->getProperty(Ids::name).toString();
+
+                        bool isMatch = false;
+
+                        if (fileUID.isNotEmpty() && currentUID.isNotEmpty()) {
+                            isMatch = (fileUID == currentUID);
+                        } else if (fileName.isNotEmpty() && currentName.isNotEmpty()) {
+                            isMatch = (fileName == currentName);
+                        } else {
+                            isMatch = true;
+                        }
+
+                        if (!isMatch) {
+							const juce::String errorMsg = "Patch file target mismatch!\n\n"
+														  "File Target: " +
+														  (fileName.isNotEmpty() ? fileName : "Unknown Panel") + "\n" +
+														  "File UID: " + (fileUID.isNotEmpty() ? fileUID : "N/A") +
+														  "\n\n" + "Current Panel: " + currentName + "\n" +
+														  "Current UID: " + currentUID + "\n\n" +
+														  "(Current Panel UID has been copied to the clipboard)";
+
+							if (currentUID.isNotEmpty()) {
+                                juce::SystemClipboard::copyTextToClipboard(currentUID);
+                            }
+
+                            AW::showMessageBox(AW::Warning, "Target Mismatch", errorMsg, "OK");
+                            return;
+                        }
+                    }
+
+                    // Pause MIDI output during state changes
+                    safeThis->setProperty(Ids::panelMidiPauseOut, true);
+
+                    int loadedCount = 0;
+                    int labelLoadedCount = 0;
+                    juce::StringArray missingModulators;
+
+                    // 2. Load Standard Numeric Patch Modulators
+                    juce::var patchVar = rootObj->getProperty("patch");
+                    if (juce::DynamicObject *modsObj = patchVar.getDynamicObject()) {
+                        for (const auto &prop : modsObj->getProperties()) {
+                            const juce::String modName = prop.name.toString();
+                            const juce::var modValue = prop.value;
+
+                            CtrlrModulator *mod = safeThis->getModulator(modName);
+                            if (mod != nullptr) {
+                                mod->setModulatorValue(modValue, false, true, false);
+                                loadedCount++;
+                            } else {
+                                missingModulators.add(modName);
+                            }
+                        }
+                    }
+
+                    // 3. Load Separate Label Text Data
+                    juce::var labelsVar = rootObj->getProperty("labels");
+                    if (juce::DynamicObject *labelsObj = labelsVar.getDynamicObject()) {
+                        for (const auto &prop : labelsObj->getProperties()) {
+                            const juce::String modName = prop.name.toString();
+                            const juce::String labelText = prop.value.toString();
+
+                            CtrlrModulator *mod = safeThis->getModulator(modName);
+                            if (mod != nullptr && mod->getComponent() != nullptr) {
+                                mod->getComponent()->setComponentText(labelText);
+                                labelLoadedCount++;
+                            }
+                        }
+                    }
+
+                    // Resume MIDI output
+                    safeThis->setProperty(Ids::panelMidiPauseOut, false);
+
+                    // 4. Status Reporting
+                    if (!missingModulators.isEmpty()) {
+                        juce::String warnMsg = "Loaded " + juce::String(loadedCount) + " parameters and " +
+                                               juce::String(labelLoadedCount) + " labels.\n\n" +
+                                               juce::String(missingModulators.size()) +
+                                               " controls were missing from this panel.";
+
+                        AW::showMessageBox(AW::Warning, "Load Warning", warnMsg);
+                    } else {
+                        juce::String successMsg = "Successfully loaded " + juce::String(loadedCount) +
+                                                  " parameters and " + juce::String(labelLoadedCount) + " labels.";
+                        AW::showMessageBox(AW::Info, "Patch Loaded", successMsg);
+                    }
+                });
+        },
+        "Load Patch", "Cancel");
+}
+Result CtrlrPanel::exportLuaMethodToWorkspace(const File &parentDir, ValueTree method, StringArray &usedPaths,
+											  StringArray *notes) {
+	const String name = method.getProperty(Ids::luaMethodName).toString();
+ 
+	if (name.isEmpty() || File::createLegalFileName(name) != name) {
+		if (notes != nullptr)
+			notes->add("Kept in the panel (name can't be used as a file name): " + name);
+		return Result::ok();
+	}
+ 
+	const File target = parentDir.getChildFile(name + ".lua");
+ 
+	String key = target.getFullPathName();
+	if (!File::areFileNamesCaseSensitive())
+		key = key.toLowerCase();
+ 
+	if (usedPaths.contains(key)) {
+		if (notes != nullptr)
+			notes->add("Kept in the panel (another method already uses this file name): " + name);
+		return Result::ok();
+	}
+ 
+	const String code = method.getProperty(Ids::luaMethodCode).toString();
+	bool needsWrite = true;
+ 
+	if (target.existsAsFile()) {
+		if (target.loadFileAsString() == code) {
+			needsWrite = false; // identical: just link to it
+		} else {
+			target.copyFileTo(parentDir.getChildFile(name + ".lua.bak")); // keep the old content
+			if (notes != nullptr)
+				notes->add("Existing file replaced with the panel's version (old copy kept as " + name +
+						   ".lua.bak): " + name + ".lua");
+		}
+	}
+ 
+	if (needsWrite && !target.replaceWithText(code))
+		return Result::fail("Could not write " + target.getFullPathName());
+ 
+	usedPaths.add(key);
+ 
+	// Same bookkeeping as writeLuaMethod(), but the method keeps its name.
+	method.setProperty(Ids::luaMethodSourcePath, target.getRelativePathFrom(getPanelLuaDir()), nullptr);
+	method.setProperty(Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
+	method.removeProperty(Ids::luaMethodCode, nullptr);
+	return Result::ok();
+}
+ int CtrlrPanel::inlineExternalLuaMethods(ValueTree methodsRoot, StringArray *missingNames)
+{
+
+	/*
+	One small refinement. inlineExternalLuaMethods() calls getPanelWorkspaceDir() at the top, 
+	and that function can assign a new panelUID as a side effect if the panel doesn’t have one. 
+	So a save of a panel that never used external editing could, in an odd case, modify the panel. 
+	It costs almost nothing to avoid. Move the line from the top of the function to just inside the loop, 
+	after the codeInFile check and before the isAChildOf test, so it only runs when a file-backed method is found.
+	*/
+
+	// const File workspaceDir = getCtrlrLuaManager().getPanelWorkspaceDir();
+
+	int converted = 0;
+ 
+	for (int i = 0; i < methodsRoot.getNumChildren(); ++i) {
+		ValueTree child = methodsRoot.getChild(i);
+ 
+		if (child.hasType(Ids::luaMethodGroup)) {
+			converted += inlineExternalLuaMethods(child, missingNames);
+			continue;
+		}
+ 
+		if (!child.hasType(Ids::luaMethod))
+			continue;
+ 
+		if ((int)child.getProperty(Ids::luaMethodSource) != (int)CtrlrLuaMethod::codeInFile)
+			continue;
+ 		const File workspaceDir = getCtrlrLuaManager().getPanelWorkspaceDir();
+		const File src = getLuaMethodSourceFile(&child);
+		if (!src.isAChildOf(workspaceDir)) // hand-linked file elsewhere: leave alone
+			continue;
+ 
+		String code = child.getProperty(Ids::luaMethodCode).toString(); // cached copy, if one exists
+		if (src.existsAsFile())
+			code = src.loadFileAsString();                              // the file always wins
+		else if (code.isEmpty() && missingNames != nullptr)
+			missingNames->add(child.getProperty(Ids::luaMethodName).toString());
+ 
+		child.setProperty(Ids::luaMethodCode, code, nullptr);
+		child.setProperty(Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInProperty, nullptr);
+		child.removeProperty(Ids::luaMethodSourcePath, nullptr);
+		++converted;
+	}
+	return converted;
+}
+void CtrlrPanel::askForLicenseAsync(CtrlrPanel *panel, std::function<void(juce::String)> onDone) {
+	DBG("askForLicenseAsync: resources=" << (panel ? panel->getResourceManager().getNumResources() : -1));
+
+	if (panel == nullptr || panel->getResourceManager().getNumResources() == 0) {
+		onDone({});
+		return;
+	}
+
+	AW::showOkCancelAsyncSafe(
+		AW::Question, "License question", "Would you like to attach a license to this panel?",
+		[onDone](bool attach) {
+            if (!attach) {
+                onDone({});
+                return;
+            }
+
+            auto *alert = new juce::AlertWindow("License content", "Paste your license below",
+                                                juce::MessageBoxIconType::InfoIcon);
+            auto lic = std::make_shared<juce::TextEditor>();
+            lic->setMultiLine(true, false);
+            lic->setReturnKeyStartsNewLine(true);
+            lic->setSize(400, 300);
+            alert->addCustomComponent(lic.get());
+            alert->addButton("OK", 1);
+
+			AW::runCustomAlertAsyncSafe(alert, [lic, onDone](int result) {
+				DBG("license dialog result=" << result << " textLength=" << lic->getText().length());
+
+				onDone(result != 0 ? lic->getText() : juce::String());
+			});
+		},
+		"Yes", "No");
+}
+// Paste this back into CtrlrPanel.cpp (where it was before). It is unchanged from the
+// version you posted: the licence prompt now happens earlier, in CtrlrManager::addPanel,
+// and CtrlrPanelResourceManager::restoreState no longer shows any dialog.
+
+Result CtrlrPanel::restoreState(const ValueTree &savedState) {
+	_DBG("CtrlrPanel::restoreState");
+	DBG("XXXXXX CtrlrPanel::restoreState called from:\n" << juce::SystemStats::getStackBacktrace());
+	setRestoreState(true);
+
+	panelTree.removeProperty(Ids::panelScheme, nullptr);
+
+	// We need panel file property to be able to restore relative paths on lua methods
+	var filePath = savedState.getProperty(Ids::panelFilePath);
+	if (filePath.isVoid()) { // File path not provided (new Panel) => get a default one
+		File userDocsDir = File::getSpecialLocation(File::SpecialLocationType::userDocumentsDirectory);
+		File panelFile = userDocsDir.getNonexistentChildFile("CtrlrPanel", ".panel");
+		filePath = panelFile.getFullPathName();
+	}
+	panelTree.setProperty(Ids::panelFilePath, filePath, nullptr);
+
+	ctrlrLuaManager->restoreState(savedState.getChildWithName(Ids::luaManager));
+
+	if ((int)savedState.getProperty(Ids::panelScheme) < CTRLR_PANEL_SCHEME)
+		upgradeScheme();
+
+	for (int i = 0; i < savedState.getNumProperties(); i++) {
+		panelTree.setProperty(savedState.getPropertyName(i), savedState.getProperty(savedState.getPropertyName(i), 0),
+							  0);
+	}
+
+	if (savedState.getChildWithName(Ids::resourceExportList).isValid()) {
+		Result resourceImport = resourceManager.restoreState(savedState.getChildWithName(Ids::resourceExportList));
+
+		if (!resourceImport.wasOk()) {
+			WARN("Failed to load panel: " + resourceImport.getErrorMessage());
+
+			setRestoreState(false);
+			return (resourceImport);
+		}
+	} else if (owner.getInstanceResourcesTree().isValid()) {
+		Result resourceImport = getResourceManager().restoreState(owner.getInstanceResourcesTree());
+
+		if (!resourceImport.wasOk()) {
+			WARN("Failed to load panel: " + resourceImport.getErrorMessage());
+
+			setRestoreState(false);
+			return (resourceImport);
+		}
+	} else { // Try and load missing resources from source files
+		ValueTree panelResourcesTree = savedState.getChildWithName(Ids::panelResources);
+		if (panelResourcesTree.isValid()) {
+			getResourceManager().checkMissingResources(panelResourcesTree);
+		}
+	}
+
+	if (luaPanelBeforeLoadCbk && !luaPanelBeforeLoadCbk.wasObjectDeleted()) {
+		if (luaPanelBeforeLoadCbk->isValid()) {
+			getCtrlrLuaManager().getMethodManager().call(luaPanelBeforeLoadCbk);
+		}
+	}
+	if (savedState.getChildWithName(Ids::panelResources).isValid()) {
+		getResourceManager().restoreSavedState(savedState.getChildWithName(Ids::panelResources));
+	}
+
+	resourceImportFinished();
+
+	// No modifications at this point
+	setSavePoint();
+
+	if (savedState.getChildWithName(Ids::uiPanelEditor).isValid()) {
+		getEditor(true)->restoreState(savedState);
+	}
+	if (savedState.getChildWithName(Ids::uiWindowManager).isValid()) {
+		panelWindowManager.restoreState(savedState.getChildWithName(Ids::uiWindowManager));
+	}
+	if (savedState.getChildWithName(Ids::panelCustomData).isValid()) {
+		setCustomData(savedState.getChildWithName(Ids::panelCustomData));
+	}
+
+	setRestoreState(false);
+
+	if (owner.getInstanceMode() == InstanceMulti) {
+		bootstrapPanel();
+	}
+	return Result::ok();
+}

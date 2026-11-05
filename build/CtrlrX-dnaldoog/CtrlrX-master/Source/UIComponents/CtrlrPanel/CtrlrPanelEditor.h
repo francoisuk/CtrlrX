@@ -1,0 +1,156 @@
+#pragma once
+
+#ifdef _WIN32
+#pragma warning(disable : 4355)
+#endif // _WIN32
+
+#include "CtrlrComponentSelection.h"
+#include "CtrlrLuaObject.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrPanel/CtrlrPanelUndoManager.h"
+#include "CtrlrPanelCanvas.h"
+#include "CtrlrPanelFindProperty.h"
+#include "CtrlrPanelProperties.h"
+#include "CtrlrPanelViewport.h"
+#include "CtrlrUtilities.h"
+#include <juce_gui_basics/juce_gui_basics.h> // Or #include "JuceHeader.h"
+#include <memory>
+
+class CtrlrLuaMethod;
+
+class CtrlrPanelEditor;
+
+class CtrlrPanelNotifier : public Component
+// , public LookAndFeel_V4
+// Added back v5.6.31 for file management bottom notification bar
+{
+	public:
+		CtrlrPanelNotifier(CtrlrPanelEditor &_owner);
+		~CtrlrPanelNotifier(); // Updated v5.6.34. Thanks to @dnaldoog
+		void paint(Graphics &g);
+		void resized();
+		void setNotification(const String &notification, const CtrlrNotificationType ctrlrNotificationType);
+		Colour getBackgroundColourForNotification(const CtrlrNotificationType ctrlrNotificationType);
+		void mouseDown(const MouseEvent &e);
+		void panelWillClose();
+		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrPanelNotifier)
+
+	private:
+		CtrlrPanelEditor &owner;
+		juce::Colour background;
+		std::unique_ptr<juce::Label> text; // keep last
+};
+
+class CtrlrPanelEditor : public Component,
+						 public ValueTree::Listener,
+						 public CtrlrLuaObject,
+						 // public LookAndFeel_V4,
+						 public juce::ChangeListener // Add this line
+{
+	public:
+		CtrlrPanelEditor(CtrlrPanel &_owner, CtrlrManager &_ctrlrManager, const String &panelName);
+		~CtrlrPanelEditor();
+
+		// Use the JUCE_DECLARE_WEAK_REFERENCEABLE macro for safe weak pointers
+		JUCE_DECLARE_WEAK_REFERENCEABLE(CtrlrPanelEditor)
+		void timerCallback();
+		enum BackgroundImageLayout { Stretched, Center, Tile };
+
+		void restoreState(const ValueTree &savedSate);
+		void setBackgroundImage(const File &imageFile);
+		CtrlrPanelCanvas *getCanvas();
+		CtrlrComponentSelection *getSelection();
+		void editModeChanged();
+		void panelWillClose();
+		CtrlrPanelProperties *getPanelProperties() { return ctrlrPanelProperties.get(); }
+		CtrlrPanelViewport *getPanelViewport() { return ctrlrPanelViewport.get(); }
+		CtrlrComponent *getSelected(const Identifier &uiType);
+		void valueTreePropertyChanged(ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
+		void valueTreeChildrenChanged(ValueTree &treeWhoseChildHasChanged) {}
+		void valueTreeParentChanged(ValueTree &treeWhoseParentHasChanged) {}
+		void valueTreeChildAdded(ValueTree &parentTree, ValueTree &childWhichHasBeenAdded) {}
+		void valueTreeChildRemoved(ValueTree &parentTree, ValueTree &childWhichHasBeenRemoved, int) {}
+		void valueTreeChildOrderChanged(ValueTree &parentTreeWhoseChildrenHaveMoved, int, int) {}
+
+		CtrlrPanel &getOwner() { return (owner); }
+		void setProperty(const Identifier &name, const var &newValue, const bool isUndoable = false);
+		const var &getProperty(const Identifier &name) const;
+		const var getProperty(const Identifier &name, const var &defaultReturnValue) const;
+		ValueTree &getPanelEditorTree() { return (panelEditorTree); }
+
+		void layoutItems();
+		CtrlrPanelProperties *getPropertiesPanel() { return ctrlrPanelProperties.get(); }
+		const bool getMode();
+		AffineTransform moveSelectionToPosition(const int newX, const int newY);
+		static void wrapForLua(lua_State *L);
+		ValueTree &getObjectTree() { return (panelEditorTree); }
+		void initSingleInstance();
+		void resized();
+		void visibilityChanged();
+
+		void notify(const String &notification, CtrlrNotificationCallback *callback,
+					const CtrlrNotificationType ctrlrNotificationType =
+						NotifyInformation);			  // Added back v5.6.31 for file management bottom notification bar
+		void notificationClicked(const MouseEvent e); // Added back v5.6.31 for file management bottom notification bar
+		void changeListenerCallback(
+			ChangeBroadcaster *source) override; // Updated v5.6.34. Required override. Added back v5.6.31 for file
+												 // management bottom notification bar.
+
+		void setAllCombosDisabled();
+		void setAllCombosEnabled();
+		bool getRestoreState() { return (currentRestoreState); }
+		void setRestoreState(const bool _state) { currentRestoreState = _state; }
+		void reloadResources(Array<CtrlrPanelResource *> resourcesThatChanged);
+		void applyViewPortMode();
+		// void showComponentRuntimeConfig(CtrlrComponent *componentToConfigure); // Useless. Related to the WIN crash
+		// on LnF switch
+		void searchForProperty();
+		static std::unique_ptr<juce::LookAndFeel> getLookAndFeelFromDescription(const String &lookAndFeelDesc);
+		void editModeChanged(const bool isEditMode);
+
+		bool luaEditorExistsAndIsFocused(); // Added v5.6.34. Required to pass keypress to the LUA method manager for
+											// menu items. Handles the focus gain/loss.
+
+		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrPanelEditor)
+
+	private:
+		// Declare the LookAndFeel pointer first to ensure it is destroyed last
+		std::unique_ptr<juce::LookAndFeel> lookAndFeel;
+
+		// Old way
+		// CtrlrPanelProperties* ctrlrPanelProperties;
+		// StretchableLayoutResizerBar* spacerComponent;
+		// CtrlrPanelViewport* ctrlrPanelViewport;
+
+		// New way. Use ScopedPointers to handle the objects for improved deletion.
+		std::unique_ptr<CtrlrComponentSelection> ctrlrComponentSelection;
+		std::unique_ptr<CtrlrPanelProperties> ctrlrPanelProperties;
+		std::unique_ptr<StretchableLayoutResizerBar> spacerComponent;
+		std::unique_ptr<CtrlrPanelViewport> ctrlrPanelViewport;
+		std::unique_ptr<CtrlrPanelNotifier>
+			ctrlrPanelNotifier; // Added back v5.6.31 for file management bottom notification bar
+		std::unique_ptr<CtrlrPanelFindProperty> panelFindProperty;
+
+		ComponentAnimator componentAnimator;
+		CtrlrPanel &owner;
+		double canvasHeight;
+		double canvasWidth;
+		double canvasAspectRatio;
+		StretchableLayoutManager layoutManager;
+		bool lastEditMode, currentRestoreState;
+		CtrlrManager &ctrlrManager;
+		ValueTree panelEditorTree;
+
+		// The macro JUCE_DECLARE_WEAK_REFERENCEABLE(CtrlrPanelEditor)
+		// already handles the weak reference master.
+		// The following lines are redundant and should be removed from your code.
+		// friend class juce::WeakReference<CtrlrPanelEditor>;
+		// juce::WeakReference<CtrlrPanelEditor>::Master masterReference;
+
+		juce::WeakReference<CtrlrLuaMethod> resizedEditorCbk, resizedCbk;
+
+		WeakReference<CtrlrNotificationCallback> notificationCallback;
+		Component *editorComponentsInEditMode[3];
+		Component *editorComponents[2];
+		bool isAppSignedWithEntitlements();
+};

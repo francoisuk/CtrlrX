@@ -1,0 +1,1078 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "General",
+ "tab_index": 0,
+ "object": "Combi",
+ "navigation": "Combi : kkEdTabsC garde ses 43 onglets, barre d’onglets masquée. Boutons de page → onglet (GENERAL = 0 et 1, LFO & CTRL = 9 et 10, voir README). Timbre t (1-16), page p (1-2) → onglet 9 + 2t + (p - 1) ; paramètres kkC_<onglet>_nnn. La page des timbres sert aux 16 timbres : seul le numéro de modulateur change.",
+ "shared": "onglets 0 (General) et 1 (Commun) de kkEdTabsC",
+ "width": 1500,
+ "height": 414,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_C_GENERAL_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_C_GENERAL_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — General"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_general",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 68.1,
+   "h": 18,
+   "state": "on",
+   "tab": [
+    0,
+    1
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_vector",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "VECTOR",
+   "x": 133.3,
+   "y": 84,
+   "w": 62.9,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    2
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_drum_track",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "DRUM TRACK",
+   "x": 201.3,
+   "y": 84,
+   "w": 89.7,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    3
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_ifx_1_4",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "IFX 1-4",
+   "x": 296.1,
+   "y": 84,
+   "w": 55.8,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    4
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_ifx_5_8",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "IFX 5-8",
+   "x": 357.0,
+   "y": 84,
+   "w": 57.6,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    5
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_ifx_9_12",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "IFX 9-12",
+   "x": 419.7,
+   "y": 84,
+   "w": 62.0,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    6
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_mfx_tfx",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "MFX·TFX",
+   "x": 486.9,
+   "y": 84,
+   "w": 67.0,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    7
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_audio_in",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "AUDIO IN",
+   "x": 559.1,
+   "y": 84,
+   "w": 66.9,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    8
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_lfo_ctrl",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "LFO & CTRL",
+   "x": 631.2,
+   "y": 84,
+   "w": 78.9,
+   "h": 18,
+   "state": "off",
+   "tab": [
+    9,
+    10
+   ],
+   "note": "onglet(s) de kkEdTabsC",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T1",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "1",
+   "x": 733.2,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T2",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "2",
+   "x": 771.8,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T3",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "3",
+   "x": 810.3,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T4",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "4",
+   "x": 848.9,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T5",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "5",
+   "x": 887.4,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T6",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "6",
+   "x": 926.0,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T7",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "7",
+   "x": 964.5,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T8",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "8",
+   "x": 1003.1,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T9",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "9",
+   "x": 1041.6,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T10",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "10",
+   "x": 1080.2,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T11",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "11",
+   "x": 1118.7,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T12",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "12",
+   "x": 1157.3,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T13",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "13",
+   "x": 1195.8,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T14",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "14",
+   "x": 1234.4,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T15",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "15",
+   "x": 1272.9,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_T16",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "16",
+   "x": 1311.5,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "choisit le timbre (garde la page 1 / 2)",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_P1",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "page 1 ou 2 du timbre choisi",
+   "midi": null
+  },
+  {
+   "id": "kkEdNavC_P2",
+   "param": "kkEdTabsC",
+   "group": "nav",
+   "type": "button",
+   "label": "2",
+   "x": 1406.6,
+   "y": 84,
+   "w": 33.4,
+   "h": 18,
+   "state": "off",
+   "note": "page 1 ou 2 du timbre choisi",
+   "midi": null
+  },
+  {
+   "id": "kkCEdName",
+   "param": "kkCEdName",
+   "group": "combination",
+   "type": "display",
+   "kind": "label_editable",
+   "label": "NAME",
+   "x": 72,
+   "y": 151,
+   "w": 420,
+   "h": 30,
+   "text": [
+    "Nu Pop Groove Kit"
+   ],
+   "dynamic": true,
+   "max_chars": 24,
+   "midi": null
+  },
+  {
+   "id": "kkCEdVer",
+   "param": "kkCEdVer",
+   "group": "combination",
+   "type": "display",
+   "kind": "label",
+   "label": "VERSION",
+   "x": 508,
+   "y": 151,
+   "w": 140,
+   "h": 30,
+   "text": [
+    "—"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkCEdCatE",
+   "param": "kkCEdCatE",
+   "group": "combination",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CATEGORY",
+   "x": 72,
+   "y": 206,
+   "w": 270,
+   "h": 16,
+   "text": [
+    "Keyboard"
+   ],
+   "apply": "combi",
+   "read_label": "kkCEdCat",
+   "note": "menu de modification proposé (lecture seule dans 0.97i)",
+   "midi": null
+  },
+  {
+   "id": "kkC_01_003",
+   "param": "kkC_01_003",
+   "group": "combination",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SCALE TYPE",
+   "x": 360,
+   "y": 206,
+   "w": 288,
+   "h": 16,
+   "text": [
+    "Equal Temperament"
+   ],
+   "options": "Scale list (0..26)",
+   "apply": "combi",
+   "read_label": "kkCEdScale",
+   "midi": null
+  },
+  {
+   "id": "kkC_01_001",
+   "param": "kkC_01_001",
+   "group": "common",
+   "type": "button",
+   "kind": "toggle",
+   "label": "FAVORITE",
+   "x": 682,
+   "y": 148,
+   "w": 120,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkC_01_002",
+   "param": "kkC_01_002",
+   "group": "common",
+   "type": "button",
+   "kind": "toggle",
+   "label": "AUTO LOAD PROGRAM TONE ADJUST",
+   "x": 810,
+   "y": 148,
+   "w": 260,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "combi",
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkC_01_004",
+   "param": "kkC_01_004",
+   "group": "common",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SCALE KEY",
+   "x": 682,
+   "y": 198,
+   "w": 130,
+   "h": 16,
+   "text": [
+    "C"
+   ],
+   "options": "C..B",
+   "apply": "combi",
+   "midi": null
+  },
+  {
+   "id": "kkC_01_005",
+   "param": "kkC_01_005",
+   "group": "common",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SCALE RANDOM",
+   "x": 1117,
+   "y": 161,
+   "w": 42,
+   "h": 42,
+   "cx": 1138,
+   "cy": 182,
+   "r": 12,
+   "range": "0..7",
+   "apply": "combi",
+   "midi": null
+  },
+  {
+   "id": "kkC_01_005_val",
+   "param": "kkC_01_005",
+   "group": "common",
+   "type": "display",
+   "kind": "value",
+   "label": "SCALE RANDOM value",
+   "x": 1119,
+   "y": 206,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkCEdT1",
+   "param": "kkCEdT1",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 1",
+   "x": 72.0,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "I-A000 K-Lab: Katja’s House"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT2",
+   "param": "kkCEdT2",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 2",
+   "x": 242.5,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "I-A012 Concert Grand"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT3",
+   "param": "kkCEdT3",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 3",
+   "x": 413.0,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "I-B045 Warm Pad"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT4",
+   "param": "kkCEdT4",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 4",
+   "x": 583.5,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "I-C010 Fingered Bass"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT5",
+   "param": "kkCEdT5",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 5",
+   "x": 754.0,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT6",
+   "param": "kkCEdT6",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 6",
+   "x": 924.5,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT7",
+   "param": "kkCEdT7",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 7",
+   "x": 1095.0,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT8",
+   "param": "kkCEdT8",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 8",
+   "x": 1265.5,
+   "y": 290,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT9",
+   "param": "kkCEdT9",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 9",
+   "x": 72.0,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT10",
+   "param": "kkCEdT10",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 10",
+   "x": 242.5,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT11",
+   "param": "kkCEdT11",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 11",
+   "x": 413.0,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT12",
+   "param": "kkCEdT12",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 12",
+   "x": 583.5,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT13",
+   "param": "kkCEdT13",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 13",
+   "x": 754.0,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT14",
+   "param": "kkCEdT14",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 14",
+   "x": 924.5,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT15",
+   "param": "kkCEdT15",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 15",
+   "x": 1095.0,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCEdT16",
+   "param": "kkCEdT16",
+   "group": "timbres",
+   "type": "display",
+   "kind": "label",
+   "label": "TIMBRE 16",
+   "x": 1265.5,
+   "y": 336,
+   "w": 162.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "note": "proposition : programme du timbre (banque, numéro, nom) ; pas dans 0.97i",
+   "midi": null
+  },
+  {
+   "id": "kkCNote",
+   "param": "kkCNote",
+   "group": "notes",
+   "type": "display",
+   "kind": "label",
+   "label": "kkCNote",
+   "x": 60,
+   "y": 382,
+   "w": 1380,
+   "h": 14,
+   "text": [
+    "note"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ]
+}

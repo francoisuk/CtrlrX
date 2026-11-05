@@ -1,0 +1,1160 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "COMMON MOD · 2/2",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_P_COMMON_MOD_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_P_COMMON_MOD_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — COMMON MOD · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 83.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 146.8,
+   "y": 84,
+   "w": 65.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 215.1,
+   "y": 84,
+   "w": 74.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 292.3,
+   "y": 84,
+   "w": 66.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 361.8,
+   "y": 84,
+   "w": 80.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 445.1,
+   "y": 84,
+   "w": 104.5,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 552.6,
+   "y": 84,
+   "w": 61.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 617.3,
+   "y": 84,
+   "w": 85.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 705.4,
+   "y": 84,
+   "w": 77.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 785.6,
+   "y": 84,
+   "w": 82.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 870.6,
+   "y": 84,
+   "w": 77.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 951.4,
+   "y": 84,
+   "w": 63.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 1018.1,
+   "y": 84,
+   "w": 85.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 1106.6,
+   "y": 84,
+   "w": 78.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1188.5,
+   "y": 84,
+   "w": 106.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1298.2,
+   "y": 84,
+   "w": 82.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@2757",
+   "param": "Prog_HD-1@2757",
+   "group": "common_keyboard_track1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOW RAMP",
+   "x": 120.4,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "Low Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2757,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2758",
+   "param": "Prog_HD-1@2758",
+   "group": "common_keyboard_track1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER LOW RAMP",
+   "x": 282.1,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "Center Low Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2758,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2759",
+   "param": "Prog_HD-1@2759",
+   "group": "common_keyboard_track1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER HIGH RAMP",
+   "x": 445.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "Center High Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2759,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2760",
+   "param": "Prog_HD-1@2760",
+   "group": "common_keyboard_track1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HIGH RAMP",
+   "x": 575.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "High Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2760,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2754",
+   "param": "Prog_HD-1@2754",
+   "group": "common_keyboard_track1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW KEY",
+   "x": 276.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 297.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2754,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2754_val",
+   "param": "Prog_HD-1@2754",
+   "group": "common_keyboard_track1",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW KEY value",
+   "x": 278.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2754,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2755",
+   "param": "Prog_HD-1@2755",
+   "group": "common_keyboard_track1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CENTER KEY",
+   "x": 382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2755,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2755_val",
+   "param": "Prog_HD-1@2755",
+   "group": "common_keyboard_track1",
+   "type": "display",
+   "kind": "value",
+   "label": "CENTER KEY value",
+   "x": 384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2755,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2756",
+   "param": "Prog_HD-1@2756",
+   "group": "common_keyboard_track1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH KEY",
+   "x": 488.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 509.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2756,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2756_val",
+   "param": "Prog_HD-1@2756",
+   "group": "common_keyboard_track1",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH KEY value",
+   "x": 490.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track1",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2756,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2764",
+   "param": "Prog_HD-1@2764",
+   "group": "common_keyboard_track2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOW RAMP",
+   "x": 814.4,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "Low Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2764,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2765",
+   "param": "Prog_HD-1@2765",
+   "group": "common_keyboard_track2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER LOW RAMP",
+   "x": 976.1,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "Center Low Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2765,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2766",
+   "param": "Prog_HD-1@2766",
+   "group": "common_keyboard_track2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CENTER HIGH RAMP",
+   "x": 1139.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "Center High Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2766,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2767",
+   "param": "Prog_HD-1@2767",
+   "group": "common_keyboard_track2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HIGH RAMP",
+   "x": 1269.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "-Inf"
+   ],
+   "options": "-Inf~+Inf",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "High Ramp",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2767,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-Inf~+Inf"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2761",
+   "param": "Prog_HD-1@2761",
+   "group": "common_keyboard_track2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW KEY",
+   "x": 970.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 991.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2761,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2761_val",
+   "param": "Prog_HD-1@2761",
+   "group": "common_keyboard_track2",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW KEY value",
+   "x": 972.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "Low Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2761,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2762",
+   "param": "Prog_HD-1@2762",
+   "group": "common_keyboard_track2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CENTER KEY",
+   "x": 1076.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1097.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2762,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2762_val",
+   "param": "Prog_HD-1@2762",
+   "group": "common_keyboard_track2",
+   "type": "display",
+   "kind": "value",
+   "label": "CENTER KEY value",
+   "x": 1078.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "Center Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2762,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2763",
+   "param": "Prog_HD-1@2763",
+   "group": "common_keyboard_track2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH KEY",
+   "x": 1182.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1203.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2763,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2763_val",
+   "param": "Prog_HD-1@2763",
+   "group": "common_keyboard_track2",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH KEY value",
+   "x": 1184.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Keyboard Track2",
+    "name": "High Key",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2763,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "COMMON MOD",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "all"
+}

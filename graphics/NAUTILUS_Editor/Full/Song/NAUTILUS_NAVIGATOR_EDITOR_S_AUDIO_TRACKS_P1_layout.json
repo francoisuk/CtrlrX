@@ -1,0 +1,1706 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AUDIO TRACKS",
+ "tab_index": 0,
+ "object": "Song",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_S_AUDIO_TRACKS_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_S_AUDIO_TRACKS_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "— : Song"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Song — AUDIO TRACKS"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_song",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SONG",
+   "x": 60,
+   "y": 84,
+   "w": 117.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi_tracks",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI TRACKS",
+   "x": 180.5,
+   "y": 84,
+   "w": 144.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_automation",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUTOMATION",
+   "x": 328.3,
+   "y": 84,
+   "w": 147.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_tracks",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO TRACKS",
+   "x": 479.0,
+   "y": 84,
+   "w": 152.3,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_patterns",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "PATTERNS",
+   "x": 634.2,
+   "y": 84,
+   "w": 135.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_rppr",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "RPPR",
+   "x": 772.8,
+   "y": 84,
+   "w": 115.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre_set",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE SET",
+   "x": 891.1,
+   "y": 84,
+   "w": 139.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_01",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "01",
+   "x": 1043.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_02",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "02",
+   "x": 1068.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_03",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "03",
+   "x": 1093.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_04",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "04",
+   "x": 1118.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_05",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "05",
+   "x": 1143.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_06",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "06",
+   "x": 1168.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_07",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "07",
+   "x": 1193.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_08",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "08",
+   "x": 1218.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_09",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "09",
+   "x": 1243.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_10",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "10",
+   "x": 1268.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_11",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "11",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_12",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "12",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_13",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "13",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_14",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "14",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_15",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "15",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_16",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "16",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "SongControl@1172",
+   "param": "SongControl@1172",
+   "group": "audio_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CHANNEL",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 149.7,
+   "h": 16,
+   "text": [
+    "Mono"
+   ],
+   "options": "Mono~Stereo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Channel",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1172,
+    "data": "01~02",
+    "value": "Mono~Stereo"
+   }
+  },
+  {
+   "id": "SongControl@1173.6",
+   "param": "SongControl@1173.6",
+   "group": "audio_track_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PAN MODE BALANCE",
+   "x": 225.7,
+   "y": 154.0,
+   "w": 149.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Pan Mode Balance",
+    "kind": "toggle",
+    "file": "SongControl.txt",
+    "ofs": 1173,
+    "bit": "6",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "SongControl@1173.7",
+   "param": "SongControl@1173.7",
+   "group": "audio_track_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PAIR",
+   "x": 383.4,
+   "y": 154.0,
+   "w": 149.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Pair",
+    "kind": "toggle",
+    "file": "SongControl.txt",
+    "ofs": 1173,
+    "bit": "7",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "SongControl@1174",
+   "param": "SongControl@1174",
+   "group": "audio_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE BUS SELECT",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 149.7,
+   "h": 16,
+   "text": [
+    "Input1"
+   ],
+   "options": "Input1~Indiv.8",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Source Bus Select",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1174,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~13",
+    "value": "Input1~Indiv.8"
+   }
+  },
+  {
+   "id": "SongControl@1178.7",
+   "param": "SongControl@1178.7",
+   "group": "audio_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DELAY MODE",
+   "x": 225.7,
+   "y": 187.0,
+   "w": 149.7,
+   "h": 16,
+   "text": [
+    "Time"
+   ],
+   "options": "Time~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Delay Mode",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1178,
+    "bit": "7",
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Time~Tempo"
+   }
+  },
+  {
+   "id": "SongControl@1180",
+   "param": "SongControl@1180",
+   "group": "audio_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PAN",
+   "x": 383.4,
+   "y": 187.0,
+   "w": 149.7,
+   "h": 16,
+   "text": [
+    "RND"
+   ],
+   "options": "RND~R127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Pan",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1180,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "RND~R127"
+   }
+  },
+  {
+   "id": "SongControl@1183.0~4",
+   "param": "SongControl@1183.0~4",
+   "group": "audio_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SELECT",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 149.7,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R~Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Bus Select",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1183,
+    "bit": "0~4",
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "SongControl@1183.5~6",
+   "param": "SongControl@1183.5~6",
+   "group": "audio_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FX CONTROL BUS",
+   "x": 225.7,
+   "y": 221.0,
+   "w": 149.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~FX Control2",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "FX Control Bus",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1183,
+    "bit": "5~6",
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "SongControl@1168",
+   "param": "SongControl@1168",
+   "group": "audio_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EVENT OFFSET",
+   "x": 565.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 586.110694183865,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~2399992",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Event Offset",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1168,
+    "data": "000000~249EF8",
+    "value": "0~2399992"
+   }
+  },
+  {
+   "id": "SongControl@1168_val",
+   "param": "SongControl@1168",
+   "group": "audio_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EVENT OFFSET value",
+   "x": 567.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Event Offset",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1168,
+    "data": "000000~249EF8",
+    "value": "0~2399992"
+   }
+  },
+  {
+   "id": "SongControl@1175",
+   "param": "SongControl@1175",
+   "group": "audio_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VOLUME",
+   "x": 651.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 672.6510318949345,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Volume",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1175,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "SongControl@1175_val",
+   "param": "SongControl@1175",
+   "group": "audio_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "VOLUME value",
+   "x": 653.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Volume",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1175,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "SongControl@1176",
+   "param": "SongControl@1176",
+   "group": "audio_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY TIME",
+   "x": 738.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 759.1913696060038,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~6000",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Delay Time",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1176,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0000~1770",
+    "value": "0~6000"
+   }
+  },
+  {
+   "id": "SongControl@1176_val",
+   "param": "SongControl@1176",
+   "group": "audio_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY TIME value",
+   "x": 740.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Delay Time",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1176,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0000~1770",
+    "value": "0~6000"
+   }
+  },
+  {
+   "id": "SongControl@1178.0~3",
+   "param": "SongControl@1178.0~3",
+   "group": "audio_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY TEMPO BASE NOTE",
+   "x": 824.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 845.7317073170732,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Delay Tempo Base Note",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1178,
+    "bit": "0~3",
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "SongControl@1178.0~3_val",
+   "param": "SongControl@1178.0~3",
+   "group": "audio_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY TEMPO BASE NOTE value",
+   "x": 826.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Delay Tempo Base Note",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1178,
+    "bit": "0~3",
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "SongControl@1179",
+   "param": "SongControl@1179",
+   "group": "audio_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY TEMPO TIMES",
+   "x": 911.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 932.2720450281427,
+   "cy": 204.0,
+   "r": 12,
+   "range": "x1~x32",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Delay Tempo Times",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1179,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "x1~x32"
+   }
+  },
+  {
+   "id": "SongControl@1179_val",
+   "param": "SongControl@1179",
+   "group": "audio_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY TEMPO TIMES value",
+   "x": 913.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "x1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Delay Tempo Times",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1179,
+    "sysex": {
+     "TYP": "4",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "x1~x32"
+   }
+  },
+  {
+   "id": "SongControl@1184",
+   "param": "SongControl@1184",
+   "group": "audio_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HDR BUS SELECT",
+   "x": 997.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1018.8123827392121,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~3/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "HDR Bus Select",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1184,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "SongControl@1184_val",
+   "param": "SongControl@1184",
+   "group": "audio_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "HDR BUS SELECT value",
+   "x": 999.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "HDR Bus Select",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1184,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "SongControl@1181",
+   "param": "SongControl@1181",
+   "group": "audio_track_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SongControl@1181",
+   "x": 1213.8,
+   "y": 150,
+   "w": 103.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Send1",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1181,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "SongControl@1182",
+   "param": "SongControl@1182",
+   "group": "audio_track_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "SongControl@1182",
+   "x": 1320.9,
+   "y": 150,
+   "w": 103.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "Send2",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1182,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "SongControl@1186.7",
+   "param": "SongControl@1186.7",
+   "group": "audio_track_track_eq",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BYPASS",
+   "x": 531.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Normal"
+   ],
+   "options": "Normal~Bypass",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Bypass",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1186,
+    "bit": "7",
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0~1",
+    "value": "Normal~Bypass"
+   }
+  },
+  {
+   "id": "SongControl@1187",
+   "param": "SongControl@1187",
+   "group": "audio_track_track_eq",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PADDING",
+   "x": 652.8,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Padding",
+    "kind": "menu",
+    "file": "SongControl.txt",
+    "ofs": 1187,
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "SongControl@1186.0~6",
+   "param": "SongControl@1186.0~6",
+   "group": "audio_track_track_eq",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIM",
+   "x": 533.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 554.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Trim",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1186,
+    "bit": "0~6",
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "SongControl@1186.0~6_val",
+   "param": "SongControl@1186.0~6",
+   "group": "audio_track_track_eq",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIM value",
+   "x": 535.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Trim",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1186,
+    "bit": "0~6",
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "SongControl@1188",
+   "param": "SongControl@1188",
+   "group": "audio_track_track_eq",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID FREQ",
+   "x": 631.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 652.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "100~10.0k",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Mid Freq",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1188,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~A5",
+    "value": "100~10.0k"
+   }
+  },
+  {
+   "id": "SongControl@1188_val",
+   "param": "SongControl@1188",
+   "group": "audio_track_track_eq",
+   "type": "display",
+   "kind": "value",
+   "label": "MID FREQ value",
+   "x": 633.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "100"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Mid Freq",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1188,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~A5",
+    "value": "100~10.0k"
+   }
+  },
+  {
+   "id": "SongControl@1189",
+   "param": "SongControl@1189",
+   "group": "audio_track_track_eq",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW GAIN",
+   "x": 729.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-18.0~+18.0",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Low Gain",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1189,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SongControl@1189_val",
+   "param": "SongControl@1189",
+   "group": "audio_track_track_eq",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW GAIN value",
+   "x": 731.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Low Gain",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1189,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SongControl@1190",
+   "param": "SongControl@1190",
+   "group": "audio_track_track_eq",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID GAIN",
+   "x": 827.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 848.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-18.0~+18.0",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Mid Gain",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1190,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SongControl@1190_val",
+   "param": "SongControl@1190",
+   "group": "audio_track_track_eq",
+   "type": "display",
+   "kind": "value",
+   "label": "MID GAIN value",
+   "x": 829.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) Mid Gain",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1190,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SongControl@1191",
+   "param": "SongControl@1191",
+   "group": "audio_track_track_eq",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH GAIN",
+   "x": 925.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 946.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-18.0~+18.0",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) High Gain",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1191,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "SongControl@1191_val",
+   "param": "SongControl@1191",
+   "group": "audio_track_track_eq",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH GAIN value",
+   "x": 927.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Track 01",
+    "name": "(Track EQ) High Gain",
+    "kind": "knob",
+    "file": "SongControl.txt",
+    "ofs": 1191,
+    "sysex": {
+     "TYP": "32",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-18.0~+18.0"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AUDIO TRACKS",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all",
+ "index": {
+  "label": "TRACK",
+  "instances": [
+   "01",
+   "02",
+   "03",
+   "04",
+   "05",
+   "06",
+   "07",
+   "08",
+   "09",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16"
+  ],
+  "listed_by_korg": [
+   "01",
+   "02",
+   "03",
+   "04",
+   "05",
+   "06",
+   "07",
+   "08",
+   "09",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16"
+  ],
+  "shown": "01",
+  "stride_bytes": 24,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ }
+}

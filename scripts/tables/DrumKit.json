@@ -1,0 +1,2033 @@
+[
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    0,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    1,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    2,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    3,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    4,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    5,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    6,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    7,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    8,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    9,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    10,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    11,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    12,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    13,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    14,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    15,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    16,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    17,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    18,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    19,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    20,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    21,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    22,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Common",
+  "name": "Name",
+  "pieces": [
+   [
+    23,
+    0,
+    7
+   ]
+  ],
+  "data": "00~FF",
+  "value": "~",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    24,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Sample Bank UUID",
+  "pieces": [
+   [
+    25,
+    0,
+    7
+   ],
+   [
+    25,
+    0,
+    7
+   ],
+   [
+    40,
+    0,
+    7
+   ]
+  ],
+  "data": "",
+  "value": "UUID",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Sample Id",
+  "pieces": [
+   [
+    42,
+    0,
+    7
+   ],
+   [
+    43,
+    0,
+    7
+   ]
+  ],
+  "data": "0000~FFFE",
+  "value": "0~65534",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Level",
+  "pieces": [
+   [
+    44,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Start Offset",
+  "pieces": [
+   [
+    45,
+    0,
+    3
+   ]
+  ],
+  "data": "00~08",
+  "value": "Off~8th",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Sample Reverse",
+  "pieces": [
+   [
+    45,
+    7,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Transpose",
+  "pieces": [
+   [
+    46,
+    0,
+    7
+   ]
+  ],
+  "data": "C0~3F",
+  "value": "-64~+63",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Tune",
+  "pieces": [
+   [
+    47,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Attack",
+  "pieces": [
+   [
+    48,
+    0,
+    7
+   ]
+  ],
+  "data": "C0~3F",
+  "value": "-64~+63",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Decay",
+  "pieces": [
+   [
+    49,
+    0,
+    7
+   ]
+  ],
+  "data": "C0~3F",
+  "value": "-64~+63",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Cutoff",
+  "pieces": [
+   [
+    50,
+    0,
+    7
+   ]
+  ],
+  "data": "C0~3F",
+  "value": "-64~+63",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Resonance",
+  "pieces": [
+   [
+    51,
+    0,
+    7
+   ]
+  ],
+  "data": "C0~3F",
+  "value": "-64~+63",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "EQ High Gain",
+  "pieces": [
+   [
+    52,
+    0,
+    7
+   ]
+  ],
+  "data": "B8~48",
+  "value": "-72.0~+72.0",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "EQ Mid Gain",
+  "pieces": [
+   [
+    53,
+    0,
+    7
+   ]
+  ],
+  "data": "B8~48",
+  "value": "-72.0~+72.0",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "EQ Low Gain",
+  "pieces": [
+   [
+    54,
+    0,
+    7
+   ]
+  ],
+  "data": "B8~48",
+  "value": "-72.0~+72.0",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Drive",
+  "pieces": [
+   [
+    55,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    56,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone2 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    58,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone2 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    90,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone3 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    92,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone3 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    124,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone4 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    126,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone4 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    158,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone5 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    160,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone5 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    192,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone6 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    194,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone6 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    226,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone7 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    228,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone7 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    260,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone8 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    262,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone8 DS",
+  "name": "Low Boost",
+  "pieces": [
+   [
+    294,
+    0,
+    7
+   ]
+  ],
+  "data": "9D~63",
+  "value": "-99~+99",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone1 - 2",
+  "name": "Bottom Velocity",
+  "pieces": [
+   [
+    296,
+    0,
+    7
+   ]
+  ],
+  "data": "01~7F",
+  "value": "1~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Range",
+  "pieces": [
+   [
+    297,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "Off~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Shape",
+  "pieces": [
+   [
+    298,
+    0,
+    1
+   ]
+  ],
+  "data": "00~02",
+  "value": "Linear~Layer",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone2 - 3",
+  "name": "Bottom Velocity",
+  "pieces": [
+   [
+    299,
+    0,
+    7
+   ]
+  ],
+  "data": "01~7F",
+  "value": "1~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Range",
+  "pieces": [
+   [
+    300,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "Off~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Shape",
+  "pieces": [
+   [
+    301,
+    0,
+    1
+   ]
+  ],
+  "data": "00~02",
+  "value": "Linear~Layer",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone3 - 4",
+  "name": "Bottom Velocity",
+  "pieces": [
+   [
+    302,
+    0,
+    7
+   ]
+  ],
+  "data": "01~7F",
+  "value": "1~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Range",
+  "pieces": [
+   [
+    303,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "Off~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Shape",
+  "pieces": [
+   [
+    304,
+    0,
+    1
+   ]
+  ],
+  "data": "00~02",
+  "value": "Linear~Layer",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone4 - 5",
+  "name": "Bottom Velocity",
+  "pieces": [
+   [
+    305,
+    0,
+    7
+   ]
+  ],
+  "data": "01~7F",
+  "value": "1~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Range",
+  "pieces": [
+   [
+    306,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "Off~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Shape",
+  "pieces": [
+   [
+    307,
+    0,
+    1
+   ]
+  ],
+  "data": "00~02",
+  "value": "Linear~Layer",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone5 - 6",
+  "name": "Bottom Velocity",
+  "pieces": [
+   [
+    308,
+    0,
+    7
+   ]
+  ],
+  "data": "01~7F",
+  "value": "1~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Range",
+  "pieces": [
+   [
+    309,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "Off~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Shape",
+  "pieces": [
+   [
+    310,
+    0,
+    1
+   ]
+  ],
+  "data": "00~02",
+  "value": "Linear~Layer",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone6 - 7",
+  "name": "Bottom Velocity",
+  "pieces": [
+   [
+    311,
+    0,
+    7
+   ]
+  ],
+  "data": "01~7F",
+  "value": "1~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Range",
+  "pieces": [
+   [
+    312,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "Off~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Shape",
+  "pieces": [
+   [
+    313,
+    0,
+    1
+   ]
+  ],
+  "data": "00~02",
+  "value": "Linear~Layer",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Zone7 - 8",
+  "name": "Bottom Velocity",
+  "pieces": [
+   [
+    314,
+    0,
+    7
+   ]
+  ],
+  "data": "01~7F",
+  "value": "1~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Range",
+  "pieces": [
+   [
+    315,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "Off~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Velocity Control",
+  "name": "Velocity XFade Shape",
+  "pieces": [
+   [
+    316,
+    0,
+    1
+   ]
+  ],
+  "data": "00~02",
+  "value": "Linear~Layer",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Pan",
+  "pieces": [
+   [
+    317,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "0~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Bus Select",
+  "pieces": [
+   [
+    318,
+    0,
+    4
+   ]
+  ],
+  "data": "00~19",
+  "value": "0~25",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "FX Control Bus",
+  "pieces": [
+   [
+    318,
+    5,
+    6
+   ]
+  ],
+  "data": "00~02",
+  "value": "Off~FX Control2",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Send 1 Level",
+  "pieces": [
+   [
+    319,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "0~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Send 2 Level",
+  "pieces": [
+   [
+    320,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "0~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Exclusive Group",
+  "pieces": [
+   [
+    321,
+    0,
+    7
+   ]
+  ],
+  "data": "00~7F",
+  "value": "0~127",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Assign",
+  "pieces": [
+   [
+    322,
+    0,
+    0
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Single Trigger",
+  "pieces": [
+   [
+    322,
+    1,
+    1
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Receive Note On",
+  "pieces": [
+   [
+    322,
+    2,
+    2
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note1 Common",
+  "name": "Receive Note Off",
+  "pieces": [
+   [
+    322,
+    3,
+    3
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "0"
+  ]
+ },
+ {
+  "sec": "Note2 Zone1 DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    324,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "1"
+  ]
+ },
+ {
+  "sec": "Note2 Common",
+  "name": "Assign",
+  "pieces": [
+   [
+    622,
+    0,
+    0
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "1"
+  ]
+ },
+ {
+  "sec": "Note2 Common",
+  "name": "Single Trigger",
+  "pieces": [
+   [
+    622,
+    1,
+    1
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "1"
+  ]
+ },
+ {
+  "sec": "Note2 Common",
+  "name": "Receive Note On",
+  "pieces": [
+   [
+    622,
+    2,
+    2
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "1"
+  ]
+ },
+ {
+  "sec": "Note2 Common",
+  "name": "Receive Note Off",
+  "pieces": [
+   [
+    622,
+    3,
+    3
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "1"
+  ]
+ },
+ {
+  "sec": "Note128 High DS",
+  "name": "Sample On/Off",
+  "pieces": [
+   [
+    38124,
+    0,
+    7
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "127"
+  ]
+ },
+ {
+  "sec": "Note128 Common",
+  "name": "Assign",
+  "pieces": [
+   [
+    38422,
+    0,
+    0
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "127"
+  ]
+ },
+ {
+  "sec": "Note128 Common",
+  "name": "Single Trigger",
+  "pieces": [
+   [
+    38422,
+    1,
+    1
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "127"
+  ]
+ },
+ {
+  "sec": "Note128 Common",
+  "name": "Receive Note On",
+  "pieces": [
+   [
+    38422,
+    2,
+    2
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "127"
+  ]
+ },
+ {
+  "sec": "Note128 Common",
+  "name": "Receive Note Off",
+  "pieces": [
+   [
+    38422,
+    3,
+    3
+   ]
+  ],
+  "data": "00~01",
+  "value": "Off~On",
+  "ids": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "127"
+  ]
+ }
+]

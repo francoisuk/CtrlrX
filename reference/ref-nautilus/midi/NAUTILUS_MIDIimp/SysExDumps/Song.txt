@@ -1,0 +1,28 @@
+Song Size: 10906 byte
+Object Version: 4
++=======+==================================================+
+|   OFS | desc                                             |
++=======+==================================================+
+|     0 |                                                  |
+|     : | SongTimbreSet (see CombiAndSongTimbreSet.txt *1) |
+|  5639 |                                                  |
++=======+==================================================+
+|  5640 |                                                  |
+|     : | SongControl (see SongControl.txt)                |
+| 10903 |                                                  |
++=======+==================================================+
+
+*1 Some TYPs of Song are different from Combi's in CombiAndSongTimbreSet.txt.
+
+	Scene Common :	Combi	0x5
+					Song	0xA
+	Step Seq.	 :	Combi	0x9
+					Song	0xE
+	Scene ARP	 :	Combi	0x7
+					Song	0xC
+	Scene Drum	 :	Combi	0x8
+					Song	0xD
+
+-Revision History-
+Rev     Date			Description
+1.0     Aug 02 2021		Initial Release.

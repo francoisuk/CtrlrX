@@ -1,0 +1,1052 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "PATTERN",
+ "tab_index": 0,
+ "object": "Arp Pattern",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_A_PATTERN_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_A_PATTERN_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "— : Arp Pattern"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Arp Pattern — PATTERN"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_pattern",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "PATTERN",
+   "x": 60,
+   "y": 84,
+   "w": 696.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP",
+   "x": 759.4,
+   "y": 84,
+   "w": 680.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "ArpPattern@24.0~1",
+   "param": "ArpPattern@24.0~1",
+   "group": "common_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OCTAVE MOTION",
+   "x": 201.2,
+   "y": 153.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "Up"
+   ],
+   "options": "Up~Parallel",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Octave Motion",
+    "kind": "menu",
+    "file": "ArpPattern.txt",
+    "ofs": 24,
+    "bit": "0~1",
+    "sysex": {
+     "STEP": "0",
+     "PID": "4",
+     "TONE": "0"
+    },
+    "data": "00~03",
+    "value": "Up~Parallel"
+   }
+  },
+  {
+   "id": "ArpPattern@24.2~3",
+   "param": "ArpPattern@24.2~3",
+   "group": "common_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 402.0,
+   "y": 153.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "As Played"
+   ],
+   "options": "As Played~Up&Down",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Type",
+    "kind": "menu",
+    "file": "ArpPattern.txt",
+    "ofs": 24,
+    "bit": "2~3",
+    "sysex": {
+     "STEP": "0",
+     "PID": "3",
+     "TONE": "0"
+    },
+    "data": "00~03",
+    "value": "As Played~Up&Down"
+   }
+  },
+  {
+   "id": "ArpPattern@24.4",
+   "param": "ArpPattern@24.4",
+   "group": "common_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TONE MODE",
+   "x": 201.2,
+   "y": 187.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "Normal"
+   ],
+   "options": "Normal~Fixed Note",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Tone Mode",
+    "kind": "menu",
+    "file": "ArpPattern.txt",
+    "ofs": 24,
+    "bit": "4",
+    "sysex": {
+     "STEP": "0",
+     "PID": "2",
+     "TONE": "0"
+    },
+    "data": "00~01",
+    "value": "Normal~Fixed Note"
+   }
+  },
+  {
+   "id": "ArpPattern@24.5",
+   "param": "ArpPattern@24.5",
+   "group": "common_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FIXED NOTE MODE",
+   "x": 402.0,
+   "y": 187.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "As Played"
+   ],
+   "options": "As Played~All Tones",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Fixed Note Mode",
+    "kind": "menu",
+    "file": "ArpPattern.txt",
+    "ofs": 24,
+    "bit": "5",
+    "sysex": {
+     "STEP": "0",
+     "PID": "5",
+     "TONE": "0"
+    },
+    "data": "00~01",
+    "value": "As Played~All Tones"
+   }
+  },
+  {
+   "id": "ArpPattern@552",
+   "param": "ArpPattern@552",
+   "group": "common_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CATEGORY",
+   "x": 201.2,
+   "y": 221.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "Keyboard"
+   ],
+   "options": "Keyboard~Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Category",
+    "kind": "menu",
+    "file": "ArpPattern.txt",
+    "ofs": 552,
+    "data": "00~10",
+    "value": "Keyboard~Off"
+   }
+  },
+  {
+   "id": "ArpPattern@553",
+   "param": "ArpPattern@553",
+   "group": "common_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SUB CATEGORY",
+   "x": 402.0,
+   "y": 221.0,
+   "w": 192.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Sub Category",
+    "kind": "menu",
+    "file": "ArpPattern.txt",
+    "ofs": 553,
+    "data": "00~07",
+    "value": ""
+   }
+  },
+  {
+   "id": "ArpPattern@25",
+   "param": "ArpPattern@25",
+   "group": "common_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LENGTH",
+   "x": 651.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 672.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~64",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Length",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 25,
+    "sysex": {
+     "STEP": "0",
+     "PID": "0",
+     "TONE": "0"
+    },
+    "data": "00~40",
+    "value": "0~64"
+   }
+  },
+  {
+   "id": "ArpPattern@25_val",
+   "param": "ArpPattern@25",
+   "group": "common_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LENGTH value",
+   "x": 653.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Length",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 25,
+    "sysex": {
+     "STEP": "0",
+     "PID": "0",
+     "TONE": "0"
+    },
+    "data": "00~40",
+    "value": "0~64"
+   }
+  },
+  {
+   "id": "ArpPattern@26",
+   "param": "ArpPattern@26",
+   "group": "common_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "STEPS PER BEAT",
+   "x": 757.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 778.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "x1~x4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Steps Per Beat",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 26,
+    "sysex": {
+     "STEP": "0",
+     "PID": "6",
+     "TONE": "0"
+    },
+    "data": "00~02",
+    "value": "x1~x4"
+   }
+  },
+  {
+   "id": "ArpPattern@26_val",
+   "param": "ArpPattern@26",
+   "group": "common_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "STEPS PER BEAT value",
+   "x": 759.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "x1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Steps Per Beat",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 26,
+    "sysex": {
+     "STEP": "0",
+     "PID": "6",
+     "TONE": "0"
+    },
+    "data": "00~02",
+    "value": "x1~x4"
+   }
+  },
+  {
+   "id": "ArpPattern@554",
+   "param": "ArpPattern@554",
+   "group": "common_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "METER",
+   "x": 863.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 884.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1/4~16/16",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Meter",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 554,
+    "sysex": {
+     "STEP": "0",
+     "PID": "1",
+     "TONE": "0"
+    },
+    "data": "10~3F",
+    "value": "1/4~16/16"
+   }
+  },
+  {
+   "id": "ArpPattern@554_val",
+   "param": "ArpPattern@554",
+   "group": "common_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "METER value",
+   "x": 865.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/4"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Meter",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 554,
+    "sysex": {
+     "STEP": "0",
+     "PID": "1",
+     "TONE": "0"
+    },
+    "data": "10~3F",
+    "value": "1/4~16/16"
+   }
+  },
+  {
+   "id": "ArpPattern@0",
+   "param": "ArpPattern@0",
+   "group": "common_3_3",
+   "type": "display",
+   "kind": "text",
+   "label": "NAME",
+   "x": 962.8,
+   "y": 187.0,
+   "w": 336.0,
+   "h": 16,
+   "text": [
+    "Name"
+   ],
+   "dynamic": true,
+   "max_chars": 24,
+   "midi": null,
+   "korg": {
+    "group": "Common",
+    "name": "Name",
+    "kind": "text",
+    "file": "ArpPattern.txt",
+    "ofs": 0,
+    "data": "00~FF",
+    "value": "~"
+   }
+  },
+  {
+   "id": "ArpPattern@28",
+   "param": "ArpPattern@28",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@28",
+   "x": 210.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[01] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 28,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@29",
+   "param": "ArpPattern@29",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@29",
+   "x": 311.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[02] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 29,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "1"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@30",
+   "param": "ArpPattern@30",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@30",
+   "x": 413.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[03] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 30,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "2"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@31",
+   "param": "ArpPattern@31",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@31",
+   "x": 514.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[04] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 31,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "3"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@32",
+   "param": "ArpPattern@32",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@32",
+   "x": 616.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[05] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 32,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "4"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@33",
+   "param": "ArpPattern@33",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@33",
+   "x": 717.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[06] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 33,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "5"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@34",
+   "param": "ArpPattern@34",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@34",
+   "x": 819.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[07] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 34,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "6"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@35",
+   "param": "ArpPattern@35",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@35",
+   "x": 920.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[08] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 35,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "7"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@36",
+   "param": "ArpPattern@36",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@36",
+   "x": 1022.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[09] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 36,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "8"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@37",
+   "param": "ArpPattern@37",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@37",
+   "x": 1123.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[10] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 37,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "9"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@38",
+   "param": "ArpPattern@38",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@38",
+   "x": 1225.0,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[11] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 38,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "10"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "ArpPattern@39",
+   "param": "ArpPattern@39",
+   "group": "tones",
+   "type": "display",
+   "kind": "value_box",
+   "label": "ArpPattern@39",
+   "x": 1326.5,
+   "y": 296,
+   "w": 97.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9",
+   "midi": null,
+   "korg": {
+    "group": "Tones",
+    "name": "[12] Note Number",
+    "kind": "knob",
+    "file": "ArpPattern.txt",
+    "ofs": 39,
+    "sysex": {
+     "STEP": "0",
+     "PID": "11",
+     "TONE": "11"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "PATTERN",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all"
+}

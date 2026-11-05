@@ -1,0 +1,3035 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "FILTER · 2/4",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_P_FILTER_P2_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_P_FILTER_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — FILTER · 2/4"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 77.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 140.2,
+   "y": 84,
+   "w": 58.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 201.8,
+   "y": 84,
+   "w": 67.7,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 272.5,
+   "y": 84,
+   "w": 59.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 335.3,
+   "y": 84,
+   "w": 73.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 412.1,
+   "y": 84,
+   "w": 97.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 513.0,
+   "y": 84,
+   "w": 55.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 571.1,
+   "y": 84,
+   "w": 78.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 652.5,
+   "y": 84,
+   "w": 70.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 726.1,
+   "y": 84,
+   "w": 75.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 804.5,
+   "y": 84,
+   "w": 71.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 878.7,
+   "y": 84,
+   "w": 73.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 955.1,
+   "y": 84,
+   "w": 78.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1037.0,
+   "y": 84,
+   "w": 76.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1116.2,
+   "y": 84,
+   "w": 70.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1189.7,
+   "y": 84,
+   "w": 82.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1284.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1309.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@3068.1~0",
+   "param": "Prog_HD-1@3068.1~0",
+   "group": "osc_filter_b_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FILTER TYPE",
+   "x": 152.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Low Pass"
+   ],
+   "options": "Low Pass~Band Rejec",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Filter Type",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3068,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Low Pass~Band Rejec",
+    "oasys": {
+     "ofs": 2860,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3068.7",
+   "param": "Prog_HD-1@3068.7",
+   "group": "osc_filter_b_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "BYPASS",
+   "x": 232.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "hd1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Bypass",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3068,
+    "bit": "7",
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 2860,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3071",
+   "param": "Prog_HD-1@3071",
+   "group": "osc_filter_b_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OUTPUT MOD SRC",
+   "x": 401.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Output Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3071,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 2863,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3075",
+   "param": "Prog_HD-1@3075",
+   "group": "osc_filter_b_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESO MOD SRC",
+   "x": 546.1,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Resonance Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3075,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 2867,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3069",
+   "param": "Prog_HD-1@3069",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIM",
+   "x": 173.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 194.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Trim",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3069,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2861,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3069_val",
+   "param": "Prog_HD-1@3069",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIM value",
+   "x": 175.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Trim",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3069,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2861,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3070",
+   "param": "Prog_HD-1@3070",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OUTPUT",
+   "x": 265.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 286.66666666666663,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Output",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3070,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2862,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3070_val",
+   "param": "Prog_HD-1@3070",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OUTPUT value",
+   "x": 267.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Output",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3070,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2862,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3072",
+   "param": "Prog_HD-1@3072",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OUTPUT MOD.INT",
+   "x": 358.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 379.3333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Output Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3072,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2864,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3072_val",
+   "param": "Prog_HD-1@3072",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OUTPUT MOD.INT value",
+   "x": 360.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Output Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3072,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2864,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3073",
+   "param": "Prog_HD-1@3073",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF",
+   "x": 451.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 472.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3073,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2865,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3073_val",
+   "param": "Prog_HD-1@3073",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF value",
+   "x": 453.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3073,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2865,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3074",
+   "param": "Prog_HD-1@3074",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESONANCE",
+   "x": 543.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 564.6666666666666,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Resonance",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3074,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2866,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3074_val",
+   "param": "Prog_HD-1@3074",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RESONANCE value",
+   "x": 545.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Resonance",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3074,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2866,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3076",
+   "param": "Prog_HD-1@3076",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESONANCE MOD.INT",
+   "x": 636.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 657.3333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Resonance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3076,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2868,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3076_val",
+   "param": "Prog_HD-1@3076",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RESONANCE MOD.INT value",
+   "x": 638.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Resonance Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3076,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2868,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3077",
+   "param": "Prog_HD-1@3077",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEYBOARD TRACK",
+   "x": 729.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Keyboard Track",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3077,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2869,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3077_val",
+   "param": "Prog_HD-1@3077",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "KEYBOARD TRACK value",
+   "x": 731.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Keyboard Track",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3077,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2869,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3082",
+   "param": "Prog_HD-1@3082",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG INTENSITY",
+   "x": 821.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 842.6666666666666,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "EG Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3082,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2874,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3082_val",
+   "param": "Prog_HD-1@3082",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG INTENSITY value",
+   "x": 823.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "EG Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3082,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2874,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3083",
+   "param": "Prog_HD-1@3083",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VELOCITY EG INTENSITY",
+   "x": 914.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 935.3333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Velocity EG Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3083,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2875,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3083_val",
+   "param": "Prog_HD-1@3083",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VELOCITY EG INTENSITY value",
+   "x": 916.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Velocity EG Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3083,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2875,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3084",
+   "param": "Prog_HD-1@3084",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG INT.MOD.INT",
+   "x": 1007.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1028.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "EG Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3084,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2876,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3084_val",
+   "param": "Prog_HD-1@3084",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG INT.MOD.INT value",
+   "x": 1009.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "EG Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3084,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2876,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3087",
+   "param": "Prog_HD-1@3087",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "COMMON LFO INTENSITY",
+   "x": 1099.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1120.6666666666665,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Common LFO Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3087,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "16",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2879,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3087_val",
+   "param": "Prog_HD-1@3087",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "COMMON LFO INTENSITY value",
+   "x": 1101.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Common LFO Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3087,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "16",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2879,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3090",
+   "param": "Prog_HD-1@3090",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "COMMON LFO JS(-Y) INT",
+   "x": 1192.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1213.3333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Common LFO JS(-Y) Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3090,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "17",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2882,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3090_val",
+   "param": "Prog_HD-1@3090",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "COMMON LFO JS(-Y) INT value",
+   "x": 1194.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Common LFO JS(-Y) Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3090,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "17",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2882,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3093",
+   "param": "Prog_HD-1@3093",
+   "group": "osc_filter_b_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "COMMON LFO INT.MOD.INT",
+   "x": 1285.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1306.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Common LFO Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3093,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "19",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2885,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3093_val",
+   "param": "Prog_HD-1@3093",
+   "group": "osc_filter_b_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "COMMON LFO INT.MOD.INT value",
+   "x": 1287.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter B",
+    "name": "Common LFO Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3093,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "13",
+     "SUB": "2",
+     "PID": "19",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2885,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3107",
+   "param": "Prog_HD-1@3107",
+   "group": "osc_filter_eg_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 156.9,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3107,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 2899,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3126",
+   "param": "Prog_HD-1@3126",
+   "group": "osc_filter_eg_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 301.4,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3126,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 2918,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3094",
+   "param": "Prog_HD-1@3094",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START LEVEL",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3094,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2886,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3094_val",
+   "param": "Prog_HD-1@3094",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START LEVEL value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3094,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2886,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3095",
+   "param": "Prog_HD-1@3095",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME",
+   "x": 157.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 178.625,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3095,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2887,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3095_val",
+   "param": "Prog_HD-1@3095",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME value",
+   "x": 159.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3095,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2887,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3096",
+   "param": "Prog_HD-1@3096",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK LEVEL",
+   "x": 239.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 260.25,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3096,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2888,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3096_val",
+   "param": "Prog_HD-1@3096",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK LEVEL value",
+   "x": 241.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3096,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2888,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3097",
+   "param": "Prog_HD-1@3097",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME",
+   "x": 320.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 341.87500000000006,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3097,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2889,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3097_val",
+   "param": "Prog_HD-1@3097",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME value",
+   "x": 322.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3097,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2889,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3098",
+   "param": "Prog_HD-1@3098",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BREAK LEVEL",
+   "x": 402.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 423.50000000000006,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3098,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2890,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3098_val",
+   "param": "Prog_HD-1@3098",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BREAK LEVEL value",
+   "x": 404.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3098,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2890,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3099",
+   "param": "Prog_HD-1@3099",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME",
+   "x": 484.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 505.12500000000006,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3099,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2891,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3099_val",
+   "param": "Prog_HD-1@3099",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME value",
+   "x": 486.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3099,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2891,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3100",
+   "param": "Prog_HD-1@3100",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUSTAIN LEVEL",
+   "x": 565.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 586.7500000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3100,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2892,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3100_val",
+   "param": "Prog_HD-1@3100",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUSTAIN LEVEL value",
+   "x": 567.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3100,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2892,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3101",
+   "param": "Prog_HD-1@3101",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME",
+   "x": 647.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 668.3750000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3101,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2893,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3101_val",
+   "param": "Prog_HD-1@3101",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME value",
+   "x": 649.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3101,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": 2893,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3102",
+   "param": "Prog_HD-1@3102",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE LEVEL",
+   "x": 729.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0000000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3102,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2894,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3102_val",
+   "param": "Prog_HD-1@3102",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE LEVEL value",
+   "x": 731.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3102,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2894,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3103",
+   "param": "Prog_HD-1@3103",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME EG CURVE",
+   "x": 810.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 831.6250000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3103,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2895,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3103_val",
+   "param": "Prog_HD-1@3103",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME EG CURVE value",
+   "x": 812.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3103,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2895,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3104",
+   "param": "Prog_HD-1@3104",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME EG CURVE",
+   "x": 892.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 913.2500000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3104,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2896,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3104_val",
+   "param": "Prog_HD-1@3104",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME EG CURVE value",
+   "x": 894.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3104,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2896,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3105",
+   "param": "Prog_HD-1@3105",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME EG CURVE",
+   "x": 973.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 994.8750000000001,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3105,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2897,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3105_val",
+   "param": "Prog_HD-1@3105",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME EG CURVE value",
+   "x": 975.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3105,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2897,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3106",
+   "param": "Prog_HD-1@3106",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REL TIME EG CURVE",
+   "x": 1055.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1076.5000000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3106,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2898,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3106_val",
+   "param": "Prog_HD-1@3106",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REL TIME EG CURVE value",
+   "x": 1057.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3106,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10",
+    "oasys": {
+     "ofs": 2898,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3108",
+   "param": "Prog_HD-1@3108",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT → START LVL",
+   "x": 1137.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1158.1250000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3108,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2900,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3108_val",
+   "param": "Prog_HD-1@3108",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT → START LVL value",
+   "x": 1139.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3108,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2900,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3109",
+   "param": "Prog_HD-1@3109",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT TO ATK LVL",
+   "x": 1218.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1239.7500000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3109,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2901,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3109_val",
+   "param": "Prog_HD-1@3109",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT TO ATK LVL value",
+   "x": 1220.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3109,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2901,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3110",
+   "param": "Prog_HD-1@3110",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LVL MOD INT → BREAK LVL",
+   "x": 1300.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1321.3750000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3110,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2902,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3110_val",
+   "param": "Prog_HD-1@3110",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LVL MOD INT → BREAK LVL value",
+   "x": 1302.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3110,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2902,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3127",
+   "param": "Prog_HD-1@3127",
+   "group": "osc_filter_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESET THRESHOLD",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0000000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3127,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2919,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@3127_val",
+   "param": "Prog_HD-1@3127",
+   "group": "osc_filter_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RESET THRESHOLD value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Filter EG",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3127,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "9",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 2919,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "FILTER",
+ "page_number": 2,
+ "pages_in_area": 4,
+ "apply": "hd1",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier.",
+ "index": {
+  "label": "OSC",
+  "instances": [
+   "1",
+   "2"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2"
+  ],
+  "shown": "1",
+  "stride_bytes": 466,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes",
+  "stride_bytes_oasys": 288
+ }
+}

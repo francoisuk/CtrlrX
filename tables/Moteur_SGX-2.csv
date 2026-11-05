@@ -1,0 +1,24 @@
+octet;bits (octet:bas-haut, poids faible d'abord);largeur;section;paramètre;données (hex);valeurs;note
+0;0:0-7 + 1:0-7;16;;[User Param] Piano Type;0000~00FF;0~255;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+2;2:0-6;7;;[User Param] Patch Level;00~7F;0~127;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+2;2:7-7 + 3:0-3;5;;[User Param] Transpose;F4~0C;-12~+12;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+3;3:4-5;2;;[User Param] Octave;FE~01;-2~+1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+3;3:6-7 + 4:0-5;8;;[User Param] Amp Vel. Int.;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+4;4:6-7 + 5:0-5;8;;[User Param] Release Time;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+5;5:6-7 + 6:0-5;8;;[User Param] Velocity Bias;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+6;6:6-7 + 7:0-4;7;;[User Param] Lid Position;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+7;7:5-5;1;;[User Param] St. Perspective;00~01;Player~Audience;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+7;7:6-6;1;;[User Param] Una Corda On;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+7;7:7-7;1;;[User Param] Resonance On;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+8;8:0-6;7;;[User Param] Resonance Level;D0~06;-48~+6;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+8;8:7-7;1;;[User Param] Release Sample Enable;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+9;9:0-6;7;;[User Param] Release Sample Level;D0~06;-48~+6;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+9;9:7-7;1;;[User Param] Key Off Noise Enable;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+10;10:0-6;7;;[User Param] Key Off Noise Level;D0~06;-48~+6;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+10;10:7-7;1;;[User Param] Sustain Pedal Noise Enable;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+11;11:0-6;7;;[User Param] Sustain Pedal Noise Level;D0~06;-48~+6;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+11;11:7-7 + 12:0-5;7;;[User Param] Pan;00~7F;RND~R127;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+12;12:6-7 + 13:0-4;7;;[User Param] Voice Delay;00~61;0~97;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+13;13:5-5;1;;[User Param] String Resonance Enable;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+13;13:6-7 + 14:0-4;7;;[User Param] String Resonance Depth;00~7F;0~+127;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+14;14:5-5;1;;[User Param] String Resonance Mode;00~01;use Main Osc only~u;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset

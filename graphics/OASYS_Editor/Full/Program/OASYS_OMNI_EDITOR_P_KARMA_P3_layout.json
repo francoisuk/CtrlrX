@@ -1,0 +1,4439 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA · 3/8",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_P_KARMA_P3_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_P_KARMA_P3_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — KARMA · 3/8"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 74.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 137.6,
+   "y": 84,
+   "w": 56.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 196.7,
+   "y": 84,
+   "w": 65.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 264.8,
+   "y": 84,
+   "w": 57.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 325.1,
+   "y": 84,
+   "w": 71.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 399.3,
+   "y": 84,
+   "w": 95.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 497.6,
+   "y": 84,
+   "w": 52.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 553.1,
+   "y": 84,
+   "w": 75.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 632.0,
+   "y": 84,
+   "w": 67.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 703.0,
+   "y": 84,
+   "w": 72.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 778.9,
+   "y": 84,
+   "w": 68.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 850.5,
+   "y": 84,
+   "w": 70.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 924.4,
+   "y": 84,
+   "w": 76.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1003.7,
+   "y": 84,
+   "w": 73.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1080.3,
+   "y": 84,
+   "w": 68.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1151.3,
+   "y": 84,
+   "w": 79.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1243.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1268.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_7",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "7",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_8",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "8",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@1340.4~3",
+   "param": "Prog_HD-1@1340.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1340.4~3",
+   "x": 210.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 1) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1340,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1328,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1346.4~3",
+   "param": "Prog_HD-1@1346.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1346.4~3",
+   "x": 275.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 2) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1346,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1334,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1352.4~3",
+   "param": "Prog_HD-1@1352.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1352.4~3",
+   "x": 341.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 3) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1352,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "2"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1340,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1358.4~3",
+   "param": "Prog_HD-1@1358.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1358.4~3",
+   "x": 406.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 4) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1358,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "3"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1346,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1364.4~3",
+   "param": "Prog_HD-1@1364.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1364.4~3",
+   "x": 472.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 5) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1364,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "4"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1352,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1370.4~3",
+   "param": "Prog_HD-1@1370.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1370.4~3",
+   "x": 537.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 6) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1370,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "5"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1358,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1376.4~3",
+   "param": "Prog_HD-1@1376.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1376.4~3",
+   "x": 603.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 7) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1376,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "6"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1364,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1382.4~3",
+   "param": "Prog_HD-1@1382.4~3",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1382.4~3",
+   "x": 668.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 8) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1382,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "7"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1370,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1341",
+   "param": "Prog_HD-1@1341",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1341",
+   "x": 210.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 1) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1341,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1329,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1347",
+   "param": "Prog_HD-1@1347",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1347",
+   "x": 275.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 2) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1347,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "1"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1335,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1353",
+   "param": "Prog_HD-1@1353",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1353",
+   "x": 341.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 3) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1353,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "2"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1341,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1359",
+   "param": "Prog_HD-1@1359",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1359",
+   "x": 406.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 4) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1359,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "3"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1347,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1365",
+   "param": "Prog_HD-1@1365",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1365",
+   "x": 472.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 5) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1365,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "4"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1353,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1371",
+   "param": "Prog_HD-1@1371",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1371",
+   "x": 537.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 6) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1371,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "5"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1359,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1377",
+   "param": "Prog_HD-1@1377",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1377",
+   "x": 603.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 7) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1377,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "6"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1365,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1383",
+   "param": "Prog_HD-1@1383",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1383",
+   "x": 668.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Velocity Outsid",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 8) Source ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1383,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "7"
+    },
+    "data": "00~3D",
+    "value": "Off~Velocity Outsid",
+    "oasys": {
+     "ofs": 1371,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1342",
+   "param": "Prog_HD-1@1342",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1342",
+   "x": 210.0,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 1) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1342,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1330,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1348",
+   "param": "Prog_HD-1@1348",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1348",
+   "x": 275.5,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 2) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1348,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "1"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1336,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1354",
+   "param": "Prog_HD-1@1354",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1354",
+   "x": 341.0,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 3) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1354,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "2"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1342,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1360",
+   "param": "Prog_HD-1@1360",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1360",
+   "x": 406.5,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 4) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1360,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "3"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1348,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1366",
+   "param": "Prog_HD-1@1366",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1366",
+   "x": 472.0,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 5) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1366,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "4"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1354,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1372",
+   "param": "Prog_HD-1@1372",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1372",
+   "x": 537.5,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 6) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1372,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "5"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1360,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1378",
+   "param": "Prog_HD-1@1378",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1378",
+   "x": 603.0,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 7) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1378,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "6"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1366,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1384",
+   "param": "Prog_HD-1@1384",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1384",
+   "x": 668.5,
+   "y": 192,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Buffer Latch",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 8) Destination ID",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1384,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "7"
+    },
+    "data": "00~16",
+    "value": "Off~Buffer Latch",
+    "oasys": {
+     "ofs": 1372,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1343.6~5",
+   "param": "Prog_HD-1@1343.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1343.6~5",
+   "x": 210.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 1) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1343,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1331,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1349.6~5",
+   "param": "Prog_HD-1@1349.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1349.6~5",
+   "x": 275.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 2) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1349,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "1"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1337,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1355.6~5",
+   "param": "Prog_HD-1@1355.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1355.6~5",
+   "x": 341.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 3) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1355,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "2"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1343,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1361.6~5",
+   "param": "Prog_HD-1@1361.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1361.6~5",
+   "x": 406.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 4) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1361,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "3"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1349,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1367.6~5",
+   "param": "Prog_HD-1@1367.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1367.6~5",
+   "x": 472.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 5) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1367,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "4"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1355,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1373.6~5",
+   "param": "Prog_HD-1@1373.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1373.6~5",
+   "x": 537.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 6) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1373,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "5"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1361,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1379.6~5",
+   "param": "Prog_HD-1@1379.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1379.6~5",
+   "x": 603.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 7) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1379,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "6"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1367,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1385.6~5",
+   "param": "Prog_HD-1@1385.6~5",
+   "group": "karma_common_dynamic_midi",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1385.6~5",
+   "x": 668.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Momentary"
+   ],
+   "range": "Momentary~Continuou",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 8) Action",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1385,
+    "bit": "6~5",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "7"
+    },
+    "data": "00~02",
+    "value": "Momentary~Continuou",
+    "oasys": {
+     "ofs": 1373,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1344",
+   "param": "Prog_HD-1@1344",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1344",
+   "x": 210.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 1) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1344,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1332,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1350",
+   "param": "Prog_HD-1@1350",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1350",
+   "x": 275.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 2) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1350,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1338,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1356",
+   "param": "Prog_HD-1@1356",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1356",
+   "x": 341.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 3) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1356,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1344,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1362",
+   "param": "Prog_HD-1@1362",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1362",
+   "x": 406.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 4) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1362,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1350,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1368",
+   "param": "Prog_HD-1@1368",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1368",
+   "x": 472.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 5) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1368,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1356,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1374",
+   "param": "Prog_HD-1@1374",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1374",
+   "x": 537.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 6) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1374,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1362,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1380",
+   "param": "Prog_HD-1@1380",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1380",
+   "x": 603.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 7) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1380,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1368,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1386",
+   "param": "Prog_HD-1@1386",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1386",
+   "x": 668.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 8) Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1386,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1374,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1345",
+   "param": "Prog_HD-1@1345",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1345",
+   "x": 210.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 1) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1345,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1333,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1351",
+   "param": "Prog_HD-1@1351",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1351",
+   "x": 275.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 2) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1351,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1339,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1357",
+   "param": "Prog_HD-1@1357",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1357",
+   "x": 341.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 3) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1357,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1345,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1363",
+   "param": "Prog_HD-1@1363",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1363",
+   "x": 406.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 4) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1363,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1351,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1369",
+   "param": "Prog_HD-1@1369",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1369",
+   "x": 472.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 5) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1369,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "4"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1357,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1375",
+   "param": "Prog_HD-1@1375",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1375",
+   "x": 537.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 6) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1375,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "5"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1363,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1381",
+   "param": "Prog_HD-1@1381",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1381",
+   "x": 603.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 7) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1381,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "6"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1369,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1387",
+   "param": "Prog_HD-1@1387",
+   "group": "karma_common_dynamic_midi",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1387",
+   "x": 668.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Dynamic MIDI 8) Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1387,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "7"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": 1375,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1388",
+   "param": "Prog_HD-1@1388",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1388",
+   "x": 904.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.1) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1388,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1376,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1398",
+   "param": "Prog_HD-1@1398",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1398",
+   "x": 969.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.2) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1398,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "1"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1386,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1408",
+   "param": "Prog_HD-1@1408",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1408",
+   "x": 1035.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.3) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1408,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "2"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1396,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1418",
+   "param": "Prog_HD-1@1418",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1418",
+   "x": 1100.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.4) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1418,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "3"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1406,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1428",
+   "param": "Prog_HD-1@1428",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1428",
+   "x": 1166.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.5) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1428,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "4"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1416,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1438",
+   "param": "Prog_HD-1@1438",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1438",
+   "x": 1231.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.6) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1438,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "5"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1426,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1448",
+   "param": "Prog_HD-1@1448",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1448",
+   "x": 1297.0,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.7) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1448,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "6"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1436,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1458",
+   "param": "Prog_HD-1@1458",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1458",
+   "x": 1362.5,
+   "y": 150,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Random Seeds",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.8) Param.Group",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1458,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "7"
+    },
+    "data": "00~06",
+    "value": "Off~Random Seeds",
+    "oasys": {
+     "ofs": 1446,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1389",
+   "param": "Prog_HD-1@1389",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1389",
+   "x": 904.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.1) Param.Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1389,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "",
+    "value": "",
+    "oasys": {
+     "ofs": 1377,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1399",
+   "param": "Prog_HD-1@1399",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1399",
+   "x": 969.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.2) Param.Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1399,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "1"
+    },
+    "data": "",
+    "value": "",
+    "oasys": {
+     "ofs": 1387,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1409",
+   "param": "Prog_HD-1@1409",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1409",
+   "x": 1035.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.3) Param.Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1409,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "2"
+    },
+    "data": "",
+    "value": "",
+    "oasys": {
+     "ofs": 1397,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1419",
+   "param": "Prog_HD-1@1419",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1419",
+   "x": 1100.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.4) Param.Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1419,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "3"
+    },
+    "data": "",
+    "value": "",
+    "oasys": {
+     "ofs": 1407,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1429",
+   "param": "Prog_HD-1@1429",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1429",
+   "x": 1166.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.5) Param.Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1429,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "4"
+    },
+    "data": "",
+    "value": "",
+    "oasys": {
+     "ofs": 1417,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1439",
+   "param": "Prog_HD-1@1439",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1439",
+   "x": 1231.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.6) Param.Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1439,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "5"
+    },
+    "data": "",
+    "value": "",
+    "oasys": {
+     "ofs": 1427,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1449",
+   "param": "Prog_HD-1@1449",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1449",
+   "x": 1297.0,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.7) Param.Assign",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1449,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "6"
+    },
+    "data": "",
+    "value": "",
+    "oasys": {
+     "ofs": 1437,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1460.0",
+   "param": "Prog_HD-1@1460.0",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "toggle",
+   "label": "Prog_HD-1@1459",
+   "x": 1362.5,
+   "y": 171,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.8) Module A Control",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1460,
+    "bit": "0",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "7"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": 1448,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1390.5~4",
+   "param": "Prog_HD-1@1390.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1390.5~4",
+   "x": 904.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.1) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1390,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1378,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1400.5~4",
+   "param": "Prog_HD-1@1400.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1400.5~4",
+   "x": 969.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.2) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1400,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1388,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1410.5~4",
+   "param": "Prog_HD-1@1410.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1410.5~4",
+   "x": 1035.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.3) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1410,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "2"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1398,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1420.5~4",
+   "param": "Prog_HD-1@1420.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1420.5~4",
+   "x": 1100.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.4) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1420,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "3"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1408,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1430.5~4",
+   "param": "Prog_HD-1@1430.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1430.5~4",
+   "x": 1166.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.5) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1430,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "4"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1418,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1440.5~4",
+   "param": "Prog_HD-1@1440.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1440.5~4",
+   "x": 1231.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.6) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1440,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "5"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1428,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1450.5~4",
+   "param": "Prog_HD-1@1450.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1450.5~4",
+   "x": 1297.0,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.7) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1450,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "6"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1438,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1460.5~4",
+   "param": "Prog_HD-1@1460.5~4",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1460.5~4",
+   "x": 1362.5,
+   "y": 213,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+"
+   ],
+   "range": "+~-",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.8) Polarity",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1460,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "7"
+    },
+    "data": "00~01",
+    "value": "+~-",
+    "oasys": {
+     "ofs": 1448,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1391",
+   "param": "Prog_HD-1@1391",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1391",
+   "x": 904.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.1) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1391,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1379,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1401",
+   "param": "Prog_HD-1@1401",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1401",
+   "x": 969.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.2) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1401,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "1"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1389,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1411",
+   "param": "Prog_HD-1@1411",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1411",
+   "x": 1035.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.3) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1411,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "2"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1399,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1421",
+   "param": "Prog_HD-1@1421",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1421",
+   "x": 1100.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.4) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1421,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "3"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1409,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1431",
+   "param": "Prog_HD-1@1431",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1431",
+   "x": 1166.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.5) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1431,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "4"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1419,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1441",
+   "param": "Prog_HD-1@1441",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1441",
+   "x": 1231.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.6) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1441,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "5"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1429,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1451",
+   "param": "Prog_HD-1@1451",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1451",
+   "x": 1297.0,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.7) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1451,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "6"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1439,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1461",
+   "param": "Prog_HD-1@1461",
+   "group": "karma_common_rt_param",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@1461",
+   "x": 1362.5,
+   "y": 234,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Dyn.MIDI8",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.8) Fader/Switch Number",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1461,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "7"
+    },
+    "data": "FF~1F",
+    "value": "Off~Dyn.MIDI8",
+    "oasys": {
+     "ofs": 1449,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1392",
+   "param": "Prog_HD-1@1392",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1392",
+   "x": 904.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.1) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1392,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1380,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1402",
+   "param": "Prog_HD-1@1402",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1402",
+   "x": 969.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.2) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1402,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "1"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1390,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1412",
+   "param": "Prog_HD-1@1412",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1412",
+   "x": 1035.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.3) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1412,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "2"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1400,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1422",
+   "param": "Prog_HD-1@1422",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1422",
+   "x": 1100.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.4) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1422,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "3"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1410,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1432",
+   "param": "Prog_HD-1@1432",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1432",
+   "x": 1166.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.5) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1432,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "4"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1420,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1442",
+   "param": "Prog_HD-1@1442",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1442",
+   "x": 1231.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.6) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1442,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "5"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1430,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1452",
+   "param": "Prog_HD-1@1452",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1452",
+   "x": 1297.0,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.7) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1452,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "6"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1440,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1462",
+   "param": "Prog_HD-1@1462",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1462",
+   "x": 1362.5,
+   "y": 255,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.8) Min Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1462,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "7"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1450,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1394",
+   "param": "Prog_HD-1@1394",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1394",
+   "x": 904.0,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.1) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1394,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1382,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1404",
+   "param": "Prog_HD-1@1404",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1404",
+   "x": 969.5,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.2) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1404,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "1"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1392,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1414",
+   "param": "Prog_HD-1@1414",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1414",
+   "x": 1035.0,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.3) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1414,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "2"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1402,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1424",
+   "param": "Prog_HD-1@1424",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1424",
+   "x": 1100.5,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.4) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1424,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "3"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1412,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1434",
+   "param": "Prog_HD-1@1434",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1434",
+   "x": 1166.0,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.5) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1434,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "4"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1422,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1444",
+   "param": "Prog_HD-1@1444",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1444",
+   "x": 1231.5,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.6) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1444,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "5"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1432,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1454",
+   "param": "Prog_HD-1@1454",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1454",
+   "x": 1297.0,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.7) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1454,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "6"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1442,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1464",
+   "param": "Prog_HD-1@1464",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1464",
+   "x": 1362.5,
+   "y": 276,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.8) Max Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1464,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "7"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1452,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1396",
+   "param": "Prog_HD-1@1396",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1396",
+   "x": 904.0,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.1) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1396,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1384,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1406",
+   "param": "Prog_HD-1@1406",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1406",
+   "x": 969.5,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.2) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1406,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "1"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1394,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1416",
+   "param": "Prog_HD-1@1416",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1416",
+   "x": 1035.0,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.3) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1416,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "2"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1404,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1426",
+   "param": "Prog_HD-1@1426",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1426",
+   "x": 1100.5,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.4) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1426,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "3"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1414,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1436",
+   "param": "Prog_HD-1@1436",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1436",
+   "x": 1166.0,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.5) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1436,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "4"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1424,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1446",
+   "param": "Prog_HD-1@1446",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1446",
+   "x": 1231.5,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.6) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1446,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "5"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1434,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1456",
+   "param": "Prog_HD-1@1456",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1456",
+   "x": 1297.0,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.7) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1456,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "6"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1444,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_HD-1@1466",
+   "param": "Prog_HD-1@1466",
+   "group": "karma_common_rt_param",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@1466",
+   "x": 1362.5,
+   "y": 297,
+   "w": 61.5,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-32768~+32767",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(RT Param.8) Value",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1466,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "7"
+    },
+    "data": "8000~7FFF",
+    "value": "-32768~+32767",
+    "oasys": {
+     "ofs": 1454,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA",
+ "page_number": 3,
+ "pages_in_area": 8,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

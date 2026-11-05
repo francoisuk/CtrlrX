@@ -1,0 +1,1305 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "CONTROL · 2/6",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — CONTROL · 2/6"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 134.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 197.7,
+   "y": 84,
+   "w": 128.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 329.0,
+   "y": 84,
+   "w": 133.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 465.0,
+   "y": 84,
+   "w": 128.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 596.8,
+   "y": 84,
+   "w": 114.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 714.4,
+   "y": 84,
+   "w": 136.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 853.8,
+   "y": 84,
+   "w": 129.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 986.6,
+   "y": 84,
+   "w": 157.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1147.2,
+   "y": 84,
+   "w": 133.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1296",
+   "param": "CombiAndSongTimbreSet@1296",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1296",
+   "x": 472.8,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 1 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1296,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1302",
+   "param": "CombiAndSongTimbreSet@1302",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1302",
+   "x": 588.2,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 2 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1302,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1308",
+   "param": "CombiAndSongTimbreSet@1308",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1308",
+   "x": 703.6,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 3 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1308,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "2"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1314",
+   "param": "CombiAndSongTimbreSet@1314",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1314",
+   "x": 819.0,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 4 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1314,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "3"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1320",
+   "param": "CombiAndSongTimbreSet@1320",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1320",
+   "x": 934.4,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 5 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1320,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "4"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1326",
+   "param": "CombiAndSongTimbreSet@1326",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1326",
+   "x": 1049.8,
+   "y": 150,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 6 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1326,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "5"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1298",
+   "param": "CombiAndSongTimbreSet@1298",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1298",
+   "x": 472.8,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 1 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1298,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1304",
+   "param": "CombiAndSongTimbreSet@1304",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1304",
+   "x": 588.2,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 2 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1304,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "1"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1310",
+   "param": "CombiAndSongTimbreSet@1310",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1310",
+   "x": 703.6,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 3 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1310,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "2"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1316",
+   "param": "CombiAndSongTimbreSet@1316",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1316",
+   "x": 819.0,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 4 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1316,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "3"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1322",
+   "param": "CombiAndSongTimbreSet@1322",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1322",
+   "x": 934.4,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 5 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1322,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "4"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1328",
+   "param": "CombiAndSongTimbreSet@1328",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1328",
+   "x": 1049.8,
+   "y": 171,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~CC#119",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 6 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1328,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "5"
+    },
+    "data": "00~8E",
+    "value": "Off~CC#119"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1299",
+   "param": "CombiAndSongTimbreSet@1299",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1299",
+   "x": 472.8,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "EQ Trim"
+   ],
+   "range": "EQ Trim~Expression",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 1 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1299,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "EQ Trim~Expression"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1305",
+   "param": "CombiAndSongTimbreSet@1305",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1305",
+   "x": 588.2,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "EQ Trim"
+   ],
+   "range": "EQ Trim~Expression",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 2 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1305,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "1"
+    },
+    "data": "00~09",
+    "value": "EQ Trim~Expression"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1311",
+   "param": "CombiAndSongTimbreSet@1311",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1311",
+   "x": 703.6,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "EQ Trim"
+   ],
+   "range": "EQ Trim~Expression",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 3 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1311,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "2"
+    },
+    "data": "00~09",
+    "value": "EQ Trim~Expression"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1317",
+   "param": "CombiAndSongTimbreSet@1317",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1317",
+   "x": 819.0,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "EQ Trim"
+   ],
+   "range": "EQ Trim~Expression",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 4 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1317,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "3"
+    },
+    "data": "00~09",
+    "value": "EQ Trim~Expression"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1323",
+   "param": "CombiAndSongTimbreSet@1323",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1323",
+   "x": 934.4,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "EQ Trim"
+   ],
+   "range": "EQ Trim~Expression",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 5 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1323,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "4"
+    },
+    "data": "00~09",
+    "value": "EQ Trim~Expression"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1329",
+   "param": "CombiAndSongTimbreSet@1329",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1329",
+   "x": 1049.8,
+   "y": 192,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "EQ Trim"
+   ],
+   "range": "EQ Trim~Expression",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Knob 6 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1329,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "5"
+    },
+    "data": "00~09",
+    "value": "EQ Trim~Expression"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1332",
+   "param": "CombiAndSongTimbreSet@1332",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1332",
+   "x": 472.8,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 1 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1332,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1340",
+   "param": "CombiAndSongTimbreSet@1340",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1340",
+   "x": 588.2,
+   "y": 213,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "RT Control"
+   ],
+   "range": "RT Control~Mixer Co",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 2 Target",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1340,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "RT Control~Mixer Co"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1333",
+   "param": "CombiAndSongTimbreSet@1333",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1333",
+   "x": 472.8,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "range": "Toggle~Momentary",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 1 Action",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1333,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1341",
+   "param": "CombiAndSongTimbreSet@1341",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1341",
+   "x": 588.2,
+   "y": 234,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "range": "Toggle~Momentary",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 2 Action",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1341,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1334",
+   "param": "CombiAndSongTimbreSet@1334",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1334",
+   "x": 472.8,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Soft (CC#67)",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 1 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1334,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "Off~Soft (CC#67)"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1342",
+   "param": "CombiAndSongTimbreSet@1342",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1342",
+   "x": 588.2,
+   "y": 255,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Soft (CC#67)",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 2 RT Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1342,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "1"
+    },
+    "data": "00~10",
+    "value": "Off~Soft (CC#67)"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1335",
+   "param": "CombiAndSongTimbreSet@1335",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1335",
+   "x": 472.8,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Play/Mute"
+   ],
+   "range": "Play/Mute~Solo",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 1 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1335,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Play/Mute~Solo"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1343",
+   "param": "CombiAndSongTimbreSet@1343",
+   "group": "rt_controller_2_6",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CombiAndSongTimbreSet@1343",
+   "x": 588.2,
+   "y": 276,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Play/Mute"
+   ],
+   "range": "Play/Mute~Solo",
+   "midi": null,
+   "korg": {
+    "group": "RT Controller",
+    "name": "Switch 2 Mixer Control",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1343,
+    "sysex": {
+     "TYP": "27",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Play/Mute~Solo"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "CONTROL",
+ "page_number": 2,
+ "pages_in_area": 6,
+ "apply": "all"
+}

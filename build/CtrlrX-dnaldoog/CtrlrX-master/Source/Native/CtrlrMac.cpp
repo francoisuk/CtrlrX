@@ -1,0 +1,1158 @@
+#include "stdafx.h"
+#include "stdafx_luabind.h"
+#include "CtrlrInlineUtilitiesGUI.h"
+
+static const int zero = 0;
+#ifdef __APPLE__
+#include "CtrlrLog.h"
+#include "CtrlrMac.h"
+#include "CtrlrMacros.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrPanel/CtrlrPanelResource.h"
+#include "UIComponents/CtrlrIcnsGenerator.h"
+#include <memory>
+
+#include <fstream>
+#include <random>
+
+CtrlrMac::CtrlrMac(CtrlrManager &_owner) : owner(_owner) {}
+
+CtrlrMac::~CtrlrMac() {}
+
+// UNTESTED on macOS: please have it built and checked on a Mac.
+
+void CtrlrMac::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const bool isRestricted, const bool signPanel,
+									  std::function<void(juce::Result)> callback) {
+
+	auto notifyAndReturn = [callback](const juce::Result &res) {
+		if (callback)
+			callback(res);
+	};
+
+	if (panelToWrite == nullptr) {
+		notifyAndReturn(Result::fail("MAC native, panel pointer is invalid"));
+		return;
+	}
+
+	// The panel can be closed while dialogs are open, so only hold a weak reference from here on.
+	juce::WeakReference<CtrlrPanel> panelRef(panelToWrite);
+
+	File me = File::getSpecialLocation(File::currentApplicationFile);
+	String fileExtension = me.getFileExtension();
+	PluginLogger logger(me);
+
+	logger.log("Starting exportWithDefaultPanel");
+
+	// FIX: these were "literal" + enum, which is pointer arithmetic on the string literal
+	// (undefined behaviour), not string concatenation.
+	auto typeOS = juce::SystemStats::getOperatingSystemType();
+	std::cout << "MAC native, launch fileChooser to select export destination path. typeOS : " << typeOS << std::endl;
+	logger.log("MAC native, launch fileChooser to select export destination path. typeOS : " + String((int)typeOS));
+
+	auto nameOS = juce::SystemStats::getOperatingSystemName();
+	std::cout << "MAC native, launch fileChooser to select export destination path. nameOS : " << nameOS << std::endl;
+	logger.log("MAC native, launch fileChooser to select export destination path. nameOS : " + nameOS);
+
+	bool nativeFileChooser = true;
+
+	File fcInitialDirectory;
+
+	std::cout << "CtrlrX source fileExtension is : " << fileExtension << std::endl;
+	logger.log("CtrlrX source fileExtension is :" + fileExtension);
+
+	if (fileExtension == ".vst3" || fileExtension == ".vst" || fileExtension == ".component" ||
+		fileExtension == ".aaxplugin") {
+		fcInitialDirectory = me.getParentDirectory();
+	} else {
+		fcInitialDirectory = File::getSpecialLocation(File::globalApplicationsDirectory);
+	}
+
+	File panelLastSaveDir = File(owner.getProperty(Ids::panelLastSaveDir));
+
+	if (!fcInitialDirectory.isDirectory() || !fcInitialDirectory.hasWriteAccess()) {
+		std::cout << "Primary target folder is not writable: " << fcInitialDirectory.getFullPathName() << std::endl;
+		logger.log("Primary target folder is not writable: " + fcInitialDirectory.getFullPathName());
+
+		if (panelLastSaveDir.exists() && panelLastSaveDir.isDirectory() && panelLastSaveDir.hasWriteAccess()) {
+			fcInitialDirectory = panelLastSaveDir;
+			std::cout << "Falling back to last saved directory: " << fcInitialDirectory.getFullPathName() << std::endl;
+			logger.log("Falling back to last saved directory: " + fcInitialDirectory.getFullPathName());
+		} else {
+			fcInitialDirectory = File::getSpecialLocation(File::userDesktopDirectory);
+			std::cout << "Falling back to user's desktop." << std::endl;
+			logger.log("Falling back to user's desktop.");
+		}
+	}
+
+	// FIX: the member `fc` was also created here and never launched. Only the shared chooser below is used.
+	auto flags = FileBrowserComponent::openMode | FileBrowserComponent::canSelectDirectories;
+
+	auto fileChooser = std::make_shared<FileChooser>(CTRLR_NEW_INSTANCE_DIALOG_TITLE, fcInitialDirectory,
+													 me.getFileExtension(), nativeFileChooser);
+
+	fileChooser->launchAsync(flags, [this, fileChooser, panelRef, isRestricted, me, fileExtension,
+									 notifyAndReturn](const FileChooser &chooser) mutable {
+		// fileChooser stays alive until this lambda finishes
+
+		if (chooser.getResult() == File()) {
+			notifyAndReturn(Result::fail("User cancelled the export operation."));
+			return;
+		}
+
+		CtrlrPanel *panelAtChoose = panelRef.get();
+		if (panelAtChoose == nullptr) {
+			notifyAndReturn(Result::fail("MAC native, panel was closed before the export could start"));
+			return;
+		}
+
+		File newMe = chooser.getResult().getChildFile(
+			File::createLegalFileName(panelAtChoose->getProperty(Ids::name).toString() + me.getFileExtension()));
+
+		// ---------------------------------------------------------------------------------
+		// The actual export. Runs last, after any overwrite / licence prompts.
+		// ---------------------------------------------------------------------------------
+		auto performExport = [this, panelRef, isRestricted, me, fileExtension, newMe,
+							  notifyAndReturn](const juce::String &licenseText) mutable {
+			CtrlrPanel *panelToWrite = panelRef.get();
+			if (panelToWrite == nullptr) {
+				notifyAndReturn(Result::fail("MAC native, panel was closed before the export could finish"));
+				return;
+			}
+
+			PluginLogger logger(me);
+			MemoryBlock panelExportData, panelResourcesData;
+			String error;
+
+			// The user has confirmed the overwrite (if there was one): remove the old bundle now,
+			// right before copying, so an abandoned flow never destroys it.
+			if (newMe.exists()) {
+				logger.log("MAC native, deleting existing bundle at: " + newMe.getFullPathName());
+				if (!newMe.deleteRecursively()) {
+					notifyAndReturn(
+						Result::fail("MAC native, failed to delete existing bundle at: " + newMe.getFullPathName()));
+					return;
+				}
+			}
+
+			if (!me.copyDirectoryTo(newMe)) {
+				logger.log("MAC native, copyDirectoryTo from \"" + me.getFullPathName() + "\" to \"" +
+						   newMe.getFullPathName() + "\" failed");
+				notifyAndReturn(Result::fail("MAC native, copyDirectoryTo from \"" + me.getFullPathName() + "\" to \"" +
+											 newMe.getFullPathName() + "\" failed"));
+				return;
+			}
+
+			Result res = setBundleInfo(panelToWrite, newMe);
+			if (!res.wasOk()) {
+				notifyAndReturn(res);
+				return;
+			}
+
+			res = setBundleInfoCarbon(panelToWrite, newMe);
+			if (!res.wasOk()) {
+				notifyAndReturn(res);
+				return;
+			}
+
+			if ((error = CtrlrPanel::exportPanel(panelToWrite, File(), newMe, &panelExportData, &panelResourcesData,
+												 isRestricted, licenseText)) != "") {
+				notifyAndReturn(Result::fail(error));
+				return;
+			}
+
+			File panelFile = newMe.getChildFile("Contents/Resources/" + String(CTRLR_MAC_PANEL_FILE));
+			File resourcesFile = newMe.getChildFile("Contents/Resources/" + String(CTRLR_MAC_RESOURCES_FILE));
+			File fileEncrypted =
+				newMe.getChildFile("Contents/Resources/" + String(CTRLR_MAC_PANEL_FILE) + String("BF"));
+			File executableFile = me.getChildFile("Contents/MacOS/CtrlrX");
+
+			if (panelFile.create() && panelFile.hasWriteAccess()) {
+				if (!panelFile.replaceWithData(panelExportData.getData(), panelExportData.getSize())) {
+					logger.log("MAC native, failed to write panel file at: " + panelFile.getFullPathName());
+					notifyAndReturn(
+						Result::fail("MAC native, failed to write panel file at: " + panelFile.getFullPathName()));
+					return;
+				}
+				logger.log("MAC native, succeeded to write panel file at: " + panelFile.getFullPathName());
+			}
+
+			if (resourcesFile.create() && resourcesFile.hasWriteAccess()) {
+				if (!resourcesFile.replaceWithData(panelResourcesData.getData(), panelResourcesData.getSize())) {
+					logger.log("MAC native, failed to write resources file at: " + resourcesFile.getFullPathName());
+					notifyAndReturn(Result::fail("MAC native, failed to write resources file at: " +
+												 resourcesFile.getFullPathName()));
+					return;
+				}
+				logger.log("MAC native, succeeded to write resources file at: " + resourcesFile.getFullPathName());
+			}
+
+			bool enableExportResourceEncryption = panelToWrite->getProperty(Ids::panelExportResourceEncryption);
+
+			if (enableExportResourceEncryption) {
+				const bool enableExportDelayBtwSteps = panelToWrite->getProperty(Ids::panelExportDelayBtwSteps);
+
+				if (enableExportDelayBtwSteps) {
+					logger.log("Thread sleep to delay encryption task.");
+					juce::Thread::sleep(500);
+					logger.log("Thread restarted for encryption task.");
+				} else {
+					logger.log("Thread sleep to delay encryption task bypassed.");
+				}
+
+				if (panelFile.existsAsFile()) {
+					MemoryBlock dataToEncrypt;
+					if (!panelFile.loadFileAsData(dataToEncrypt)) {
+						logger.log("Error: Failed to read source file");
+						notifyAndReturn(Result::fail("Error: Failed to read source file"));
+						return;
+					}
+
+					String keyString = "modulatorlist";
+					BlowFish blowfish(keyString.toUTF8(), keyString.getNumBytesAsUTF8());
+					blowfish.encrypt(dataToEncrypt);
+
+					fileEncrypted.create();
+					if (!fileEncrypted.existsAsFile()) {
+						logger.log("Error: Failed to create encrypted file");
+						notifyAndReturn(Result::fail("Error: Failed to create encrypted file"));
+						return;
+					}
+
+					FileOutputStream fos(fileEncrypted);
+					if (!fos.openedOk()) {
+						logger.log("Error: Failed to open encrypted file");
+						notifyAndReturn(Result::fail("Error: Failed to open encrypted file"));
+						return;
+					}
+
+					fos.write(dataToEncrypt.getData(), dataToEncrypt.getSize());
+					fos.flush();
+
+					if (!panelFile.deleteFile()) {
+						logger.log("Failed to delete source file " + panelFile.getFullPathName());
+						notifyAndReturn(Result::fail("Failed to delete source file " + panelFile.getFullPathName()));
+						return;
+					}
+				}
+			}
+
+			if (executableFile.existsAsFile()) {
+
+				if (fileExtension == ".vst3" || fileExtension == ".vst" || fileExtension == ".aaxplugin") {
+					std::cout << "fileExtension is : " << fileExtension << std::endl;
+					logger.log("fileExtension is : " + fileExtension);
+
+					const bool replaceVst3PluginIds = panelToWrite->getProperty(Ids::panelReplaceVst3PluginIds);
+
+					if (replaceVst3PluginIds) {
+						std::cout << "Replace the VST3 plugin identifiers with the panel ones : "
+								  << replaceVst3PluginIds << std::endl;
+						// FIX: was "literal" + bool, i.e. pointer arithmetic, not concatenation
+						logger.log("Replace the VST3 plugin identifiers with the panel ones : " +
+								   String((int)replaceVst3PluginIds));
+
+						MemoryBlock executableData;
+						if (executableFile.loadFileAsData(executableData)) {
+							std::cout << "Executable loaded into memory successfully." << std::endl;
+							logger.log("Executable loaded into memory successfully.");
+
+							String pluginName32 = panelToWrite->getProperty(Ids::name).toString();
+							int pluginNameMaxLength32 = 32;
+							MemoryBlock pluginNameHex32;
+							hexStringToBytes(pluginName32, pluginNameMaxLength32, pluginNameHex32);
+							logger.log("pluginName (32 char long): " + pluginName32);
+							logger.log("pluginNameHex representation (32 char long): " +
+									   bytesToHexString(pluginNameHex32));
+
+							String pluginName16 = panelToWrite->getProperty(Ids::name).toString();
+							int pluginNameMaxLength16 = 16;
+							MemoryBlock pluginNameHex16;
+							hexStringToBytes(pluginName16, pluginNameMaxLength16, pluginNameHex16);
+							logger.log("pluginName (16 char long): " + pluginName16);
+							logger.log("pluginNameHex representation (16 char long): " +
+									   bytesToHexString(pluginNameHex16));
+
+							String pluginCode = panelToWrite->getProperty(Ids::panelInstanceUID).toString();
+							int pluginCodeMaxLength = 4;
+							MemoryBlock pluginCodeHex;
+							hexStringToBytes(pluginCode, pluginCodeMaxLength, pluginCodeHex);
+							logger.log("pluginCode: " + pluginCode);
+							logger.log("pluginCodeHex representation: " + bytesToHexString(pluginCodeHex));
+
+							String manufacturerName = panelToWrite->getProperty(Ids::panelAuthorName).toString();
+							int manufacturerNameMaxLength = 16;
+							MemoryBlock manufacturerNameHex;
+							hexStringToBytes(manufacturerName, manufacturerNameMaxLength, manufacturerNameHex);
+							logger.log("manufacturerName: " + manufacturerName);
+							logger.log("manufacturerNameHex representation: " + bytesToHexString(manufacturerNameHex));
+
+							String manufacturerCode =
+								panelToWrite->getProperty(Ids::panelInstanceManufacturerID).toString();
+							int manufacturerCodeMaxLength = 4;
+							MemoryBlock manufacturerCodeHex;
+							hexStringToBytes(manufacturerCode, manufacturerCodeMaxLength, manufacturerCodeHex);
+							logger.log("manufacturerCode: " + manufacturerCode);
+							logger.log("manufacturerCodeHex representation: " + bytesToHexString(manufacturerCodeHex));
+
+							String versionMajor = panelToWrite->getProperty(Ids::panelVersionMajor).toString();
+							int versionMajorMaxLength = 2;
+							MemoryBlock versionMajorHex;
+							hexStringToBytes(versionMajor, versionMajorMaxLength, versionMajorHex);
+							logger.log("versionMajor: " + versionMajor);
+							logger.log("versionMajorHex representation: " + bytesToHexString(versionMajorHex));
+
+							String versionMinor = panelToWrite->getProperty(Ids::panelVersionMinor).toString();
+							int versionMinorMaxLength = 2;
+							MemoryBlock versionMinorHex;
+							hexStringToBytes(versionMinor, versionMinorMaxLength, versionMinorHex);
+							logger.log("versionMinor: " + versionMinor);
+							logger.log("versionMinorHex representation: " + bytesToHexString(versionMinorHex));
+
+							String plugType = panelToWrite->getProperty(Ids::panelPlugType).toString();
+							int plugTypeMaxLength = 16;
+							MemoryBlock plugTypeHex;
+							hexStringToBytes(plugType, plugTypeMaxLength, plugTypeHex);
+							logger.log("plugType: " + plugType);
+							logger.log("plugTypeHex representation: " + bytesToHexString(plugTypeHex));
+
+							String searchPluginName32 =
+								"43 74 72 6C 72 58 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 "
+								"20 20 20 20 20 20 20 20 20 20 20";
+							if (isStringPresent(executableData, searchPluginName32)) {
+								MemoryBlock searchPluginNameHex32;
+								hexStringToBytes(searchPluginName32, searchPluginNameHex32);
+								replaceOccurrences(executableData, searchPluginNameHex32, pluginNameHex32, -1);
+								logger.log("Plugin name (32 char) replacement process complete.");
+							} else {
+								String searchPluginName16 = "43 74 72 6C 72 58 20 20 20 20 20 20 20 20 20 20";
+								MemoryBlock searchPluginNameHex16;
+								hexStringToBytes(searchPluginName16, searchPluginNameHex16);
+								replaceOccurrences(executableData, searchPluginNameHex16, pluginNameHex16, -1);
+								logger.log("Plugin name (16 char) replacement process complete.");
+							}
+
+							MemoryBlock searchPluginCodeHex;
+							hexStringToBytes("63 54 72 58", searchPluginCodeHex);
+							replaceOccurrences(executableData, searchPluginCodeHex, pluginCodeHex, -1);
+							logger.log("Plugin code replacement complete.");
+
+							MemoryBlock searchManufacturerNameHex;
+							hexStringToBytes("43 74 72 6C 72 58 20 50 72 6F 6A 65 63 74 20 20",
+											 searchManufacturerNameHex);
+							replaceOccurrences(executableData, searchManufacturerNameHex, manufacturerNameHex, -1);
+							logger.log("Manufacturer name replacement complete.");
+
+							MemoryBlock searchManufacturerCodeHex;
+							hexStringToBytes("63 54 72 6C", searchManufacturerCodeHex);
+							replaceOccurrences(executableData, searchManufacturerCodeHex, manufacturerCodeHex, -1);
+							logger.log("Manufacturer code replacement complete.");
+
+							MemoryBlock searchPlugTypeHex, searchPlugTypeHexTools, searchPlugTypeBytesToolsInserted,
+								plugTypeBytesInsertData;
+
+							String plugTypeHexInstrumentToolsInserted =
+								"49 6E 73 74 72 75 6D 65 48 89 43 78 48 B8 6E 74 7C 54 6F 6F 6C 73";
+
+							if (plugTypeIsNotSplit(executableData, plugTypeHexInstrumentToolsInserted)) {
+								String plugTypeHexInstrumentTools = "49 6E 73 74 72 75 6D 65 6E 74 7C 54 6F 6F 6C 73";
+								hexStringToBytes(plugTypeHexInstrumentTools, searchPlugTypeHexTools);
+								replaceOccurrences(executableData, searchPlugTypeHexTools, plugTypeHex, -1);
+								logger.log(
+									"VST3 plugin type replacement process complete. (Instrument|Tools, replaced by " +
+									CtrlrMac::hexStringToText(plugTypeHex) + ").");
+							} else {
+								hexStringToBytes("48 89 43 78 48 B8", plugTypeBytesInsertData);
+								hexStringToBytes(plugTypeHexInstrumentToolsInserted, searchPlugTypeBytesToolsInserted);
+								replaceOccurrencesIfSplitted(executableData, searchPlugTypeBytesToolsInserted,
+															 plugTypeBytesInsertData, plugTypeHex, 8, 1);
+								logger.log("VST3 plugin type replacement complete. (Instrument|Tools, replaced by " +
+										   CtrlrMac::hexStringToText(plugTypeHex) + ").");
+							}
+
+							File newExecutableFile = newMe.getChildFile("Contents/MacOS/CtrlrX");
+							if (!newExecutableFile.replaceWithData(executableData.getData(),
+																   executableData.getSize())) {
+								logger.log("MAC Native: Failed to write modified executable data");
+								notifyAndReturn(Result::fail("MAC Native: Failed to write modified executable data"));
+								return;
+							}
+							logger.log("Modified executable saved successfully.");
+						} else {
+							logger.log("Failed to load executable into memory.");
+							notifyAndReturn(Result::fail("Failed to load executable into memory."));
+							return;
+						}
+					} else {
+						logger.log("replaceVst3PluginIds set to false, Vst3 IDs replacement skipped.");
+					}
+				}
+
+				// Codesigning: always runs (ad-hoc unless a certificate is configured), because every export
+				// modifies the bundle after the original build's signature was applied, which invalidates it,
+				// and Apple Silicon silently refuses to launch an invalidly signed bundle.
+				{
+					const bool codesignExportedPanel = panelToWrite->getProperty(Ids::panelExportCodesign);
+					const bool enableExportDelayBtwSteps = panelToWrite->getProperty(Ids::panelExportDelayBtwSteps);
+
+					if (enableExportDelayBtwSteps) {
+						logger.log("Thread sleep to delay codesigning task.");
+						juce::Thread::sleep(500);
+						logger.log("Thread restarted for codesigning task.");
+					} else {
+						logger.log("Thread sleep to delay codesigning task bypassed.");
+					}
+
+					logger.log("Codesigning process started (always runs; ad-hoc unless a certificate is "
+							   "configured). Ready to call codesignFileMac");
+					const juce::String newMePathName = newMe.getFullPathName();
+					logger.log("File FullPathname: " + newMePathName);
+
+					juce::String panelCertificateMacIdentity;
+					if (codesignExportedPanel) {
+						panelCertificateMacIdentity = panelToWrite->getProperty(Ids::panelCertificateMacId).toString();
+					}
+					// else: leave empty, codesignFileMac() falls back to "-" (ad-hoc)
+					logger.log("MAC Certificate Identity: " + (panelCertificateMacIdentity.isNotEmpty()
+																   ? panelCertificateMacIdentity
+																   : String("(none - ad-hoc)")));
+
+					juce::String codesignLog;
+					const Result codesignResult =
+						codesignFileMac(newMePathName, panelCertificateMacIdentity, codesignLog);
+					logger.log("Codesign Result wasOk(): " + String(codesignResult.wasOk() ? "true" : "false"));
+					logger.log("Codesign Log Output: " + codesignLog);
+
+					if (!codesignResult.wasOk()) {
+						logger.log("Codesign failed. Error: " + codesignResult.getErrorMessage());
+						notifyAndReturn(codesignResult);
+						return;
+					} else {
+						logger.log("Codesigning successful.");
+					}
+				}
+			}
+
+			notifyAndReturn(Result::ok());
+		}; // end performExport
+
+		// ---------------------------------------------------------------------------------
+		// Ask for a licence (only if the panel has resources), then run the export.
+		// Must be defined AFTER performExport, and stay inside this callback.
+		// ---------------------------------------------------------------------------------
+		auto askLicenceThenExport = [panelRef, performExport]() mutable {
+			CtrlrPanel::askForLicenseAsync(panelRef.get(),
+										   [performExport](juce::String lic) mutable { performExport(lic); });
+		};
+
+		// ---------------------------------------------------------------------------------
+		// The chooser picks a folder, so nothing has warned about overwriting yet.
+		// Confirm first if the bundle already exists, then continue to the licence step.
+		// (Before: the confirmed branch deleted the old bundle and then stopped. The rest of
+		// the export never ran and the callback was never called.)
+		// ---------------------------------------------------------------------------------
+		if (newMe.exists()) {
+			AW::showOkCancelAsyncSafe(
+				AW::Question, "File Already Exists",
+				"\"" + newMe.getFileName() + "\" already exists. Do you want to overwrite it?",
+				[askLicenceThenExport, notifyAndReturn, me](bool userConfirmed) mutable {
+					if (!userConfirmed) {
+						PluginLogger logger(me);
+						logger.log("MAC native, user cancelled the overwrite operation.");
+						notifyAndReturn(Result::fail("User cancelled the export operation."));
+						return;
+					}
+					askLicenceThenExport();
+				},
+				"Overwrite", "Cancel");
+		} else {
+			askLicenceThenExport();
+		}
+	}); // end launchAsync
+}
+
+// Check if a string is present or not and return if isStringPresent()
+bool CtrlrMac::isStringPresent(const juce::MemoryBlock &applicationData, const juce::String &stringToFind) {
+	File me = File::getSpecialLocation(File::currentApplicationFile);
+	PluginLogger logger(me);
+
+	if (stringToFind.isEmpty()) {
+		logger.log("Searching for an empty string. Considered present.");
+		return true; // Empty string is considered present
+	}
+
+	MemoryBlock stringAsMemoryBlock;
+	hexStringToBytes(stringToFind, stringAsMemoryBlock);
+
+	String stringAsHexString = bytesToHexString(stringAsMemoryBlock); // For logging
+
+	const uint8 *data = static_cast<const uint8 *>(applicationData.getData());
+	size_t dataSize = applicationData.getSize();
+	const uint8 *searchData = static_cast<const uint8 *>(stringAsMemoryBlock.getData());
+	size_t searchSize = stringAsMemoryBlock.getSize();
+
+	const uint8 *found =
+		static_cast<const uint8 *>(std::search(data, data + dataSize, searchData, searchData + searchSize));
+
+	bool isPresent = (found != data + dataSize);
+
+	if (isPresent) {
+		logger.log("String \"" + stringToFind + "\" (Hex: " + stringAsHexString + ") FOUND in application data.");
+	} else {
+		logger.log("String \"" + stringToFind + "\" (Hex: " + stringAsHexString + ") NOT found in application data.");
+	}
+
+	return isPresent;
+}
+
+// Check if the pluginType string is split with assembly text or not and return if isNotSplit()
+bool CtrlrMac::plugTypeIsNotSplit(const juce::MemoryBlock &executableData, const juce::String &insertedPlugTypeHex) {
+	File me = File::getSpecialLocation(File::currentApplicationFile);
+	PluginLogger logger(me);
+
+	juce::MemoryBlock plugTypeBytesInserted;
+	hexStringToBytes(insertedPlugTypeHex, plugTypeBytesInserted); // Call your existing overload
+
+	const uint8 *data = static_cast<const uint8 *>(executableData.getData());
+	size_t dataSize = executableData.getSize();
+	const uint8 *searchData = static_cast<const uint8 *>(plugTypeBytesInserted.getData());
+	size_t searchSize = plugTypeBytesInserted.getSize();
+
+	// Search for the inserted plugType string
+	const uint8 *found =
+		static_cast<const uint8 *>(std::search(data, data + dataSize, searchData, searchData + searchSize));
+
+	// If std::search returns the end iterator, the sequence was not found
+	bool isNotSplit = (found == data + dataSize);
+
+	if (isNotSplit) {
+		logger.log("Plug-in type with assembly markup NOT found for hex: " + insertedPlugTypeHex +
+				   ". Plug-in type is likely not split yet.");
+	} else {
+		logger.log("Plug-in type with assembly markup FOUND for hex: " + insertedPlugTypeHex +
+				   ". Plug-in type is likely already split.");
+	}
+
+	return isNotSplit;
+}
+
+// CodeSign exported instance 5.6.36
+const Result CtrlrMac::codesignFileMac(const juce::String &newMePathName,
+									   const juce::String &panelCertificateMacIdentity, juce::String &logOutput) {
+	// 1. Create the entitlements file content directly from compiled BinaryData
+	static const unsigned char temp_binary_data_0[] =
+		"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+		"<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n"
+		"<plist version=\"1.0\">\n"
+		"<dict>\n"
+		"    <key>com.apple.security.cs.allow-jit</key>\n"
+		"    <true/>\n"
+		"    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>\n"
+		"    <true/>\n"
+		"</dict>\n"
+		"</plist>\n";
+
+	juce::File tempEntitlements =
+		juce::File::getSpecialLocation(juce::File::tempDirectory).getChildFile("CtrlrX_DynamicEntitlements.plist");
+
+	// Write using raw data and exact size (excluding the trailing null terminator)
+	if (!tempEntitlements.existsAsFile()) {
+		if (!tempEntitlements.replaceWithData(temp_binary_data_0, sizeof(temp_binary_data_0) - 1)) {
+			logOutput = "Failed to create temporary entitlements file at: " + tempEntitlements.getFullPathName();
+			return Result::fail(logOutput);
+		}
+	}
+
+	juce::StringArray commandParts;
+	commandParts.add("/usr/bin/codesign");
+	commandParts.add("--force");
+	commandParts.add("-s");
+	if (panelCertificateMacIdentity.isNotEmpty()) {
+		commandParts.add(panelCertificateMacIdentity);
+	} else {
+		commandParts.add("-"); // Use the default identity
+	}
+	commandParts.add("-v");
+	commandParts.add("--deep");
+	commandParts.add("--strict");
+	commandParts.add("--options");
+	commandParts.add("runtime");
+	commandParts.add("--entitlements");
+	commandParts.add(tempEntitlements.getFullPathName());
+	commandParts.add("--timestamp");
+	commandParts.add(newMePathName);
+
+	juce::ChildProcess childProcess;
+
+	logOutput = ("Codesign command: " + commandParts.joinIntoString(" "));
+	if (childProcess.start(commandParts)) {
+		const bool finished = childProcess.waitForProcessToFinish(-1); // Wait for infinity
+
+		if (finished) {
+			int exitCode = childProcess.getExitCode();
+			logOutput += "\nCodesign process finished with exit code: " + String(exitCode);
+
+			// Clean up the temporary file now that codesign has consumed it
+			tempEntitlements.deleteFile();
+
+			if (exitCode == 0) {
+				return Result::ok();
+			} else {
+				logOutput += "\nCodesign failed with output:\n" + childProcess.readAllProcessOutput();
+				return Result::fail(logOutput);
+			}
+		} else {
+			logOutput += "\nCodesign process timed out.";
+			tempEntitlements.deleteFile();
+			return Result::fail(logOutput);
+		}
+	} else {
+		logOutput = "Failed to start codesign process. Command: " + commandParts.joinIntoString(" ");
+		tempEntitlements.deleteFile();
+		return Result::fail(logOutput);
+	}
+}
+
+// Convert hex string to binary data
+void CtrlrMac::hexStringToBytes(const String &hexString, MemoryBlock &result) {
+	result.reset();
+	String cleanedHex = hexString.removeCharacters(" \t\r\n");
+
+	for (int i = 0; i < cleanedHex.length(); i += 2) {
+		if (i + 1 < cleanedHex.length()) {
+			String byteStr = cleanedHex.substring(i, i + 2);
+			int byteVal = byteStr.getHexValue32();
+			uint8 byte = static_cast<uint8>(byteVal);
+			result.append(&byte, 1);
+		}
+	}
+}
+
+// Convert hex string to binary data with defined maxLength
+void CtrlrMac::hexStringToBytes(const juce::String &hexString, int maxLength, juce::MemoryBlock &result) {
+	result.setSize(0); // Clear the MemoryBlock before use
+	String sanitizedHexString = hexString.removeCharacters("\t\r\n");
+	std::vector<uint8> bytes;
+
+	for (int i = 0; i < std::min((int)sanitizedHexString.length(), maxLength); ++i) {
+		bytes.push_back(static_cast<uint8>(sanitizedHexString[i]));
+	}
+
+	while (bytes.size() < maxLength) {
+		bytes.push_back(0); // Pad with zeros
+	}
+
+	result.append(bytes.data(), bytes.size());
+}
+
+// Convert binary data to hex string
+juce::String CtrlrMac::bytesToHexString(const juce::MemoryBlock &memoryBlock, bool addSpaces) {
+	std::stringstream ss;
+	ss << std::hex << std::setfill('0');
+	for (size_t i = 0; i < memoryBlock.getSize(); ++i) {
+		ss << std::setw(2) << static_cast<int>(static_cast<const uint8 *>(memoryBlock.getData())[i]);
+		if (addSpaces) {
+			ss << " ";
+		}
+	}
+	return juce::String(ss.str());
+}
+
+// Convert binary data to text string
+juce::String CtrlrMac::hexStringToText(const juce::MemoryBlock &memoryBlock) {
+	juce::String hexString = CtrlrMac::bytesToHexString(memoryBlock);
+	juce::String textString;
+
+	for (int i = 0; i < hexString.length(); i += 2) {
+		if (i + 1 < hexString.length()) {
+			juce::String byteStr = hexString.substring(i, i + 2);
+			int byteVal = byteStr.getHexValue32();
+			textString += static_cast<char>(byteVal);
+		}
+	}
+	return textString;
+}
+
+// Replace all occurrences of searchData with replaceData in the targetData
+// Replace occurrences implementation when searchData is in one piece
+void CtrlrMac::replaceOccurrences(juce::MemoryBlock &targetData, const juce::MemoryBlock &searchData,
+								  const juce::MemoryBlock &replaceData, int maxOccurrences) {
+	File me = File::getSpecialLocation(File::currentApplicationFile);
+	PluginLogger logger(me);
+
+	if (searchData.getSize() != replaceData.getSize()) {
+		std::cerr << "Invalid search/replace data sizes" << std::endl;
+		logger.log("Invalid search/replace data sizes");
+		return;
+	}
+
+	const uint8 *rawData = static_cast<const uint8 *>(targetData.getData());
+	size_t dataSize = targetData.getSize();
+	size_t searchSize = searchData.getSize();
+	int replacements = 0;
+
+	for (size_t i = 0; i <= dataSize - searchSize && (maxOccurrences == -1 || replacements < maxOccurrences); ++i) {
+		if (memcmp(rawData + i, searchData.getData(), searchSize) == 0) {
+			targetData.copyFrom(replaceData.getData(), i, replaceData.getSize());
+			rawData = static_cast<const uint8 *>(targetData.getData());
+			replacements++;
+
+			std::cout << "Replacement occurrence " << replacements
+					  << ". Searched text: " << CtrlrMac::hexStringToText(searchData)
+					  << ", Replacing text: " << CtrlrMac::hexStringToText(replaceData) << std::endl;
+			logger.log(juce::String("Replacement occurrence ") + juce::String(replacements) +
+					   ". Searched text: " + CtrlrMac::hexStringToText(searchData) +
+					   ", Replacing text: " + CtrlrMac::hexStringToText(replaceData));
+		}
+	}
+
+	if (replacements == 0) {
+		std::cout << "Search data not found for replacement. Searched text: " << CtrlrMac::hexStringToText(searchData)
+				  << ", Replacing text: " << CtrlrMac::hexStringToText(replaceData) << std::endl;
+		logger.log("Search data not found for replacement. Searched text: " + CtrlrMac::hexStringToText(searchData) +
+				   ", Replacing text: " + CtrlrMac::hexStringToText(replaceData));
+	}
+}
+
+// Replacement function if assembly markup is already inserted in the string searchData
+void CtrlrMac::replaceOccurrencesIfSplitted(juce::MemoryBlock &targetData, const juce::MemoryBlock &searchData,
+											const juce::MemoryBlock &insertData, juce::MemoryBlock &replaceData,
+											size_t insertAfterN, int maxOccurrences) {
+	File me = File::getSpecialLocation(File::currentApplicationFile);
+	PluginLogger logger(me);
+
+	logger.log("We are into the function replaceOccurrencesIfSplitted() after PluginLogger casting.");
+
+	// 1. Create combined searched data (searchData already has insertData)
+	if (insertAfterN > searchData.getSize()) {
+		logger.log("Error: insertAfterN is out of range. insertAfterN: " + juce::String(insertAfterN) +
+				   ", searchData size: " + juce::String(searchData.getSize()));
+		return;
+	}
+
+	juce::MemoryBlock combinedSearchData(searchData.getData(), searchData.getSize());
+	logger.log("combinedSearchData append step 1 size: " + juce::String(combinedSearchData.getSize()));
+	logger.log("combinedSearchData append step 1 value: " + CtrlrMac::hexStringToText(combinedSearchData));
+	logger.log("combinedSearchData append step 1 value: " + CtrlrMac::bytesToHexString(combinedSearchData));
+
+	logger.log("targetData size: " + juce::String(targetData.getSize()));
+
+	logger.log("combinedSearchData append step 2 size: " + juce::String(combinedSearchData.getSize()));
+	logger.log("combinedSearchData append step 2 value: " + CtrlrMac::hexStringToText(combinedSearchData));
+	logger.log("combinedSearchData append step 2 value: " + CtrlrMac::bytesToHexString(combinedSearchData));
+
+	// 2. Create modified replacing data (insert insertData into replaceData)
+	juce::MemoryBlock modifiedReplaceData;
+
+	if (insertAfterN > replaceData.getSize()) {
+		logger.log("Error: insertAfterN is out of range for replaceData. insertAfterN: " + juce::String(insertAfterN) +
+				   ", replaceSize: " + juce::String(replaceData.getSize()));
+		return;
+	}
+
+	modifiedReplaceData.append(replaceData.getData(), insertAfterN);
+	logger.log("modifiedReplaceData append step 1 size: " + juce::String(modifiedReplaceData.getSize()));
+	logger.log("modifiedReplaceData append step 1 value: " + CtrlrMac::hexStringToText(modifiedReplaceData));
+	logger.log("modifiedReplaceData append step 1 value: " + CtrlrMac::bytesToHexString(modifiedReplaceData));
+
+	modifiedReplaceData.append(insertData.getData(), insertData.getSize());
+	logger.log("modifiedReplaceData append step 2 size: " + juce::String(modifiedReplaceData.getSize()));
+	logger.log("modifiedReplaceData append step 2 value: " + CtrlrMac::hexStringToText(modifiedReplaceData));
+	logger.log("modifiedReplaceData append step 2 value: " + CtrlrMac::bytesToHexString(modifiedReplaceData));
+
+	modifiedReplaceData.append(static_cast<const uint8 *>(replaceData.getData()) + insertAfterN,
+							   replaceData.getSize() - insertAfterN);
+	logger.log("modifiedReplaceData append step 3 size: " + juce::String(modifiedReplaceData.getSize()));
+	logger.log("modifiedReplaceData append step 3 value: " + CtrlrMac::hexStringToText(modifiedReplaceData));
+	logger.log("modifiedReplaceData append step 3 value: " + CtrlrMac::bytesToHexString(modifiedReplaceData));
+
+	// Adjust modifiedReplaceData size to 22 bytes
+	if (modifiedReplaceData.getSize() < 22) {
+		modifiedReplaceData.setSize(22);
+		// Add null padding if necessary.
+		memset(static_cast<uint8 *>(modifiedReplaceData.getData()) + 16, 0, 6);
+	}
+
+	// 3. Size check
+	if (combinedSearchData.getSize() != modifiedReplaceData.getSize()) {
+		logger.log("Error: combinedSearchData and modifiedReplaceData sizes do not match.");
+		logger.log("combinedSearchData size: " + juce::String(combinedSearchData.getSize()));
+		logger.log("modifiedReplaceData size: " + juce::String(modifiedReplaceData.getSize()));
+		return;
+	}
+
+	logger.log("insertAfterN: " + juce::String(insertAfterN) + ", replaceSize: " + juce::String(replaceData.getSize()));
+	logger.log("combinedSearchData size: " + juce::String(combinedSearchData.getSize()));
+	logger.log("modifiedReplaceData size: " + juce::String(modifiedReplaceData.getSize()));
+
+	// 4. Replacement loop
+	const uint8 *rawData = static_cast<const uint8 *>(targetData.getData());
+	size_t dataSize = targetData.getSize();
+	size_t searchSize = combinedSearchData.getSize();
+	int replacements = 0;
+
+	for (size_t i = 0; i < dataSize && (maxOccurrences == -1 || replacements < maxOccurrences); ++i) {
+		if (i + searchSize > dataSize) {
+			break;
+		}
+		if (memcmp(rawData + i, combinedSearchData.getData(), searchSize) == 0) {
+			targetData.copyFrom(modifiedReplaceData.getData(), i, searchSize);
+			rawData = static_cast<const uint8 *>(targetData.getData());
+			replacements++;
+			std::cout << "Replacement number " << replacements << " at index " << i
+					  << ". Searched text: " << CtrlrMac::hexStringToText(combinedSearchData)
+					  << ", Replacing text: " << CtrlrMac::hexStringToText(modifiedReplaceData) << std::endl;
+			logger.log(juce::String("Replacement number ") + juce::String(replacements) + juce::String(" at index ") +
+					   juce::String(i) + ". Searched text: " + CtrlrMac::hexStringToText(combinedSearchData) +
+					   ", Replacing text: " + CtrlrMac::hexStringToText(modifiedReplaceData));
+		}
+	}
+
+	if (std::search(rawData, rawData + dataSize, combinedSearchData.begin(), combinedSearchData.end()) ==
+		rawData + dataSize) {
+		std::cout << "Search data not found for replacement. The Process could have reached the end of the file. "
+					 "Searched text: "
+				  << CtrlrMac::hexStringToText(combinedSearchData)
+				  << ", Replacing text: " << CtrlrMac::hexStringToText(modifiedReplaceData) << std::endl;
+		logger.log(juce::String("Search data not found for replacement. The Process could have reached the end of the "
+								"file. Search text: ") +
+				   CtrlrMac::hexStringToText(combinedSearchData) +
+				   ", Replacing text: " + CtrlrMac::hexStringToText(modifiedReplaceData));
+	}
+}
+
+Result CtrlrMac::getDefaultPanel(MemoryBlock &dataToWrite) { // const keyword removed for JUCE 8
+
+	File me = File::getSpecialLocation(File::currentApplicationFile)
+				  .getChildFile("Contents/Resources/" + String(CTRLR_MAC_PANEL_FILE));
+	File meBF = File::getSpecialLocation(File::currentApplicationFile)
+					.getChildFile("Contents/Resources/" + String(CTRLR_MAC_PANEL_FILE) + String("BF"));
+
+	_DBG("MAC native, loading panel BF from file: \"" + me.getFullPathName() + "\"");
+
+	// Try loading the encrypted file first
+	if (meBF.existsAsFile()) {
+		// Decrypt file "meBF" (panelZBF)
+		MemoryBlock encryptedData;
+		if (!meBF.loadFileAsData(encryptedData)) {
+			return Result::fail("Error reading encrypted file \"" + meBF.getFullPathName() + "\"");
+		}
+
+		// Define the BlowFish encryption key as string
+		String keyString = "modulatorlist"; // Replace with your actual key (security!). Updated v5.6.33
+
+		// Check if a blowfish key is provided
+		if (keyString.isEmpty()) {
+			return Result::fail("Blowfish key not provided for decryption");
+		} else {
+			// Key is provided, proceed with encryption
+			BlowFish blowfish(keyString.toUTF8(), keyString.getNumBytesAsUTF8());
+			blowfish.decrypt(encryptedData.getData(), encryptedData.getSize());
+		}
+
+		// Decrypted data is already in 'data', append to output. Added v5.6.31
+		dataToWrite.append(encryptedData.getData(), encryptedData.getSize());
+
+		return Result::ok();
+
+	} else {
+		// Fallback to panelZ if panelZBF doesn't exist
+		_DBG("MAC native, \"" + meBF.getFullPathName() + "\" does not exist, falling back to \"" +
+			 me.getFullPathName() + "\"");
+
+		// Read "me" (panelZ) file contents directly
+		if (me.existsAsFile()) {
+			// File "me" (panelZ) loaded successfully, treat it as plain data
+			me.loadFileAsData(dataToWrite);
+			return (Result::ok());
+		} else {
+			// Error loading "me" (panelZ) file
+			return Result::fail("MAC native, failed to load panel from \"" + me.getFullPathName() + "\"");
+		}
+	}
+}
+
+Result CtrlrMac::getDefaultResources(MemoryBlock &dataToWrite) { // const keyword removed for JUCE 8
+#ifdef DEBUG_INSTANCE
+	File meRes = File("/Users/atom/devel/debug.z");
+#else
+	File meRes = File::getSpecialLocation(File::currentApplicationFile)
+					 .getChildFile("Contents/Resources/" + String(CTRLR_MAC_RESOURCES_FILE));
+#endif
+	_DBG("MAC native, loading resuources from: \"" + meRes.getFullPathName() + "\"");
+
+	if (meRes.existsAsFile()) {
+		meRes.loadFileAsData(dataToWrite);
+		return (Result::ok());
+	}
+
+	return (Result::fail("MAC native, \"" + meRes.getFullPathName() + "\" does not exist"));
+}
+
+Result CtrlrMac::setBundleInfo(CtrlrPanel *sourceInfo, const File &bundle) {
+	File plist = bundle.getChildFile("Contents/Info.plist");
+
+	if (plist.existsAsFile() && plist.hasWriteAccess()) {
+		std::unique_ptr<XmlElement> plistXml(XmlDocument::parse(plist));
+		if (plistXml == nullptr) {
+			return (Result::fail("MAC native, can't parse Info.plist as a XML document"));
+		}
+
+		XmlElement *dict = plistXml->getChildByName("dict");
+		XmlElement *cfInsertKeyManufacturerID = dict->createNewChildElement("key");
+		cfInsertKeyManufacturerID->addTextElement("ManufacturerID");
+		XmlElement *cfInsertStringManufacturerID = dict->createNewChildElement("string");
+		cfInsertStringManufacturerID->addTextElement("ManufacturerID");
+
+		// NEW: generate a custom .icns from the panel's chosen icon
+		// resource (uiPanelIconResource, stored on the uiPanelEditor child
+		// tree — same location the property editor writes it to, and the
+		// same bug already found/fixed on the Windows export path) and set
+		// it as CFBundleIconFile below. Non-fatal by design: if no icon is
+		// selected, or generation fails for any reason, the bundle just
+		// keeps its existing/default icon rather than the export failing.
+		String iconResourceName;
+		ValueTree iconEditorTree = sourceInfo->getPanelTree().getChildWithName(Ids::uiPanelEditor);
+		if (iconEditorTree.isValid())
+			iconResourceName = iconEditorTree.getProperty(Ids::uiPanelIconResource).toString();
+
+		bool wroteCustomIcon = false;
+		String icnsFileName;
+
+		if (iconResourceName.isNotEmpty()) {
+			CtrlrPanelResource *iconResource = sourceInfo->getResourceManager().getResource(iconResourceName);
+
+			if (iconResource != nullptr) {
+				icnsFileName = File::createLegalFileName(sourceInfo->getProperty(Ids::name).toString()) + ".icns";
+				File icnsDest = bundle.getChildFile("Contents/Resources/" + icnsFileName);
+
+				juce::Result icnsResult = CtrlrIcnsGenerator::generateIcnsFromSvg(iconResource->getFile(), icnsDest);
+
+				if (icnsResult.wasOk()) {
+					wroteCustomIcon = true;
+					_DBG("MAC native, wrote custom icon: " + icnsDest.getFullPathName());
+				} else {
+					_DBG("MAC native, icon generation failed: " + icnsResult.getErrorMessage());
+				}
+			} else {
+				_DBG("MAC native, icon resource '" + iconResourceName + "' not found");
+			}
+		}
+
+		if (dict != nullptr) {
+			bool foundCFBundleIconFile = false;
+
+			forEachXmlChildElement(*dict, e1) {
+				if (e1->hasTagName("key") && e1->getAllSubText() == "CFBundleDisplayName") {
+					XmlElement *cfBundleElement = e1->getNextElementWithTagName("string");
+					if (cfBundleElement != nullptr) {
+						cfBundleElement->deleteAllTextElements();
+						cfBundleElement->addTextElement(sourceInfo->getProperty(Ids::name).toString());
+					}
+				}
+				if (e1->hasTagName("key") && e1->getAllSubText() == "CFBundleName") {
+					XmlElement *cfBundleElement = e1->getNextElementWithTagName("string");
+					if (cfBundleElement != nullptr) {
+						cfBundleElement->deleteAllTextElements();
+						cfBundleElement->addTextElement(sourceInfo->getProperty(Ids::name).toString());
+					}
+				}
+				if (e1->hasTagName("key") &&
+					(e1->getAllSubText() == "CFBundleShortVersionString" || e1->getAllSubText() == "CFBundleVersion")) {
+					XmlElement *cfVersionElement = e1->getNextElementWithTagName("string");
+					if (cfVersionElement != nullptr) {
+						cfVersionElement->deleteAllTextElements();
+						cfVersionElement->addTextElement(sourceInfo->getVersionString(false, false, "."));
+					}
+				}
+				if (e1->hasTagName("key") && (e1->getAllSubText() == "CFBundleSignature")) {
+					XmlElement *cfVersionElement = e1->getNextElementWithTagName("string");
+					if (cfVersionElement != nullptr) {
+						cfVersionElement->deleteAllTextElements();
+						cfVersionElement->addTextElement(sourceInfo->getProperty(Ids::panelInstanceUID).toString());
+					}
+				}
+				if (e1->hasTagName("key") && (e1->getAllSubText() == "CFBundleIconFile") && wroteCustomIcon) {
+					foundCFBundleIconFile = true;
+					XmlElement *cfIconElement = e1->getNextElementWithTagName("string");
+					if (cfIconElement != nullptr) {
+						cfIconElement->deleteAllTextElements();
+						cfIconElement->addTextElement(icnsFileName);
+					}
+				}
+				if (e1->hasTagName("key") && (e1->getAllSubText() == "NSHumanReadableCopyright")) {
+					XmlElement *nsCopyright = e1->getNextElementWithTagName("string");
+					if (nsCopyright != nullptr) {
+						nsCopyright->deleteAllTextElements();
+						nsCopyright->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString());
+					}
+				}
+				if (e1->hasTagName("key") && (e1->getAllSubText() == "ManufacturerID")) {
+					XmlElement *cfManufacturerID = e1->getNextElementWithTagName("string");
+					if (cfManufacturerID != nullptr) {
+						cfManufacturerID->deleteAllTextElements();
+						cfManufacturerID->addTextElement(
+							sourceInfo->getProperty(Ids::panelInstanceManufacturerID).toString());
+					}
+				}
+				if (e1->hasTagName("key") && (e1->getAllSubText() == "AudioComponents")) {
+					_DBG("INSTANCE: AudioComponents found");
+
+					/* resource section */
+					XmlElement *dict = nullptr;
+					XmlElement *array = e1->getNextElement();
+					if (array) {
+						_DBG("INSTANCE: array is valid");
+						dict = array->getChildByName("dict");
+					}
+
+					if (dict != nullptr) {
+						_DBG("INSTANCE: dict is valid");
+
+						forEachXmlChildElement(*dict, e2) {
+							_DBG("INSTANCE: enum element: " + e2->getTagName());
+							_DBG("INSTANCE: enum subtext: " + e2->getAllSubText());
+							if (e2->hasTagName("key") && (e2->getAllSubText() == "description")) {
+								_DBG("\tmodify");
+								XmlElement *description = e2->getNextElementWithTagName("string");
+								if (description != nullptr) {
+									description->deleteAllTextElements();
+									description->addTextElement(sourceInfo->getProperty(Ids::name).toString());
+								}
+							}
+
+							if (e2->hasTagName("key") && (e2->getAllSubText() == "manufacturer")) {
+								_DBG("\tmodify");
+								XmlElement *manufacturer = e2->getNextElementWithTagName("string");
+								if (manufacturer != nullptr) {
+									manufacturer->deleteAllTextElements();
+									manufacturer->addTextElement(
+										sourceInfo->getProperty(Ids::panelInstanceManufacturerID).toString().isEmpty()
+											? generateRandomUniquePluginId()
+											: sourceInfo->getProperty(Ids::panelInstanceManufacturerID).toString());
+								}
+							}
+
+							if (e2->hasTagName("key") && (e2->getAllSubText() == "name")) {
+								XmlElement *name = e2->getNextElementWithTagName("string");
+								if (name != nullptr) {
+									name->deleteAllTextElements();
+									name->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString() +
+														 ": " + sourceInfo->getProperty(Ids::name).toString());
+								}
+							}
+
+							if (e2->hasTagName("key") && (e2->getAllSubText() == "subtype")) {
+								_DBG("\tmodify");
+								XmlElement *subtype = e2->getNextElementWithTagName("string");
+								if (subtype != nullptr) {
+									subtype->deleteAllTextElements();
+									subtype->addTextElement(
+										sourceInfo->getProperty(Ids::panelInstanceUID).toString().isEmpty()
+											? generateRandomUniquePluginId()
+											: sourceInfo->getProperty(Ids::panelInstanceUID).toString());
+								}
+							}
+
+							if (e2->hasTagName("key") && (e2->getAllSubText() == "version")) {
+								_DBG("\tmodify");
+								XmlElement *version = e2->getNextElementWithTagName("integer");
+								if (version != nullptr) {
+									version->deleteAllTextElements();
+									version->addTextElement(
+										_STR(getVersionAsHexInteger(sourceInfo->getVersionString(false, false, "."))));
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// If the plist had no CFBundleIconFile key at all (unusual, but
+			// mirroring the ManufacturerID insertion pattern above just in
+			// case) and a custom icon was written, add the key fresh.
+			if (wroteCustomIcon && !foundCFBundleIconFile) {
+				XmlElement *cfInsertKeyIcon = dict->createNewChildElement("key");
+				cfInsertKeyIcon->addTextElement("CFBundleIconFile");
+				XmlElement *cfInsertStringIcon = dict->createNewChildElement("string");
+				cfInsertStringIcon->addTextElement(icnsFileName);
+			}
+		} else {
+			return (Result::fail("MAC native, Info.plist does not contain <dict /> element"));
+		}
+		plist.replaceWithText(plistXml->createDocument("<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" "
+													   "\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">"));
+
+		return (Result::ok());
+	} else {
+		return (Result::fail("MAC native, Info.plist does not exist or is not writable: \"" + plist.getFullPathName() +
+							 "\""));
+	}
+
+	return (Result::ok());
+}
+
+Result CtrlrMac::setBundleInfoCarbon(CtrlrPanel *sourceInfo, const File &bundle) {
+#ifdef JUCE_DEBUG
+	File rsrcFile = bundle.getChildFile("Contents/Resources/Ctrlr-Debug.rsrc");
+#else
+	File rsrcFile = bundle.getChildFile("Contents/Resources/Ctrlr.rsrc");
+#endif
+
+	const String instanceName = sourceInfo->getPanelInstanceName();
+	const String instanceManufacturer = sourceInfo->getPanelInstanceManufacturer();
+	const String instanceID = sourceInfo->getPanelInstanceID();
+	const String instanceManufacturerID = sourceInfo->getPanelInstanceManufacturerID();
+
+	String nameToWrite = String(instanceManufacturer + ": " + instanceName).substring(0, 127);
+	const String idToWrite = instanceID + instanceManufacturerID;
+	const int nameLength = nameToWrite.length();
+	String zipFileEntryName = "result_" + _STR(nameLength) + ".rsrc";
+
+	if (idToWrite.length() != 8) {
+		return (
+			Result::fail("MAC native, id to write for Carbon information is not 8 characters \"" + idToWrite + "\""));
+	}
+
+	MemoryInputStream zipStream(BinaryData::RSRC_zip, BinaryData::RSRC_zipSize, false);
+	ZipFile zipFile(zipStream);
+	const ZipFile::ZipEntry *zipFileEntry = zipFile.getEntry(zipFileEntryName);
+
+	_DBG("INSTANCE: trying to use zip file entry with name: " + zipFileEntryName);
+
+	if (zipFileEntry) {
+		_DBG("\tgot it");
+		std::unique_ptr<InputStream> is(zipFile.createStreamForEntry(*zipFileEntry));
+
+		if (is) {
+			MemoryBlock data;
+			is->readIntoMemoryBlock(data, is->getTotalLength());
+
+			if (data.getSize() > 0) {
+				/* name data start 261 */
+				data.removeSection(261, 3 + nameLength);
+
+				/* id data startx 579 - after the name is removed*/
+				data.removeSection(299, 8);
+				data.insert(idToWrite.toUTF8().getAddress(), 8, 299);
+
+				data.insert(nameToWrite.toUTF8().getAddress(), 3 + nameLength, 261);
+
+				if (rsrcFile.hasWriteAccess()) {
+					if (rsrcFile.replaceWithData(data.getData(), data.getSize())) {
+						return (Result::ok());
+					} else {
+						return (Result::fail("MAC native, can't replace rsrc contents with custom data: " +
+											 rsrcFile.getFullPathName()));
+					}
+				} else {
+   				 return Result::fail("MAC native, can't write to bundle's rsrc file at: " + rsrcFile.getFullPathName());
+			}
+			}
+		}
+	} else {
+		return (Result::fail("MAC native, can't find a resource file with name: \"" + zipFileEntryName + "\""));
+	}
+
+	return (Result::fail("MAC reached end of setBundleInfoCarbon() without any usable result"));
+}
+#endif

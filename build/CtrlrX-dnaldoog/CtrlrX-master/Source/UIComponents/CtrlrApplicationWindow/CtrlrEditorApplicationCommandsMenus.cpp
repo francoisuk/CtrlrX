@@ -1,0 +1,465 @@
+#include "CtrlrAbout.h"
+#include "CtrlrEditor.h"
+#include "CtrlrLog.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "stdafx.h"
+
+class CtrlrMenuSlider : public PopupMenu::CustomComponent, public LookAndFeel_V4 {
+	public:
+		class CtrlrMenuSliderInternal : public Slider {
+			public:
+				CtrlrMenuSliderInternal(CtrlrMenuSlider &_owner, const String &_name) : owner(_owner), name(_name) {}
+
+				String getTextFromValue(double value) {
+					return ("(" + name + ") " + STR(value) + getTextValueSuffix());
+				}
+
+			private:
+				CtrlrMenuSlider &owner;
+				String name;
+		};
+
+		CtrlrMenuSlider(Slider::Listener *listener, const String &_name, const int initialValue, const int min,
+						const int max, const int interval)
+			: PopupMenu::CustomComponent(false),
+			  name(_name),
+			  itemHeight(roundFloatToInt(LookAndFeel::getDefaultLookAndFeel().getPopupMenuFont().getHeight() * 1.25)),
+			  slider(*this, _name) {
+			slider.setTextValueSuffix(" ms");
+			slider.setLookAndFeel(this);
+			slider.setName(name);
+			slider.setSliderStyle(Slider::LinearBar);
+			slider.setTextBoxStyle(Slider::TextBoxRight, false, 48, itemHeight);
+			slider.setRange(min, max, interval);
+			slider.addListener(listener);
+			slider.setValue(initialValue, dontSendNotification);
+			addAndMakeVisible(&slider);
+		}
+
+		void getIdealSize(int &idealWidth, int &idealHeight) {
+			idealWidth = 96;
+			idealHeight = itemHeight;
+		}
+
+		void resized() {
+			slider.setBounds(getBounds());
+			overlay.setBounds(getBounds());
+		}
+
+		Label *createSliderTextBox(Slider &s) {
+			Label *const l = new Label();
+			l->setFont(LookAndFeel::getDefaultLookAndFeel().getPopupMenuFont().getHeight());
+			l->setJustificationType(Justification::centred);
+			l->setColour(Label::textColourId, s.findColour(Slider::textBoxTextColourId));
+			l->setColour(Label::backgroundColourId, (s.getSliderStyle() == Slider::LinearBar)
+														? Colours::transparentBlack
+														: s.findColour(Slider::textBoxBackgroundColourId));
+			l->setColour(Label::outlineColourId, s.findColour(Slider::textBoxOutlineColourId));
+			l->setColour(TextEditor::textColourId, s.findColour(Slider::textBoxTextColourId));
+			l->setColour(TextEditor::backgroundColourId,
+						 s.findColour(Slider::textBoxBackgroundColourId)
+							 .withAlpha(s.getSliderStyle() == Slider::LinearBar ? 0.7f : 1.0f));
+			l->setColour(TextEditor::outlineColourId, s.findColour(Slider::textBoxOutlineColourId));
+			return l;
+		}
+
+	private:
+		int itemHeight;
+		Label overlay;
+		CtrlrMenuSliderInternal slider;
+		String name;
+};
+
+StringArray CtrlrEditor::getMenuBarNames() {
+	StringArray n;
+
+	if (!isRestricted()) {
+		n = {"File", "Edit", "View", "Panel", "MIDI", "Programs", "Tools", "Help"};
+	} else {
+		n.add("File");
+		// "Edit" intentionally omitted in restricted instances
+		n.add("View");
+		n.add("MIDI");
+		if (!hideProgramsMenu)
+			n.add("Programs");
+		n.add("Tools");
+		n.add("Help");
+	}
+
+	return n;
+}
+
+PopupMenu CtrlrEditor::getMenuForIndex(int /*topLevelMenuIndex*/, const String &menuName) {
+	ApplicationCommandManager *commandManager = &(owner.getCommandManager());
+	bool externalOn = false;
+	if (auto *activePanel = owner.getActivePanel()) {
+		externalOn = (bool)activePanel->getProperty(Ids::ctrlrLuaExternalEditorEnabled);
+	}
+//	DBG("XXX set enabled" << String(externalOn ? "true" : "false"));
+	PopupMenu menu;
+
+	if (menuName == "File") {
+		if (!isRestricted()) {
+			menu.addCommandItem(commandManager, doNewPanel);
+			menu.addSeparator();
+			menu.addCommandItem(commandManager, doOpenPanel);
+			menu.addSubMenu("Open recent", getRecentOpenedFilesMenu(), getRecentOpenedFilesMenu().getNumItems() > 0);
+			menu.addSeparator();
+			menu.addCommandItem(commandManager, doSave);
+			menu.addCommandItem(commandManager, doSaveAs);
+			menu.addCommandItem(commandManager, doSaveVersioned);
+
+			PopupMenu exportMenu;
+			exportMenu.addCommandItem(commandManager, doExportFileText);
+			exportMenu.addCommandItem(commandManager, doExportFileZText);
+			exportMenu.addCommandItem(commandManager, doExportFileBin);
+			exportMenu.addCommandItem(commandManager, doExportFileZBin);
+			exportMenu.addCommandItem(commandManager, doExportFileZBinRes);
+			exportMenu.addCommandItem(commandManager, doExportFileInstance);
+			exportMenu.addCommandItem(commandManager, doExportFileInstanceRestricted);
+			exportMenu.addSeparator();
+			exportMenu.addCommandItem(commandManager, doExportGenerateUID);
+			menu.addSubMenu("Export", exportMenu);
+
+			menu.addCommandItem(commandManager, doClose);
+			menu.addSeparator();
+			// menu.addCommandItem(commandManager, doSaveState);
+		}
+		bool showPatchMenu = false;
+
+		if (auto *panel = owner.getActivePanel()) {
+			auto editorTree = panel->getPanelTree().getChildWithName(Ids::uiPanelEditor);
+			if (editorTree.isValid())
+				showPatchMenu = editorTree.getProperty(Ids::uiPanelPatchSaveMenu, false);
+		}
+
+		DBG("uiPanelPatchSaveMenu property is: " << (showPatchMenu ? "true" : "false"));
+
+		if (showPatchMenu) {
+			menu.addSeparator();
+			menu.addCommandItem(commandManager, doSavePatchToJSON);
+			menu.addCommandItem(commandManager, doLoadPatchFromJSON);
+		}
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, doQuit);
+	}
+
+	else if (menuName == "Edit") {
+		menu.addCommandItem(commandManager, doCopy);
+		menu.addCommandItem(commandManager, doCut);
+		menu.addCommandItem(commandManager, doPaste);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, doUndo);
+		menu.addCommandItem(commandManager, doRedo);
+
+		if (!isRestricted()) // even though the top menu Edit is hidden anyway from restricted instances, this is a
+							 // safeguard in case the menu is ever shown again in the future
+		{
+			menu.addSeparator();
+			menu.addCommandItem(commandManager, showKeyboardMappingDialog);
+			menu.addCommandItem(commandManager, showGlobalSettingsDialog);
+		}
+	}
+
+	else if (menuName == "View") {
+		menu.addCommandItem(commandManager, doZoomIn);
+		menu.addCommandItem(commandManager, doZoomOut);
+		menu.addCommandItem(commandManager, doZoomZero);
+
+		if (!isRestricted()) {
+			menu.addSeparator();
+			menu.addCommandItem(commandManager, doRefreshPropertyLists);
+			menu.addCommandItem(commandManager, doViewPropertyDisplayIDs);
+		}
+	}
+
+	else if (menuName == "Panel") // unrestricted only
+	{
+		menu.addCommandItem(commandManager, doPanelMode);
+		menu.addCommandItem(commandManager, doPanelLock);
+		menu.addCommandItem(commandManager, doPanelDisableCombosOnEdit);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, doPanelToggleExternalLuaEdit);
+		if (externalOn)
+			menu.addCommandItem(commandManager, doPanelScanExternalFolder);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, showModulatorList);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, showLayers);
+		menu.addCommandItem(commandManager, showLuaEditor);
+		menu.addCommandItem(commandManager, showLuaConsole);
+		// menu.addCommandItem (commandManager, showBufferEditor);
+	}
+
+	else if (menuName == "MIDI") {
+		if (!isRestricted())
+			menu.addCommandItem(commandManager, doShowMidiSettingsDialog);
+
+		menu.addCommandItem(commandManager, doRefreshDeviceList);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, doSetGlobalMidiDelay);
+		menu.addSeparator();
+		menu.addSectionHeader("Input" + getMidiSummary(inputDevice));
+		menu.addSubMenu("Device", getMidiDeviceMenu(inputDevice), isPanelActive());
+
+		if (!hideMidiChannelMenu)
+			menu.addSubMenu("Channel", getMidiChannelMenu(inputDevice), isPanelActive());
+
+		if (!hideMidiControllerMenu) {
+			menu.addSectionHeader("Controller" + getMidiSummary(controllerDevice));
+			menu.addSubMenu("Device", getMidiDeviceMenu(controllerDevice), isPanelActive());
+			if (!hideMidiChannelMenu)
+				menu.addSubMenu("Channel", getMidiChannelMenu(controllerDevice), isPanelActive());
+		}
+
+		menu.addSectionHeader("Output " + getMidiSummary(outputDevice));
+		menu.addSubMenu("Device", getMidiDeviceMenu(outputDevice), isPanelActive());
+
+		if (!hideMidiChannelMenu)
+			menu.addSubMenu("Channel", getMidiChannelMenu(outputDevice), isPanelActive());
+
+		menu.addSeparator();
+
+		if (!hideMidiThruMenu) {
+			PopupMenu thru;
+			thru.addCommandItem(commandManager, optMidiThruD2D);
+			thru.addCommandItem(commandManager, optMidiThruD2DChannelize);
+			thru.addCommandItem(commandManager, optMidiThruD2H);
+			thru.addCommandItem(commandManager, optMidiThruD2HChannelize);
+			thru.addCommandItem(commandManager, optMidiThruH2D);
+			thru.addCommandItem(commandManager, optMidiThruH2DChannelize);
+			thru.addCommandItem(commandManager, optMidiThruH2H);
+			thru.addCommandItem(commandManager, optMidiThruH2HChannelize);
+
+			menu.addSubMenu("MIDI Thru", thru);
+		}
+
+		if (!JUCEApplication::isStandaloneApp()) {
+			menu.addSectionHeader("Plugin options");
+			menu.addCommandItem(commandManager, optMidiInputFromHost);
+			menu.addCommandItem(commandManager, optMidiInputFromHostCompare);
+			menu.addCommandItem(commandManager, optMidiOutuptToHost);
+			menu.addSubMenu("Input channel", getMidiChannelMenu(hostInputDevice), isPanelActive());
+			menu.addSubMenu("Output channel", getMidiChannelMenu(hostOutputDevice), isPanelActive());
+		}
+	}
+
+	else if (menuName == "Programs") // absent from the bar when hideProgramsMenu is set
+	{
+		menu.addSectionHeader("Snapshots");
+		menu.addCommandItem(commandManager, doSendSnapshot);
+		menu.addCommandItem(commandManager, doSnapshotSaveToFile);
+		menu.addCommandItem(commandManager, doSnapshotLoadFromFile);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, optMidiSnapshotOnLoad);
+		menu.addCommandItem(commandManager, optMidiSnapshotOnProgramChange);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, doSetSnapshotDelay);
+	}
+
+	else if (menuName == "Tools") {
+		menu.addCommandItem(commandManager, showMidiMonitor);
+		menu.addCommandItem(commandManager, showMidiCalculator);
+		menu.addCommandItem(commandManager, showLogViewer);
+		menu.addCommandItem(commandManager, showComparatorTables);
+
+		if (!isRestricted()) {
+#if JUCE_WINDOWS
+			// File extension registration in system registry is Windows-only
+			menu.addCommandItem(commandManager, doRegisterExtension);
+#endif
+			menu.addSeparator();
+			menu.addCommandItem(commandManager, cleanOrphanProperties);
+		}
+	}
+
+	else if (menuName == "Help") {
+		menu.addCommandItem(commandManager, showAboutDialog);
+		menu.addSeparator();
+
+		if (!isRestricted()) {
+			menu.addCommandItem(commandManager, showExpressionHelp);
+			menu.addCommandItem(commandManager, showDumpByLuaHelp);
+			menu.addCommandItem(commandManager, showViewportHelp);
+			menu.addCommandItem(commandManager, showDebuggerHelp);
+			menu.addSeparator();
+
+#ifdef JUCE_DEBUG
+			menu.addCommandItem(commandManager, doDumpVstTables);
+			menu.addSeparator();
+#endif
+		}
+	}
+
+	return menu;
+}
+
+void CtrlrEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex) {
+	/* Some items are not commands, they need to be invoked manually here */
+
+	// MenuBarModel only gives us the position, so resolve it to a name.
+	// (An out-of-range index returns an empty String, which matches nothing.)
+	const String menuName = getMenuBarNames()[topLevelMenuIndex];
+
+	if (menuName == "MIDI") {
+		if (menuItemID >= MENU_OFFSET_MIDI_DEV_IN && menuItemID < MENU_OFFSET_CUSTOM_REQUESTS) {
+			performMidiDeviceChange(menuItemID);
+		} else if (menuItemID >= 0x6100 && menuItemID <= 0x650f) {
+			performMidiChannelChange(menuItemID);
+		}
+		// Anything else is a command item. Invoking it here would cause a double invocation.
+	} else if (menuName == "File") {
+		if (menuItemID >= 0x9000 && menuItemID < 0x9100)
+			performRecentFileOpen(menuItemID);
+	}
+}
+
+const StringArray CtrlrEditor::getRecentOpenedFilesList() {
+	StringArray recentFiles;
+	recentFiles.addTokens(owner.getProperty(Ids::ctrlrRecentOpenedPanelFiles).toString(), ";", "'\"");
+
+	return (recentFiles);
+}
+
+const PopupMenu CtrlrEditor::getRecentOpenedFilesMenu() {
+	PopupMenu m;
+	StringArray recentFiles;
+	recentFiles.addTokens(owner.getProperty(Ids::ctrlrRecentOpenedPanelFiles).toString(), ";", "'\"");
+
+	for (int i = 0; i < recentFiles.size(); i++) {
+		m.addItem(0x9000 + i, recentFiles[i]);
+	}
+
+	return (m);
+}
+
+uint32 CtrlrEditor::getMidiDeviceMenuOffset(const CtrlrMIDIDeviceType type) {
+	switch (type) {
+	case inputDevice:
+		return (MENU_OFFSET_MIDI_DEV_IN);
+	case outputDevice:
+		return (MENU_OFFSET_MIDI_DEV_OUT);
+	case controllerDevice:
+		return (MENU_OFFSET_MIDI_DEV_CTRLR);
+	case hostInputDevice:
+		return (MENU_OFFSET_MIDI_HOST_IN);
+	case hostOutputDevice:
+		return (MENU_OFFSET_MIDI_HOST_OUT);
+	case oscInputDevice:
+	case oscOutputDevice:
+	case serialDevice:
+		return (0);
+	}
+
+	return (0);
+}
+
+const Identifier CtrlrEditor::getMidiPropertyName(const CtrlrMIDIDeviceType type) {
+	switch (type) {
+	case inputDevice:
+		return (Ids::panelMidiInputDevice);
+	case outputDevice:
+		return (Ids::panelMidiOutputDevice);
+	case controllerDevice:
+		return (Ids::panelMidiControllerDevice);
+	case hostInputDevice:
+	case hostOutputDevice:
+	default:
+		break;
+	}
+
+	return (Identifier::null);
+}
+
+const PopupMenu CtrlrEditor::getMidiDeviceMenu(const CtrlrMIDIDeviceType type) {
+	PopupMenu m;
+	Image deviceStateIcon;
+	uint32 offset = getMidiDeviceMenuOffset(type);
+	const String currentDevName = getPanelProperty(getMidiPropertyName(type));
+
+	m.addItem(offset + 1, COMBO_NONE_ITEM, true, currentDevName == COMBO_NONE_ITEM);
+
+	const StringArray devs = owner.getCtrlrMidiDeviceManager().getManagedDevices(type);
+	for (int i = 0; i < devs.size(); i++) {
+		if (currentDevName == devs[i]) {
+			m.addItem(offset + 2 + i, devs[i], true,
+					  owner.getCtrlrMidiDeviceManager().getDeviceByIndex(i, type)->getState());
+		} else {
+			m.addItem(offset + 2 + i, devs[i], true, false);
+		}
+	}
+
+	return (m);
+}
+
+const PopupMenu CtrlrEditor::getMidiChannelMenu(const CtrlrMIDIDeviceType type) {
+	PopupMenu m;
+	if (type == inputDevice) {
+		for (int i = 0; i < 17; i++) {
+			m.addItem(0x6100 + i, (i ? String("Channel: " + String(i)) : "All channels"), true,
+					  (int)getPanelProperty(Ids::panelMidiInputChannelDevice) == i);
+		}
+	} else if (type == outputDevice) {
+		for (int i = 1; i < 17; i++) {
+			m.addItem(0x6200 + i, "Channel: " + String(i), true,
+					  (int)getPanelProperty(Ids::panelMidiOutputChannelDevice) == i);
+		}
+	} else if (type == controllerDevice) {
+		for (int i = 0; i < 17; i++) {
+			m.addItem(0x6300 + i, (i ? String("Channel: " + String(i)) : "All channels"), true,
+					  (int)getPanelProperty(Ids::panelMidiControllerChannelDevice) == i);
+		}
+	} else if (type == hostInputDevice) {
+		for (int i = 0; i < 17; i++) {
+			m.addItem(0x6400 + i, (i ? String("Channel: " + String(i)) : "All channels"), true,
+					  (int)getPanelProperty(Ids::panelMidiInputChannelHost) == i);
+		}
+	} else if (type == hostOutputDevice) {
+		for (int i = 1; i < 17; i++) {
+			m.addItem(0x6500 + i, "Channel: " + String(i), true,
+					  (int)getPanelProperty(Ids::panelMidiOutputChannelHost) == i);
+		}
+	}
+	return (m);
+}
+
+const var CtrlrEditor::getPanelProperty(const Identifier &propertyName) {
+	if (isPanelActive()) {
+		return (getActivePanel()->getProperty(propertyName));
+	} else {
+		return (var());
+	}
+}
+
+const String CtrlrEditor::getMidiSummary(const CtrlrMIDIDeviceType type) {
+	if (!isPanelActive())
+		return ("");
+
+	String ret = " (";
+	if (type == inputDevice) {
+		ret << (getPanelProperty(Ids::panelMidiInputDevice).toString().isEmpty()
+					? "No device"
+					: getPanelProperty(Ids::panelMidiInputDevice).toString());
+		if (!hideMidiChannelMenu) {
+			ret << " / CH:" + String(getActivePanel()->getMidiChannel(panelMidiInputChannelDevice));
+		}
+	} else if (type == outputDevice) {
+		ret << (getPanelProperty(Ids::panelMidiOutputDevice).toString().isEmpty()
+					? "No device"
+					: getPanelProperty(Ids::panelMidiOutputDevice).toString());
+		if (!hideMidiChannelMenu) {
+			ret << " / CH:" + String(getActivePanel()->getMidiChannel(panelMidiOutputChannelDevice));
+		}
+	} else if (type == controllerDevice) {
+		ret << (getPanelProperty(Ids::panelMidiControllerDevice).toString().isEmpty()
+					? "No device"
+					: getPanelProperty(Ids::panelMidiControllerDevice).toString());
+		if (!hideMidiChannelMenu) {
+			ret << " / CH:" + String(getActivePanel()->getMidiChannel(panelMidiControllerChannel));
+		}
+	}
+
+	ret << ")";
+	return (ret);
+}

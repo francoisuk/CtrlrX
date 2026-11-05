@@ -1,0 +1,11 @@
+{
+  "settleMs": 600,
+  "quietMs": 60,
+  "steps": [
+    { "action": "screenshot", "file": "out/10_splash.png" },
+    { "action": "eval", "lua": "return { ver = KK_VERSION, ch = KK.ch, prog = KK.prog, label = panel:getComponent('kkProgNum'):getProperty('uiLabelText') }" },
+    { "action": "wait", "ms": 6000 },
+    { "action": "eval", "lua": "local c={} for i=1,8 do c[i]=panel:getModulatorByName('kkMix'..i):getComponent():getValue() end local e={} for i=1,8 do e[i]=panel:getModulatorByName(string.format('kkEnc%02d',i)):getComponent():getValue() end return { mix=c, enc=e, refreshN=KK.refreshN, about=panel:getComponent('kkAbout'):getProperty('componentVisibility') }" },
+    { "action": "screenshot", "file": "out/10_rack.png" }
+  ]
+}

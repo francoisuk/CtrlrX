@@ -1,0 +1,459 @@
+#include "CtrlrComponents/CtrlrComponentTypeManager.h"
+#include "CtrlrComponents/Groups/CtrlrGroup.h"
+#include "CtrlrComponents/Groups/CtrlrTabsComponent.h"
+#include "CtrlrLog.h"
+#include "CtrlrMacros.h"
+#include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrPanelCanvas.h"
+#include "CtrlrPanelEditor.h"
+#include "CtrlrProcessor.h"
+#include "stdafx.h"
+
+void CtrlrPanelCanvas::handleRightClickOnMultiSelection(const MouseEvent &e) {
+	PopupMenu m;
+	PopupMenu componentSubMenu = CtrlrComponentTypeManager::getComponentMenu(true);
+	getEditMenu(m);
+	m.addSeparator();
+	m.addSubMenu("Send to layer", getLayerMenu());
+	m.addSeparator();
+	m.addSubMenu("Replace with", componentSubMenu, true);
+
+	juce::Rectangle<int> clickArea(e.getScreenX(), e.getScreenY(), 1, 1);
+	juce::Component::SafePointer<CtrlrPanelCanvas> safeThis(this);
+
+	PU::showMenuAsyncAtArea(m, clickArea, [safeThis, e, componentSubMenu](int ret) {
+		if (safeThis == nullptr)
+			return;
+
+		if (ret >= 2048 && ret < 4096) {
+			safeThis->handleEditMenu(ret, e);
+		} else if (ret >= 4096 && ret < 8192) {
+			safeThis->handleLayerMenu(ret, e);
+		} else if (ret < 1024 && ret > 10) {
+			String replaceWithComponentName;
+			PopupMenu::MenuItemIterator iterator((const PopupMenu &)componentSubMenu);
+			while (iterator.next()) {
+				if (iterator.getItem().subMenu) {
+					PopupMenu::MenuItemIterator iterator2(*iterator.getItem().subMenu);
+					while (iterator2.next()) {
+						if (iterator2.getItem().itemID == ret) {
+							replaceWithComponentName = iterator2.getItem().text;
+							break;
+						}
+					}
+				}
+			}
+
+			if (!replaceWithComponentName.isEmpty()) {
+				Array<CtrlrComponent *> items;
+				if (safeThis->owner.getSelection())
+					items = safeThis->owner.getSelection()->getItemArray();
+
+				for (int i = 0; i < items.size(); i++) {
+					if (items[i]) {
+						safeThis->replaceComponent(items[i]->getOwner(), replaceWithComponentName);
+					}
+				}
+			}
+		}
+	});
+}
+
+void CtrlrPanelCanvas::handleRightClickOnCanvas(const MouseEvent &e) {
+	const bool em = getOwner().getProperty(Ids::uiPanelEditMode);
+
+	PopupMenu menu;
+
+	if (em) {
+		menu = CtrlrComponentTypeManager::getComponentMenu(em);
+		getEditMenu(menu);
+	} else {
+		menu = getRightClickComponentMenu(e);
+	}
+
+	juce::Rectangle<int> clickArea(e.getScreenX(), e.getScreenY(), 1, 1);
+	juce::Component::SafePointer<CtrlrPanelCanvas> safeThis(this);
+
+	// Fix: capture menu by reference in the lambda capture list
+	PU::showMenuAsyncAtArea(menu, clickArea, [safeThis, e, em, menu](int ret) {
+		if (safeThis == nullptr)
+			return; // canvas was closed/destroyed before the user picked anything
+
+		if (ret >= 4096) {
+			safeThis->handleComponentPopupMenu(e, ret);
+		} else if (ret == 1024) {
+			safeThis->getOwner().setProperty(Ids::uiPanelEditMode, !em);
+			safeThis->getOwner().editModeChanged();
+		} else if (ret < 1024 && ret > 10) {
+			// Fix: do not dereference menu, just use it directly
+			PopupMenu::MenuItemIterator iterator(menu);
+			while (iterator.next()) {
+				if (iterator.getItem().subMenu) {
+					PopupMenu::MenuItemIterator iterator2(*iterator.getItem().subMenu);
+					while (iterator2.next()) {
+						if (iterator2.getItem().itemID == ret) {
+							safeThis->addNewComponent(iterator2.getItem().text, e.getPosition(), e.eventComponent);
+						}
+					}
+				}
+			}
+		} else if (ret >= 2048 && ret < 4096) {
+			safeThis->handleEditMenu(ret, e);
+		}
+	});
+}
+
+void CtrlrPanelCanvas::handleRightClickOnTabs(const MouseEvent &e) {}
+
+void CtrlrPanelCanvas::handleRightClickOnComponent(const MouseEvent &e) {
+	CtrlrComponent *c = findEventComponent(e);
+
+	if (c == 0)
+		return;
+
+	if (dynamic_cast<ResizableBorderComponent *>(e.eventComponent) == 0 && getOwner().getSelection()) {
+		getOwner().getSelection()->selectOnly(c);
+	}
+
+	PopupMenu m;
+	PopupMenu componentSubMenu = CtrlrComponentTypeManager::getComponentMenu(true);
+	m.addSectionHeader("Actions");
+	m.addItem(512, "Export component");
+	m.addItem(513, "Lock", true, c->getProperty(Ids::componentIsLocked));
+
+	m.addSectionHeader("Layout");
+	m.addItem(1024, "Send to back");
+	m.addItem(1025, "Send to front");
+	m.addSubMenu("Send to layer", getLayerMenu());
+	m.addSeparator();
+	m.addSubMenu("Replace with", componentSubMenu, true);
+
+	m.addSeparator();
+	getEditMenu(m);
+
+	m.addSeparator();
+	if (CtrlrComponentTypeManager::isGroupingComponent(c)) {
+		m.addItem(1026, "Delete with children");
+		m.addItem(1027, "Copy with children");
+	}
+
+	juce::Rectangle<int> clickArea(e.getScreenX(), e.getScreenY(), 1, 1);
+	juce::Component::SafePointer<CtrlrPanelCanvas> safeThis(this);
+	juce::Component::SafePointer<CtrlrComponent> safeC(c);
+
+	PU::showMenuAsyncAtArea(m, clickArea, [safeThis, safeC, e, m, componentSubMenu](int ret) {
+		if (safeThis == nullptr || safeC == nullptr)
+			return;
+
+		CtrlrComponent *c = safeC.getComponent();
+
+		if (ret == 512) {
+			safeThis->exportSelectedComponents();
+		} else if (ret == 513) {
+			c->setProperty(Ids::componentIsLocked, !c->getProperty(Ids::componentIsLocked));
+		} else if (ret == 1024) {
+			c->toBack();
+			c->setProperty(Ids::componentSentBack, true);
+		} else if (ret == 1025) {
+			c->toFront(false);
+			c->setProperty(Ids::componentSentBack, false);
+		} else if (ret == 1026) {
+			safeThis->deleteWithChildren(c);
+		} else if (ret == 1027) {
+			safeThis->copyWithChildren(c);
+		} else if (ret >= 2048 && ret < 4096) {
+			safeThis->handleEditMenu(ret, e);
+		} else if (ret >= 4096 && ret < 8192) {
+			safeThis->handleLayerMenu(ret, e);
+		} else if (ret < 1024 && ret > 10) {
+			PopupMenu::MenuItemIterator iterator((const PopupMenu &)componentSubMenu);
+			while (iterator.next()) {
+				if (iterator.getItem().subMenu) {
+					PopupMenu::MenuItemIterator iterator2(*iterator.getItem().subMenu);
+					while (iterator2.next()) {
+						if (iterator2.getItem().itemID == ret) {
+							if (c) {
+								safeThis->replaceComponent(c->getOwner(), iterator2.getItem().text);
+								return;
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+}
+void CtrlrPanelCanvas::replaceComponent(CtrlrModulator &modulator, const String &targetComponentType) {
+	CtrlrComponent *oldComponent = modulator.getComponent();
+	CtrlrComponent *newComponent = nullptr;
+
+	/* detach the existing component so it doesn't get notified about anything, the pointer will be invalid */
+	if (getOwner().getSelection()) {
+		getOwner().getSelection()->deselectAll();
+		getOwner().getSelection()->dispatchPendingMessages();
+		getOwner().getSelection()->removeChangeListener(oldComponent);
+	}
+
+	if (oldComponent) {
+		/* keep a copy of the old properties, we need to find out if the component is in a group */
+		ValueTree oldComponentProperties = oldComponent->getObjectTree().createCopy();
+
+		modulator.setComponentType(targetComponentType, false);
+
+		/* get the new component pointer and attach it */
+		newComponent = modulator.getComponent();
+		if (getOwner().getSelection())
+			getOwner().getSelection()->addChangeListener(newComponent);
+
+		addAndMakeVisibleNg(modulator.getComponent(), nullptr, true);
+
+		/* attach the new component to any group components the old component was int */
+		if (oldComponentProperties.hasProperty(Ids::componentGroupName)) {
+			CtrlrGroup *group = dynamic_cast<CtrlrGroup *>(
+				owner.getOwner().getComponent(oldComponentProperties.getProperty(Ids::componentGroupName)));
+			if (group) {
+				group->setOwned(newComponent, true);
+			}
+		}
+
+		if (oldComponentProperties.hasProperty(Ids::componentTabName)) {
+			CtrlrTabsComponent *tabs = dynamic_cast<CtrlrTabsComponent *>(
+				owner.getOwner().getComponent(oldComponentProperties.getProperty(Ids::componentTabName)));
+			if (tabs) {
+				tabs->setOwned(newComponent, oldComponentProperties.getProperty(Ids::componentTabId), true);
+			}
+		}
+
+		/* copy any old properties to the new component */
+		for (int i = 0; i < oldComponentProperties.getNumProperties(); i++) {
+			const Identifier propName = oldComponentProperties.getPropertyName(i);
+			const var propValue = oldComponentProperties.getProperty(propName);
+
+			if (propName != Ids::uiType) {
+				if (newComponent->getObjectTree().hasProperty(propName))
+					newComponent->setProperty(propName, propValue);
+			}
+		}
+	}
+}
+
+void CtrlrPanelCanvas::getEditMenu(PopupMenu &m) {
+	const bool hasSelection = getSelection().getNumSelected() > 0;
+
+	// --- Edit Section ---
+	m.addSectionHeader("Edit");
+	m.addItem(Copy, "Copy", getSelection().getNumSelected() ? true : false);
+	m.addItem(Paste, "Paste");
+	m.addItem(Cut, "Cut", getSelection().getNumSelected() ? true : false);
+	m.addItem(Delete, "Delete", getSelection().getNumSelected() ? true : false);
+
+	m.addItem(Copy, "Copy", hasSelection, false,
+			  createMenuIcon(BinaryData::editduplicatesymbolic_svg, BinaryData::editduplicatesymbolic_svgSize));
+
+	m.addItem(Paste, "Paste", true, false,
+			  createMenuIcon(BinaryData::editpastestylesymbolic_svg, BinaryData::editpastestylesymbolic_svgSize));
+
+	m.addItem(Cut, "Cut", hasSelection, false,
+			  createMenuIcon(BinaryData::editcutsymbolic_svg, BinaryData::editcutsymbolic_svgSize));
+
+	m.addItem(Delete, "Delete", hasSelection, false,
+			  createMenuIcon(BinaryData::editdeletesymbolic_svg, BinaryData::editdeletesymbolic_svgSize));
+
+	m.addSeparator();
+
+	// --- Center Section (Works on 1+ objects) ---
+	m.addSectionHeader("Position");
+
+	m.addItem(CenterX, "Centre X", true, false,
+			  createMenuIcon(BinaryData::boundingboxcentersymbolic_svg, BinaryData::boundingboxcentersymbolic_svgSize));
+
+	m.addItem(CenterY, "Centre Y", true, false,
+			  createMenuIcon(BinaryData::snapnodesmidpointsymbolic_svg, BinaryData::snapnodesmidpointsymbolic_svgSize));
+
+	// --- Alignment Section (2+ objects) ---
+	if (getSelection().getNumSelected() > 1) {
+		m.addSeparator();
+		m.addSectionHeader("Align");
+
+		m.addItem(
+			AlignToTop, "Align to top", true, false,
+			createMenuIcon(BinaryData::alignverticaltopsymbolic_svg, BinaryData::alignverticaltopsymbolic_svgSize));
+
+		m.addItem(AlignToBottom, "Align to bottom", true, false,
+				  createMenuIcon(BinaryData::alignverticalbottomsymbolic_svg,
+								 BinaryData::alignverticalbottomsymbolic_svgSize));
+
+		m.addItem(AlignToLeft, "Align to left", true, false,
+				  createMenuIcon(BinaryData::alignhorizontalleftsymbolic_svg,
+								 BinaryData::alignhorizontalleftsymbolic_svgSize));
+
+		m.addItem(AlignToRight, "Align to right", true, false,
+				  createMenuIcon(BinaryData::alignhorizontalrightsymbolic_svg,
+								 BinaryData::alignhorizontalrightsymbolic_svgSize));
+
+		m.addSeparator();
+		m.addItem(MatchWidth, "Match width to first selected", true, false,
+				  createMenuIcon(BinaryData::transformscalehorizontalsymbolic_svg,
+								 BinaryData::transformscalehorizontalsymbolic_svgSize));
+		m.addItem(MatchHeight, "Match height to first selected", true, false,
+				  createMenuIcon(BinaryData::transformscaleverticalsymbolic_svg,
+								 BinaryData::transformscaleverticalsymbolic_svgSize));
+		m.addItem(MatchSize, "Match height/width to first selected", true, false,
+				  createMenuIcon(BinaryData::transformrotatesymbolic_svg, BinaryData::transformrotatesymbolic_svgSize));
+	}
+
+	// --- Distribution Section (3+ objects) ---
+	if (getSelection().getNumSelected() > 2) {
+		m.addSeparator();
+		m.addSectionHeader("Distribute");
+
+		m.addItem(DistributeHorizontally, "Distribute horizontally", true, false,
+				  createMenuIcon(BinaryData::distributehorizontalgapssymbolic_svg,
+								 BinaryData::distributehorizontalgapssymbolic_svgSize));
+
+		m.addItem(DistributeVertically, "Distribute vertically", true, false,
+				  createMenuIcon(BinaryData::distributeverticalgapssymbolic_svg,
+								 BinaryData::distributeverticalgapssymbolic_svgSize));
+	}
+}
+
+void CtrlrPanelCanvas::handleEditMenu(const int returnCode, const MouseEvent &e) {
+	switch ((EditMenuItems)returnCode) {
+	case Copy:
+		editMenuCopy(&e);
+		break;
+
+	case Paste:
+		editMenuPaste(e);
+		break;
+
+	case Cut:
+		editMenuCopy(&e);
+		editMenuDelete();
+		break;
+
+	case Delete:
+		editMenuDelete();
+		break;
+
+	case AlignToTop:
+	case AlignToLeft:
+	case AlignToBottom:
+	case AlignToRight:
+	case DistributeHorizontally:
+	case DistributeVertically:
+	case CenterX:
+	case CenterY:
+	case MatchHeight:
+	case MatchWidth:
+	case MatchSize:
+		alignSelection((EditMenuItems)returnCode);
+		break;
+
+	case FitToRect:
+		fitSelection();
+		break;
+
+	default:
+		break;
+	}
+}
+
+void CtrlrPanelCanvas::handleLeftClickOnComponent(const MouseEvent &e) {
+	CtrlrComponent *c = findEventComponent(e);
+
+	if (c) {
+		if (getSelection().isSelected(c)) {
+			getSelection().deselect(c);
+		} else {
+			getSelection().addToSelection(c);
+		}
+	}
+}
+
+void CtrlrPanelCanvas::copyWithChildren(CtrlrComponent *c) {
+	if (c) {
+		ValueTree clipboardTree("groupTree");
+		ValueTree groupTree = c->getOwner().getObjectTree().createCopy();
+
+		Array<CtrlrComponent *> children = c->getOwnedChildren();
+		for (int i = 0; i < children.size(); i++) {
+			// Fix for C2819, C2232, E3364: Use '.' instead of '->' when calling a method on a reference
+			ValueTree childTreeCopy = children[i]->getOwner().getObjectTree().createCopy();
+			childTreeCopy.removeProperty(Ids::vstIndex, nullptr);
+			groupTree.addChild(childTreeCopy, -1, 0);
+		}
+		clipboardTree.addChild(groupTree, -1, 0);
+
+		SystemClipboard::copyTextToClipboard(XML2STR(clipboardTree));
+	}
+}
+
+void CtrlrPanelCanvas::deleteWithChildren(CtrlrComponent *c) {
+	if (c) {
+		if (getOwner().getSelection())
+			getOwner().getSelection()->deselectAll();
+
+		Array<CtrlrComponent *> children = c->getOwnedChildren();
+		for (int i = 0; i < children.size(); i++) {
+			removeComponent(children[i], false);
+		}
+
+		removeComponent(c, false);
+		sendChangeMessage();
+	}
+}
+
+void CtrlrPanelCanvas::pasteGroupComponent(const ValueTree &groupTree, const int destinationX, const int destinationY) {
+	if (groupTree.hasType("groupTree")) {
+		CtrlrComponent *parent = addNewComponent(groupTree.getChild(0), 0, true);
+		if (destinationX >= 0 && destinationY >= 0)
+			parent->setTopLeftPosition(destinationX, destinationY);
+		else
+			parent->setTopLeftPosition(parent->getX() + (parent->getWidth() / 2),
+									   parent->getY() + (parent->getHeight() / 2));
+
+		CtrlrGroup *group = dynamic_cast<CtrlrGroup *>(parent);
+		CtrlrTabsComponent *tabs = dynamic_cast<CtrlrTabsComponent *>(parent);
+
+		for (int i = 0; i < groupTree.getChild(0).getNumChildren(); i++) {
+			if (groupTree.getChild(0).getChild(i).hasType(Ids::modulator)) {
+				CtrlrComponent *child = addNewComponent(groupTree.getChild(0).getChild(i), 0, true);
+				if (group && child) {
+					group->setOwned(child, true);
+				}
+
+				if (tabs && child) {
+					tabs->setOwned(child, child->getProperty(Ids::componentTabId), true);
+				}
+			}
+		}
+	}
+}
+
+void CtrlrPanelCanvas::pasteGroupComponent(const ValueTree &groupTree, const MouseEvent &e) {
+	pasteGroupComponent(groupTree, e.x, e.y);
+}
+
+PopupMenu CtrlrPanelCanvas::getLayerMenu() {
+	PopupMenu m;
+
+	for (int i = 0; i < getNumLayers(); i++) {
+		m.addItem(i + 4096, getLayerName(i));
+	}
+	return (m);
+}
+
+void CtrlrPanelCanvas::handleLayerMenu(const int returnCode, const MouseEvent &e) {
+	if (owner.getSelection()) {
+		const int numSelected = owner.getSelection()->getNumSelected();
+
+		for (int i = 0; i < numSelected; i++) {
+			CtrlrComponent *c = owner.getSelection()->getSelectedItem(i);
+
+			if (c != nullptr && getLayerFromArray(returnCode - 4096) != nullptr) {
+				assignToLayer(c, getLayerFromArray(returnCode - 4096));
+			}
+		}
+	}
+}

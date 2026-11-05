@@ -1,0 +1,273 @@
+{
+ "object": "Program · MOD-7",
+ "areas": [
+  {
+   "label": "MAIN",
+   "pages": 9,
+   "index": null,
+   "instances": [],
+   "apply": "exi:MOD-7",
+   "link": null
+  },
+  {
+   "label": "OSC",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:MOD-7",
+   "link": null
+  },
+  {
+   "label": "FILTER",
+   "pages": 4,
+   "index": null,
+   "instances": [],
+   "apply": "exi:MOD-7",
+   "link": null
+  },
+  {
+   "label": "AMP·MIX",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:MOD-7",
+   "link": null
+  },
+  {
+   "label": "EG",
+   "pages": 10,
+   "index": null,
+   "instances": [],
+   "apply": "exi:MOD-7",
+   "link": null
+  },
+  {
+   "label": "LFO",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:MOD-7",
+   "link": null
+  },
+  {
+   "label": "MOD",
+   "pages": 6,
+   "index": null,
+   "instances": [],
+   "apply": "exi:MOD-7",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P1",
+   "area": "MAIN",
+   "n": 1,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P2",
+   "area": "MAIN",
+   "n": 2,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P3",
+   "area": "MAIN",
+   "n": 3,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P4",
+   "area": "MAIN",
+   "n": 4,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P5",
+   "area": "MAIN",
+   "n": 5,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P6",
+   "area": "MAIN",
+   "n": 6,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P7",
+   "area": "MAIN",
+   "n": 7,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P8",
+   "area": "MAIN",
+   "n": 8,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MAIN_P9",
+   "area": "MAIN",
+   "n": 9,
+   "of": 9
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_OSC_P1",
+   "area": "OSC",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_OSC_P2",
+   "area": "OSC",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_FILTER_P1",
+   "area": "FILTER",
+   "n": 1,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_FILTER_P2",
+   "area": "FILTER",
+   "n": 2,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_FILTER_P3",
+   "area": "FILTER",
+   "n": 3,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_FILTER_P4",
+   "area": "FILTER",
+   "n": 4,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_AMP_MIX_P1",
+   "area": "AMP·MIX",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_AMP_MIX_P2",
+   "area": "AMP·MIX",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P1",
+   "area": "EG",
+   "n": 1,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P2",
+   "area": "EG",
+   "n": 2,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P3",
+   "area": "EG",
+   "n": 3,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P4",
+   "area": "EG",
+   "n": 4,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P5",
+   "area": "EG",
+   "n": 5,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P6",
+   "area": "EG",
+   "n": 6,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P7",
+   "area": "EG",
+   "n": 7,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P8",
+   "area": "EG",
+   "n": 8,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P9",
+   "area": "EG",
+   "n": 9,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_EG_P10",
+   "area": "EG",
+   "n": 10,
+   "of": 10
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_LFO_P1",
+   "area": "LFO",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_LFO_P2",
+   "area": "LFO",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P1",
+   "area": "MOD",
+   "n": 1,
+   "of": 6
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P2",
+   "area": "MOD",
+   "n": 2,
+   "of": 6
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P3",
+   "area": "MOD",
+   "n": 3,
+   "of": 6
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P4",
+   "area": "MOD",
+   "n": 4,
+   "of": 6
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P5",
+   "area": "MOD",
+   "n": 5,
+   "of": 6
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_MOD7_MOD_P6",
+   "area": "MOD",
+   "n": 6,
+   "of": 6
+  }
+ ]
+}

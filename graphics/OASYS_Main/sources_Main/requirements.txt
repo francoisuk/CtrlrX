@@ -1,0 +1,5 @@
+cairosvg
+fonttools
+brotli
+numpy
+pillow

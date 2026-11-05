@@ -1,0 +1,49 @@
+# Normalise text to LF in the repository; check out LF everywhere.
+* text=auto eol=lf
+
+# --- Generated panel XML -----------------------------------------------------
+# ~29 MB per panel, machine-generated. Keep the bytes verbatim: no EOL
+# rewriting (a panel must round-trip byte-for-byte through the generator) and
+# no textual diff (a diff of one panel is megabytes of noise).
+*.panel -text -diff
+
+# --- Sources -----------------------------------------------------------------
+*.c      text eol=lf
+*.cpp    text eol=lf
+*.h      text eol=lf
+*.hpp    text eol=lf
+*.cc     text eol=lf
+*.py     text eol=lf
+*.lua    text eol=lf
+*.json   text eol=lf
+*.md     text eol=lf
+*.csv    text eol=lf
+*.txt    text eol=lf
+*.cmake  text eol=lf
+CMakeLists.txt  text eol=lf
+
+# --- Windows-only scripting --------------------------------------------------
+*.ps1  text eol=crlf
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# --- Binary ------------------------------------------------------------------
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.pdf    binary
+*.zip    binary
+*.wav    binary
+*.mp3    binary
+*.mp4    binary
+*.otf    binary
+*.ttf    binary
+*.woff2  binary
+*.exe    binary
+*.dll    binary
+*.vst3   binary
+*.a      binary
+*.lib    binary
+*.pkg    binary

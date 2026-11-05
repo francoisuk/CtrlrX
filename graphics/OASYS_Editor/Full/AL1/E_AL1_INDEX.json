@@ -1,0 +1,171 @@
+{
+ "object": "Program · AL-1",
+ "areas": [
+  {
+   "label": "MAIN",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:AL-1",
+   "link": null
+  },
+  {
+   "label": "OSC",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:AL-1",
+   "link": null
+  },
+  {
+   "label": "FILTER",
+   "pages": 4,
+   "index": null,
+   "instances": [],
+   "apply": "exi:AL-1",
+   "link": null
+  },
+  {
+   "label": "AMP·MIX",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:AL-1",
+   "link": null
+  },
+  {
+   "label": "EG",
+   "pages": 5,
+   "index": null,
+   "instances": [],
+   "apply": "exi:AL-1",
+   "link": null
+  },
+  {
+   "label": "LFO",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:AL-1",
+   "link": null
+  },
+  {
+   "label": "MOD",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:AL-1",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_MAIN_P1",
+   "area": "MAIN",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_MAIN_P2",
+   "area": "MAIN",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_OSC_P1",
+   "area": "OSC",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_OSC_P2",
+   "area": "OSC",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_FILTER_P1",
+   "area": "FILTER",
+   "n": 1,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_FILTER_P2",
+   "area": "FILTER",
+   "n": 2,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_FILTER_P3",
+   "area": "FILTER",
+   "n": 3,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_FILTER_P4",
+   "area": "FILTER",
+   "n": 4,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_AMP_MIX_P1",
+   "area": "AMP·MIX",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_EG_P1",
+   "area": "EG",
+   "n": 1,
+   "of": 5
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_EG_P2",
+   "area": "EG",
+   "n": 2,
+   "of": 5
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_EG_P3",
+   "area": "EG",
+   "n": 3,
+   "of": 5
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_EG_P4",
+   "area": "EG",
+   "n": 4,
+   "of": 5
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_EG_P5",
+   "area": "EG",
+   "n": 5,
+   "of": 5
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_LFO_P1",
+   "area": "LFO",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_LFO_P2",
+   "area": "LFO",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_MOD_P1",
+   "area": "MOD",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_E_AL1_MOD_P2",
+   "area": "MOD",
+   "n": 2,
+   "of": 2
+  }
+ ]
+}

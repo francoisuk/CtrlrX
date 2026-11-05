@@ -1,0 +1,914 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 2/3",
+ "tab_index": 0,
+ "object": "Program · CX-3",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_CX3_OSC_P2_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_CX3_OSC_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · CX-3 — OSC · 2/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 441.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 513.4,
+   "y": 84,
+   "w": 410.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 927.2,
+   "y": 84,
+   "w": 428.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@12.7~3",
+   "param": "Prog_EXi@12.7~3",
+   "group": "percussion_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOUD LEVEL",
+   "x": 110.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 131.24827586206897,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Loud Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 12,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@12.7~3_val",
+   "param": "Prog_EXi@12.7~3",
+   "group": "percussion_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LOUD LEVEL value",
+   "x": 112.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Loud Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 12,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@13.7~2",
+   "param": "Prog_EXi@13.7~2",
+   "group": "percussion_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SOFT LEVEL",
+   "x": 206.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 227.64827586206897,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Soft Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 13,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@13.7~2_val",
+   "param": "Prog_EXi@13.7~2",
+   "group": "percussion_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "SOFT LEVEL value",
+   "x": 208.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Soft Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 13,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@14.7~1",
+   "param": "Prog_EXi@14.7~1",
+   "group": "percussion_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOUD DRAWBAR ATTENUATION",
+   "x": 303.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 324.048275862069,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Loud Drawbar Attenuation",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 14,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@14.7~1_val",
+   "param": "Prog_EXi@14.7~1",
+   "group": "percussion_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "LOUD DRAWBAR ATTENUATION value",
+   "x": 305.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Loud Drawbar Attenuation",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 14,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@16.7~2",
+   "param": "Prog_EXi@16.7~2",
+   "group": "percussion_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FAST DECAY TIME",
+   "x": 399.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 420.448275862069,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Fast Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 16,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@16.7~2_val",
+   "param": "Prog_EXi@16.7~2",
+   "group": "percussion_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "FAST DECAY TIME value",
+   "x": 401.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Fast Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 16,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@17.7~1",
+   "param": "Prog_EXi@17.7~1",
+   "group": "percussion_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOW DECAY TIME",
+   "x": 495.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 516.8482758620689,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Slow Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 17,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@17.7~1_val",
+   "param": "Prog_EXi@17.7~1",
+   "group": "percussion_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOW DECAY TIME value",
+   "x": 497.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Slow Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 17,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@18.0",
+   "param": "Prog_EXi@18.0",
+   "group": "percussion_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HARMONIC SWITCH",
+   "x": 592.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 613.248275862069,
+   "cy": 204.0,
+   "r": 12,
+   "range": "2nd~3rd",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Harmonic Switch",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 18,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "2nd~3rd"
+   }
+  },
+  {
+   "id": "Prog_EXi@18.0_val",
+   "param": "Prog_EXi@18.0",
+   "group": "percussion_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "HARMONIC SWITCH value",
+   "x": 594.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "2nd"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "Harmonic Switch",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 18,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "2nd~3rd"
+   }
+  },
+  {
+   "id": "Prog_EXi@90.7~5",
+   "param": "Prog_EXi@90.7~5",
+   "group": "percussion_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@90.7~5",
+   "x": 842.5,
+   "y": 150,
+   "w": 113.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~8",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "EX Percussion Drawbar1 Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 90,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~08",
+    "value": "0~8"
+   }
+  },
+  {
+   "id": "Prog_EXi@91.4~1",
+   "param": "Prog_EXi@91.4~1",
+   "group": "percussion_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@91.4~1",
+   "x": 959.6,
+   "y": 150,
+   "w": 113.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~8",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "EX Percussion Drawbar2 Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 91,
+    "bit": "4~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "1"
+    },
+    "data": "00~08",
+    "value": "0~8"
+   }
+  },
+  {
+   "id": "Prog_EXi@91.7~5",
+   "param": "Prog_EXi@91.7~5",
+   "group": "percussion_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@91.7~5",
+   "x": 1076.7,
+   "y": 150,
+   "w": 113.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~8",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "EX Percussion Drawbar3 Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 91,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "2"
+    },
+    "data": "00~08",
+    "value": "0~8"
+   }
+  },
+  {
+   "id": "Prog_EXi@92.4~1",
+   "param": "Prog_EXi@92.4~1",
+   "group": "percussion_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@92.4~1",
+   "x": 1193.8,
+   "y": 150,
+   "w": 113.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~8",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "EX Percussion Drawbar4 Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 92,
+    "bit": "4~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "3"
+    },
+    "data": "00~08",
+    "value": "0~8"
+   }
+  },
+  {
+   "id": "Prog_EXi@92.7~5",
+   "param": "Prog_EXi@92.7~5",
+   "group": "percussion_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@92.7~5",
+   "x": 1310.9,
+   "y": 150,
+   "w": 113.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~8",
+   "midi": null,
+   "korg": {
+    "group": "Percussion",
+    "name": "EX Percussion Drawbar5 Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 92,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "6",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "4"
+    },
+    "data": "00~08",
+    "value": "0~8"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 2,
+ "pages_in_area": 3,
+ "apply": "exi:CX-3"
+}

@@ -1,0 +1,1196 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "STEP",
+ "tab_index": 0,
+ "object": "Wave Seq",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_W_STEP_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_W_STEP_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "5 : Wave Seq"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Wave Seq — STEP"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 629.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP",
+   "x": 692.2,
+   "y": 84,
+   "w": 613.8,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idxprev_idxprev",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idxbox",
+   "group": "nav",
+   "type": "display",
+   "kind": "label",
+   "label": "STEP 1",
+   "x": 1343.0,
+   "y": 85,
+   "w": 72.0,
+   "h": 16,
+   "text": [
+    "STEP 1"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_idxnext_idxnext",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "▶",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "WaveSequence@40.1~0",
+   "param": "WaveSequence@40.1~0",
+   "group": "step_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "STEP TYPE",
+   "x": 120.1,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Multisample"
+   ],
+   "options": "Multisample,Rest, Tie",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Step Type",
+    "kind": "menu",
+    "file": "WaveSequence.txt",
+    "ofs": 40,
+    "bit": "1~0",
+    "sysex": {
+     "IDX": "0",
+     "PID": "16"
+    },
+    "data": "00~02",
+    "value": "Multisample,Rest, Tie"
+   }
+  },
+  {
+   "id": "WaveSequence@61.7",
+   "param": "WaveSequence@61.7",
+   "group": "step_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "REVERSE",
+   "x": 200.1,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Reverse",
+    "kind": "toggle",
+    "file": "WaveSequence.txt",
+    "ofs": 61,
+    "bit": "7",
+    "sysex": {
+     "IDX": "0",
+     "PID": "22"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "WaveSequence@58",
+   "param": "WaveSequence@58",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MULTISAMPLE SELECT",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~16382",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Multisample Select",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 58,
+    "sysex": {
+     "IDX": "0",
+     "PID": "18"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382"
+   }
+  },
+  {
+   "id": "WaveSequence@58_val",
+   "param": "WaveSequence@58",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MULTISAMPLE SELECT value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Multisample Select",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 58,
+    "sysex": {
+     "IDX": "0",
+     "PID": "18"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382"
+   }
+  },
+  {
+   "id": "WaveSequence@60",
+   "param": "WaveSequence@60",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 165.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 186.4632,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Level",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 60,
+    "sysex": {
+     "IDX": "0",
+     "PID": "19"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "WaveSequence@60_val",
+   "param": "WaveSequence@60",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 167.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Level",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 60,
+    "sysex": {
+     "IDX": "0",
+     "PID": "19"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "WaveSequence@61.3~0",
+   "param": "WaveSequence@61.3~0",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START OFFSET",
+   "x": 254.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 275.9264,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~8th",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Start Offset",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 61,
+    "bit": "3~0",
+    "sysex": {
+     "IDX": "0",
+     "PID": "23"
+    },
+    "data": "00~08",
+    "value": "Off~8th"
+   }
+  },
+  {
+   "id": "WaveSequence@61.3~0_val",
+   "param": "WaveSequence@61.3~0",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START OFFSET value",
+   "x": 256.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Start Offset",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 61,
+    "bit": "3~0",
+    "sysex": {
+     "IDX": "0",
+     "PID": "23"
+    },
+    "data": "00~08",
+    "value": "Off~8th"
+   }
+  },
+  {
+   "id": "WaveSequence@62",
+   "param": "WaveSequence@62",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TUNE",
+   "x": 344.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 365.3896,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-1200~+1200",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Tune",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 62,
+    "sysex": {
+     "IDX": "0",
+     "PID": "20"
+    },
+    "data": "FB50~04B0",
+    "value": "-1200~+1200"
+   }
+  },
+  {
+   "id": "WaveSequence@62_val",
+   "param": "WaveSequence@62",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TUNE value",
+   "x": 346.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Tune",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 62,
+    "sysex": {
+     "IDX": "0",
+     "PID": "20"
+    },
+    "data": "FB50~04B0",
+    "value": "-1200~+1200"
+   }
+  },
+  {
+   "id": "WaveSequence@64",
+   "param": "WaveSequence@64",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSPOSE",
+   "x": 433.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 454.8528,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-24~+24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 64,
+    "sysex": {
+     "IDX": "0",
+     "PID": "21"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "WaveSequence@64_val",
+   "param": "WaveSequence@64",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSPOSE value",
+   "x": 435.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 64,
+    "sysex": {
+     "IDX": "0",
+     "PID": "21"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "WaveSequence@67",
+   "param": "WaveSequence@67",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DURATION",
+   "x": 523.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 544.316,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~146",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Duration",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 67,
+    "sysex": {
+     "IDX": "0",
+     "PID": "26"
+    },
+    "data": "00~92",
+    "value": "0~146"
+   }
+  },
+  {
+   "id": "WaveSequence@67_val",
+   "param": "WaveSequence@67",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DURATION value",
+   "x": 525.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Duration",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 67,
+    "sysex": {
+     "IDX": "0",
+     "PID": "26"
+    },
+    "data": "00~92",
+    "value": "0~146"
+   }
+  },
+  {
+   "id": "WaveSequence@69",
+   "param": "WaveSequence@69",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TEMPO BASE NOTE",
+   "x": 612.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 633.7792,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Tempo Base Note",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 69,
+    "sysex": {
+     "IDX": "0",
+     "PID": "27"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "WaveSequence@69_val",
+   "param": "WaveSequence@69",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TEMPO BASE NOTE value",
+   "x": 614.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Tempo Base Note",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 69,
+    "sysex": {
+     "IDX": "0",
+     "PID": "27"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "WaveSequence@70",
+   "param": "WaveSequence@70",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TEMPO MULTIPLIER",
+   "x": 702.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 723.2424,
+   "cy": 204.0,
+   "r": 12,
+   "range": "x1~x32",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Tempo Multiplier",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 70,
+    "sysex": {
+     "IDX": "0",
+     "PID": "28"
+    },
+    "data": "01~20",
+    "value": "x1~x32"
+   }
+  },
+  {
+   "id": "WaveSequence@70_val",
+   "param": "WaveSequence@70",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TEMPO MULTIPLIER value",
+   "x": 704.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "x1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Tempo Multiplier",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 70,
+    "sysex": {
+     "IDX": "0",
+     "PID": "28"
+    },
+    "data": "01~20",
+    "value": "x1~x32"
+   }
+  },
+  {
+   "id": "WaveSequence@71",
+   "param": "WaveSequence@71",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CROSSFADE",
+   "x": 791.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 812.7056,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~145",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Crossfade",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 71,
+    "sysex": {
+     "IDX": "0",
+     "PID": "29"
+    },
+    "data": "00~91",
+    "value": "0~145"
+   }
+  },
+  {
+   "id": "WaveSequence@71_val",
+   "param": "WaveSequence@71",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CROSSFADE value",
+   "x": 793.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Crossfade",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 71,
+    "sysex": {
+     "IDX": "0",
+     "PID": "29"
+    },
+    "data": "00~91",
+    "value": "0~145"
+   }
+  },
+  {
+   "id": "WaveSequence@72",
+   "param": "WaveSequence@72",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FADE-IN SHAPE",
+   "x": 881.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 902.1688,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-128~+127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Fade-In Shape",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 72,
+    "sysex": {
+     "IDX": "0",
+     "PID": "31"
+    },
+    "data": "80~7F",
+    "value": "-128~+127"
+   }
+  },
+  {
+   "id": "WaveSequence@72_val",
+   "param": "WaveSequence@72",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FADE-IN SHAPE value",
+   "x": 883.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Fade-In Shape",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 72,
+    "sysex": {
+     "IDX": "0",
+     "PID": "31"
+    },
+    "data": "80~7F",
+    "value": "-128~+127"
+   }
+  },
+  {
+   "id": "WaveSequence@73",
+   "param": "WaveSequence@73",
+   "group": "step_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FADE-OUT SHAPE",
+   "x": 970.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 991.6320000000001,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-128~+127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Fade-Out Shape",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 73,
+    "sysex": {
+     "IDX": "0",
+     "PID": "30"
+    },
+    "data": "80~7F",
+    "value": "-128~+127"
+   }
+  },
+  {
+   "id": "WaveSequence@73_val",
+   "param": "WaveSequence@73",
+   "group": "step_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FADE-OUT SHAPE value",
+   "x": 972.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "Fade-Out Shape",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 73,
+    "sysex": {
+     "IDX": "0",
+     "PID": "30"
+    },
+    "data": "80~7F",
+    "value": "-128~+127"
+   }
+  },
+  {
+   "id": "WaveSequence@65",
+   "param": "WaveSequence@65",
+   "group": "step_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "WaveSequence@65",
+   "x": 1186.6,
+   "y": 150,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "AMS1 Output",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 65,
+    "sysex": {
+     "IDX": "0",
+     "PID": "24"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "WaveSequence@66",
+   "param": "WaveSequence@66",
+   "group": "step_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "WaveSequence@66",
+   "x": 1307.3,
+   "y": 150,
+   "w": 116.7,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Step1",
+    "name": "AMS2 Output",
+    "kind": "knob",
+    "file": "WaveSequence.txt",
+    "ofs": 66,
+    "sysex": {
+     "IDX": "0",
+     "PID": "25"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "STEP",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all",
+ "index": {
+  "label": "STEP",
+  "instances": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "9",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17",
+   "18",
+   "19",
+   "20",
+   "21",
+   "22",
+   "23",
+   "24",
+   "25",
+   "26",
+   "27",
+   "28",
+   "29",
+   "30",
+   "31",
+   "32",
+   "33",
+   "34",
+   "35",
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46",
+   "47",
+   "48",
+   "49",
+   "50",
+   "51",
+   "52",
+   "53",
+   "54",
+   "55",
+   "56",
+   "57",
+   "58",
+   "59",
+   "60",
+   "61",
+   "62",
+   "63",
+   "64"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2",
+   "64"
+  ],
+  "shown": "1",
+  "stride_bytes": 34,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ },
+ "note": "Korg ne liste que les pas 1, 2 et 64 : les 64 pas ont la même structure (voir stride_bytes)"
+}

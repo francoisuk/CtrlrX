@@ -1,0 +1,2517 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 1/2",
+ "tab_index": 0,
+ "object": "Program · EP-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_OSC_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_OSC_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · EP-1 — OSC · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 345.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 417.0,
+   "y": 84,
+   "w": 314.5,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 734.6,
+   "y": 84,
+   "w": 332.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1070.0,
+   "y": 84,
+   "w": 311.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@0.7",
+   "param": "Prog_EXi@0.7",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODEL TYPE",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Tine EP mk I"
+   ],
+   "options": "Tine EP mk I~Tine E",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Model Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 0,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Tine EP mk I~Tine E"
+   }
+  },
+  {
+   "id": "Prog_EXi@1.5~2",
+   "param": "Prog_EXi@1.5~2",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "IFX TYPE",
+   "x": 264.0,
+   "y": 153.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~VOX Wah",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "IFX Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 1,
+    "bit": "5~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "Off~VOX Wah"
+   }
+  },
+  {
+   "id": "Prog_EXi@2.7~5",
+   "param": "Prog_EXi@2.7~5",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE PRE AMP VOLUME AMS SRC",
+   "x": 460.0,
+   "y": 153.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Pre Amp Volume AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 2,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@5.7~5",
+   "param": "Prog_EXi@5.7~5",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE TREBLE AMS SOURCE",
+   "x": 656.0,
+   "y": 153.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Treble AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 5,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@8.7~5",
+   "param": "Prog_EXi@8.7~5",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE BASS AMS SOURCE",
+   "x": 852.0,
+   "y": 153.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Bass AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 8,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@10.5",
+   "param": "Prog_EXi@10.5",
+   "group": "self_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "TINE TREMOLO ON OFF",
+   "x": 1048.0,
+   "y": 154.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:EP-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo On Off",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 10,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@10.7~6",
+   "param": "Prog_EXi@10.7~6",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE TREMOLO ON OFF AMS SRC",
+   "x": 1244.0,
+   "y": 153.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo On Off AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 10,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@11.6",
+   "param": "Prog_EXi@11.6",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE TREMOLO ON OFF AMS MODE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo On Off AMS Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 11,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@12.7~6",
+   "param": "Prog_EXi@12.7~6",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE TREMOLO SPEED AMS SRC",
+   "x": 264.0,
+   "y": 187.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Speed AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 12,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@15.7~5",
+   "param": "Prog_EXi@15.7~5",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE TREMOLO INT AMS SRC",
+   "x": 460.0,
+   "y": 187.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Intensity AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 15,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@17.5",
+   "param": "Prog_EXi@17.5",
+   "group": "self_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "TINE CABINET ON OFF",
+   "x": 656.0,
+   "y": 188.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:EP-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet On Off",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 17,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@17.7~6",
+   "param": "Prog_EXi@17.7~6",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE CABINET ON OFF AMS SRC",
+   "x": 852.0,
+   "y": 187.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet On Off AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 17,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@18.6",
+   "param": "Prog_EXi@18.6",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE CABINET ON OFF AMS MODE",
+   "x": 1048.0,
+   "y": 187.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet On Off AMS Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 18,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@19.7~6",
+   "param": "Prog_EXi@19.7~6",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TINE CABINET DRIVE AMS SRC",
+   "x": 1244.0,
+   "y": 187.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet Drive AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 19,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@22.7~5",
+   "param": "Prog_EXi@22.7~5",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REED VOLUME AMS SOURCE",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Volume AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 22,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@25.7~4",
+   "param": "Prog_EXi@25.7~4",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REED VIBRATO AMS SRC",
+   "x": 264.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Vibrato AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 25,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "31",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@28.7~3",
+   "param": "Prog_EXi@28.7~3",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REED SPEED AMS SOURCE",
+   "x": 460.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Speed AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 28,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@30.3",
+   "param": "Prog_EXi@30.3",
+   "group": "self_1_4",
+   "type": "button",
+   "kind": "toggle",
+   "label": "REED CABINET ON OFF",
+   "x": 656.0,
+   "y": 222.0,
+   "w": 188.0,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:EP-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet On Off",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 30,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@30.7~4",
+   "param": "Prog_EXi@30.7~4",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REED CABINET ON OFF AMS SRC",
+   "x": 852.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet On Off AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 30,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@31.4",
+   "param": "Prog_EXi@31.4",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REED CABINET ON OFF AMS MODE",
+   "x": 1048.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet On Off AMS Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 31,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@32.7~4",
+   "param": "Prog_EXi@32.7~4",
+   "group": "self_1_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "REED CABINET DRIVE AMS SRC",
+   "x": 1244.0,
+   "y": 221.0,
+   "w": 188.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet Drive AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 32,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@0.6~0",
+   "param": "Prog_EXi@0.6~0",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VOICE DELAY",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~97",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Voice Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~97"
+   }
+  },
+  {
+   "id": "Prog_EXi@0.6~0_val",
+   "param": "Prog_EXi@0.6~0",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "VOICE DELAY value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Voice Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~97"
+   }
+  },
+  {
+   "id": "Prog_EXi@1.7~6",
+   "param": "Prog_EXi@1.7~6",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE PRE AMP VOLUME",
+   "x": 141.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 162.3,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Pre Amp Volume",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 1,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@1.7~6_val",
+   "param": "Prog_EXi@1.7~6",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE PRE AMP VOLUME value",
+   "x": 143.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Pre Amp Volume",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 1,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@3.7~5",
+   "param": "Prog_EXi@3.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE PRE AMP VOLUME AMS INT",
+   "x": 206.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 227.6,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Pre Amp Volume AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 3,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@3.7~5_val",
+   "param": "Prog_EXi@3.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE PRE AMP VOLUME AMS INT value",
+   "x": 208.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Pre Amp Volume AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 3,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@4.7~5",
+   "param": "Prog_EXi@4.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE TREBLE",
+   "x": 271.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 292.9,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Treble",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 4,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@4.7~5_val",
+   "param": "Prog_EXi@4.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE TREBLE value",
+   "x": 273.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Treble",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 4,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@6.7~5",
+   "param": "Prog_EXi@6.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE TREBLE AMS INT",
+   "x": 337.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 358.2,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Treble AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 6,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@6.7~5_val",
+   "param": "Prog_EXi@6.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE TREBLE AMS INT value",
+   "x": 339.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Treble AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 6,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@7.7~5",
+   "param": "Prog_EXi@7.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE BASS",
+   "x": 402.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 423.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Bass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 7,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@7.7~5_val",
+   "param": "Prog_EXi@7.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE BASS value",
+   "x": 404.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Bass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 7,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@9.7~5",
+   "param": "Prog_EXi@9.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE BASS AMS INT",
+   "x": 467.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 488.79999999999995,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Bass AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 9,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@9.7~5_val",
+   "param": "Prog_EXi@9.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE BASS AMS INT value",
+   "x": 469.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Bass AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 9,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@11.7",
+   "param": "Prog_EXi@11.7",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE TREMOLO SPEED",
+   "x": 533.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 554.0999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 11,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@11.7_val",
+   "param": "Prog_EXi@11.7",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE TREMOLO SPEED value",
+   "x": 535.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 11,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@13.7~6",
+   "param": "Prog_EXi@13.7~6",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE TREMOLO SPEED AMS INT",
+   "x": 598.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 619.4,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Speed AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 13,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@13.7~6_val",
+   "param": "Prog_EXi@13.7~6",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE TREMOLO SPEED AMS INT value",
+   "x": 600.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Speed AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 13,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@14.7~6",
+   "param": "Prog_EXi@14.7~6",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE TREMOLO INT",
+   "x": 663.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 684.6999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 14,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@14.7~6_val",
+   "param": "Prog_EXi@14.7~6",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE TREMOLO INT value",
+   "x": 665.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 14,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@16.7~5",
+   "param": "Prog_EXi@16.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE TREMOLO INT AMS INT",
+   "x": 729.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Intensity AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 16,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@16.7~5_val",
+   "param": "Prog_EXi@16.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE TREMOLO INT AMS INT value",
+   "x": 731.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Tremolo Intensity AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 16,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@18.7",
+   "param": "Prog_EXi@18.7",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE CABINET DRIVE",
+   "x": 794.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 815.3,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet Drive",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 18,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@18.7_val",
+   "param": "Prog_EXi@18.7",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE CABINET DRIVE value",
+   "x": 796.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet Drive",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 18,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@20.7~6",
+   "param": "Prog_EXi@20.7~6",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE CABINET DRIVE AMS INT",
+   "x": 859.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 880.5999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet Drive AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 20,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@20.7~6_val",
+   "param": "Prog_EXi@20.7~6",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE CABINET DRIVE AMS INT value",
+   "x": 861.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Cabinet Drive AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 20,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@21.7~6",
+   "param": "Prog_EXi@21.7~6",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED VOLUME",
+   "x": 924.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 945.9,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Volume",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 21,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@21.7~6_val",
+   "param": "Prog_EXi@21.7~6",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED VOLUME value",
+   "x": 926.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Volume",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 21,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@23.7~5",
+   "param": "Prog_EXi@23.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED VOLUME AMS INT",
+   "x": 990.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1011.1999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Volume AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 23,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@23.7~5_val",
+   "param": "Prog_EXi@23.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED VOLUME AMS INT value",
+   "x": 992.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Volume AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 23,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@24.7~5",
+   "param": "Prog_EXi@24.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED VIBRATO",
+   "x": 1055.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1076.5,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Vibrato",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 24,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@24.7~5_val",
+   "param": "Prog_EXi@24.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED VIBRATO value",
+   "x": 1057.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Vibrato",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 24,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@26.7~4",
+   "param": "Prog_EXi@26.7~4",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED VIBRATO AMS INT",
+   "x": 1120.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1141.8,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Vibrato AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 26,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@26.7~4_val",
+   "param": "Prog_EXi@26.7~4",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED VIBRATO AMS INT value",
+   "x": 1122.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Vibrato AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 26,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@27.7~4",
+   "param": "Prog_EXi@27.7~4",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED SPEED",
+   "x": 1186.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1207.1,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 27,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@27.7~4_val",
+   "param": "Prog_EXi@27.7~4",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED SPEED value",
+   "x": 1188.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 27,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@29.7~3",
+   "param": "Prog_EXi@29.7~3",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED SPEED AMS INT",
+   "x": 1251.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1272.3999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Speed AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 29,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@29.7~3_val",
+   "param": "Prog_EXi@29.7~3",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED SPEED AMS INT value",
+   "x": 1253.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Speed AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 29,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@31.7~5",
+   "param": "Prog_EXi@31.7~5",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED CABINET DRIVE",
+   "x": 1316.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1337.7,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet Drive",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 31,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@31.7~5_val",
+   "param": "Prog_EXi@31.7~5",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED CABINET DRIVE value",
+   "x": 1318.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet Drive",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 31,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@33.7~4",
+   "param": "Prog_EXi@33.7~4",
+   "group": "self_2_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REED CABINET DRIVE AMS INT",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet Drive AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 33,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@33.7~4_val",
+   "param": "Prog_EXi@33.7~4",
+   "group": "self_2_4",
+   "type": "display",
+   "kind": "value",
+   "label": "REED CABINET DRIVE AMS INT value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Reed Cabinet Drive AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 33,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "exi:EP-1"
+}

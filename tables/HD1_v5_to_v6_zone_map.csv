@@ -1,0 +1,6 @@
+zone;kronos_v5_start;kronos_v5_end;nautilus_v6_start;nautilus_v6_end;size_v5;size_v6;content;status
+A;0;1303;0;1303;1304;1304;Name Common IFX1-12 MFX1-2 TFX1-2 Effect LFO1-2 Vector Control Controller Audio Input 1-4 S/PDIF L/R Drum Track Common;IDENTICAL
+B;1304;2557;1304;2551;1254;1248;v5: KARMA Common + KARMA Module; v6: NAUTILUS block (Arpeggiator-related; KARMA absent on NAUTILUS);INCOMPATIBLE_v6_is_6_bytes_shorter
+C;2558;3704;2552;3698;1147;1147;Assignable Controller Track EQ Tone Adjust OSC1 OSC2 sections;IDENTICAL_SHIFT_MINUS_6
+D;3705;3945;;;241;0;Undocumented KRONOS tail (384/1152 factory programs);V5_ONLY
+E;;;3699;4953;0;1255;Undocumented NAUTILUS tail (512/1280 factory programs; max extent byte 4950);V6_ONLY

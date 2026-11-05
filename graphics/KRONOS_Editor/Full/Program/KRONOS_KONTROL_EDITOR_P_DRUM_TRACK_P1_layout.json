@@ -1,0 +1,2043 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "DRUM TRACK · 1/2",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_P_DRUM_TRACK_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_P_DRUM_TRACK_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — DRUM TRACK · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 78.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 141.0,
+   "y": 84,
+   "w": 59.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 203.4,
+   "y": 84,
+   "w": 68.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 274.9,
+   "y": 84,
+   "w": 60.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 338.5,
+   "y": 84,
+   "w": 74.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 416.0,
+   "y": 84,
+   "w": 98.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 517.7,
+   "y": 84,
+   "w": 55.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 576.6,
+   "y": 84,
+   "w": 79.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 658.9,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 733.2,
+   "y": 84,
+   "w": 76.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 812.4,
+   "y": 84,
+   "w": 72.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 887.4,
+   "y": 84,
+   "w": 74.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 964.6,
+   "y": 84,
+   "w": 79.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 1047.2,
+   "y": 84,
+   "w": 93.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1143.6,
+   "y": 84,
+   "w": 77.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1223.6,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1297.9,
+   "y": 84,
+   "w": 83.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@1294",
+   "param": "Prog_HD-1@1294",
+   "group": "drum_track_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PATTERN BANK",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Preset"
+   ],
+   "options": "Preset~User",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Pattern Bank",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1294,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Preset~User"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1295.0",
+   "param": "Prog_HD-1@1295.0",
+   "group": "drum_track_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRIGGER BUTTON MODE",
+   "x": 210.8,
+   "y": 153.0,
+   "w": 89.9,
+   "h": 16,
+   "text": [
+    "Start Immediatel"
+   ],
+   "options": "Start Immediately~W",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Button Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1295,
+    "bit": "0",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Start Immediately~W"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1295.2~1",
+   "param": "Prog_HD-1@1295.2~1",
+   "group": "drum_track_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRIGGER LATCH MODE",
+   "x": 353.6,
+   "y": 153.0,
+   "w": 91.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Use KARMA Latch",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Latch Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1295,
+    "bit": "2~1",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~Use KARMA Latch"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1295.3",
+   "param": "Prog_HD-1@1295.3",
+   "group": "drum_track_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRIGGER SYNC MODE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 60.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Sequence",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Sync Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1295,
+    "bit": "3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~Sequence"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1295.4",
+   "param": "Prog_HD-1@1295.4",
+   "group": "drum_track_common_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "DRUM TRACK ON",
+   "x": 210.8,
+   "y": 188.0,
+   "w": 134.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Drum Track On",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1295,
+    "bit": "4",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1301",
+   "param": "Prog_HD-1@1301",
+   "group": "drum_track_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OUTPUT MIDI CHANNEL",
+   "x": 353.6,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Output MIDI Channel",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1301,
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@1302",
+   "param": "Prog_HD-1@1302",
+   "group": "drum_track_common_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "INPUT MIDI CHANNEL",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Input MIDI Channel",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1302,
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@1292",
+   "param": "Prog_HD-1@1292",
+   "group": "drum_track_common_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PATTERN NUMBER",
+   "x": 520.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 541.4530118815792,
+   "cy": 204.0,
+   "r": 12,
+   "range": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1292,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~03E7",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@1292_val",
+   "param": "Prog_HD-1@1292",
+   "group": "drum_track_common_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PATTERN NUMBER value",
+   "x": 522.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1292,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~03E7",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@1296",
+   "param": "Prog_HD-1@1296",
+   "group": "drum_track_common_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIGGER KEY ZONE BOTTOM",
+   "x": 597.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 618.5867314055714,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Key Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1296,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1296_val",
+   "param": "Prog_HD-1@1296",
+   "group": "drum_track_common_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIGGER KEY ZONE BOTTOM value",
+   "x": 599.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Key Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1296,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1297",
+   "param": "Prog_HD-1@1297",
+   "group": "drum_track_common_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIGGER KEY ZONE TOP",
+   "x": 674.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 695.7204509295636,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Key Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1297,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1297_val",
+   "param": "Prog_HD-1@1297",
+   "group": "drum_track_common_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIGGER KEY ZONE TOP value",
+   "x": 676.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Key Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1297,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1298",
+   "param": "Prog_HD-1@1298",
+   "group": "drum_track_common_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIGGER VEL ZONE BOTTOM",
+   "x": 751.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 772.8541704535558,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1298,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1298_val",
+   "param": "Prog_HD-1@1298",
+   "group": "drum_track_common_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIGGER VEL ZONE BOTTOM value",
+   "x": 753.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Velocity Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1298,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1299",
+   "param": "Prog_HD-1@1299",
+   "group": "drum_track_common_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIGGER VEL ZONE TOP",
+   "x": 829.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 849.9878899775481,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Velocity Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1299,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1299_val",
+   "param": "Prog_HD-1@1299",
+   "group": "drum_track_common_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIGGER VEL ZONE TOP value",
+   "x": 831.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Trigger Velocity Zone Top",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1299,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1300",
+   "param": "Prog_HD-1@1300",
+   "group": "drum_track_common_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHIFT",
+   "x": 906.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 927.1216095015402,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-24~+24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Shift",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1300,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "Prog_HD-1@1300_val",
+   "param": "Prog_HD-1@1300",
+   "group": "drum_track_common_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHIFT value",
+   "x": 908.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track Common",
+    "name": "Shift",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 1300,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2689",
+   "param": "Prog_HD-1@2689",
+   "group": "drum_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PROGRAM BANK",
+   "x": 980.1,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "INT-A"
+   ],
+   "options": "INT-A~U-GG",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Program Bank",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2689,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "00~1E",
+    "value": "INT-A~U-GG"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2694.0",
+   "param": "Prog_HD-1@2694.0",
+   "group": "drum_track_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "AUTO LOAD PROGRAM EQ",
+   "x": 1133.4,
+   "y": 154.0,
+   "w": 145.3,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Auto Load Program EQ",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2694,
+    "bit": "0",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2694.1",
+   "param": "Prog_HD-1@2694.1",
+   "group": "drum_track_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "EQ BYPASS",
+   "x": 1286.7,
+   "y": 154.0,
+   "w": 145.3,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "EQ Bypass",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2694,
+    "bit": "1",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2694.2",
+   "param": "Prog_HD-1@2694.2",
+   "group": "drum_track_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "USE D.KIT SETTING",
+   "x": 980.1,
+   "y": 188.0,
+   "w": 145.3,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Use D.Kit Setting",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2694,
+    "bit": "2",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2694.3",
+   "param": "Prog_HD-1@2694.3",
+   "group": "drum_track_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MUTE",
+   "x": 1133.4,
+   "y": 188.0,
+   "w": 145.3,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Mute",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2694,
+    "bit": "3",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2713",
+   "param": "Prog_HD-1@2713",
+   "group": "drum_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SELECT",
+   "x": 1286.7,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R~Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Bus Select",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2713,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2714",
+   "param": "Prog_HD-1@2714",
+   "group": "drum_track_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FX BUS SELECT",
+   "x": 980.1,
+   "y": 221.0,
+   "w": 67.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~FX Control2",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Fx Bus Select",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2714,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "52",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~FX Control2"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2688",
+   "param": "Prog_HD-1@2688",
+   "group": "drum_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PROGRAM NUMBER",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "000~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Program Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2688,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "000~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2688_val",
+   "param": "Prog_HD-1@2688",
+   "group": "drum_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PROGRAM NUMBER value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "000"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Program Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2688,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "000~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2690",
+   "param": "Prog_HD-1@2690",
+   "group": "drum_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VOLUME",
+   "x": 158.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 179.0182961692396,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Volume",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2690,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2690_val",
+   "param": "Prog_HD-1@2690",
+   "group": "drum_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "VOLUME value",
+   "x": 160.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Volume",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2690,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2692",
+   "param": "Prog_HD-1@2692",
+   "group": "drum_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DETUNE",
+   "x": 240.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 261.0365923384792,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-1200~+1200",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Detune",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2692,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "FB50~04B0",
+    "value": "-1200~+1200"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2692_val",
+   "param": "Prog_HD-1@2692",
+   "group": "drum_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DETUNE value",
+   "x": 242.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Detune",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2692,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "FB50~04B0",
+    "value": "-1200~+1200"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2715",
+   "param": "Prog_HD-1@2715",
+   "group": "drum_track_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REC BUS",
+   "x": 322.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 343.0548885077187,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~3/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Rec Bus",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2715,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2715_val",
+   "param": "Prog_HD-1@2715",
+   "group": "drum_track_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "REC BUS value",
+   "x": 324.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Rec Bus",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2715,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2701",
+   "param": "Prog_HD-1@2701",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2701",
+   "x": 538.1,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 0",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2701,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2702",
+   "param": "Prog_HD-1@2702",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2702",
+   "x": 612.2,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 1",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2702,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "1"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2703",
+   "param": "Prog_HD-1@2703",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2703",
+   "x": 686.4,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 2",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2703,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "2"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2704",
+   "param": "Prog_HD-1@2704",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2704",
+   "x": 760.5,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 3",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2704,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "3"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2705",
+   "param": "Prog_HD-1@2705",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2705",
+   "x": 834.7,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 4",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2705,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "4"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2706",
+   "param": "Prog_HD-1@2706",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2706",
+   "x": 908.9,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 5",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2706,
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2707",
+   "param": "Prog_HD-1@2707",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2707",
+   "x": 983.0,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 6",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2707,
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2708",
+   "param": "Prog_HD-1@2708",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2708",
+   "x": 1057.2,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 7",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2708,
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2709",
+   "param": "Prog_HD-1@2709",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2709",
+   "x": 1131.4,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 8",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2709,
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2710",
+   "param": "Prog_HD-1@2710",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2710",
+   "x": 1205.5,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 9",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2710,
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2711",
+   "param": "Prog_HD-1@2711",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2711",
+   "x": 1279.7,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 10",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2711,
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2712",
+   "param": "Prog_HD-1@2712",
+   "group": "drum_track_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2712",
+   "x": 1353.8,
+   "y": 296,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "range": "L/R~Off",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "IFX Patch 11",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2712,
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2716",
+   "param": "Prog_HD-1@2716",
+   "group": "drum_track_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2716",
+   "x": 612.2,
+   "y": 317,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Send1",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2716,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2717",
+   "param": "Prog_HD-1@2717",
+   "group": "drum_track_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2717",
+   "x": 686.4,
+   "y": 317,
+   "w": 70.2,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Drum Track",
+    "name": "Send2",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2717,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "DRUM TRACK",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "all"
+}

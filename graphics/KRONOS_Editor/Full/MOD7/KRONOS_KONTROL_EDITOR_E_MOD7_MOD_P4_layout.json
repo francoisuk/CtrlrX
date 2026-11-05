@@ -1,0 +1,1395 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "MOD · 4/6",
+ "tab_index": 0,
+ "object": "Program · MOD-7",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_MOD7_MOD_P4_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_MOD7_MOD_P4_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MOD-7 — MOD · 4/6"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 172.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_main",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MAIN",
+   "x": 244.1,
+   "y": 84,
+   "w": 145.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 392.8,
+   "y": 84,
+   "w": 141.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 537.4,
+   "y": 84,
+   "w": 150.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 691.1,
+   "y": 84,
+   "w": 159.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 853.6,
+   "y": 84,
+   "w": 138.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 994.6,
+   "y": 84,
+   "w": 139.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1137.6,
+   "y": 84,
+   "w": 143.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@985.7~6",
+   "param": "Prog_EXi@985.7~6",
+   "group": "input_jack_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@985.7~6",
+   "x": 210.0,
+   "y": 150,
+   "w": 109.7,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Filter B",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Output Mixer1",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 985,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "20"
+    },
+    "data": "00~0E",
+    "value": "No Connect~Filter B"
+   }
+  },
+  {
+   "id": "Prog_EXi@986.5~2",
+   "param": "Prog_EXi@986.5~2",
+   "group": "input_jack_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@986.5~2",
+   "x": 323.7,
+   "y": 150,
+   "w": 109.7,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Filter B",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Output Mixer2",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 986,
+    "bit": "5~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "21"
+    },
+    "data": "00~0E",
+    "value": "No Connect~Filter B"
+   }
+  },
+  {
+   "id": "Prog_EXi@986.7~6",
+   "param": "Prog_EXi@986.7~6",
+   "group": "input_jack_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@986.7~6",
+   "x": 437.4,
+   "y": 150,
+   "w": 109.7,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Filter B",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Output Mixer3",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 986,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "22"
+    },
+    "data": "00~0E",
+    "value": "No Connect~Filter B"
+   }
+  },
+  {
+   "id": "Prog_EXi@987.5~2",
+   "param": "Prog_EXi@987.5~2",
+   "group": "input_jack_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@987.5~2",
+   "x": 551.0,
+   "y": 150,
+   "w": 109.7,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Filter B",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Output Mixer4",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 987,
+    "bit": "5~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "23"
+    },
+    "data": "00~0E",
+    "value": "No Connect~Filter B"
+   }
+  },
+  {
+   "id": "Prog_EXi@987.7~6",
+   "param": "Prog_EXi@987.7~6",
+   "group": "input_jack_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@987.7~6",
+   "x": 664.7,
+   "y": 150,
+   "w": 109.7,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Filter B",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Output Mixer5",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 987,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "24"
+    },
+    "data": "00~0E",
+    "value": "No Connect~Filter B"
+   }
+  },
+  {
+   "id": "Prog_EXi@988.5~2",
+   "param": "Prog_EXi@988.5~2",
+   "group": "input_jack_4_4",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@988.5~2",
+   "x": 778.4,
+   "y": 150,
+   "w": 109.7,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Filter B",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Output Mixer6",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 988,
+    "bit": "5~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "25"
+    },
+    "data": "00~0E",
+    "value": "No Connect~Filter B"
+   }
+  },
+  {
+   "id": "Prog_EXi@989.7",
+   "param": "Prog_EXi@989.7",
+   "group": "macro_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BRIGHTNESS",
+   "x": 959.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 980.0322580645161,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Brightness",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 989,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@989.7_val",
+   "param": "Prog_EXi@989.7",
+   "group": "macro_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BRIGHTNESS value",
+   "x": 961.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Brightness",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 989,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@990.7",
+   "param": "Prog_EXi@990.7",
+   "group": "macro_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BRIGHTNESS VEL SENSITIVITY",
+   "x": 1057.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1078.032258064516,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Brightness Velocity Sensitivity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 990,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@990.7_val",
+   "param": "Prog_EXi@990.7",
+   "group": "macro_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BRIGHTNESS VEL SENSITIVITY value",
+   "x": 1059.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Brightness Velocity Sensitivity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 990,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@991.7",
+   "param": "Prog_EXi@991.7",
+   "group": "macro_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TIMBRE",
+   "x": 1155.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1176.032258064516,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Timbre",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 991,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@991.7_val",
+   "param": "Prog_EXi@991.7",
+   "group": "macro_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TIMBRE value",
+   "x": 1157.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Timbre",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 991,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@992.7",
+   "param": "Prog_EXi@992.7",
+   "group": "macro_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FEEDBACK",
+   "x": 1253.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1274.032258064516,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Feedback",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 992,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@992.7_val",
+   "param": "Prog_EXi@992.7",
+   "group": "macro_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FEEDBACK value",
+   "x": 1255.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Feedback",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 992,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@993.7",
+   "param": "Prog_EXi@993.7",
+   "group": "macro_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DETUNE",
+   "x": 1351.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1372.032258064516,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Detune",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 993,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@993.7_val",
+   "param": "Prog_EXi@993.7",
+   "group": "macro_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DETUNE value",
+   "x": 1353.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "Detune",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 993,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@994.7",
+   "param": "Prog_EXi@994.7",
+   "group": "macro_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@994.7",
+   "x": 223.6,
+   "y": 296,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Carrier"
+   ],
+   "range": "Carrier~Modulator",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "OSC1 Class",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 994,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Carrier~Modulator"
+   }
+  },
+  {
+   "id": "Prog_EXi@995.0",
+   "param": "Prog_EXi@995.0",
+   "group": "macro_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@995.0",
+   "x": 339.0,
+   "y": 296,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Carrier"
+   ],
+   "range": "Carrier~Modulator",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "OSC2 Class",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 995,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Carrier~Modulator"
+   }
+  },
+  {
+   "id": "Prog_EXi@995.1",
+   "param": "Prog_EXi@995.1",
+   "group": "macro_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@995.1",
+   "x": 454.4,
+   "y": 296,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Carrier"
+   ],
+   "range": "Carrier~Modulator",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "OSC3 Class",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 995,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "2"
+    },
+    "data": "00~01",
+    "value": "Carrier~Modulator"
+   }
+  },
+  {
+   "id": "Prog_EXi@995.2",
+   "param": "Prog_EXi@995.2",
+   "group": "macro_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@995.2",
+   "x": 569.8,
+   "y": 296,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Carrier"
+   ],
+   "range": "Carrier~Modulator",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "OSC4 Class",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 995,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "3"
+    },
+    "data": "00~01",
+    "value": "Carrier~Modulator"
+   }
+  },
+  {
+   "id": "Prog_EXi@995.3",
+   "param": "Prog_EXi@995.3",
+   "group": "macro_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@995.3",
+   "x": 685.2,
+   "y": 296,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Carrier"
+   ],
+   "range": "Carrier~Modulator",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "OSC5 Class",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 995,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "4"
+    },
+    "data": "00~01",
+    "value": "Carrier~Modulator"
+   }
+  },
+  {
+   "id": "Prog_EXi@995.4",
+   "param": "Prog_EXi@995.4",
+   "group": "macro_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@995.4",
+   "x": 800.6,
+   "y": 296,
+   "w": 111.4,
+   "h": 16,
+   "text": [
+    "Carrier"
+   ],
+   "range": "Carrier~Modulator",
+   "midi": null,
+   "korg": {
+    "group": "Macro",
+    "name": "OSC6 Class",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 995,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "5"
+    },
+    "data": "00~01",
+    "value": "Carrier~Modulator"
+   }
+  },
+  {
+   "id": "Prog_EXi@996.7",
+   "param": "Prog_EXi@996.7",
+   "group": "audio_in",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 1032.9,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Audio In",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 996,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "29",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~3F",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@998.7",
+   "param": "Prog_EXi@998.7",
+   "group": "audio_in",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.MODE",
+   "x": 1167.4,
+   "y": 284,
+   "w": 53.1,
+   "h": 16,
+   "text": [
+    "Add"
+   ],
+   "options": "Add~Multiply",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Audio In",
+    "name": "Level Mod.Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 998,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "29",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Add~Multiply"
+   }
+  },
+  {
+   "id": "Prog_EXi@996.6~0",
+   "param": "Prog_EXi@996.6~0",
+   "group": "audio_in",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 1099.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1120.2,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Audio In",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 996,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "29",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@996.6~0_val",
+   "param": "Prog_EXi@996.6~0",
+   "group": "audio_in",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 1101.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio In",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 996,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "29",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@997.7",
+   "param": "Prog_EXi@997.7",
+   "group": "audio_in",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL MOD.INTENSITY",
+   "x": 1221.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1242.2,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:MOD-7",
+   "midi": null,
+   "korg": {
+    "group": "Audio In",
+    "name": "Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 997,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "29",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@997.7_val",
+   "param": "Prog_EXi@997.7",
+   "group": "audio_in",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL MOD.INTENSITY value",
+   "x": 1223.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio In",
+    "name": "Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MOD-7)",
+    "ofs": 997,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "29",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "MOD",
+ "page_number": 4,
+ "pages_in_area": 6,
+ "apply": "exi:MOD-7"
+}

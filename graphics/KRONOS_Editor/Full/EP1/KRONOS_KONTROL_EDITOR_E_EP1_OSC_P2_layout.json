@@ -1,0 +1,2365 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 2/2",
+ "tab_index": 0,
+ "object": "Program · EP-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_EP1_OSC_P2_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_EP1_OSC_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · EP-1 — OSC · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 345.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 417.0,
+   "y": 84,
+   "w": 314.5,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 734.6,
+   "y": 84,
+   "w": 332.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1070.0,
+   "y": 84,
+   "w": 311.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@34.4",
+   "param": "Prog_EXi@34.4",
+   "group": "self_3_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "IFX ON/OFF",
+   "x": 293.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 314.79999999999995,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "IFX On/Off",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 34,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@34.4_val",
+   "param": "Prog_EXi@34.4",
+   "group": "self_3_4",
+   "type": "display",
+   "kind": "value",
+   "label": "IFX ON/OFF value",
+   "x": 295.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "IFX On/Off",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 34,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@35.7",
+   "param": "Prog_EXi@35.7",
+   "group": "self_3_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE HIGHCUT1 ON OFF",
+   "x": 391.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 412.79999999999995,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Highcut1 On Off",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 35,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@35.7_val",
+   "param": "Prog_EXi@35.7",
+   "group": "self_3_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE HIGHCUT1 ON OFF value",
+   "x": 393.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Highcut1 On Off",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 35,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@36.5~0",
+   "param": "Prog_EXi@36.5~0",
+   "group": "self_3_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE BASS FREQ",
+   "x": 489.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 510.79999999999995,
+   "cy": 204.0,
+   "r": 12,
+   "range": "100~500",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Bass Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 36,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "100~500"
+   }
+  },
+  {
+   "id": "Prog_EXi@36.5~0_val",
+   "param": "Prog_EXi@36.5~0",
+   "group": "self_3_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE BASS FREQ value",
+   "x": 491.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "100"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Bass Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 36,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "100~500"
+   }
+  },
+  {
+   "id": "Prog_EXi@36.7~6",
+   "param": "Prog_EXi@36.7~6",
+   "group": "self_3_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE TREBLE FREQ",
+   "x": 587.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 608.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "300~1000",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Treble Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 36,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "00~46",
+    "value": "300~1000"
+   }
+  },
+  {
+   "id": "Prog_EXi@36.7~6_val",
+   "param": "Prog_EXi@36.7~6",
+   "group": "self_3_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE TREBLE FREQ value",
+   "x": 589.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "300"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Treble Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 36,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "00~46",
+    "value": "300~1000"
+   }
+  },
+  {
+   "id": "Prog_EXi@38.7",
+   "param": "Prog_EXi@38.7",
+   "group": "self_3_4",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TINE HIGHCUT1 FREQ",
+   "x": 685.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 706.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "5.0~18.0",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Highcut1 Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 38,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "00~82",
+    "value": "5.0~18.0"
+   }
+  },
+  {
+   "id": "Prog_EXi@38.7_val",
+   "param": "Prog_EXi@38.7",
+   "group": "self_3_4",
+   "type": "display",
+   "kind": "value",
+   "label": "TINE HIGHCUT1 FREQ value",
+   "x": 687.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "5.0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Highcut1 Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 38,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "00~82",
+    "value": "5.0~18.0"
+   }
+  },
+  {
+   "id": "Prog_EXi@34.7~5",
+   "param": "Prog_EXi@34.7~5",
+   "group": "self_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@34.7~5",
+   "x": 936.0,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "40"
+   ],
+   "range": "40~500",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Lowcut1 Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 34,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "0"
+    },
+    "data": "0000~01CC",
+    "value": "40~500"
+   }
+  },
+  {
+   "id": "Prog_EXi@37.7~5",
+   "param": "Prog_EXi@37.7~5",
+   "group": "self_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@37.7~5",
+   "x": 1090.2,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "40"
+   ],
+   "range": "40~500",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Lowcut2 Freq",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 37,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "0000~01CC",
+    "value": "40~500"
+   }
+  },
+  {
+   "id": "Prog_EXi@35.6",
+   "param": "Prog_EXi@35.6",
+   "group": "self_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@35.6",
+   "x": 936.0,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Lowcut1 On Off",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 35,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@38.6",
+   "param": "Prog_EXi@38.6",
+   "group": "self_4_4",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@38.6",
+   "x": 1090.2,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~1",
+   "midi": null,
+   "korg": {
+    "group": "Self",
+    "name": "Tine Lowcut2 On Off",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 38,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@44.7~5",
+   "param": "Prog_EXi@44.7~5",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OSC LVL AMS SRC",
+   "x": 148.8,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Osc Level AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 44,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@47.7~5",
+   "param": "Prog_EXi@47.7~5",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DECAY AMS SOURCE",
+   "x": 293.9,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Decay AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 47,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@50.7~5",
+   "param": "Prog_EXi@50.7~5",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RELEASE AMS SRC",
+   "x": 430.2,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Release AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 50,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@53.7~4",
+   "param": "Prog_EXi@53.7~4",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KEY DOWN NOISE LVL AMS SRC",
+   "x": 617.8,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Down Noise Level AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 53,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@56.7~3",
+   "param": "Prog_EXi@56.7~3",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KEY UP NOISE LVL AMS SRC",
+   "x": 791.2,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Up Noise Level AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 56,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@59.7~2",
+   "param": "Prog_EXi@59.7~2",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "NOISE TONE AMS SRC",
+   "x": 940.8,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Noise Tone AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 59,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@62.7~1",
+   "param": "Prog_EXi@62.7~1",
+   "group": "osc",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HAMMER WIDTH AMS SRC",
+   "x": 1106.4,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Hammer Width AMS Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 62,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "00~29",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@40",
+   "param": "Prog_EXi@40",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH SLOPE",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-1.00~+2.00",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Slope",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 40,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "FF9C~00C8",
+    "value": "-1.00~+2.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@40_val",
+   "param": "Prog_EXi@40",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH SLOPE value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Slope",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 40,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "FF9C~00C8",
+    "value": "-1.00~+2.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@41.7~1",
+   "param": "Prog_EXi@41.7~1",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH RIBBON",
+   "x": 148.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 169.55555555555554,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-60~+60",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Ribbon",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 41,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@41.7~1_val",
+   "param": "Prog_EXi@41.7~1",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH RIBBON value",
+   "x": 150.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Ribbon",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 41,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60"
+   }
+  },
+  {
+   "id": "Prog_EXi@42.6~0",
+   "param": "Prog_EXi@42.6~0",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH BEND UP",
+   "x": 221.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 242.11111111111111,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-60~+12",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Bend Up",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 42,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12"
+   }
+  },
+  {
+   "id": "Prog_EXi@42.6~0_val",
+   "param": "Prog_EXi@42.6~0",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH BEND UP value",
+   "x": 223.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Bend Up",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 42,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12"
+   }
+  },
+  {
+   "id": "Prog_EXi@42.7",
+   "param": "Prog_EXi@42.7",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PITCH BEND DOWN",
+   "x": 293.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 314.6666666666667,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-60~+12",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Bend Down",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 42,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12"
+   }
+  },
+  {
+   "id": "Prog_EXi@42.7_val",
+   "param": "Prog_EXi@42.7",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "PITCH BEND DOWN value",
+   "x": 295.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Pitch Bend Down",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 42,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "C4~0C",
+    "value": "-60~+12"
+   }
+  },
+  {
+   "id": "Prog_EXi@43.7~6",
+   "param": "Prog_EXi@43.7~6",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OSC LEVEL",
+   "x": 366.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 387.22222222222223,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Osc Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 43,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@43.7~6_val",
+   "param": "Prog_EXi@43.7~6",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "OSC LEVEL value",
+   "x": 368.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Osc Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 43,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@45.7~5",
+   "param": "Prog_EXi@45.7~5",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OSC LEVEL AMS INTENSITY",
+   "x": 438.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 459.77777777777777,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Osc Level AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 45,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@45.7~5_val",
+   "param": "Prog_EXi@45.7~5",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "OSC LEVEL AMS INTENSITY value",
+   "x": 440.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Osc Level AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 45,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@46.7~5",
+   "param": "Prog_EXi@46.7~5",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 511.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 532.3333333333334,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 46,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@46.7~5_val",
+   "param": "Prog_EXi@46.7~5",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 513.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 46,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@48.7~5",
+   "param": "Prog_EXi@48.7~5",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY AMS INTENSITY",
+   "x": 583.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 604.8888888888889,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Decay AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 48,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@48.7~5_val",
+   "param": "Prog_EXi@48.7~5",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY AMS INTENSITY value",
+   "x": 585.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Decay AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 48,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@49.7~5",
+   "param": "Prog_EXi@49.7~5",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE",
+   "x": 656.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 677.4444444444445,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Release",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 49,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@49.7~5_val",
+   "param": "Prog_EXi@49.7~5",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE value",
+   "x": 658.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Release",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 49,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@51.7~5",
+   "param": "Prog_EXi@51.7~5",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE AMS INTENSITY",
+   "x": 729.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Release AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 51,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@51.7~5_val",
+   "param": "Prog_EXi@51.7~5",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE AMS INTENSITY value",
+   "x": 731.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Release AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 51,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@52.7~5",
+   "param": "Prog_EXi@52.7~5",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY DOWN NOISE LEVEL",
+   "x": 801.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 822.5555555555555,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Down Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 52,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@52.7~5_val",
+   "param": "Prog_EXi@52.7~5",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY DOWN NOISE LEVEL value",
+   "x": 803.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Down Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 52,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@54.7~4",
+   "param": "Prog_EXi@54.7~4",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY DOWN NOISE LEVEL AMS INTENSITY",
+   "x": 874.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 895.1111111111111,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Down Noise Level AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 54,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@54.7~4_val",
+   "param": "Prog_EXi@54.7~4",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY DOWN NOISE LEVEL AMS INTENSITY value",
+   "x": 876.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Down Noise Level AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 54,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@55.7~4",
+   "param": "Prog_EXi@55.7~4",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY UP NOISE LEVEL",
+   "x": 946.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 967.6666666666667,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Up Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 55,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@55.7~4_val",
+   "param": "Prog_EXi@55.7~4",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY UP NOISE LEVEL value",
+   "x": 948.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Up Noise Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 55,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@57.7~3",
+   "param": "Prog_EXi@57.7~3",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY UP NOISE LEVEL AMS INT",
+   "x": 1019.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1040.2222222222222,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Up Noise Level AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 57,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@57.7~3_val",
+   "param": "Prog_EXi@57.7~3",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY UP NOISE LEVEL AMS INT value",
+   "x": 1021.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Key Up Noise Level AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 57,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@58.7~3",
+   "param": "Prog_EXi@58.7~3",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE TONE",
+   "x": 1091.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1112.7777777777778,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-36~+36",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Noise Tone",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 58,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36"
+   }
+  },
+  {
+   "id": "Prog_EXi@58.7~3_val",
+   "param": "Prog_EXi@58.7~3",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE TONE value",
+   "x": 1093.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Noise Tone",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 58,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36"
+   }
+  },
+  {
+   "id": "Prog_EXi@60.7~2",
+   "param": "Prog_EXi@60.7~2",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE TONE AMS INTENSITY",
+   "x": 1164.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1185.3333333333333,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-36~+36",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Noise Tone AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 60,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36"
+   }
+  },
+  {
+   "id": "Prog_EXi@60.7~2_val",
+   "param": "Prog_EXi@60.7~2",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE TONE AMS INTENSITY value",
+   "x": 1166.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Noise Tone AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 60,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "DC~24",
+    "value": "-36~+36"
+   }
+  },
+  {
+   "id": "Prog_EXi@61.7~1",
+   "param": "Prog_EXi@61.7~1",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HAMMER WIDTH",
+   "x": 1236.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1257.888888888889,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Hammer Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 61,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@61.7~1_val",
+   "param": "Prog_EXi@61.7~1",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "HAMMER WIDTH value",
+   "x": 1238.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Hammer Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 61,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@63.7~1",
+   "param": "Prog_EXi@63.7~1",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HAMMER WIDTH AMS INTENSITY",
+   "x": 1309.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1330.4444444444446,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Hammer Width AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 63,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@63.7~1_val",
+   "param": "Prog_EXi@63.7~1",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "HAMMER WIDTH AMS INTENSITY value",
+   "x": 1311.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Hammer Width AMS Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 63,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@64.7~1",
+   "param": "Prog_EXi@64.7~1",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NOISE TONE FC",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Noise Tone Fc",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 64,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@64.7~1_val",
+   "param": "Prog_EXi@64.7~1",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "NOISE TONE FC value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Osc",
+    "name": "Noise Tone Fc",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 64,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "11",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "exi:EP-1"
+}

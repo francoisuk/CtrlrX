@@ -1,0 +1,199 @@
+numéro (Effect Type);effet;nb paramètres
+0;No Effect;0
+1;Stereo Dyna Compressor;15
+2;Stereo Compressor;23
+3;Stereo Expander;23
+4;Stereo Multiband Compressor;39
+5;Stereo Limiter;20
+6;Multiband Limiter;15
+7;Stereo Multiband Limiter;15
+8;Stereo Mastering Limiter;8
+9;Stereo Gate;19
+10;Stereo Noise Reduction;10
+11;Stereo Parametric 4-Band EQ;21
+12;Stereo Graphic 7-Band EQ;13
+13;Stereo Master 3-Band EQ;16
+14;Stereo Exciter/Enhancer;20
+15;Stereo Isolator;16
+16;Stereo Wah/Auto Wah;26
+17;Stereo Vintage/Custom Wah;29
+18;Stereo Random Filter;25
+19;Multi Mode Filter;30
+20;Stereo Sub Oscillator;14
+21;Talking Modulator;22
+22;Stereo Decimator;26
+23;Stereo Analog Record;18
+24;Stereo Wave Shaper;19
+25;Piano Body/Damper;11
+26;Vocoder;16
+27;Overdrive/Hi-Gain Wah;26
+28;Overdrive/Hyper-Gain Wah;26
+29;Stereo Guitar Cabinet;7
+30;Guitar Amp Model + P4EQ;26
+31;Guitar Amp Model + Cabinet;17
+32;Stereo Bass Cabinet;6
+33;Bass Amp Model;14
+34;Bass Amp Model + Cabinet;16
+35;Bass Amp Tube Drive + Cabinet;16
+36;Tube PreAmp Modeling;17
+37;Stereo Tube PreAmp Modeling;17
+38;Mic Modeling + PreAmp;13
+39;Stereo Mic Modeling + PreAmp;13
+40;Stereo Chorus;25
+41;Stereo Harmonic Chorus;25
+42;Stereo Bi-phase Modulation;26
+43;Multitap Chorus/Delay 4Taps;27
+44;Multitap Chorus/Delay 6Taps;28
+45;Bi Chorus;31
+46;Ensemble;12
+47;Polysix Ensemble;8
+48;Stereo Flanger;21
+49;Stereo Random Flanger;24
+50;Stereo Envelope Flanger;15
+51;Stereo Phaser;23
+52;Stereo Random Phaser;24
+53;Stereo Envelope Phaser;15
+54;Bi Phaser;31
+55;Stereo Vibrato;23
+56;Stereo Auto Fade Modulation;23
+57;2-Voice Resonator;28
+58;Doppler;23
+59;Scratch;12
+60;Grain Shifter;18
+61;Stereo Tremolo;20
+62;Stereo Envelope Tremolo;14
+63;Stereo Auto Pan;20
+64;Stereo Phaser + Tremolo;26
+65;Stereo Ring Modulator;24
+66;Stereo Frequency Shifter;27
+67;Detune;13
+68;Pitch Shifter;17
+69;Stereo Pitch Shifter;20
+70;Pitch Shifter BPM;19
+71;Stereo Pitch Shifter BPM;23
+72;Pitch Shift Modulation;20
+73;Organ Vibrato/Chorus;18
+74;Rotary Speaker;19
+75;Rotary Speaker Pro OD;26
+76;Rotary Speaker Pro CX;33
+77;L/C/R Delay;19
+78;L/C/R Long Delay;19
+79;Stereo/Cross Delay;18
+80;Stereo/Cross Long Delay;18
+81;Stereo Multitap Delay;19
+82;Stereo Modulation Delay;28
+83;Stereo Dynamic Delay;17
+84;Stereo Auto Panning Delay;24
+85;Tape Echo;28
+86;Multiband Modulation Delay;68
+87;Reverse Delay;19
+88;Hold Delay;17
+89;Auto Reverse;12
+90;Sequence BPM Delay;18
+91;L/C/R BPM Delay;23
+92;L/C/R BPM Long Delay;23
+93;Stereo BPM Delay;21
+94;Stereo BPM Long Delay;21
+95;Stereo BPM Multitap Delay;22
+96;Stereo BPM Modulation Delay;31
+97;Stereo BPM Auto Panning Delay;27
+98;Tape Echo BPM;31
+99;Reverse BPM Delay;23
+100;O-verb;25
+101;Reverb Hall;13
+102;Reverb Smooth Hall;13
+103;Reverb Wet Plate;13
+104;Reverb Dry Plate;13
+105;Reverb Room;15
+106;Reverb Bright Room;15
+107;Early Reflections;12
+108;Early Reflections Hi Dens;12
+109;P4EQ - Exciter;20
+110;P4EQ - Wah;29
+111;P4EQ - Chorus/Flanger;26
+112;P4EQ - Phaser;26
+113;P4EQ - Multitap Delay;25
+114;Compressor - Wah;22
+115;Compressor - Amp Simulation;13
+116;Compressor - OD/Hi-Gain;25
+117;Compressor - P4EQ;22
+118;Compressor - Chorus/Flanger;21
+119;Compressor - Phaser;21
+120;Compressor - Multitap Delay;20
+121;Limiter - P4EQ;24
+122;Limiter - Chorus/Flanger;23
+123;Limiter - Phaser;20
+124;Limiter - Multitap Delay;19
+125;Exciter - Compressor;14
+126;Exciter - Limiter;16
+127;Exciter - Chorus/Flanger;19
+128;Exciter - Phaser;19
+129;Exciter - Multitap Delay;18
+130;OD/Hi-Gain - Amp Simulation;20
+131;OD/Hi-Gain - Chorus/Flanger;28
+132;OD/Hi-Gain - Phaser;28
+133;OD/Hi-Gain - Multitap Delay;26
+134;Wah - Amp Simulation;17
+135;Decimator - Amp Simulation;12
+136;Decimator - Compressor;14
+137;Amp Simulation - Tremolo;10
+138;Chorus/Flanger - Multitap Delay;22
+139;Phaser - Chorus/Flanger;23
+140;Reverb - Gate;21
+141;P4EQ // P4EQ;35
+142;P4EQ // Compressor;28
+143;P4EQ // Limiter;28
+144;P4EQ // Exciter;27
+145;P4EQ // OD/Hi-Gain;36
+146;P4EQ // Wah;30
+147;P4EQ // Chorus/Flanger;30
+148;P4EQ // Phaser;28
+149;P4EQ // Multitap BPM Delay;31
+150;Compressor // Compressor;21
+151;Compressor // Limiter;21
+152;Compressor // Exciter;20
+153;Compressor // OD/Hi-Gain;29
+154;Compressor // Wah;23
+155;Compressor // Chorus/Flanger;23
+156;Compressor // Phaser;21
+157;Compressor // Multitap BPM Delay;24
+158;Limiter // Limiter;21
+159;Limiter // Exciter;20
+160;Limiter // OD/Hi-Gain;29
+161;Limiter // Wah;23
+162;Limiter // Chorus/Flanger;23
+163;Limiter // Phaser;21
+164;Limiter // Multitap BPM Delay;24
+165;Exciter // Exciter;19
+166;Exciter // OD/Hi-Gain;28
+167;Exciter // Wah;22
+168;Exciter // Chorus/Flanger;22
+169;Exciter // Phaser;20
+170;Exciter // Multitap BPM Delay;23
+171;OD/Hi-Gain // OD/Hi-Gain;37
+172;OD/Hi-Gain // Wah;31
+173;OD/Hi-Gain // Chorus/Flanger;31
+174;OD/Hi-Gain // Phaser;29
+175;OD/Hi-Gain // Multitap BPM Delay;32
+176;Wah // Wah;25
+177;Wah // Chorus/Flanger;25
+178;Wah // Phaser;23
+179;Wah // Multitap BPM Delay;26
+180;Chorus/Flanger // Chorus/Flanger;25
+181;Chorus/Flanger // Phaser;23
+182;Chorus/Flanger // Multitap BPM Delay;26
+183;Phaser // Phaser;21
+184;Phaser // Multitap BPM Delay;24
+185;Multitap BPM Delay // Multitap BPM Delay;27
+186;Small Phase;9
+187;Orange Phase;13
+188;Black Phase;13
+189;Vintage Chorus;13
+190;Black Chorus;16
+191;EP Chorus;11
+192;Vintage Flanger;19
+193;Red Comp;8
+194;Vox Wah;14
+195;Stereo EP Cabinet;9
+196;Rotary Speaker Amp Model;19
+197;Rotary Speaker Pro CX Custom;34

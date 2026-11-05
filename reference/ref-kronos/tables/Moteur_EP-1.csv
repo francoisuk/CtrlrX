@@ -1,0 +1,184 @@
+octet;bits (octet:bas-haut, poids faible d'abord);largeur;section;paramètre;données (hex);valeurs;note
+0;0:0-6;7;;[Self] Voice Delay;00~61;0~97;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+0;0:7-7 + 1:0-1;3;;[Self] Model Type;00~06;Tine I Late~Early;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+1;1:2-5;4;;[Self] IFX Type;00~09;Off~VOX Wah;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+1;1:6-7 + 2:0-4;7;;[Self] Tine Pre Amp Volume;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+2;2:5-7 + 3:0-4;8;;[Self] Tine Pre Amp Volume AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+3;3:5-7 + 4:0-4;8;;[Self] Tine Pre Amp Volume AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+4;4:5-7 + 5:0-4;8;;[Self] Tine Treble;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+5;5:5-7 + 6:0-4;8;;[Self] Tine Treble AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+6;6:5-7 + 7:0-4;8;;[Self] Tine Treble AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+7;7:5-7 + 8:0-4;8;;[Self] Tine Bass;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+8;8:5-7 + 9:0-4;8;;[Self] Tine Bass AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+9;9:5-7 + 10:0-4;8;;[Self] Tine Bass AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+10;10:5-5;1;;[Self] Tine Tremolo On Off;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+10;10:6-7 + 11:0-5;8;;[Self] Tine Tremolo On Off AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+11;11:6-6;1;;[Self] Tine Tremolo On Off AMS Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+11;11:7-7 + 12:0-5;7;;[Self] Tine Tremolo Speed;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+12;12:6-7 + 13:0-5;8;;[Self] Tine Tremolo Speed AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+13;13:6-7 + 14:0-5;8;;[Self] Tine Tremolo Speed AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+14;14:6-7 + 15:0-4;7;;[Self] Tine Tremolo Intensity;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+15;15:5-7 + 16:0-4;8;;[Self] Tine Tremolo Intensity AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+16;16:5-7 + 17:0-4;8;;[Self] Tine Tremolo Intensity AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+17;17:5-5;1;;[Self] Tine Cabinet On Off;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+17;17:6-7 + 18:0-5;8;;[Self] Tine Cabinet On Off AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+18;18:6-6;1;;[Self] Tine Cabinet On Off AMS Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+18;18:7-7 + 19:0-5;7;;[Self] Tine Cabinet Drive;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+19;19:6-7 + 20:0-5;8;;[Self] Tine Cabinet Drive AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+20;20:6-7 + 21:0-5;8;;[Self] Tine Cabinet Drive AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+21;21:6-7 + 22:0-4;7;;[Self] Reed Volume;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+22;22:5-7 + 23:0-4;8;;[Self] Reed Volume AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+23;23:5-7 + 24:0-4;8;;[Self] Reed Volume AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+24;24:5-7 + 25:0-3;7;;[Self] Reed Vibrato;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+25;25:4-7 + 26:0-3;8;;[Self] Reed Vibrato AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+26;26:4-7 + 27:0-3;8;;[Self] Reed Vibrato AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+27;27:4-7 + 28:0-2;7;;[Self] Reed Speed;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+28;28:3-7 + 29:0-2;8;;[Self] Reed Speed AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+29;29:3-7 + 30:0-2;8;;[Self] Reed Speed AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+30;30:3-3;1;;[Self] Reed Cabinet On Off;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+30;30:4-7 + 31:0-3;8;;[Self] Reed Cabinet On Off AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+31;31:4-4;1;;[Self] Reed Cabinet On Off AMS Mode;00~01;Toggle~Momentary;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+31;31:5-7 + 32:0-3;7;;[Self] Reed Cabinet Drive;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+32;32:4-7 + 33:0-3;8;;[Self] Reed Cabinet Drive AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+33;33:4-7 + 34:0-3;8;;[Self] Reed Cabinet Drive AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+34;34:4-4;1;;[Self] IFX On/Off;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+34;34:5-7 + 35:0-5;9;;[Self] Tine Lowcut1 Freq;0000~01CC;40~500;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+35;35:6-6;1;;[Self] Tine Lowcut1 On Off;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+35;35:7-7;1;;[Self] Tine Highcut1 On Off;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+36;36:0-5;6;;[Self] Tine Bass Freq;00~28;100~500;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+36;36:6-7 + 37:0-4;7;;[Self] Tine Treble Freq;00~46;300~1000;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+37;37:5-7 + 38:0-5;9;;[Self] Tine Lowcut2 Freq;0000~01CC;40~500;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+38;38:6-6;1;;[Self] Tine Lowcut2 On Off;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+38;38:7-7 + 39:0-6;8;;[Self] Tine Highcut1 Freq;00~82;5.0~18.0;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+40;40:0-7 + 41:0-0;9;;[Osc] Pitch Slope;FF9C~00C8;-1.00~+2.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+41;41:1-7;7;;[Osc] Pitch Ribbon;C4~3C;-60~+60;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+42;42:0-6;7;;[Osc] Pitch Bend Up;C4~0C;-60~+12;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+42;42:7-7 + 43:0-5;7;;[Osc] Pitch Bend Down;C4~0C;-60~+12;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+43;43:6-7 + 44:0-4;7;;[Osc] Osc Level;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+44;44:5-7 + 45:0-4;8;;[Osc] Osc Level AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+45;45:5-7 + 46:0-4;8;;[Osc] Osc Level AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+46;46:5-7 + 47:0-4;8;;[Osc] Decay;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+47;47:5-7 + 48:0-4;8;;[Osc] Decay AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+48;48:5-7 + 49:0-4;8;;[Osc] Decay AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+49;49:5-7 + 50:0-4;8;;[Osc] Release;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+50;50:5-7 + 51:0-4;8;;[Osc] Release AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+51;51:5-7 + 52:0-4;8;;[Osc] Release AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+52;52:5-7 + 53:0-3;7;;[Osc] Key Down Noise Level;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+53;53:4-7 + 54:0-3;8;;[Osc] Key Down Noise Level AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+54;54:4-7 + 55:0-3;8;;[Osc] Key Down Noise Level AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+55;55:4-7 + 56:0-2;7;;[Osc] Key Up Noise Level;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+56;56:3-7 + 57:0-2;8;;[Osc] Key Up Noise Level AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+57;57:3-7 + 58:0-2;8;;[Osc] Key Up Noise Level AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+58;58:3-7 + 59:0-1;7;;[Osc] Noise Tone;DC~24;-36~+36;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+59;59:2-7 + 60:0-1;8;;[Osc] Noise Tone AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+60;60:2-7 + 61:0-0;7;;[Osc] Noise Tone AMS Intensity;DC~24;-36~+36;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+61;61:1-7 + 62:0-0;8;;[Osc] Hammer Width;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+62;62:1-7 + 63:0-0;8;;[Osc] Hammer Width AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+63;63:1-7 + 64:0-0;8;;[Osc] Hammer Width AMS Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+64;64:1-7;7;;[Osc] Noise Tone Fc;00~63;0~99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+65;65:0-6;7;;[EP Amp] Level;00~7F;0~127;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+65;65:7-7 + 66:0-6;8;;[EP Amp] AMS Source;00~29;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+66;66:7-7 + 67:0-6;8;;[EP Amp] AMS Intensity;9D~63;-99~+99;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+68;68:0-0;1;;[IFX Small Phaser] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+68;68:1-7;7;;[IFX Small Phaser] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+69;69:0-5;6;;[IFX Small Phaser] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+69;69:6-7 + 70:0-5;8;;[IFX Small Phaser] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+70;70:6-7 + 71:0-4;7;;[IFX Small Phaser] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+71;71:5-7 + 72:0-4;8;;[IFX Small Phaser] Speed;05~D2;0.10~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+72;72:5-7 + 73:0-2;6;;[IFX Small Phaser] Speed D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+73;73:3-7 + 74:0-2;8;;[IFX Small Phaser] Speed D.Mod Intensity;97~69;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+74;74:3-3;1;;[IFX Small Phaser] Color;00~01;Off~On;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+75;75:0-0;1;;[IFX Orange Black Phaser] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+75;75:1-7;7;;[IFX Orange Black Phaser] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+76;76:0-5;6;;[IFX Orange Black Phaser] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+76;76:6-7 + 77:0-5;8;;[IFX Orange Black Phaser] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+77;77:6-7 + 78:0-4;7;;[IFX Orange Black Phaser] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+78;78:5-7 + 79:0-4;8;;[IFX Orange Black Phaser] Speed;05~D2;0.10~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+79;79:5-7 + 80:0-2;6;;[IFX Orange Black Phaser] Speed D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+80;80:3-7 + 81:0-2;8;;[IFX Orange Black Phaser] Speed D.Mod Intensity;97~69;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+81;81:3-7 + 82:0-1;7;;[IFX Orange Black Phaser] Depth;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+82;82:2-7;6;;[IFX Orange Black Phaser] Depth D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+83;83:0-7;8;;[IFX Orange Black Phaser] Depth D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+84;84:0-6;7;;[IFX Orange Black Phaser] Resonance;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+84;84:7-7 + 85:0-5;7;;[IFX Orange Black Phaser] Manual;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+86;86:0-0;1;;[IFX Vintage Chorus] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+86;86:1-7;7;;[IFX Vintage Chorus] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+87;87:0-5;6;;[IFX Vintage Chorus] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+87;87:6-7 + 88:0-5;8;;[IFX Vintage Chorus] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+88;88:6-7 + 89:0-4;7;;[IFX Vintage Chorus] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+89;89:5-7 + 90:0-4;8;;[IFX Vintage Chorus] Speed;05~D2;0.10~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+90;90:5-7 + 91:0-2;6;;[IFX Vintage Chorus] Speed D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+91;91:3-7 + 92:0-2;8;;[IFX Vintage Chorus] Speed D.Mod Intensity;97~69;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+92;92:3-7 + 93:0-1;7;;[IFX Vintage Chorus] Manual;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+93;93:2-7 + 94:0-0;7;;[IFX Vintage Chorus] Depth;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+94;94:1-6;6;;[IFX Vintage Chorus] Depth D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+94;94:7-7 + 95:0-6;8;;[IFX Vintage Chorus] Depth D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+95;95:7-7;1;;[IFX Vintage Chorus] Output Mode;00~01;Mono~Stereo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+96;96:0-0;1;;[IFX Black Chorus] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+96;96:1-7;7;;[IFX Black Chorus] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+97;97:0-5;6;;[IFX Black Chorus] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+97;97:6-7 + 98:0-5;8;;[IFX Black Chorus] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+98;98:6-7 + 99:0-4;7;;[IFX Black Chorus] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+99;99:5-7 + 100:0-4;8;;[IFX Black Chorus] Speed;05~D2;0.10~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+100;100:5-7 + 101:0-2;6;;[IFX Black Chorus] Speed D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+101;101:3-7 + 102:0-2;8;;[IFX Black Chorus] Speed D.Mod Intensity;97~69;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+102;102:3-7 + 103:0-1;7;;[IFX Black Chorus] Intensity;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+103;103:2-7;6;;[IFX Black Chorus] Intensity D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+104;104:0-7;8;;[IFX Black Chorus] Intensity D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+105;105:0-1;2;;[IFX Black Chorus] Mode;00~02;Chorus~Flanger;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+105;105:2-7 + 106:0-0;7;;[IFX Black Chorus] Width;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+106;106:1-6;6;;[IFX Black Chorus] Width D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+106;106:7-7 + 107:0-6;8;;[IFX Black Chorus] Width D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+107;107:7-7;1;;[IFX Black Chorus] Output Mode;00~01;Mono~Stereo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+108;108:0-0;1;;[IFX EP Chorus] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+108;108:1-7;7;;[IFX EP Chorus] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+109;109:0-5;6;;[IFX EP Chorus] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+109;109:6-7 + 110:0-5;8;;[IFX EP Chorus] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+110;110:6-7 + 111:0-4;7;;[IFX EP Chorus] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+111;111:5-7 + 112:0-4;8;;[IFX EP Chorus] Speed;05~D2;0.10~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+112;112:5-7 + 113:0-2;6;;[IFX EP Chorus] Speed D. Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+113;113:3-7 + 114:0-2;8;;[IFX EP Chorus] Speed D. Mod Intensity;97~69;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+114;114:3-7 + 115:0-1;7;;[IFX EP Chorus] Depth;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+115;115:2-7;6;;[IFX EP Chorus] Depth D. Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+116;116:0-7;8;;[IFX EP Chorus] Depth D. Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+117;117:0-0;1;;[IFX Vintage Flanger] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+117;117:1-7;7;;[IFX Vintage Flanger] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+118;118:0-5;6;;[IFX Vintage Flanger] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+118;118:6-7 + 119:0-5;8;;[IFX Vintage Flanger] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+119;119:6-7 + 120:0-4;7;;[IFX Vintage Flanger] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+120;120:5-7 + 121:0-4;8;;[IFX Vintage Flanger] Speed;05~D2;0.10~10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+121;121:5-7 + 122:0-2;6;;[IFX Vintage Flanger] Speed D. Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+122;122:3-7 + 123:0-2;8;;[IFX Vintage Flanger] Speed D. Mod Intensity;97~69;-10.00~+10.00;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+123;123:3-7 + 124:0-1;7;;[IFX Vintage Flanger] Depth;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+124;124:2-7;6;;[IFX Vintage Flanger] Depth D. Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+125;125:0-7;8;;[IFX Vintage Flanger] Depth D. Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+126;126:0-6;7;;[IFX Vintage Flanger] Resonance;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+126;126:7-7 + 127:0-4;6;;[IFX Vintage Flanger] Resonance D. Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+127;127:5-7 + 128:0-4;8;;[IFX Vintage Flanger] Resonance D. Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+128;128:5-7 + 129:0-3;7;;[IFX Vintage Flanger] Manual;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+129;129:4-7 + 130:0-1;6;;[IFX Vintage Flanger] Manual D. Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+130;130:2-7 + 131:0-1;8;;[IFX Vintage Flanger] Manual D. Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+131;131:2-7;6;;[IFX Vintage Flanger] LFO Reset Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+132;132:0-6;7;;[IFX Vintage Flanger] LFO Reset Offset;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+133;133:0-0;1;;[IFX Red Comp] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+133;133:1-7;7;;[IFX Red Comp] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+134;134:0-5;6;;[IFX Red Comp] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+134;134:6-7 + 135:0-5;8;;[IFX Red Comp] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+135;135:6-7 + 136:0-4;7;;[IFX Red Comp] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+136;136:5-7 + 137:0-3;7;;[IFX Red Comp] Sensitivity;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+137;137:4-7 + 138:0-2;7;;[IFX Red Comp] Attack;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+138;138:3-7 + 139:0-1;7;;[IFX Red Comp] Level;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+140;140:0-0;1;;[IFX Vox Wah] Bypass;00~01;0~1;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+140;140:1-7;7;;[IFX Vox Wah] WetDry;00~64;Dry~Wet;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+141;141:0-5;6;;[IFX Vox Wah] WetDry D.Mod Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+141;141:6-7 + 142:0-5;8;;[IFX Vox Wah] WetDry D.Mod Intensity;9C~64;-100~+100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+142;142:6-7 + 143:0-4;7;;[IFX Vox Wah] Input Trim;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+143;143:5-5;1;;[IFX Vox Wah] Type;00~01;V847~V848;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+143;143:6-7 + 144:0-4;7;;[IFX Vox Wah] Open;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+144;144:5-7 + 145:0-3;7;;[IFX Vox Wah] Close;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+145;145:4-4;1;;[IFX Vox Wah] Mode;00~01;Pedal~Auto;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+145;145:5-7 + 146:0-2;6;;[IFX Vox Wah] Pedal Source;00~25;Off~Tempo;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+146;146:3-7 + 147:0-1;7;;[IFX Vox Wah] Pedal Manual;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+147;147:2-7 + 148:0-0;7;;[IFX Vox Wah] Auto Sensitivity;00~64;0~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+148;148:1-1;1;;[IFX Vox Wah] Auto Polarity;00~01;Up~Down;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset
+148;148:2-7 + 149:0-0;7;;[IFX Vox Wah] Auto Attack;01~64;1~100;offset dans le bloc moteur : EXi 1 = 2908 + offset, EXi 2 = 3960 + offset

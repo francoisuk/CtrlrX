@@ -1,0 +1,1139 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "FX · 3/3",
+ "tab_index": 0,
+ "object": "Program · EP-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_FX_P3_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_EP1_FX_P3_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · EP-1 — FX · 3/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 338.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 410.8,
+   "y": 84,
+   "w": 308.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 722.1,
+   "y": 84,
+   "w": 326.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1051.3,
+   "y": 84,
+   "w": 304.7,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@141.5~0",
+   "param": "Prog_EXi@141.5~0",
+   "group": "ifx_vox_wah",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WETDRY D.MOD SRC",
+   "x": 355.3,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "WetDry D.Mod Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 141,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@143.5",
+   "param": "Prog_EXi@143.5",
+   "group": "ifx_vox_wah",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 461.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "V847"
+   ],
+   "options": "V847~V848",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 143,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "V847~V848"
+   }
+  },
+  {
+   "id": "Prog_EXi@145.4",
+   "param": "Prog_EXi@145.4",
+   "group": "ifx_vox_wah",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 569.8,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Pedal"
+   ],
+   "options": "Pedal~Auto",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 145,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Pedal~Auto"
+   }
+  },
+  {
+   "id": "Prog_EXi@145.7~5",
+   "param": "Prog_EXi@145.7~5",
+   "group": "ifx_vox_wah",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PEDAL SOURCE",
+   "x": 715.0,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Pedal Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 145,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@148.1",
+   "param": "Prog_EXi@148.1",
+   "group": "ifx_vox_wah",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AUTO POLARITY",
+   "x": 864.0,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Up"
+   ],
+   "options": "Up~Down",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Auto Polarity",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 148,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Up~Down"
+   }
+  },
+  {
+   "id": "Prog_EXi@140.0",
+   "param": "Prog_EXi@140.0",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BYPASS",
+   "x": 353.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 374.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 140,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@140.0_val",
+   "param": "Prog_EXi@140.0",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "BYPASS value",
+   "x": 355.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Bypass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 140,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_EXi@140.7~1",
+   "param": "Prog_EXi@140.7~1",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY",
+   "x": 447.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 468.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Dry~Wet",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 140,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@140.7~1_val",
+   "param": "Prog_EXi@140.7~1",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY value",
+   "x": 449.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Dry"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "WetDry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 140,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@141.7~6",
+   "param": "Prog_EXi@141.7~6",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WETDRY D.MOD INT",
+   "x": 541.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 562.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 141,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@141.7~6_val",
+   "param": "Prog_EXi@141.7~6",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "WETDRY D.MOD INT value",
+   "x": 543.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "WetDry D.Mod Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 141,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@142.7~6",
+   "param": "Prog_EXi@142.7~6",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "INPUT TRIM",
+   "x": 635.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 656.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 142,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@142.7~6_val",
+   "param": "Prog_EXi@142.7~6",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "INPUT TRIM value",
+   "x": 637.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Input Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 142,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@143.7~6",
+   "param": "Prog_EXi@143.7~6",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OPEN",
+   "x": 729.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Open",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 143,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@143.7~6_val",
+   "param": "Prog_EXi@143.7~6",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "OPEN value",
+   "x": 731.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Open",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 143,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@144.7~5",
+   "param": "Prog_EXi@144.7~5",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CLOSE",
+   "x": 823.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 844.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Close",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 144,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@144.7~5_val",
+   "param": "Prog_EXi@144.7~5",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "CLOSE value",
+   "x": 825.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Close",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 144,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@146.7~3",
+   "param": "Prog_EXi@146.7~3",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PEDAL MANUAL",
+   "x": 917.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 938.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Pedal Manual",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 146,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@146.7~3_val",
+   "param": "Prog_EXi@146.7~3",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "PEDAL MANUAL value",
+   "x": 919.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Pedal Manual",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 146,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@147.7~2",
+   "param": "Prog_EXi@147.7~2",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AUTO SENSITIVITY",
+   "x": 1011.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1032.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Auto Sensitivity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 147,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@147.7~2_val",
+   "param": "Prog_EXi@147.7~2",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "AUTO SENSITIVITY value",
+   "x": 1013.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Auto Sensitivity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 147,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@148.7~2",
+   "param": "Prog_EXi@148.7~2",
+   "group": "ifx_vox_wah",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AUTO ATTACK",
+   "x": 1105.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1126.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~100",
+   "apply": "exi:EP-1",
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Auto Attack",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 148,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@148.7~2_val",
+   "param": "Prog_EXi@148.7~2",
+   "group": "ifx_vox_wah",
+   "type": "display",
+   "kind": "value",
+   "label": "AUTO ATTACK value",
+   "x": 1107.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "IFX Vox Wah",
+    "name": "Auto Attack",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (EP-1)",
+    "ofs": 148,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "01~64",
+    "value": "1~100"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "FX",
+ "page_number": 3,
+ "pages_in_area": 3,
+ "apply": "exi:EP-1"
+}

@@ -1,0 +1,206 @@
+{
+ "object": "Global",
+ "areas": [
+  {
+   "label": "BASIC",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "CONTROLLER",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "MIDI",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "AUDIO IN",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "OCTAVE SCALES",
+   "pages": 1,
+   "index": "SCALE",
+   "instances": [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"
+   ],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "ALL NOTE SCALE",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "CATEGORIES",
+   "pages": 1,
+   "index": "CATEGORY",
+   "instances": [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17"
+   ],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "QUICK ACCESS",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "QUICK USER",
+   "pages": 1,
+   "index": "USER",
+   "instances": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "ASSIGNMENTS",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_BASIC_P1",
+   "area": "BASIC",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_BASIC_P2",
+   "area": "BASIC",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_CONTROLLER_P1",
+   "area": "CONTROLLER",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_MIDI_P1",
+   "area": "MIDI",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_AUDIO_IN_P1",
+   "area": "AUDIO IN",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_OCTAVE_SCALES_P1",
+   "area": "OCTAVE SCALES",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_ALL_NOTE_SCALE_P1",
+   "area": "ALL NOTE SCALE",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_ALL_NOTE_SCALE_P2",
+   "area": "ALL NOTE SCALE",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_CATEGORIES_P1",
+   "area": "CATEGORIES",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_QUICK_ACCESS_P1",
+   "area": "QUICK ACCESS",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_QUICK_USER_P1",
+   "area": "QUICK USER",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_ASSIGNMENTS_P1",
+   "area": "ASSIGNMENTS",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_G_ASSIGNMENTS_P2",
+   "area": "ASSIGNMENTS",
+   "n": 2,
+   "of": 2
+  }
+ ]
+}

@@ -1,0 +1,2108 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "EFFECTS · 1/2",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_C_EFFECTS_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_C_EFFECTS_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — EFFECTS · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 145.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 208.8,
+   "y": 84,
+   "w": 139.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 351.2,
+   "y": 84,
+   "w": 144.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 498.4,
+   "y": 84,
+   "w": 139.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 641.2,
+   "y": 84,
+   "w": 125.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 769.9,
+   "y": 84,
+   "w": 147.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 920.4,
+   "y": 84,
+   "w": 141.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1064.4,
+   "y": 84,
+   "w": 168.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1236.1,
+   "y": 84,
+   "w": 144.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@976",
+   "param": "CombiAndSongTimbreSet@976",
+   "group": "master_effect1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EFFECT TYPE",
+   "x": 129.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "options": "No Effect~Rotary Sp",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect1",
+    "name": "Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 976,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~C5",
+    "value": "No Effect~Rotary Sp"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@977.6",
+   "param": "CombiAndSongTimbreSet@977.6",
+   "group": "master_effect1",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SWITCH",
+   "x": 209.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect1",
+    "name": "Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 977,
+    "bit": "6",
+    "sysex": {
+     "TYP": "23",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@977.5~0",
+   "param": "CombiAndSongTimbreSet@977.5~0",
+   "group": "master_effect1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHANNEL",
+   "x": 167.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 188.48465266558966,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect1",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 977,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@977.5~0_val",
+   "param": "CombiAndSongTimbreSet@977.5~0",
+   "group": "master_effect1",
+   "type": "display",
+   "kind": "value",
+   "label": "CHANNEL value",
+   "x": 169.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Master Effect1",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 977,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1044",
+   "param": "CombiAndSongTimbreSet@1044",
+   "group": "master_effect2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EFFECT TYPE",
+   "x": 394.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "options": "No Effect~Rotary Sp",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect2",
+    "name": "Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1044,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~C5",
+    "value": "No Effect~Rotary Sp"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1045.6",
+   "param": "CombiAndSongTimbreSet@1045.6",
+   "group": "master_effect2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SWITCH",
+   "x": 474.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect2",
+    "name": "Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1045,
+    "bit": "6",
+    "sysex": {
+     "TYP": "23",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1045.5~0",
+   "param": "CombiAndSongTimbreSet@1045.5~0",
+   "group": "master_effect2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHANNEL",
+   "x": 432.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 453.45395799676896,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect2",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1045,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1045.5~0_val",
+   "param": "CombiAndSongTimbreSet@1045.5~0",
+   "group": "master_effect2",
+   "type": "display",
+   "kind": "value",
+   "label": "CHANNEL value",
+   "x": 434.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Master Effect2",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1045,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1050.0",
+   "param": "CombiAndSongTimbreSet@1050.0",
+   "group": "master_effect_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CHAIN DIRECTION",
+   "x": 677.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "M.Fx1 -> M.Fx2"
+   ],
+   "options": "M.Fx1 -> M.Fx2~M.Fx",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect",
+    "name": "Chain Direction",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1050,
+    "bit": "0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "M.Fx1 -> M.Fx2~M.Fx"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1050.1",
+   "param": "CombiAndSongTimbreSet@1050.1",
+   "group": "master_effect_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "CHAIN SWITCH",
+   "x": 757.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect",
+    "name": "Chain Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1050,
+    "bit": "1",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1051",
+   "param": "CombiAndSongTimbreSet@1051",
+   "group": "master_effect_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHAIN LEVEL",
+   "x": 697.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 718.4232633279483,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect",
+    "name": "Chain Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1051,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1051_val",
+   "param": "CombiAndSongTimbreSet@1051",
+   "group": "master_effect_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CHAIN LEVEL value",
+   "x": 699.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Master Effect",
+    "name": "Chain Level",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1051,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1048",
+   "param": "CombiAndSongTimbreSet@1048",
+   "group": "master_effect_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1048",
+   "x": 1004.9,
+   "y": 150,
+   "w": 75.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect",
+    "name": "Return 1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1048,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "12",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1049",
+   "param": "CombiAndSongTimbreSet@1049",
+   "group": "master_effect_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1049",
+   "x": 1084.0,
+   "y": 150,
+   "w": 75.1,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Master Effect",
+    "name": "Return 2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1049,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "13",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1116",
+   "param": "CombiAndSongTimbreSet@1116",
+   "group": "total_effect1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EFFECT TYPE",
+   "x": 1252.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "options": "No Effect~Rotary Sp",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Total Effect1",
+    "name": "Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1116,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~C5",
+    "value": "No Effect~Rotary Sp"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1117.6",
+   "param": "CombiAndSongTimbreSet@1117.6",
+   "group": "total_effect1",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SWITCH",
+   "x": 1332.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Total Effect1",
+    "name": "Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1117,
+    "bit": "6",
+    "sysex": {
+     "TYP": "23",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1117.5~0",
+   "param": "CombiAndSongTimbreSet@1117.5~0",
+   "group": "total_effect1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHANNEL",
+   "x": 1290.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1311.5153473344103,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Total Effect1",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1117,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1117.5~0_val",
+   "param": "CombiAndSongTimbreSet@1117.5~0",
+   "group": "total_effect1",
+   "type": "display",
+   "kind": "value",
+   "label": "CHANNEL value",
+   "x": 1292.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Total Effect1",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1117,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1184",
+   "param": "CombiAndSongTimbreSet@1184",
+   "group": "total_effect2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EFFECT TYPE",
+   "x": 129.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "No Effect"
+   ],
+   "options": "No Effect~Rotary Sp",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Total Effect2",
+    "name": "Effect Type",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1184,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~C5",
+    "value": "No Effect~Rotary Sp"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1185.6",
+   "param": "CombiAndSongTimbreSet@1185.6",
+   "group": "total_effect2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SWITCH",
+   "x": 209.6,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Total Effect2",
+    "name": "Switch",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1185,
+    "bit": "6",
+    "sysex": {
+     "TYP": "23",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1185.5~0",
+   "param": "CombiAndSongTimbreSet@1185.5~0",
+   "group": "total_effect2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CHANNEL",
+   "x": 194.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 215.3812354106221,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Total Effect2",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1185,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1185.5~0_val",
+   "param": "CombiAndSongTimbreSet@1185.5~0",
+   "group": "total_effect2",
+   "type": "display",
+   "kind": "value",
+   "label": "CHANNEL value",
+   "x": 196.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Total Effect2",
+    "name": "Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1185,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "24",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1188",
+   "param": "CombiAndSongTimbreSet@1188",
+   "group": "total_effect",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MASTER VOLUME",
+   "x": 437.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 458.93975152952873,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Total Effect",
+    "name": "Master Volume",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1188,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1188_val",
+   "param": "CombiAndSongTimbreSet@1188",
+   "group": "total_effect",
+   "type": "display",
+   "kind": "value",
+   "label": "MASTER VOLUME value",
+   "x": 439.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Total Effect",
+    "name": "Master Volume",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1188,
+    "sysex": {
+     "TYP": "24",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1191.0",
+   "param": "CombiAndSongTimbreSet@1191.0",
+   "group": "effect_lfo1",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SYNC",
+   "x": 559.1,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "Sync",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1191,
+    "bit": "0",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1192",
+   "param": "CombiAndSongTimbreSet@1192",
+   "group": "effect_lfo1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE",
+   "x": 688.7,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "Source",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1192,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1196.7",
+   "param": "CombiAndSongTimbreSet@1196.7",
+   "group": "effect_lfo1",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MIDI SYNC",
+   "x": 768.7,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "MIDI Sync",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1196,
+    "bit": "7",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1190",
+   "param": "CombiAndSongTimbreSet@1190",
+   "group": "effect_lfo1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY",
+   "x": 563.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 584.1170322378133,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.02~20.00",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1190,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "01~E6",
+    "value": "0.02~20.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1190_val",
+   "param": "CombiAndSongTimbreSet@1190",
+   "group": "effect_lfo1",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY value",
+   "x": 565.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.02"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1190,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "01~E6",
+    "value": "0.02~20.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1193",
+   "param": "CombiAndSongTimbreSet@1193",
+   "group": "effect_lfo1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI CHANNEL",
+   "x": 655.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 676.2274032080867,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "MIDI Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1193,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1193_val",
+   "param": "CombiAndSongTimbreSet@1193",
+   "group": "effect_lfo1",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI CHANNEL value",
+   "x": 657.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "MIDI Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1193,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1194",
+   "param": "CombiAndSongTimbreSet@1194",
+   "group": "effect_lfo1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BPM",
+   "x": 747.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 768.3377741783601,
+   "cy": 350.0,
+   "r": 12,
+   "range": "MIDI~300.00",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "BPM",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1194,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "0F9F~7530",
+    "value": "MIDI~300.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1194_val",
+   "param": "CombiAndSongTimbreSet@1194",
+   "group": "effect_lfo1",
+   "type": "display",
+   "kind": "value",
+   "label": "BPM value",
+   "x": 749.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "MIDI"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "BPM",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1194,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "0F9F~7530",
+    "value": "MIDI~300.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1196.3~0",
+   "param": "CombiAndSongTimbreSet@1196.3~0",
+   "group": "effect_lfo1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC BASE NOTE",
+   "x": 839.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 860.4481451486333,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1196,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1196.3~0_val",
+   "param": "CombiAndSongTimbreSet@1196.3~0",
+   "group": "effect_lfo1",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC BASE NOTE value",
+   "x": 841.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1196,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1197",
+   "param": "CombiAndSongTimbreSet@1197",
+   "group": "effect_lfo1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC BASE TIMES",
+   "x": 931.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 952.5585161189067,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "MIDI Sync Base Times",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1197,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1197_val",
+   "param": "CombiAndSongTimbreSet@1197",
+   "group": "effect_lfo1",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC BASE TIMES value",
+   "x": 933.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO1",
+    "name": "MIDI Sync Base Times",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1197,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1199.0",
+   "param": "CombiAndSongTimbreSet@1199.0",
+   "group": "effect_lfo2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SYNC",
+   "x": 1009.6,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "Sync",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1199,
+    "bit": "0",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1200",
+   "param": "CombiAndSongTimbreSet@1200",
+   "group": "effect_lfo2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE",
+   "x": 1139.1,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "Source",
+    "kind": "menu",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1200,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~25",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1204.7",
+   "param": "CombiAndSongTimbreSet@1204.7",
+   "group": "effect_lfo2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MIDI SYNC",
+   "x": 1219.1,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "MIDI Sync",
+    "kind": "toggle",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1204,
+    "bit": "7",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1198",
+   "param": "CombiAndSongTimbreSet@1198",
+   "group": "effect_lfo2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY",
+   "x": 1013.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1034.5585161189067,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.02~20.00",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1198,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "01~E6",
+    "value": "0.02~20.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1198_val",
+   "param": "CombiAndSongTimbreSet@1198",
+   "group": "effect_lfo2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY value",
+   "x": 1015.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.02"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1198,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "01~E6",
+    "value": "0.02~20.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1201",
+   "param": "CombiAndSongTimbreSet@1201",
+   "group": "effect_lfo2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI CHANNEL",
+   "x": 1105.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1126.66888708918,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Global",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "MIDI Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1201,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1201_val",
+   "param": "CombiAndSongTimbreSet@1201",
+   "group": "effect_lfo2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI CHANNEL value",
+   "x": 1107.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "MIDI Channel",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1201,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~10",
+    "value": "1~Global"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1202",
+   "param": "CombiAndSongTimbreSet@1202",
+   "group": "effect_lfo2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BPM",
+   "x": 1197.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1218.7792580594535,
+   "cy": 350.0,
+   "r": 12,
+   "range": "MIDI~300.00",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "BPM",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1202,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "0F9F~7530",
+    "value": "MIDI~300.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1202_val",
+   "param": "CombiAndSongTimbreSet@1202",
+   "group": "effect_lfo2",
+   "type": "display",
+   "kind": "value",
+   "label": "BPM value",
+   "x": 1199.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "MIDI"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "BPM",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1202,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "0F9F~7530",
+    "value": "MIDI~300.00"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1204.3~0",
+   "param": "CombiAndSongTimbreSet@1204.3~0",
+   "group": "effect_lfo2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC BASE NOTE",
+   "x": 1289.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1310.8896290297268,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1204,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1204.3~0_val",
+   "param": "CombiAndSongTimbreSet@1204.3~0",
+   "group": "effect_lfo2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC BASE NOTE value",
+   "x": 1291.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1204,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1205",
+   "param": "CombiAndSongTimbreSet@1205",
+   "group": "effect_lfo2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC BASE TIMES",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0000000000002,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "MIDI Sync Base Times",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1205,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1205_val",
+   "param": "CombiAndSongTimbreSet@1205",
+   "group": "effect_lfo2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC BASE TIMES value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect LFO2",
+    "name": "MIDI Sync Base Times",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1205,
+    "sysex": {
+     "TYP": "25",
+     "SOC": "1",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "EFFECTS",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "all"
+}

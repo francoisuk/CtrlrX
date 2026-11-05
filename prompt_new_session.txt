@@ -1,0 +1,28 @@
+/korg
+
+Read C:\Korg\kronos-corpus\ctrlr-project\panels\KronosKontrol\PROJECT_LAYOUT.md first.
+It is the authoritative document: folder structure, ground-truth files,
+Ctrlr source lookup order, runtime, architecture decisions, phase
+checklist, and rules. Follow it. Then read
+C:\Korg\kronos-corpus\ctrlr-project\panels\KronosKontrol\REPRISE.md (hardware test
+log) and C:\Korg\kronos-corpus\ctrlr-project\reference\CONSOLIDATE_README.md
+(knowledge base).
+
+Current task:
+<one sentence describing what to do this session>
+
+Deliverable for this session:
+<one line: what to produce>
+
+Constraints (also in the layout, restated here):
+- Work only under panels/KronosKontrol/.
+- Do not modify /build, /reference, /docs, /GUI_pic, or
+  /panels/TR-Rack-Editor-main. /consolidate is legacy; /check was
+  removed on 2026-10-24.
+- Do not rebuild Ctrlr.
+- Verify every Lua method against the /build source trees
+  (idioms already verified: panels/KronosKontrol/CTRLR_IDIOMS.md).
+- The panel file KronosKontrol.panel is generated: edit
+  panels/KronosKontrol/sources/ and lua/, then re-run
+  panels/KronosKontrol/sources/build_panel.py. Never edit the XML.
+- Never send a Write/Store to the Kronos, unless you have authorisation from the maintainer.

@@ -1,0 +1,135 @@
+KRONOS KONTROL
+END USER LICENSE AGREEMENT (EULA)
+Version 2.0 - November 2026
+
+Copyright (c) 2026 Francois Rossi, Kronoscopie.
+All rights reserved.
+
+Please read this Agreement carefully. By installing, copying
+or using Kronos Kontrol, You agree to its terms. If You do not
+agree, do not install or use the Software.
+
+1. DEFINITIONS
+"Licensor": Francois Rossi, publishing as Kronoscopie.
+"Software": Kronos Kontrol - the panel design, artwork, page
+layouts, Lua code, data tables, help texts and documentation
+created by the Licensor, as delivered in the Kronos Kontrol
+plug-in or application file and any accompanying files,
+including updates and new versions supplied by the Licensor.
+"Third-Party Components": the software made by others that the
+Software runs on or includes, listed in THIRD_PARTY_NOTICES.txt
+(in particular the CtrlrX runtime by Damien Sellier, the JUCE
+framework, the Steinberg VST3 SDK and LuaJIT).
+"Edition": the form in which You obtained the Software (for
+example bundled with a book, or sold separately).
+"You": the person or entity holding a lawful copy.
+
+2. GRANT OF LICENSE
+Subject to this Agreement, the Licensor grants You a personal,
+non-exclusive, non-transferable, worldwide license to install
+and use the Software on computers You own or control, for Your
+own music, sound design, study and teaching, including
+commercial musical work You create with it. Sounds, programs,
+combinations, songs and recordings You create with the
+Software belong to You.
+2.1 Book Edition. If the Software came with a book published
+    by the Licensor (for example "Mastering the KRONOS"), the
+    license is granted to the lawful owner of that copy of the
+    book, for as long as they own it.
+2.2 Separate Edition. If You obtained the Software separately,
+    the license is granted on payment of the applicable price,
+    or free of charge if the Licensor so offers it.
+2.3 You may make backup copies for Your own use.
+
+3. EDITIONS, UPDATES AND FUTURE VERSIONS
+3.1 The Licensor may distribute the Software in several
+    Editions, with or without a book, free or for a fee, under
+    this Agreement or under a later version of it.
+3.2 Updates the Licensor supplies for Your Edition are covered
+    by this Agreement unless they come with new terms.
+3.3 Nothing in this Agreement entitles You to future versions,
+    new features, other Editions or support. The Licensor may
+    offer them free of charge or for a fee.
+3.4 The Licensor may add a license key or activation step to
+    a future Edition. It will not be added to a version You
+    already hold.
+
+4. RESTRICTIONS
+Except as expressly allowed by this Agreement or by the licenses
+of the Third-Party Components, You may not:
+(a) distribute, sell, rent, lend, sublicense, share or
+    otherwise make the Software available to others, including
+    through file-sharing services;
+(b) extract, modify, translate or make derivative works of the
+    panel design, artwork, page layouts, Lua code or data
+    tables, or redistribute them in any form;
+(c) remove or alter any copyright notice, credit or trademark
+    of the Software;
+(d) use the Software, its artwork or its layouts to make a
+    competing editor, librarian or panel.
+Nothing in this Agreement restricts the rights You have under
+the licenses of the Third-Party Components (section 7).
+
+5. OWNERSHIP
+The Software is licensed, not sold. The Licensor keeps all
+right, title and interest in the Software, including all
+intellectual property rights. All rights not expressly granted
+are reserved.
+
+6. TRADEMARKS
+KORG, KRONOS, NAUTILUS and OASYS are trademarks of KORG Inc.
+The Software is an independent product. It is not made,
+endorsed, sponsored or supported by KORG Inc. CtrlrX, JUCE and
+VST are trademarks of their respective owners. "Kronoscopie"
+and the Kronoscopie logos belong to the Licensor.
+
+7. THIRD-PARTY COMPONENTS
+The Software runs on, and is delivered with, Third-Party
+Components that are licensed to You under their own licenses
+(including the GNU General Public License version 3, the
+BSD-3-Clause license and the MIT license), listed in
+THIRD_PARTY_NOTICES.txt. Those licenses govern those components
+and prevail over this Agreement for them. Their source code is
+available as stated in THIRD_PARTY_NOTICES.txt.
+
+8. YOUR INSTRUMENT AND YOUR DATA
+The Software sends MIDI and System Exclusive data to Your
+instrument. It can overwrite the instrument's edit buffer and,
+when You choose WRITE or STORE, its memory. Back up Your
+instrument's data (for example to a PCG file) before using
+these functions. The Software does not collect or send any
+personal data.
+
+9. NO WARRANTY
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE
+IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NON-INFRINGEMENT.
+
+10. LIMITATION OF LIABILITY
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSOR
+SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL OR
+CONSEQUENTIAL DAMAGES, INCLUDING LOSS OF DATA, OF SOUNDS OR
+PROGRAMS STORED IN YOUR INSTRUMENT, OR OF PROFITS, ARISING FROM
+THE USE OF OR INABILITY TO USE THE SOFTWARE. THE LICENSOR'S
+TOTAL LIABILITY SHALL NOT EXCEED THE PRICE YOU PAID FOR THE
+SOFTWARE OR, FOR THE BOOK EDITION, THE PART OF THE BOOK'S PRICE
+ATTRIBUTABLE TO IT. Nothing in this Agreement limits rights You
+have as a consumer that cannot be limited under the law of Your
+country.
+
+11. TERMINATION
+This license ends automatically if You breach this Agreement.
+You must then stop using the Software and delete all copies.
+Sections 5, 6, 9, 10 and 12 survive termination.
+
+12. GENERAL
+12.1 This Agreement is governed by the law as applicable in England and Wales.
+12.2 If a provision is held invalid, the rest remains in force.
+12.3 This Agreement, with THIRD_PARTY_NOTICES.txt, is the whole
+     agreement between You and the Licensor about the Software.
+12.4 The English text prevails over any translation.
+
+13. CONTACT
+Kronoscopie - https://kronoscopie.com
+contact@kronoscopie.com

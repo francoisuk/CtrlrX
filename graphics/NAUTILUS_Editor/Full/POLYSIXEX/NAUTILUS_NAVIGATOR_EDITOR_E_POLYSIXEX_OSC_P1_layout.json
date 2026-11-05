@@ -1,0 +1,2416 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC",
+ "tab_index": 0,
+ "object": "Program · PolysixEX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_POLYSIXEX_OSC_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_POLYSIXEX_OSC_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · PolysixEX — OSC"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 192.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 264.9,
+   "y": 84,
+   "w": 162.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 430.4,
+   "y": 84,
+   "w": 171.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 604.8,
+   "y": 84,
+   "w": 180.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 788.2,
+   "y": 84,
+   "w": 158.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 950.1,
+   "y": 84,
+   "w": 160.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1113.8,
+   "y": 84,
+   "w": 164.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1281.1,
+   "y": 84,
+   "w": 158.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@0.6~0",
+   "param": "Prog_EXi@0.6~0",
+   "group": "osc",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DELAY START",
+   "x": 91.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 112.18947514772333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~Off",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "Delay Start",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~Off"
+   }
+  },
+  {
+   "id": "Prog_EXi@0.6~0_val",
+   "param": "Prog_EXi@0.6~0",
+   "group": "osc",
+   "type": "display",
+   "kind": "value",
+   "label": "DELAY START value",
+   "x": 93.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC",
+    "name": "Delay Start",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 0,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~61",
+    "value": "0~Off"
+   }
+  },
+  {
+   "id": "Prog_EXi@2.7~1",
+   "param": "Prog_EXi@2.7~1",
+   "group": "vco_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PWM SPEED MOD.SOURCE",
+   "x": 180.4,
+   "y": 153.0,
+   "w": 173.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 2,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@4.7~4",
+   "param": "Prog_EXi@4.7~4",
+   "group": "vco_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PWM SPEED MOD INT.MOD SRC",
+   "x": 362.1,
+   "y": 153.0,
+   "w": 173.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 4,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@252.7~6",
+   "param": "Prog_EXi@252.7~6",
+   "group": "vco_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVEFORM",
+   "x": 543.9,
+   "y": 153.0,
+   "w": 173.7,
+   "h": 16,
+   "text": [
+    "Saw"
+   ],
+   "options": "Saw~PWM",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Waveform",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 252,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Saw~PWM"
+   }
+  },
+  {
+   "id": "Prog_EXi@253",
+   "param": "Prog_EXi@253",
+   "group": "vco_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVEFORM MOD.SOURCE",
+   "x": 180.4,
+   "y": 187.0,
+   "w": 173.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Waveform Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 253,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@255.7~5",
+   "param": "Prog_EXi@255.7~5",
+   "group": "vco_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PULSE WIDTH MOD.SOURCE",
+   "x": 362.1,
+   "y": 187.0,
+   "w": 173.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 255,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@258",
+   "param": "Prog_EXi@258",
+   "group": "vco_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PULSE WIDTH MOD INT.MOD SRC",
+   "x": 543.9,
+   "y": 187.0,
+   "w": 173.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 258,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@260.7~5",
+   "param": "Prog_EXi@260.7~5",
+   "group": "vco_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SUB OSCILLATOR MOD SRC",
+   "x": 180.4,
+   "y": 221.0,
+   "w": 173.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Sub Oscillator Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 260,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@0.7",
+   "param": "Prog_EXi@0.7",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PWM SPEED",
+   "x": 749.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 770.6215224191866,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 0,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@0.7_val",
+   "param": "Prog_EXi@0.7",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PWM SPEED value",
+   "x": 751.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 0,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@3.7~1",
+   "param": "Prog_EXi@3.7~1",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PWM SPEED MOD.INT",
+   "x": 828.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 849.6688321167883,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 3,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@3.7~1_val",
+   "param": "Prog_EXi@3.7~1",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PWM SPEED MOD.INT value",
+   "x": 830.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 3,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@5.7~4",
+   "param": "Prog_EXi@5.7~4",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PWM SPEED MOD INT.MOD INT",
+   "x": 907.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 928.7161418143899,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 5,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@5.7~4_val",
+   "param": "Prog_EXi@5.7~4",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PWM SPEED MOD INT.MOD INT value",
+   "x": 909.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "PWM Speed Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 5,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@254.2~0",
+   "param": "Prog_EXi@254.2~0",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WAVEFORM MOD.INT",
+   "x": 986.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1007.7634515119915,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Waveform Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 254,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Prog_EXi@254.2~0_val",
+   "param": "Prog_EXi@254.2~0",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "WAVEFORM MOD.INT value",
+   "x": 988.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Waveform Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 254,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Prog_EXi@254.7~3",
+   "param": "Prog_EXi@254.7~3",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PULSE WIDTH",
+   "x": 1065.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1086.8107612095932,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 254,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@254.7~3_val",
+   "param": "Prog_EXi@254.7~3",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PULSE WIDTH value",
+   "x": 1067.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 254,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@256.7~5",
+   "param": "Prog_EXi@256.7~5",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PULSE WIDTH MOD.INT",
+   "x": 1144.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1165.8580709071948,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 256,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@256.7~5_val",
+   "param": "Prog_EXi@256.7~5",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PULSE WIDTH MOD.INT value",
+   "x": 1146.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 256,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@259",
+   "param": "Prog_EXi@259",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PULSE WIDTH MOD INT.MOD INT",
+   "x": 1223.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1244.9053806047966,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 259,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@259_val",
+   "param": "Prog_EXi@259",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PULSE WIDTH MOD INT.MOD INT value",
+   "x": 1225.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Pulse Width Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 259,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@260.4~3",
+   "param": "Prog_EXi@260.4~3",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUB OSCILLATOR",
+   "x": 1303.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1323.9526903023982,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~2 Octave",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Sub Oscillator",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 260,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~2 Octave"
+   }
+  },
+  {
+   "id": "Prog_EXi@260.4~3_val",
+   "param": "Prog_EXi@260.4~3",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUB OSCILLATOR value",
+   "x": 1305.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Sub Oscillator",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 260,
+    "bit": "4~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~2 Octave"
+   }
+  },
+  {
+   "id": "Prog_EXi@261.7~5",
+   "param": "Prog_EXi@261.7~5",
+   "group": "vco_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUB OSC MOD INT",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Sub Oscillator Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 261,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Prog_EXi@261.7~5_val",
+   "param": "Prog_EXi@261.7~5",
+   "group": "vco_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUB OSC MOD INT value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "VCO",
+    "name": "Sub Oscillator Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 261,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Prog_EXi@232.7~2",
+   "param": "Prog_EXi@232.7~2",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OCTAVE MOD.SOURCE",
+   "x": 68.0,
+   "y": 299.0,
+   "w": 149.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Octave Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 232,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@235.7~2",
+   "param": "Prog_EXi@235.7~2",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRANSPOSE MOD.SOURCE",
+   "x": 225.2,
+   "y": 299.0,
+   "w": 149.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 235,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@238",
+   "param": "Prog_EXi@238",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRANSP MOD INT.MOD SRC",
+   "x": 382.5,
+   "y": 299.0,
+   "w": 149.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 238,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@242",
+   "param": "Prog_EXi@242",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TUNE MOD.SOURCE",
+   "x": 68.0,
+   "y": 333.0,
+   "w": 149.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 242,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@244.7~3",
+   "param": "Prog_EXi@244.7~3",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TUNE MOD INT.MOD SRC",
+   "x": 225.2,
+   "y": 333.0,
+   "w": 149.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 244,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@248",
+   "param": "Prog_EXi@248",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VIBRATO INT MOD.SOURCE",
+   "x": 382.5,
+   "y": 333.0,
+   "w": 149.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 248,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@250.7~3",
+   "param": "Prog_EXi@250.7~3",
+   "group": "pitch_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VIBRATO INT MOD INT.MOD SRC",
+   "x": 68.0,
+   "y": 367.0,
+   "w": 149.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 250,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@230",
+   "param": "Prog_EXi@230",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BEND RANGE",
+   "x": 563.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 584.6945138554906,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~12.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Bend Range",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 230,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0000~04B0",
+    "value": "0.00~12.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@230_val",
+   "param": "Prog_EXi@230",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BEND RANGE value",
+   "x": 565.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Bend Range",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 230,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "14",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0000~04B0",
+    "value": "0.00~12.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@232.1~0",
+   "param": "Prog_EXi@232.1~0",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OCTAVE",
+   "x": 631.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 652.8866377008665,
+   "cy": 350.0,
+   "r": 12,
+   "range": "16'~4'",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Octave",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 232,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "16'~4'"
+   }
+  },
+  {
+   "id": "Prog_EXi@232.1~0_val",
+   "param": "Prog_EXi@232.1~0",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OCTAVE value",
+   "x": 633.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "16'"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Octave",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 232,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "16'~4'"
+   }
+  },
+  {
+   "id": "Prog_EXi@233.4~2",
+   "param": "Prog_EXi@233.4~2",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OCTAVE MOD.INT",
+   "x": 700.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 721.0787615462422,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-2~+2",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Octave Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 233,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Prog_EXi@233.4~2_val",
+   "param": "Prog_EXi@233.4~2",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OCTAVE MOD.INT value",
+   "x": 702.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Octave Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 233,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "FE~02",
+    "value": "-2~+2"
+   }
+  },
+  {
+   "id": "Prog_EXi@233.7~5",
+   "param": "Prog_EXi@233.7~5",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSPOSE",
+   "x": 768.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 789.270885391618,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-24.00~+24.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 233,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "F6A0~0960",
+    "value": "-24.00~+24.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@233.7~5_val",
+   "param": "Prog_EXi@233.7~5",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSPOSE value",
+   "x": 770.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 233,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "F6A0~0960",
+    "value": "-24.00~+24.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@236.7~2",
+   "param": "Prog_EXi@236.7~2",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSPOSE MOD.INT",
+   "x": 836.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 857.4630092369937,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-48.00~+48.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 236,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@236.7~2_val",
+   "param": "Prog_EXi@236.7~2",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSPOSE MOD.INT value",
+   "x": 838.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 236,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@239",
+   "param": "Prog_EXi@239",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSP MOD INT.MOD INT",
+   "x": 904.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 925.6551330823695,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-48.00~+48.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 239,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@239_val",
+   "param": "Prog_EXi@239",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSP MOD INT.MOD INT value",
+   "x": 906.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Transpose Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 239,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "ED40~12C0",
+    "value": "-48.00~+48.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@240.7~6",
+   "param": "Prog_EXi@240.7~6",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TUNE",
+   "x": 972.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 993.8472569277453,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-5.00~+5.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 240,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "FE0C~01F4",
+    "value": "-5.00~+5.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@240.7~6_val",
+   "param": "Prog_EXi@240.7~6",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TUNE value",
+   "x": 974.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 240,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "FE0C~01F4",
+    "value": "-5.00~+5.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@243",
+   "param": "Prog_EXi@243",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TUNE MOD.INT",
+   "x": 1041.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1062.0393807731211,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 243,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@243_val",
+   "param": "Prog_EXi@243",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TUNE MOD.INT value",
+   "x": 1043.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 243,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@245.7~3",
+   "param": "Prog_EXi@245.7~3",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TUNE MOD INT.MOD INT",
+   "x": 1109.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1130.2315046184967,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 245,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@245.7~3_val",
+   "param": "Prog_EXi@245.7~3",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TUNE MOD INT.MOD INT value",
+   "x": 1111.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Tune Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 245,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@246.7~6",
+   "param": "Prog_EXi@246.7~6",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VIBRATO INTENSITY",
+   "x": 1177.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1198.4236284638728,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 246,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@246.7~6_val",
+   "param": "Prog_EXi@246.7~6",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VIBRATO INTENSITY value",
+   "x": 1179.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 246,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@249",
+   "param": "Prog_EXi@249",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VIBRATO INT MOD.INT",
+   "x": 1245.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1266.6157523092484,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 249,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@249_val",
+   "param": "Prog_EXi@249",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VIBRATO INT MOD.INT value",
+   "x": 1247.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 249,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@251.7~3",
+   "param": "Prog_EXi@251.7~3",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VIBRATO INT MOD INT.MOD INT",
+   "x": 1313.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1334.8078761546242,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 251,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@251.7~3_val",
+   "param": "Prog_EXi@251.7~3",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VIBRATO INT MOD INT.MOD INT value",
+   "x": 1315.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Vibrato Intensity Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 251,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@314",
+   "param": "Prog_EXi@314",
+   "group": "pitch_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ANALOG",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Analog",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 314,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@314_val",
+   "param": "Prog_EXi@314",
+   "group": "pitch_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ANALOG value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch",
+    "name": "Analog",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 314,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "exi:PolysixEX"
+}

@@ -1,0 +1,1883 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AUDIO IN · 1/2",
+ "tab_index": 0,
+ "object": "Global",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_G_AUDIO_IN_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_G_AUDIO_IN_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "3 : Global"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Global — AUDIO IN · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_basic",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "BASIC",
+   "x": 60,
+   "y": 84,
+   "w": 144.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_controller",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROLLER",
+   "x": 207.0,
+   "y": 84,
+   "w": 170.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI",
+   "x": 380.8,
+   "y": 84,
+   "w": 137.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_ext_sets",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXT SETS",
+   "x": 521.6,
+   "y": 84,
+   "w": 156.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 681.4,
+   "y": 84,
+   "w": 154.8,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_octave_scales",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OCTAVE SCALES",
+   "x": 839.2,
+   "y": 84,
+   "w": 183.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_all_note_scale",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ALL NOTE SCALE",
+   "x": 1025.6,
+   "y": 84,
+   "w": 183.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_categories",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CATEGORIES",
+   "x": 1212.2,
+   "y": 84,
+   "w": 168.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Global@24583",
+   "param": "Global@24583",
+   "group": "audio_input_0_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PAN",
+   "x": 93.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "options": "L000~R127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "Pan",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24583,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "Global@24586",
+   "param": "Global@24586",
+   "group": "audio_input_0_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SEL (IFX/INDIV.)",
+   "x": 260.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R~Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "Bus Select (IFX/Indiv.)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24586,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Global@24587.7",
+   "param": "Global@24587.7",
+   "group": "audio_input_0_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MUTE",
+   "x": 340.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "Mute",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24587,
+    "bit": "7",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24582",
+   "param": "Global@24582",
+   "group": "audio_input_0_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 118.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 139.6676923076923,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24582,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24582_val",
+   "param": "Global@24582",
+   "group": "audio_input_0_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 120.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24582,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24587.0~1",
+   "param": "Global@24587.0~1",
+   "group": "audio_input_0_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FX CONTROL BUS",
+   "x": 224.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 245.6676923076923,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~2",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24587,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24587.0~1_val",
+   "param": "Global@24587.0~1",
+   "group": "audio_input_0_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FX CONTROL BUS value",
+   "x": 226.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24587,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24587.2~4",
+   "param": "Global@24587.2~4",
+   "group": "audio_input_0_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REC BUS",
+   "x": 330.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 351.6676923076923,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~3/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24587,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24587.2~4_val",
+   "param": "Global@24587.2~4",
+   "group": "audio_input_0_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REC BUS value",
+   "x": 332.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24587,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24584",
+   "param": "Global@24584",
+   "group": "audio_input_0_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24584",
+   "x": 589.3,
+   "y": 150,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "Send1 (To MFX1)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24584,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24585",
+   "param": "Global@24585",
+   "group": "audio_input_0_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24585",
+   "x": 661.7,
+   "y": 150,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 0",
+    "name": "Send2 (To MFX2)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24585,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24589",
+   "param": "Global@24589",
+   "group": "audio_input_1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PAN",
+   "x": 787.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "options": "L000~R127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "Pan",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24589,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "Global@24592",
+   "param": "Global@24592",
+   "group": "audio_input_1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SEL (IFX/INDIV.)",
+   "x": 954.6,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R~Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "Bus Select (IFX/Indiv.)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24592,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "1"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Global@24593.7",
+   "param": "Global@24593.7",
+   "group": "audio_input_1_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MUTE",
+   "x": 1034.6,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "Mute",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24593,
+    "bit": "7",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24588",
+   "param": "Global@24588",
+   "group": "audio_input_1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 812.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 833.6676923076923,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24588,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24588_val",
+   "param": "Global@24588",
+   "group": "audio_input_1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 814.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24588,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24593.0~1",
+   "param": "Global@24593.0~1",
+   "group": "audio_input_1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FX CONTROL BUS",
+   "x": 918.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 939.6676923076923,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~2",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24593,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "1"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24593.0~1_val",
+   "param": "Global@24593.0~1",
+   "group": "audio_input_1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FX CONTROL BUS value",
+   "x": 920.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24593,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "1"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24593.2~4",
+   "param": "Global@24593.2~4",
+   "group": "audio_input_1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REC BUS",
+   "x": 1024.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1045.6676923076923,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~3/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24593,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "1"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24593.2~4_val",
+   "param": "Global@24593.2~4",
+   "group": "audio_input_1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REC BUS value",
+   "x": 1026.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24593,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "1"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24590",
+   "param": "Global@24590",
+   "group": "audio_input_1_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24590",
+   "x": 1283.3,
+   "y": 150,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "Send1 (To MFX1)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24590,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24591",
+   "param": "Global@24591",
+   "group": "audio_input_1_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24591",
+   "x": 1355.7,
+   "y": 150,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "Audio Input 1",
+    "name": "Send2 (To MFX2)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24591,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24595",
+   "param": "Global@24595",
+   "group": "usb_input_l_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PAN",
+   "x": 93.9,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "options": "L000~R127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "Pan",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24595,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "Global@24598",
+   "param": "Global@24598",
+   "group": "usb_input_l_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SEL (IFX/INDIV.)",
+   "x": 260.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R~Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "Bus Select (IFX/Indiv.)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24598,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "2"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Global@24599.7",
+   "param": "Global@24599.7",
+   "group": "usb_input_l_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MUTE",
+   "x": 340.6,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "Mute",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24599,
+    "bit": "7",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "2"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24594",
+   "param": "Global@24594",
+   "group": "usb_input_l_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 118.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 139.6676923076923,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24594,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24594_val",
+   "param": "Global@24594",
+   "group": "usb_input_l_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 120.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24594,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24599.0~1",
+   "param": "Global@24599.0~1",
+   "group": "usb_input_l_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FX CONTROL BUS",
+   "x": 224.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 245.6676923076923,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~2",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24599,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "2"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24599.0~1_val",
+   "param": "Global@24599.0~1",
+   "group": "usb_input_l_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FX CONTROL BUS value",
+   "x": 226.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24599,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "2"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24599.2~4",
+   "param": "Global@24599.2~4",
+   "group": "usb_input_l_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REC BUS",
+   "x": 330.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 351.6676923076923,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~3/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24599,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "2"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24599.2~4_val",
+   "param": "Global@24599.2~4",
+   "group": "usb_input_l_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REC BUS value",
+   "x": 332.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24599,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "2"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24596",
+   "param": "Global@24596",
+   "group": "usb_input_l_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24596",
+   "x": 589.3,
+   "y": 296,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "Send1 (To MFX1)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24596,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24597",
+   "param": "Global@24597",
+   "group": "usb_input_l_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24597",
+   "x": 661.7,
+   "y": 296,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input L",
+    "name": "Send2 (To MFX2)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24597,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24601",
+   "param": "Global@24601",
+   "group": "usb_input_r_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PAN",
+   "x": 787.9,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L000"
+   ],
+   "options": "L000~R127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "Pan",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24601,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "L000~R127"
+   }
+  },
+  {
+   "id": "Global@24604",
+   "param": "Global@24604",
+   "group": "usb_input_r_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "BUS SEL (IFX/INDIV.)",
+   "x": 954.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "L/R"
+   ],
+   "options": "L/R~Off",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "Bus Select (IFX/Indiv.)",
+    "kind": "menu",
+    "file": "Global.txt",
+    "ofs": 24604,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "3"
+    },
+    "data": "00~19",
+    "value": "L/R~Off"
+   }
+  },
+  {
+   "id": "Global@24605.7",
+   "param": "Global@24605.7",
+   "group": "usb_input_r_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MUTE",
+   "x": 1034.6,
+   "y": 283,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "Mute",
+    "kind": "toggle",
+    "file": "Global.txt",
+    "ofs": 24605,
+    "bit": "7",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "3"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Global@24600",
+   "param": "Global@24600",
+   "group": "usb_input_r_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 812.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 833.6676923076923,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24600,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24600_val",
+   "param": "Global@24600",
+   "group": "usb_input_r_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 814.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24600,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24605.0~1",
+   "param": "Global@24605.0~1",
+   "group": "usb_input_r_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FX CONTROL BUS",
+   "x": 918.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 939.6676923076923,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~2",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24605,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "3"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24605.0~1_val",
+   "param": "Global@24605.0~1",
+   "group": "usb_input_r_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FX CONTROL BUS value",
+   "x": 920.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "FX Control Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24605,
+    "bit": "0~1",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "3"
+    },
+    "data": "00~02",
+    "value": "Off~2"
+   }
+  },
+  {
+   "id": "Global@24605.2~4",
+   "param": "Global@24605.2~4",
+   "group": "usb_input_r_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REC BUS",
+   "x": 1024.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1045.6676923076923,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Off~3/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24605,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "3"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24605.2~4_val",
+   "param": "Global@24605.2~4",
+   "group": "usb_input_r_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REC BUS value",
+   "x": 1026.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "REC Bus",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24605,
+    "bit": "2~4",
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "3"
+    },
+    "data": "00~06",
+    "value": "Off~3/4"
+   }
+  },
+  {
+   "id": "Global@24602",
+   "param": "Global@24602",
+   "group": "usb_input_r_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24602",
+   "x": 1283.3,
+   "y": 296,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "Send1 (To MFX1)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24602,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Global@24603",
+   "param": "Global@24603",
+   "group": "usb_input_r_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Global@24603",
+   "x": 1355.7,
+   "y": 296,
+   "w": 68.3,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "USB    Input R",
+    "name": "Send2 (To MFX2)",
+    "kind": "knob",
+    "file": "Global.txt",
+    "ofs": 24603,
+    "sysex": {
+     "TYP": "15",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AUDIO IN",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

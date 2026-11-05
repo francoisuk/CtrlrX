@@ -1,0 +1,1099 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA MODULE · 3/13",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P3_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P3_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — KARMA MODULE · 3/13"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 123.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 186.4,
+   "y": 84,
+   "w": 116.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 306.3,
+   "y": 84,
+   "w": 121.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 430.9,
+   "y": 84,
+   "w": 117.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 551.3,
+   "y": 84,
+   "w": 119.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 673.9,
+   "y": 84,
+   "w": 125.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 801.9,
+   "y": 84,
+   "w": 122.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 927.3,
+   "y": 84,
+   "w": 116.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_module",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA MODULE",
+   "x": 1047.0,
+   "y": 84,
+   "w": 150.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_a",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "A",
+   "x": 1209.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_b",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "B",
+   "x": 1234.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_c",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "C",
+   "x": 1259.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_d",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "D",
+   "x": 1284.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_pprev_pprev",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_pbox",
+   "group": "nav",
+   "type": "display",
+   "kind": "label",
+   "label": "3 / 13",
+   "x": 1343.0,
+   "y": 85,
+   "w": 72.0,
+   "h": 16,
+   "text": [
+    "3 / 13"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_pnext_pnext",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "▶",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.1~0",
+   "param": "CombiAndSongTimbreSet@1835.1~0",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RHYTHM",
+   "x": 398.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 419.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Rhythm",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.1~0_val",
+   "param": "CombiAndSongTimbreSet@1835.1~0",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "RHYTHM value",
+   "x": 400.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Rhythm",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.3~2",
+   "param": "CombiAndSongTimbreSet@1835.3~2",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DURATION",
+   "x": 492.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 513.5714285714286,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Duration",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.3~2_val",
+   "param": "CombiAndSongTimbreSet@1835.3~2",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "DURATION value",
+   "x": 494.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Duration",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.5~4",
+   "param": "CombiAndSongTimbreSet@1835.5~4",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "INDEX",
+   "x": 587.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 608.1428571428571,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Index",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "52",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.5~4_val",
+   "param": "CombiAndSongTimbreSet@1835.5~4",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "INDEX value",
+   "x": 589.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Index",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "52",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.7~6",
+   "param": "CombiAndSongTimbreSet@1835.7~6",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CLUSTER",
+   "x": 681.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 702.7142857142858,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Cluster",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1835.7~6_val",
+   "param": "CombiAndSongTimbreSet@1835.7~6",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "CLUSTER value",
+   "x": 683.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Cluster",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1835,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1823,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.1~0",
+   "param": "CombiAndSongTimbreSet@1836.1~0",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VELOCITY",
+   "x": 776.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 797.2857142857142,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.1~0_val",
+   "param": "CombiAndSongTimbreSet@1836.1~0",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "VELOCITY value",
+   "x": 778.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Velocity",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.3~2",
+   "param": "CombiAndSongTimbreSet@1836.3~2",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PAN",
+   "x": 870.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 891.8571428571429,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.3~2_val",
+   "param": "CombiAndSongTimbreSet@1836.3~2",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "PAN value",
+   "x": 872.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Pan",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.5~4",
+   "param": "CombiAndSongTimbreSet@1836.5~4",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUMS",
+   "x": 965.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 986.4285714285714,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Drums",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.5~4_val",
+   "param": "CombiAndSongTimbreSet@1836.5~4",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUMS value",
+   "x": 967.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Drums",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "56",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.7~6",
+   "param": "CombiAndSongTimbreSet@1836.7~6",
+   "group": "karma_module_seed",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WAVEFORM",
+   "x": 1060.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1081.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Waveform",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1836.7~6_val",
+   "param": "CombiAndSongTimbreSet@1836.7~6",
+   "group": "karma_module_seed",
+   "type": "display",
+   "kind": "value",
+   "label": "WAVEFORM value",
+   "x": 1062.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "KARMA Module A",
+    "name": "(Seed) Waveform",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1836,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "57",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4",
+    "oasys": {
+     "ofs": 1824,
+     "rule": "KARMA + common tail (K = O + 12)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA MODULE",
+ "page_number": 3,
+ "pages_in_area": 13,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier.",
+ "index": {
+  "label": "MODULE",
+  "instances": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "listed_by_korg": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "shown": "A",
+  "stride_bytes": 744,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes",
+  "stride_bytes_oasys": 744
+ }
+}

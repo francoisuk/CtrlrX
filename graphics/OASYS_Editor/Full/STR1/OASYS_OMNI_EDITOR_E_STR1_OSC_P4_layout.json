@@ -1,0 +1,2435 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 4/7",
+ "tab_index": 0,
+ "object": "Program · STR-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_STR1_OSC_P4_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_STR1_OSC_P4_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · STR-1 — OSC · 4/7"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 189.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 261.8,
+   "y": 84,
+   "w": 159.3,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 424.1,
+   "y": 84,
+   "w": 168.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 595.4,
+   "y": 84,
+   "w": 177.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 775.6,
+   "y": 84,
+   "w": 155.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 934.3,
+   "y": 84,
+   "w": 157.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1094.9,
+   "y": 84,
+   "w": 161.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1268.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_7",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "7",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@407.7~6",
+   "param": "Prog_EXi@407.7~6",
+   "group": "pluck_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PLUCK TABLE SELECT",
+   "x": 68.0,
+   "y": 170.0,
+   "w": 284.9,
+   "h": 16,
+   "text": [
+    "Ac Guitar 1"
+   ],
+   "options": "Ac Guitar 1~Harpsic",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Table Select",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 407,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~0F",
+    "value": "Ac Guitar 1~Harpsic",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@409.7~2",
+   "param": "Prog_EXi@409.7~2",
+   "group": "pluck_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PLUCK DELAY MOD.SOURCE",
+   "x": 360.9,
+   "y": 170.0,
+   "w": 284.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Delay Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 409,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@509.7~2",
+   "param": "Prog_EXi@509.7~2",
+   "group": "pluck_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PLUCK RANDOMIZATION MOD SRC",
+   "x": 68.0,
+   "y": 204.0,
+   "w": 284.9,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Randomization Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 509,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "104",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@511.3",
+   "param": "Prog_EXi@511.3",
+   "group": "pluck_1_3",
+   "type": "button",
+   "kind": "toggle",
+   "label": "PLUCK RANDOMIZATION USE SATURATION & FILTER",
+   "x": 360.9,
+   "y": 205.0,
+   "w": 284.9,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Randomization Use Saturation & Filter",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 511,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "107",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@400.7~6",
+   "param": "Prog_EXi@400.7~6",
+   "group": "pluck_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PLUCK RANDOMIZATION",
+   "x": 677.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 698.8192694493088,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Randomization",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 400,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@400.7~6_val",
+   "param": "Prog_EXi@400.7~6",
+   "group": "pluck_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PLUCK RANDOMIZATION value",
+   "x": 679.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Randomization",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 400,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@401.7~5",
+   "param": "Prog_EXi@401.7~5",
+   "group": "pluck_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PLUCK WIDTH",
+   "x": 761.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 782.7238729540583,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100.0~+100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 401,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@401.7~5_val",
+   "param": "Prog_EXi@401.7~5",
+   "group": "pluck_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PLUCK WIDTH value",
+   "x": 763.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 401,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@408.7~2",
+   "param": "Prog_EXi@408.7~2",
+   "group": "pluck_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PLUCK DELAY",
+   "x": 845.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 866.6284764588079,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~250",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 408,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~FA",
+    "value": "0~250",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@408.7~2_val",
+   "param": "Prog_EXi@408.7~2",
+   "group": "pluck_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PLUCK DELAY value",
+   "x": 847.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Delay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 408,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "00~FA",
+    "value": "0~250",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@410.7~2",
+   "param": "Prog_EXi@410.7~2",
+   "group": "pluck_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PLUCK DELAY MOD.INT",
+   "x": 929.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 950.5330799635574,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-250~+250",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Delay Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 410,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "FF06~00FA",
+    "value": "-250~+250",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@410.7~2_val",
+   "param": "Prog_EXi@410.7~2",
+   "group": "pluck_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PLUCK DELAY MOD.INT value",
+   "x": 931.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Delay Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 410,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "FF06~00FA",
+    "value": "-250~+250",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@510.7~2",
+   "param": "Prog_EXi@510.7~2",
+   "group": "pluck_2_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PLUCK RANDOMIZATION MOD INT",
+   "x": 1013.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1034.437683468307,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Randomization Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 510,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "105",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@510.7~2_val",
+   "param": "Prog_EXi@510.7~2",
+   "group": "pluck_2_3",
+   "type": "display",
+   "kind": "value",
+   "label": "PLUCK RANDOMIZATION MOD INT value",
+   "x": 1015.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Randomization Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 510,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "105",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@403",
+   "param": "Prog_EXi@403",
+   "group": "pluck_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@403",
+   "x": 1229.4,
+   "y": 150,
+   "w": 95.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Width Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 403,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@404",
+   "param": "Prog_EXi@404",
+   "group": "pluck_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@404",
+   "x": 1328.7,
+   "y": 150,
+   "w": 95.3,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Width Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 404,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "1"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@405",
+   "param": "Prog_EXi@405",
+   "group": "pluck_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@405",
+   "x": 1229.4,
+   "y": 171,
+   "w": 95.3,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-100.0~+100.0",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Width Mod.1 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 405,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@406.7~3",
+   "param": "Prog_EXi@406.7~3",
+   "group": "pluck_3_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@406.7~3",
+   "x": 1328.7,
+   "y": 171,
+   "w": 95.3,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-100.0~+100.0",
+   "midi": null,
+   "korg": {
+    "group": "Pluck",
+    "name": "Pluck Width Mod.2 Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 406,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "1"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@417.7~1",
+   "param": "Prog_EXi@417.7~1",
+   "group": "string_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RELEASE MOD SRC",
+   "x": 150.6,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Release Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 417,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@427.7~4",
+   "param": "Prog_EXi@427.7~4",
+   "group": "string_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DAMPING MOD 1 INT.MOD SRC",
+   "x": 354.4,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Damping Mod.1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 427,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@439.7~5",
+   "param": "Prog_EXi@439.7~5",
+   "group": "string_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DISPERSION MOD 1 INT.MOD SRC",
+   "x": 568.1,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion Mod.1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 439,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@450.7~6",
+   "param": "Prog_EXi@450.7~6",
+   "group": "string_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EXCITATION POS MOD SRC",
+   "x": 758.9,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 450,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "52",
+     "IDX": "0"
+    },
+    "data": "00~3B",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@454.1",
+   "param": "Prog_EXi@454.1",
+   "group": "string_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EXCITATION POS TRACKING MODE",
+   "x": 979.4,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "String Track"
+   ],
+   "options": "String Track~Keyboa",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position Tracking Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 454,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "55",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "String Track~Keyboa",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@511.2",
+   "param": "Prog_EXi@511.2",
+   "group": "string_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DISPERSION CHARACTER",
+   "x": 1162.4,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Bell"
+   ],
+   "options": "Bell~String",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion Character",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 511,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "106",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Bell~String",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@411.7~3",
+   "param": "Prog_EXi@411.7~3",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 411,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@411.7~3_val",
+   "param": "Prog_EXi@411.7~3",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 411,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@416.7~2",
+   "param": "Prog_EXi@416.7~2",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE",
+   "x": 150.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 170.98254504504504,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Release",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 416,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@416.7~2_val",
+   "param": "Prog_EXi@416.7~2",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE value",
+   "x": 152.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Release",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 416,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "33",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@418.7~1",
+   "param": "Prog_EXi@418.7~1",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE MOD.INT",
+   "x": 224.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 244.9650900900901,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Release Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 418,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@418.7~1_val",
+   "param": "Prog_EXi@418.7~1",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE MOD.INT value",
+   "x": 226.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Release Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 418,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@419.7~1",
+   "param": "Prog_EXi@419.7~1",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DAMPING",
+   "x": 297.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 318.9476351351351,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.0~100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Damping",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 419,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.0~100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@419.7~1_val",
+   "param": "Prog_EXi@419.7~1",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DAMPING value",
+   "x": 299.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Damping",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 419,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.0~100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@428.7~4",
+   "param": "Prog_EXi@428.7~4",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DAMPING MOD 1 INT.MOD INT",
+   "x": 371.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 392.9301801801802,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100.0~+100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Damping Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 428,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@428.7~4_val",
+   "param": "Prog_EXi@428.7~4",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DAMPING MOD 1 INT.MOD INT value",
+   "x": 373.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Damping Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 428,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@429.7",
+   "param": "Prog_EXi@429.7",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DAMPING STRING TRK INT",
+   "x": 445.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 466.91272522522524,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100.0~+100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Damping String Track Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 429,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@429.7_val",
+   "param": "Prog_EXi@429.7",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DAMPING STRING TRK INT value",
+   "x": 447.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Damping String Track Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 429,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@431.7~2",
+   "param": "Prog_EXi@431.7~2",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DISPERSION",
+   "x": 519.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 540.8952702702702,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.0~100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 431,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.0~100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@431.7~2_val",
+   "param": "Prog_EXi@431.7~2",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DISPERSION value",
+   "x": 521.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 431,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.0~100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@440.7~5",
+   "param": "Prog_EXi@440.7~5",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DISPERSION MOD 1 INT.MOD INT",
+   "x": 593.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 614.8778153153153,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100.0~+100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 440,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@440.7~5_val",
+   "param": "Prog_EXi@440.7~5",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DISPERSION MOD 1 INT.MOD INT value",
+   "x": 595.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion Mod.1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 440,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@442",
+   "param": "Prog_EXi@442",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DISPERSION STRING TRK INT",
+   "x": 667.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 688.8603603603603,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100.0~+100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion String Track Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 442,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@442_val",
+   "param": "Prog_EXi@442",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DISPERSION STRING TRK INT value",
+   "x": 669.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Dispersion String Track Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 442,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@443.7~3",
+   "param": "Prog_EXi@443.7~3",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NONLINEARITY",
+   "x": 741.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 762.8429054054054,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100.0~+100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Nonlinearity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 443,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@443.7~3_val",
+   "param": "Prog_EXi@443.7~3",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "NONLINEARITY value",
+   "x": 743.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Nonlinearity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 443,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@449.7~4",
+   "param": "Prog_EXi@449.7~4",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EXCITATION POSITION",
+   "x": 815.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 836.8254504504505,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.0~100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 449,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.0~100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@449.7~4_val",
+   "param": "Prog_EXi@449.7~4",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EXCITATION POSITION value",
+   "x": 817.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 449,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.0~100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@451.7~6",
+   "param": "Prog_EXi@451.7~6",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EXCITATION POS MOD INT",
+   "x": 889.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 910.8079954954954,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100.0~+100.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 451,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@451.7~6_val",
+   "param": "Prog_EXi@451.7~6",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EXCITATION POS MOD INT value",
+   "x": 891.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 451,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-100.0~+100.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@453.7~1",
+   "param": "Prog_EXi@453.7~1",
+   "group": "string_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EXCITATION POS TONE",
+   "x": 963.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 984.7905405405405,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position Tone",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 453,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@453.7~1_val",
+   "param": "Prog_EXi@453.7~1",
+   "group": "string_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "EXCITATION POS TONE value",
+   "x": 965.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Excitation Position Tone",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 453,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "54",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@461.5~4",
+   "param": "Prog_EXi@461.5~4",
+   "group": "string_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@461.5~4",
+   "x": 1179.8,
+   "y": 296,
+   "w": 78.7,
+   "h": 16,
+   "text": [
+    "String Track"
+   ],
+   "range": "String Track~Off",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Pickup1 Position Tracking Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 461,
+    "bit": "5~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "String Track~Off",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@461.7~6",
+   "param": "Prog_EXi@461.7~6",
+   "group": "string_3_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@461.7~6",
+   "x": 1262.5,
+   "y": 296,
+   "w": 78.7,
+   "h": 16,
+   "text": [
+    "String Track"
+   ],
+   "range": "String Track~Off",
+   "midi": null,
+   "korg": {
+    "group": "String",
+    "name": "Pickup2 Position Tracking Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 461,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "24",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "1"
+    },
+    "data": "00~02",
+    "value": "String Track~Off",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 4,
+ "pages_in_area": 7,
+ "apply": "exi:STR-1",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

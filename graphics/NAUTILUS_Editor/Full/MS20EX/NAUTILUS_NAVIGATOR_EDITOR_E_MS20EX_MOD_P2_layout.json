@@ -1,0 +1,2131 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "MOD · 2/2",
+ "tab_index": 0,
+ "object": "Program · MS-20EX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_MS20EX_MOD_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_MS20EX_MOD_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MS-20EX — MOD · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 207.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 279.6,
+   "y": 84,
+   "w": 177.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 459.8,
+   "y": 84,
+   "w": 186.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 648.9,
+   "y": 84,
+   "w": 195.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 847.0,
+   "y": 84,
+   "w": 173.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1023.6,
+   "y": 84,
+   "w": 175.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1202.0,
+   "y": 84,
+   "w": 179.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@334.7~5",
+   "param": "Prog_EXi@334.7~5",
+   "group": "controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WHEEL MOD.SOURCE",
+   "x": 160.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Wheel Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 334,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@337",
+   "param": "Prog_EXi@337",
+   "group": "controller",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MOMENTARY SW MOD SRC",
+   "x": 351.0,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Momentary Switch Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 337,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@335.7~5",
+   "param": "Prog_EXi@335.7~5",
+   "group": "controller",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WHEEL MOD.INT",
+   "x": 113.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 134.46853019995876,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Wheel Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 335,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@335.7~5_val",
+   "param": "Prog_EXi@335.7~5",
+   "group": "controller",
+   "type": "display",
+   "kind": "value",
+   "label": "WHEEL MOD.INT value",
+   "x": 115.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Wheel Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 335,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@338",
+   "param": "Prog_EXi@338",
+   "group": "controller",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MOMENTARY SW MOD INT",
+   "x": 235.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 256.46853019995876,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Momentary Switch Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 338,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@338_val",
+   "param": "Prog_EXi@338",
+   "group": "controller",
+   "type": "display",
+   "kind": "value",
+   "label": "MOMENTARY SW MOD INT value",
+   "x": 237.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Controller",
+    "name": "Momentary Switch Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 338,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@344.7",
+   "param": "Prog_EXi@344.7",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TOTAL EXT CONTROL IN",
+   "x": 346.9,
+   "y": 153.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "TOTAL EXT Control In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 344,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@345.7~4",
+   "param": "Prog_EXi@345.7~4",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VCO FREQ CONTROL IN",
+   "x": 476.5,
+   "y": 153.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "VCO Freq Control In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 345,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "1"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@346.5~1",
+   "param": "Prog_EXi@346.5~1",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EXT SIGNAL IN",
+   "x": 606.0,
+   "y": 153.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "EXT Signal In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 346,
+    "bit": "5~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "2"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@346.7~6",
+   "param": "Prog_EXi@346.7~6",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HPF CUTOFF FREQ CTRL IN",
+   "x": 735.6,
+   "y": 153.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "HPF Cutoff Freq Control In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 346,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "3"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@347.7~3",
+   "param": "Prog_EXi@347.7~3",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LPF SIGNAL IN",
+   "x": 865.1,
+   "y": 153.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "LPF Signal In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 347,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "4"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@348.4~0",
+   "param": "Prog_EXi@348.4~0",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LPF CUTOFF FREQ CTRL IN",
+   "x": 994.6,
+   "y": 153.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "LPF Cutoff Freq Control In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 348,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "5"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@348.7~5",
+   "param": "Prog_EXi@348.7~5",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VCA SIGNAL IN",
+   "x": 346.9,
+   "y": 187.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "VCA Signal In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 348,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "6"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@349.6~2",
+   "param": "Prog_EXi@349.6~2",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VCA INITIAL GAIN IN",
+   "x": 476.5,
+   "y": 187.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "VCA Initial Gain In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 349,
+    "bit": "6~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "7"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@349.7",
+   "param": "Prog_EXi@349.7",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "S&H CLOCK IN",
+   "x": 606.0,
+   "y": 187.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "S&H Clock In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 349,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "8"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@350.7~4",
+   "param": "Prog_EXi@350.7~4",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "S&H SIGNAL IN",
+   "x": 735.6,
+   "y": 187.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "S&H Signal In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 350,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "9"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@351.5~1",
+   "param": "Prog_EXi@351.5~1",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG1 TRIG IN",
+   "x": 865.1,
+   "y": 187.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "EG1 Trig In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 351,
+    "bit": "5~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "10"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@351.7~6",
+   "param": "Prog_EXi@351.7~6",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "KBD TRIG IN",
+   "x": 994.6,
+   "y": 187.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "KBD Trig In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 351,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "11"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@352.7~3",
+   "param": "Prog_EXi@352.7~3",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VCO1+2 CV IN",
+   "x": 346.9,
+   "y": 221.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "VCO1+2 CV In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 352,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "12"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@353.4~0",
+   "param": "Prog_EXi@353.4~0",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VCO2 CV IN",
+   "x": 476.5,
+   "y": 221.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "VCO2 CV In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 353,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "13"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@353.7~5",
+   "param": "Prog_EXi@353.7~5",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MVCA CONTROL IN",
+   "x": 606.0,
+   "y": 221.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "MVCA Control In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 353,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "14"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@354.6~2",
+   "param": "Prog_EXi@354.6~2",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MVCA SIGNAL IN",
+   "x": 735.6,
+   "y": 221.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "MVCA Signal In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 354,
+    "bit": "6~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "15"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@354.7",
+   "param": "Prog_EXi@354.7",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ESP SIGNAL IN",
+   "x": 865.1,
+   "y": 221.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "ESP Signal In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 354,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "16"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@355.7~4",
+   "param": "Prog_EXi@355.7~4",
+   "group": "input_jack_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ESP BANDPASS SIGNAL IN",
+   "x": 994.6,
+   "y": 221.0,
+   "w": 121.5,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "options": "No Connect~Audio In",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "ESP Bandpass Signal In",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 355,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "17"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@356.5~1",
+   "param": "Prog_EXi@356.5~1",
+   "group": "input_jack_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@356.5~1",
+   "x": 1282.2,
+   "y": 150,
+   "w": 68.9,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Audio In",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Mixer1 Input A",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 356,
+    "bit": "5~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "18"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@357.7~3",
+   "param": "Prog_EXi@357.7~3",
+   "group": "input_jack_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@357.7~3",
+   "x": 1355.1,
+   "y": 150,
+   "w": 68.9,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Audio In",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Mixer2 Input A",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 357,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "20"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@356.7~6",
+   "param": "Prog_EXi@356.7~6",
+   "group": "input_jack_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@356.7~6",
+   "x": 1282.2,
+   "y": 171,
+   "w": 68.9,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Audio In",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Mixer1 Input B",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 356,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "19"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@358.4~0",
+   "param": "Prog_EXi@358.4~0",
+   "group": "input_jack_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@358.4~0",
+   "x": 1355.1,
+   "y": 171,
+   "w": 68.9,
+   "h": 16,
+   "text": [
+    "No Connect"
+   ],
+   "range": "No Connect~Audio In",
+   "midi": null,
+   "korg": {
+    "group": "Input Jack",
+    "name": "Mixer2 Input B",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 358,
+    "bit": "4~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "21"
+    },
+    "data": "00~1B",
+    "value": "No Connect~Audio In"
+   }
+  },
+  {
+   "id": "Prog_EXi@362.7~2",
+   "param": "Prog_EXi@362.7~2",
+   "group": "external_modulation1",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE",
+   "x": 148.3,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 362,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "00~38",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@363",
+   "param": "Prog_EXi@363",
+   "group": "external_modulation1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HPF CUTOFF",
+   "x": 149.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 169.99999999999994,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "HPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 363,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "71",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@363_val",
+   "param": "Prog_EXi@363",
+   "group": "external_modulation1",
+   "type": "display",
+   "kind": "value",
+   "label": "HPF CUTOFF value",
+   "x": 151.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "HPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 363,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "71",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@364.7~3",
+   "param": "Prog_EXi@364.7~3",
+   "group": "external_modulation1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LPF CUTOFF",
+   "x": 247.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 267.99999999999994,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "LPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 364,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "72",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@364.7~3_val",
+   "param": "Prog_EXi@364.7~3",
+   "group": "external_modulation1",
+   "type": "display",
+   "kind": "value",
+   "label": "LPF CUTOFF value",
+   "x": 249.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "LPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 364,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "72",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@365.7~6",
+   "param": "Prog_EXi@365.7~6",
+   "group": "external_modulation1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VCO1 PULSE WIDTH",
+   "x": 345.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 365.99999999999994,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "VCO1 Pulse Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 365,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@365.7~6_val",
+   "param": "Prog_EXi@365.7~6",
+   "group": "external_modulation1",
+   "type": "display",
+   "kind": "value",
+   "label": "VCO1 PULSE WIDTH value",
+   "x": 347.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "VCO1 Pulse Width",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 365,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@367.7~1",
+   "param": "Prog_EXi@367.7~1",
+   "group": "external_modulation1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VCO2 PITCH",
+   "x": 443.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 463.99999999999994,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-24.00~+24.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "VCO2 Pitch",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 367,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "F6A0~0960",
+    "value": "-24.00~+24.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@367.7~1_val",
+   "param": "Prog_EXi@367.7~1",
+   "group": "external_modulation1",
+   "type": "display",
+   "kind": "value",
+   "label": "VCO2 PITCH value",
+   "x": 445.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "VCO2 Pitch",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 367,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "F6A0~0960",
+    "value": "-24.00~+24.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@368.7~6",
+   "param": "Prog_EXi@368.7~6",
+   "group": "external_modulation1",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMP",
+   "x": 541.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 562.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "Amp",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 368,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@368.7~6_val",
+   "param": "Prog_EXi@368.7~6",
+   "group": "external_modulation1",
+   "type": "display",
+   "kind": "value",
+   "label": "AMP value",
+   "x": 543.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation1",
+    "name": "Amp",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 368,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@370.6~1",
+   "param": "Prog_EXi@370.6~1",
+   "group": "external_modulation2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SOURCE",
+   "x": 690.7,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 370,
+    "bit": "6~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "0"
+    },
+    "data": "00~38",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@370.7",
+   "param": "Prog_EXi@370.7",
+   "group": "external_modulation2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HPF CUTOFF",
+   "x": 691.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 712.3999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "HPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 370,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "77",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@370.7_val",
+   "param": "Prog_EXi@370.7",
+   "group": "external_modulation2",
+   "type": "display",
+   "kind": "value",
+   "label": "HPF CUTOFF value",
+   "x": 693.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "HPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 370,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "77",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@372.7~2",
+   "param": "Prog_EXi@372.7~2",
+   "group": "external_modulation2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LPF CUTOFF",
+   "x": 789.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 810.3999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "LPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 372,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "78",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@372.7~2_val",
+   "param": "Prog_EXi@372.7~2",
+   "group": "external_modulation2",
+   "type": "display",
+   "kind": "value",
+   "label": "LPF CUTOFF value",
+   "x": 791.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "LPF Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 372,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "78",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@373.7~5",
+   "param": "Prog_EXi@373.7~5",
+   "group": "external_modulation2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FM MG/T.EXT",
+   "x": 887.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 908.3999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "FM MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 373,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "79",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@373.7~5_val",
+   "param": "Prog_EXi@373.7~5",
+   "group": "external_modulation2",
+   "type": "display",
+   "kind": "value",
+   "label": "FM MG/T.EXT value",
+   "x": 889.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "FM MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 373,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "79",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@375",
+   "param": "Prog_EXi@375",
+   "group": "external_modulation2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HPF MG/T.EXT",
+   "x": 985.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1006.3999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "HPF MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 375,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "80",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@375_val",
+   "param": "Prog_EXi@375",
+   "group": "external_modulation2",
+   "type": "display",
+   "kind": "value",
+   "label": "HPF MG/T.EXT value",
+   "x": 987.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "HPF MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 375,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "80",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@376.7~3",
+   "param": "Prog_EXi@376.7~3",
+   "group": "external_modulation2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LPF MG/T.EXT",
+   "x": 1083.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1104.3999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "LPF MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 376,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "81",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@376.7~3_val",
+   "param": "Prog_EXi@376.7~3",
+   "group": "external_modulation2",
+   "type": "display",
+   "kind": "value",
+   "label": "LPF MG/T.EXT value",
+   "x": 1085.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "External Modulation2",
+    "name": "LPF MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 376,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "81",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@464.2",
+   "param": "Prog_EXi@464.2",
+   "group": "patch",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TRIGGER ON",
+   "x": 1191.6,
+   "y": 333.0,
+   "w": 201.6,
+   "h": 16,
+   "text": [
+    "Gate + Sustain"
+   ],
+   "options": "Gate + Sustain~Gate",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "Patch",
+    "name": "Trigger On",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 464,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "90",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Gate + Sustain~Gate"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "MOD",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "exi:MS-20EX"
+}

@@ -1,0 +1,2677 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "SCENES · 3/3",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_P_SCENES_P3_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_P_SCENES_P3_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — SCENES · 3/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 82.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 145.2,
+   "y": 84,
+   "w": 63.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 211.9,
+   "y": 84,
+   "w": 72.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 287.7,
+   "y": 84,
+   "w": 64.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 355.5,
+   "y": 84,
+   "w": 78.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 437.3,
+   "y": 84,
+   "w": 102.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 543.2,
+   "y": 84,
+   "w": 60.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 606.4,
+   "y": 84,
+   "w": 83.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 692.9,
+   "y": 84,
+   "w": 75.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 771.5,
+   "y": 84,
+   "w": 80.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 855.0,
+   "y": 84,
+   "w": 76.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 934.2,
+   "y": 84,
+   "w": 62.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 999.4,
+   "y": 84,
+   "w": 83.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 1086.2,
+   "y": 84,
+   "w": 77.3,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1166.6,
+   "y": 84,
+   "w": 105.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1274.7,
+   "y": 84,
+   "w": 81.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@2499.0",
+   "param": "Prog_HD-1@2499.0",
+   "group": "scene_3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP SORT",
+   "x": 68.0,
+   "y": 154.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Sort",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2499,
+    "bit": "0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2499.1",
+   "param": "Prog_HD-1@2499.1",
+   "group": "scene_3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP LATCH",
+   "x": 230.5,
+   "y": 154.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Latch",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2499,
+    "bit": "1",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2499.2",
+   "param": "Prog_HD-1@2499.2",
+   "group": "scene_3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP KEYSYNC",
+   "x": 393.1,
+   "y": 154.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP KeySync",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2499,
+    "bit": "2",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2499.3",
+   "param": "Prog_HD-1@2499.3",
+   "group": "scene_3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP KEYBOARD",
+   "x": 555.6,
+   "y": 154.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Keyboard",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2499,
+    "bit": "3",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2499.4",
+   "param": "Prog_HD-1@2499.4",
+   "group": "scene_3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP RUN",
+   "x": 68.0,
+   "y": 188.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Run",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2499,
+    "bit": "4",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2499.5",
+   "param": "Prog_HD-1@2499.5",
+   "group": "scene_3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP LOOP",
+   "x": 230.5,
+   "y": 188.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Loop",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2499,
+    "bit": "5",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2508",
+   "param": "Prog_HD-1@2508",
+   "group": "scene_3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ARP OUTPUT CHANNEL",
+   "x": 393.1,
+   "y": 187.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Output Channel",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2508,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2509",
+   "param": "Prog_HD-1@2509",
+   "group": "scene_3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ARP INPUT CHANNEL",
+   "x": 555.6,
+   "y": 187.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Input Channel",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2509,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2512.1",
+   "param": "Prog_HD-1@2512.1",
+   "group": "scene_3_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "DRUM RUN",
+   "x": 68.0,
+   "y": 222.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Run",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2512,
+    "bit": "1",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2512.3~2",
+   "param": "Prog_HD-1@2512.3~2",
+   "group": "scene_3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "STEP SEQ. SELECT",
+   "x": 230.5,
+   "y": 221.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "A"
+   ],
+   "options": "A~D",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Step Seq. Select",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2512,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "A~D"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2518.3~0",
+   "param": "Prog_HD-1@2518.3~0",
+   "group": "scene_3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM TRK PATTERN BANK",
+   "x": 393.1,
+   "y": 221.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "Preset"
+   ],
+   "options": "Preset~User",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Pattern Bank",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2518,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Preset~User"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2518.4",
+   "param": "Prog_HD-1@2518.4",
+   "group": "scene_3_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM TRK TRIGGER SYNC MODE",
+   "x": 555.6,
+   "y": 221.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Sequence",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Trigger Sync Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2518,
+    "bit": "4",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~Sequence"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2496",
+   "param": "Prog_HD-1@2496",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP PATTERN NUMBER",
+   "x": 742.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 763.1983019103114,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~2180",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2496,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2496_val",
+   "param": "Prog_HD-1@2496",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP PATTERN NUMBER value",
+   "x": 744.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2496,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2498.1~0",
+   "param": "Prog_HD-1@2498.1~0",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP OCTAVE",
+   "x": 813.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 834.2873794758324,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Octave",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2498,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2498.1~0_val",
+   "param": "Prog_HD-1@2498.1~0",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP OCTAVE value",
+   "x": 815.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Octave",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2498,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2498.4~2",
+   "param": "Prog_HD-1@2498.4~2",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP RESOLUTION",
+   "x": 884.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 905.3764570413533,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1/48~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2498,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2498.4~2_val",
+   "param": "Prog_HD-1@2498.4~2",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP RESOLUTION value",
+   "x": 886.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/48"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2498,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2500",
+   "param": "Prog_HD-1@2500",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP GATE",
+   "x": 955.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 976.4655346068744,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Gate",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2500,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2500_val",
+   "param": "Prog_HD-1@2500",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP GATE value",
+   "x": 957.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Gate",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2500,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2501",
+   "param": "Prog_HD-1@2501",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP VELOCITY",
+   "x": 1026.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1047.5546121723953,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~Step",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Velocity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2501,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~81",
+    "value": "1~Step"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2501_val",
+   "param": "Prog_HD-1@2501",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP VELOCITY value",
+   "x": 1028.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Velocity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2501,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~81",
+    "value": "1~Step"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2502",
+   "param": "Prog_HD-1@2502",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP SWING",
+   "x": 1097.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1118.6436897379162,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Swing",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2502,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2502_val",
+   "param": "Prog_HD-1@2502",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP SWING value",
+   "x": 1099.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "ARP Swing",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2502,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2512.0",
+   "param": "Prog_HD-1@2512.0",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM SELECT",
+   "x": 1168.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1189.7327673034372,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Select",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2512,
+    "bit": "0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2512.0_val",
+   "param": "Prog_HD-1@2512.0",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM SELECT value",
+   "x": 1170.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Select",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2512,
+    "bit": "0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2516",
+   "param": "Prog_HD-1@2516",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRK PATTERN NO.",
+   "x": 1239.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1260.8218448689581,
+   "cy": 204.0,
+   "r": 12,
+   "range": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2516,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~07CF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2516_val",
+   "param": "Prog_HD-1@2516",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRK PATTERN NO. value",
+   "x": 1241.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2516,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~07CF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2518.7~5",
+   "param": "Prog_HD-1@2518.7~5",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRK SWING RESO",
+   "x": 1310.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1331.910922434479,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1/48~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Swing Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2518,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2518.7~5_val",
+   "param": "Prog_HD-1@2518.7~5",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRK SWING RESO value",
+   "x": 1312.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/48"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Swing Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2518,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2519",
+   "param": "Prog_HD-1@2519",
+   "group": "scene_3_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRACK SHIFT",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-24~+24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Shift",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2519,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2519_val",
+   "param": "Prog_HD-1@2519",
+   "group": "scene_3_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRACK SHIFT value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 3",
+    "name": "Drum Track Shift",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2519,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "2",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2527.0",
+   "param": "Prog_HD-1@2527.0",
+   "group": "scene_4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP SORT",
+   "x": 68.0,
+   "y": 300.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Sort",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2527,
+    "bit": "0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2527.1",
+   "param": "Prog_HD-1@2527.1",
+   "group": "scene_4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP LATCH",
+   "x": 230.5,
+   "y": 300.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Latch",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2527,
+    "bit": "1",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2527.2",
+   "param": "Prog_HD-1@2527.2",
+   "group": "scene_4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP KEYSYNC",
+   "x": 393.1,
+   "y": 300.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP KeySync",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2527,
+    "bit": "2",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2527.3",
+   "param": "Prog_HD-1@2527.3",
+   "group": "scene_4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP KEYBOARD",
+   "x": 555.6,
+   "y": 300.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Keyboard",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2527,
+    "bit": "3",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2527.4",
+   "param": "Prog_HD-1@2527.4",
+   "group": "scene_4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP RUN",
+   "x": 68.0,
+   "y": 334.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Run",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2527,
+    "bit": "4",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2527.5",
+   "param": "Prog_HD-1@2527.5",
+   "group": "scene_4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ARP LOOP",
+   "x": 230.5,
+   "y": 334.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Loop",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2527,
+    "bit": "5",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2536",
+   "param": "Prog_HD-1@2536",
+   "group": "scene_4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ARP OUTPUT CHANNEL",
+   "x": 393.1,
+   "y": 333.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Output Channel",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2536,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2537",
+   "param": "Prog_HD-1@2537",
+   "group": "scene_4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ARP INPUT CHANNEL",
+   "x": 555.6,
+   "y": 333.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "options": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Input Channel",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2537,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2540.1",
+   "param": "Prog_HD-1@2540.1",
+   "group": "scene_4_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "DRUM RUN",
+   "x": 68.0,
+   "y": 368.0,
+   "w": 154.5,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Run",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2540,
+    "bit": "1",
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2540.3~2",
+   "param": "Prog_HD-1@2540.3~2",
+   "group": "scene_4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "STEP SEQ. SELECT",
+   "x": 230.5,
+   "y": 367.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "A"
+   ],
+   "options": "A~D",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Step Seq. Select",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2540,
+    "bit": "3~2",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "A~D"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2546.3~0",
+   "param": "Prog_HD-1@2546.3~0",
+   "group": "scene_4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM TRK PATTERN BANK",
+   "x": 393.1,
+   "y": 367.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "Preset"
+   ],
+   "options": "Preset~User",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Pattern Bank",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2546,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Preset~User"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2546.4",
+   "param": "Prog_HD-1@2546.4",
+   "group": "scene_4_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DRUM TRK TRIGGER SYNC MODE",
+   "x": 555.6,
+   "y": 367.0,
+   "w": 154.5,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Sequence",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Trigger Sync Mode",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2546,
+    "bit": "4",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~Sequence"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2524",
+   "param": "Prog_HD-1@2524",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP PATTERN NUMBER",
+   "x": 742.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 763.1983019103114,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~2180",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2524,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2524_val",
+   "param": "Prog_HD-1@2524",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP PATTERN NUMBER value",
+   "x": 744.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2524,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "0000~0884",
+    "value": "0~2180"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2526.1~0",
+   "param": "Prog_HD-1@2526.1~0",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP OCTAVE",
+   "x": 813.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 834.2873794758324,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Octave",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2526,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2526.1~0_val",
+   "param": "Prog_HD-1@2526.1~0",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP OCTAVE value",
+   "x": 815.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Octave",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2526,
+    "bit": "1~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "1~4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2526.4~2",
+   "param": "Prog_HD-1@2526.4~2",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP RESOLUTION",
+   "x": 884.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 905.3764570413533,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/48~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2526,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2526.4~2_val",
+   "param": "Prog_HD-1@2526.4~2",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP RESOLUTION value",
+   "x": 886.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/48"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2526,
+    "bit": "4~2",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2528",
+   "param": "Prog_HD-1@2528",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP GATE",
+   "x": 955.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 976.4655346068744,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Gate",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2528,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2528_val",
+   "param": "Prog_HD-1@2528",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP GATE value",
+   "x": 957.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Gate",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2528,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2529",
+   "param": "Prog_HD-1@2529",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP VELOCITY",
+   "x": 1026.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1047.5546121723953,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~Step",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Velocity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2529,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~81",
+    "value": "1~Step"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2529_val",
+   "param": "Prog_HD-1@2529",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP VELOCITY value",
+   "x": 1028.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Velocity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2529,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "01~81",
+    "value": "1~Step"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2530",
+   "param": "Prog_HD-1@2530",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ARP SWING",
+   "x": 1097.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1118.6436897379162,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Swing",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2530,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2530_val",
+   "param": "Prog_HD-1@2530",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ARP SWING value",
+   "x": 1099.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "ARP Swing",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2530,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2540.0",
+   "param": "Prog_HD-1@2540.0",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM SELECT",
+   "x": 1168.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1189.7327673034372,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Select",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2540,
+    "bit": "0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2540.0_val",
+   "param": "Prog_HD-1@2540.0",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM SELECT value",
+   "x": 1170.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Select",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2540,
+    "bit": "0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "0~1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2544",
+   "param": "Prog_HD-1@2544",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRK PATTERN NO.",
+   "x": 1239.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1260.8218448689581,
+   "cy": 350.0,
+   "r": 12,
+   "range": "",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2544,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~07CF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2544_val",
+   "param": "Prog_HD-1@2544",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRK PATTERN NO. value",
+   "x": 1241.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Pattern Number",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2544,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~07CF",
+    "value": ""
+   }
+  },
+  {
+   "id": "Prog_HD-1@2546.7~5",
+   "param": "Prog_HD-1@2546.7~5",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRK SWING RESO",
+   "x": 1310.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1331.910922434479,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/48~1/4",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Swing Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2546,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2546.7~5_val",
+   "param": "Prog_HD-1@2546.7~5",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRK SWING RESO value",
+   "x": 1312.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/48"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Swing Resolution",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2546,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~07",
+    "value": "1/48~1/4"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2547",
+   "param": "Prog_HD-1@2547",
+   "group": "scene_4_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DRUM TRACK SHIFT",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-24~+24",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Shift",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2547,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2547_val",
+   "param": "Prog_HD-1@2547",
+   "group": "scene_4_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DRUM TRACK SHIFT value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Scene 4",
+    "name": "Drum Track Shift",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2547,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "E8~18",
+    "value": "-24~+24"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "SCENES",
+ "page_number": 3,
+ "pages_in_area": 3,
+ "apply": "all"
+}

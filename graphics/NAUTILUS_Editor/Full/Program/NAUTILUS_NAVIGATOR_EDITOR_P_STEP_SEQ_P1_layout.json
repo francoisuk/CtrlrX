@@ -1,0 +1,2611 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "STEP SEQ · 1/2",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_P_STEP_SEQ_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_P_STEP_SEQ_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — STEP SEQ · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 83.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 146.8,
+   "y": 84,
+   "w": 65.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 215.1,
+   "y": 84,
+   "w": 74.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 292.3,
+   "y": 84,
+   "w": 66.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 361.8,
+   "y": 84,
+   "w": 80.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 445.1,
+   "y": 84,
+   "w": 104.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 552.6,
+   "y": 84,
+   "w": 61.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 617.3,
+   "y": 84,
+   "w": 85.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 705.4,
+   "y": 84,
+   "w": 77.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 785.6,
+   "y": 84,
+   "w": 82.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 870.6,
+   "y": 84,
+   "w": 77.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_x_y",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "X-Y",
+   "x": 951.4,
+   "y": 84,
+   "w": 63.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 1018.1,
+   "y": 84,
+   "w": 85.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_scenes",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "SCENES",
+   "x": 1106.6,
+   "y": 84,
+   "w": 78.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_arp_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ARP / STEP SEQ",
+   "x": 1188.5,
+   "y": 84,
+   "w": 106.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1298.2,
+   "y": 84,
+   "w": 82.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi_Common@2742.7",
+   "param": "Prog_EXi_Common@2742.7",
+   "group": "common_step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 393.8,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Loop"
+   ],
+   "options": "Loop~One Shot",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2742,
+    "bit": "7",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Loop~One Shot"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2744",
+   "param": "Prog_EXi_Common@2744",
+   "group": "common_step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "START STEP MOD SRC",
+   "x": 566.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Gate2 + Damper",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Start Step Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2744,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Gate2 + Damper"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2747",
+   "param": "Prog_EXi_Common@2747",
+   "group": "common_step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 710.7,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Gate2 + Damper",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2747,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Gate2 + Damper"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2749",
+   "param": "Prog_EXi_Common@2749",
+   "group": "common_step_sequence_1_3",
+   "type": "menu",
+   "kind": "combo",
+   "label": "VALUE INPUT",
+   "x": 848.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Gate2 + Damper",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Value Input",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2749,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Gate2 + Damper"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2742.5~0",
+   "param": "Prog_EXi_Common@2742.5~0",
+   "group": "common_step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "END STEP",
+   "x": 488.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 509.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "End Step",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2742,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2742.5~0_val",
+   "param": "Prog_EXi_Common@2742.5~0",
+   "group": "common_step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "END STEP value",
+   "x": 490.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "End Step",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2742,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2743",
+   "param": "Prog_EXi_Common@2743",
+   "group": "common_step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START STEP",
+   "x": 584.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 605.4,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Start Step",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2743,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2743_val",
+   "param": "Prog_EXi_Common@2743",
+   "group": "common_step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "START STEP value",
+   "x": 586.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Start Step",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2743,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2745",
+   "param": "Prog_EXi_Common@2745",
+   "group": "common_step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START STEP MOD.INT",
+   "x": 680.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 701.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-32~+32",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Start Step Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2745,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "E0~20",
+    "value": "-32~+32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2745_val",
+   "param": "Prog_EXi_Common@2745",
+   "group": "common_step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "START STEP MOD.INT value",
+   "x": 682.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Start Step Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2745,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "E0~20",
+    "value": "-32~+32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2746",
+   "param": "Prog_EXi_Common@2746",
+   "group": "common_step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK",
+   "x": 777.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 798.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2746,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2746_val",
+   "param": "Prog_EXi_Common@2746",
+   "group": "common_step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK value",
+   "x": 779.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2746,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2748",
+   "param": "Prog_EXi_Common@2748",
+   "group": "common_step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESET THRESHOLD",
+   "x": 873.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 894.6,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2748,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2748_val",
+   "param": "Prog_EXi_Common@2748",
+   "group": "common_step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "RESET THRESHOLD value",
+   "x": 875.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2748,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2846",
+   "param": "Prog_EXi_Common@2846",
+   "group": "common_step_sequence_1_3",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 970.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 991.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2846,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2846_val",
+   "param": "Prog_EXi_Common@2846",
+   "group": "common_step_sequence_1_3",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 972.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2846,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2750",
+   "param": "Prog_EXi_Common@2750",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2750",
+   "x": 210.0,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value1",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2750,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2753",
+   "param": "Prog_EXi_Common@2753",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2753",
+   "x": 286.1,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value2",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2753,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "1"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2756",
+   "param": "Prog_EXi_Common@2756",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2756",
+   "x": 362.2,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value3",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2756,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "2"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2759",
+   "param": "Prog_EXi_Common@2759",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2759",
+   "x": 438.4,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value4",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2759,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "3"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2762",
+   "param": "Prog_EXi_Common@2762",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2762",
+   "x": 514.5,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value5",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2762,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "4"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2765",
+   "param": "Prog_EXi_Common@2765",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2765",
+   "x": 590.6,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value6",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2765,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "5"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2768",
+   "param": "Prog_EXi_Common@2768",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2768",
+   "x": 666.8,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value7",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2768,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "6"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2771",
+   "param": "Prog_EXi_Common@2771",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2771",
+   "x": 742.9,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value8",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2771,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "7"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2774",
+   "param": "Prog_EXi_Common@2774",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2774",
+   "x": 819.0,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value9",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2774,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "8"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2777",
+   "param": "Prog_EXi_Common@2777",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2777",
+   "x": 895.1,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value10",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2777,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "9"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2780",
+   "param": "Prog_EXi_Common@2780",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2780",
+   "x": 971.2,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value11",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2780,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "10"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2783",
+   "param": "Prog_EXi_Common@2783",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2783",
+   "x": 1047.4,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value12",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2783,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "11"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2786",
+   "param": "Prog_EXi_Common@2786",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2786",
+   "x": 1123.5,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value13",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2786,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "12"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2789",
+   "param": "Prog_EXi_Common@2789",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2789",
+   "x": 1199.6,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value14",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2789,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "13"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2792",
+   "param": "Prog_EXi_Common@2792",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2792",
+   "x": 1275.8,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value15",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2792,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "14"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2795",
+   "param": "Prog_EXi_Common@2795",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2795",
+   "x": 1351.9,
+   "y": 296,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "-100"
+   ],
+   "range": "-100~AMS S/H",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Value16",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2795,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "15"
+    },
+    "data": "9C~67",
+    "value": "-100~AMS S/H"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2751",
+   "param": "Prog_EXi_Common@2751",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2751",
+   "x": 210.0,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration1",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2751,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2754",
+   "param": "Prog_EXi_Common@2754",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2754",
+   "x": 286.1,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration2",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2754,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "1"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2757",
+   "param": "Prog_EXi_Common@2757",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2757",
+   "x": 362.2,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration3",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2757,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "2"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2760",
+   "param": "Prog_EXi_Common@2760",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2760",
+   "x": 438.4,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration4",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2760,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "3"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2763",
+   "param": "Prog_EXi_Common@2763",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2763",
+   "x": 514.5,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration5",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2763,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "4"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2766",
+   "param": "Prog_EXi_Common@2766",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2766",
+   "x": 590.6,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration6",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2766,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "5"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2769",
+   "param": "Prog_EXi_Common@2769",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2769",
+   "x": 666.8,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration7",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2769,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "6"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2772",
+   "param": "Prog_EXi_Common@2772",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2772",
+   "x": 742.9,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration8",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2772,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "7"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2775",
+   "param": "Prog_EXi_Common@2775",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2775",
+   "x": 819.0,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration9",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2775,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "8"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2778",
+   "param": "Prog_EXi_Common@2778",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2778",
+   "x": 895.1,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration10",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2778,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "9"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2781",
+   "param": "Prog_EXi_Common@2781",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2781",
+   "x": 971.2,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration11",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2781,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "10"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2784",
+   "param": "Prog_EXi_Common@2784",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2784",
+   "x": 1047.4,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration12",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2784,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "11"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2787",
+   "param": "Prog_EXi_Common@2787",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2787",
+   "x": 1123.5,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration13",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2787,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "12"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2790",
+   "param": "Prog_EXi_Common@2790",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2790",
+   "x": 1199.6,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration14",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2790,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "13"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2793",
+   "param": "Prog_EXi_Common@2793",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2793",
+   "x": 1275.8,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration15",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2793,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "14"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2796",
+   "param": "Prog_EXi_Common@2796",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2796",
+   "x": 1351.9,
+   "y": 317,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1/32"
+   ],
+   "range": "1/32~1/1",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Duration16",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2796,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "15"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2752",
+   "param": "Prog_EXi_Common@2752",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2752",
+   "x": 210.0,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times1",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2752,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2755",
+   "param": "Prog_EXi_Common@2755",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2755",
+   "x": 286.1,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times2",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2755,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "1"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2758",
+   "param": "Prog_EXi_Common@2758",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2758",
+   "x": 362.2,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times3",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2758,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "2"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2761",
+   "param": "Prog_EXi_Common@2761",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2761",
+   "x": 438.4,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times4",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2761,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "3"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2764",
+   "param": "Prog_EXi_Common@2764",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2764",
+   "x": 514.5,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times5",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2764,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "4"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2767",
+   "param": "Prog_EXi_Common@2767",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2767",
+   "x": 590.6,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times6",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2767,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "5"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2770",
+   "param": "Prog_EXi_Common@2770",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2770",
+   "x": 666.8,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times7",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2770,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "6"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2773",
+   "param": "Prog_EXi_Common@2773",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2773",
+   "x": 742.9,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times8",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2773,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "7"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2776",
+   "param": "Prog_EXi_Common@2776",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2776",
+   "x": 819.0,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times9",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2776,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "8"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2779",
+   "param": "Prog_EXi_Common@2779",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2779",
+   "x": 895.1,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times10",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2779,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "9"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2782",
+   "param": "Prog_EXi_Common@2782",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2782",
+   "x": 971.2,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times11",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2782,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "10"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2785",
+   "param": "Prog_EXi_Common@2785",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2785",
+   "x": 1047.4,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times12",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2785,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "11"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2788",
+   "param": "Prog_EXi_Common@2788",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2788",
+   "x": 1123.5,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times13",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2788,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "12"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2791",
+   "param": "Prog_EXi_Common@2791",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2791",
+   "x": 1199.6,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times14",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2791,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "13"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2794",
+   "param": "Prog_EXi_Common@2794",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2794",
+   "x": 1275.8,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times15",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2794,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "14"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2797",
+   "param": "Prog_EXi_Common@2797",
+   "group": "common_step_sequence_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2797",
+   "x": 1351.9,
+   "y": 338,
+   "w": 72.1,
+   "h": 16,
+   "text": [
+    "1"
+   ],
+   "range": "1~32",
+   "midi": null,
+   "korg": {
+    "group": "Common Step Sequence",
+    "name": "Step Times16",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2797,
+    "sysex": {
+     "TYP": "3",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "15"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "STEP SEQ",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "exi"
+}

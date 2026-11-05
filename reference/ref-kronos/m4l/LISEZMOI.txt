@@ -1,0 +1,53 @@
+Kronos Kontrol — device Max for Live pour le Korg KRONOS
+« Le grand livre du KRONOS » — produit inclus : Ableton Live (16 octobre 2026)
+
+CONTENU
+  Kronos Kontrol OS3.2.3_FR.amxd   LE DEVICE (pour KRONOS OS 3.2.3), interface = le rack « Kronos Kontrol »
+  Kronos Kontrol OS3.2.3_EN.amxd   (façade 19" 3U, voir panneau_rack\). Le bouton de la bande du device
+  Kronos Kontrol OS3.2.3_ES.amxd   ouvre le rack complet dans une fenêtre (1500 x 414 px). Les trois fichiers
+                                   sont identiques sauf ce bouton : OUVRIR LE RACK / OPEN RACK / ABRIR EL RACK.
+  Kronos Kontrol v3.2.3.amxd       ancienne version (interface d'origine), testée et fonctionnelle, gardée en secours.
+  Manuels\                         modes d'emploi Word : Kronos Kontrol - Guide FR / EN / ES (.docx).
+  panneau_rack\               maquette du rack (SVG/PNG/JPG) et ses scripts.
+  sources\                    scripts qui reconstruisent les trois .amxd : python build.py (non nécessaires pour l'utiliser).
+
+INSTALLATION
+  1. Copiez le fichier .amxd de votre langue dans votre User Library :
+     …\User Library\Presets\MIDI Effects\Max MIDI Effect\
+  2. Dans Live : Préférences › Tempo & MIDI › Ports de sortie : cochez « Track » pour le KRONOS
+     (KRONOS 1 SOUND sous Windows).
+  3. Le moteur audio de Live doit tourner (Préférences › Audio : une carte son choisie),
+     sinon le device n'envoie rien.
+  4. Créez une piste MIDI, « MIDI To » = KRONOS, et glissez le device dessus.
+
+TOUT PASSE PAR LA PISTE (Live 11.1 ou plus récent ; Live 12 Suite)
+  Banque (CC0/CC32, table Bank Map KORG) + changement de programme, CC des encodeurs, KARMA en CC,
+  X-Y (CC118/119), SW1/SW2, et en SysEx : mode Combi/Program, choix du GE, interrupteurs FX, Drum Track.
+  Avec Live 12, aucun patch .maxpat externe n'est nécessaire.
+
+À RÉGLER SUR LE KRONOS
+  Les CC de KARMA sont désactivés d'usine. GLOBAL › P2 Controllers/Scales › menu de page ›
+  Reset Controller MIDI Assign › To: CC Default, puis Write Global Setting. Le KRONOS doit être réglé sur la
+  Bank Map KORG (GLOBAL › P0 Basic Setup › Bank Map). Le SysEx doit être autorisé (GLOBAL › P1 MIDI ›
+  Enable Exclusive) et le canal MIDI global réglé sur 1.
+
+LE RACK
+  Gauche   16 encodeurs : Filter Freq (CC74), Filter Reso (71), Filter EG (79), EG Release (72),
+           Knob Mod 1–4 (17, 19, 20, 21) ; LFO1 Speed (76), LFO1 Depth (77), Ribbon (16), Port Time (5),
+           ENV A/D/S/R (73, 75, 70, 72).
+  Centre   PROGRAM (numéro, nom, ▲ ▼), COMBI / PROG, SW1 / SW2, BANK SELECT I-A…I-G / U-A…U-G
+           (U-A/AA allumé : U-AA…U-GG), menu GM, FX SWITCHES IFX1–12, MFX1–2, TFX1–2, pavé X-Y + HOLD.
+  Droite   KARMA : switches 1–8, GE SELECT, ON/OFF, LATCH, MODULE CTRL, ▲ ▼, DRUM TRACK ON/OFF,
+           voyants MODULE, SCENES 1–8, KARMA SLIDERS 1–8 (CC22–29).
+  Encodeurs du bas 1–8, fonction choisie par MIXER (volume) ou PAN (panoramique) :
+           mode Combi   : timbres 1–8 (volume ou pan) ;
+           mode Program : volume : 1 = OSC1, 2 = OSC2, 3 = Drum Track, 8 = Master Volume ;
+                          pan : 1 = OSC1, 2 = OSC2 (les autres encodeurs sans effet).
+  MUTE (Drum Track, mode Program) : coupe la Drum Track (paramètre Drum Track Mute).
+  Tout passe en SysEx « Parameter Change » (fonction 43) d'après le MIDI Implementation du KRONOS.
+
+ÉTAT DES TESTS
+  v3.2.3 : testée par l'auteur sur le KRONOS (OS 3.2, PRELOAD d'usine), elle fonctionne.
+  OS3.2.3_FR/EN/ES : FONCTIONNELLE — testée dans Live 12 avec le KRONOS (16 oct.) : mode Program/Combi, banques et
+           programmes, IFX (On/Off corrects), MIXER (volume des timbres en Combi ; OSC1, Drum Track en Program),
+           PAN (timbres en Combi), MUTE de la Drum Track. Non vérifié : KARMA (CC à activer sur le KRONOS).

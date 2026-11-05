@@ -1,0 +1,129 @@
+{
+ "object": "Program · PolysixEX",
+ "areas": [
+  {
+   "label": "OSC",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:PolysixEX",
+   "link": null
+  },
+  {
+   "label": "FILTER",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:PolysixEX",
+   "link": null
+  },
+  {
+   "label": "AMP·MIX",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:PolysixEX",
+   "link": null
+  },
+  {
+   "label": "EG",
+   "pages": 3,
+   "index": null,
+   "instances": [],
+   "apply": "exi:PolysixEX",
+   "link": null
+  },
+  {
+   "label": "LFO",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:PolysixEX",
+   "link": null
+  },
+  {
+   "label": "MOD",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi:PolysixEX",
+   "link": null
+  },
+  {
+   "label": "FX",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "exi:PolysixEX",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_OSC_P1",
+   "area": "OSC",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_FILTER_P1",
+   "area": "FILTER",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_AMP_MIX_P1",
+   "area": "AMP·MIX",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_EG_P1",
+   "area": "EG",
+   "n": 1,
+   "of": 3
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_EG_P2",
+   "area": "EG",
+   "n": 2,
+   "of": 3
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_EG_P3",
+   "area": "EG",
+   "n": 3,
+   "of": 3
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_LFO_P1",
+   "area": "LFO",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_LFO_P2",
+   "area": "LFO",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_MOD_P1",
+   "area": "MOD",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_MOD_P2",
+   "area": "MOD",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "KRONOS_KONTROL_EDITOR_E_POLYSIXEX_FX_P1",
+   "area": "FX",
+   "n": 1,
+   "of": 1
+  }
+ ]
+}

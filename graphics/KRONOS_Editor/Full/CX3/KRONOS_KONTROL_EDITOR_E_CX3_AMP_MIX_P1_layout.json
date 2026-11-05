@@ -1,0 +1,1910 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AMP·MIX · 1/2",
+ "tab_index": 0,
+ "object": "Program · CX-3",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_CX3_AMP_MIX_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_CX3_AMP_MIX_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · CX-3 — AMP·MIX · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 449.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 521.7,
+   "y": 84,
+   "w": 419.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 943.9,
+   "y": 84,
+   "w": 437.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@19.2",
+   "param": "Prog_EXi@19.2",
+   "group": "vibrato_chorus_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "UPPER ENABLE",
+   "x": 68.0,
+   "y": 154.0,
+   "w": 147.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Upper Enable",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 19,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@19.7~3",
+   "param": "Prog_EXi@19.7~3",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "UPPER ENABLE MOD.SOURCE",
+   "x": 223.8,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Upper Enable Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 19,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@20.3",
+   "param": "Prog_EXi@20.3",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "UPPER ENABLE MODE",
+   "x": 379.6,
+   "y": 153.0,
+   "w": 65.8,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Upper Enable Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 20,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@20.4",
+   "param": "Prog_EXi@20.4",
+   "group": "vibrato_chorus_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "LOWER ENABLE",
+   "x": 535.5,
+   "y": 154.0,
+   "w": 147.8,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Lower Enable",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 20,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@20.7~5",
+   "param": "Prog_EXi@20.7~5",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOWER ENABLE MOD.SOURCE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Lower Enable Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 20,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@21.5",
+   "param": "Prog_EXi@21.5",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOWER ENABLE MODE",
+   "x": 223.8,
+   "y": 187.0,
+   "w": 65.8,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Lower Enable Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 21,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@22.5",
+   "param": "Prog_EXi@22.5",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 379.6,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Preset"
+   ],
+   "options": "Preset~Custom",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 22,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Preset~Custom"
+   }
+  },
+  {
+   "id": "Prog_EXi@23.7~1",
+   "param": "Prog_EXi@23.7~1",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE MOD.SOURCE",
+   "x": 535.5,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Type Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 23,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "43",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@25.7~4",
+   "param": "Prog_EXi@25.7~4",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MIX MOD.SOURCE",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Mix Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 25,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "46",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@28.7~3",
+   "param": "Prog_EXi@28.7~3",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEPTH MOD.SOURCE",
+   "x": 223.8,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Depth Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 28,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "49",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@31.7~3",
+   "param": "Prog_EXi@31.7~3",
+   "group": "vibrato_chorus_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED MOD.SOURCE",
+   "x": 379.6,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Speed Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 31,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "52",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@21.7~6",
+   "param": "Prog_EXi@21.7~6",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRIM",
+   "x": 715.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 736.2727272727273,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 21,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@21.7~6_val",
+   "param": "Prog_EXi@21.7~6",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TRIM value",
+   "x": 717.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Trim",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 21,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@22.7~6",
+   "param": "Prog_EXi@22.7~6",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TYPE",
+   "x": 798.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 819.6136363636364,
+   "cy": 204.0,
+   "r": 12,
+   "range": "V1~C3",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Type",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 22,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~05",
+    "value": "V1~C3"
+   }
+  },
+  {
+   "id": "Prog_EXi@22.7~6_val",
+   "param": "Prog_EXi@22.7~6",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TYPE value",
+   "x": 800.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "V1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Type",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 22,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "42",
+     "IDX": "0"
+    },
+    "data": "00~05",
+    "value": "V1~C3"
+   }
+  },
+  {
+   "id": "Prog_EXi@24.4~1",
+   "param": "Prog_EXi@24.4~1",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TYPE MOD.INTENSITY",
+   "x": 882.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 902.9545454545455,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-5~+5",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Type Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 24,
+    "bit": "4~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "FB~05",
+    "value": "-5~+5"
+   }
+  },
+  {
+   "id": "Prog_EXi@24.4~1_val",
+   "param": "Prog_EXi@24.4~1",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TYPE MOD.INTENSITY value",
+   "x": 884.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Type Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 24,
+    "bit": "4~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "44",
+     "IDX": "0"
+    },
+    "data": "FB~05",
+    "value": "-5~+5"
+   }
+  },
+  {
+   "id": "Prog_EXi@24.7~5",
+   "param": "Prog_EXi@24.7~5",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIX",
+   "x": 965.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 986.2954545454545,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Mix",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 24,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@24.7~5_val",
+   "param": "Prog_EXi@24.7~5",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIX value",
+   "x": 967.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Mix",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 24,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "45",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@26.7~4",
+   "param": "Prog_EXi@26.7~4",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIX MOD.INTENSITY",
+   "x": 1048.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1069.6363636363635,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Mix Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 26,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@26.7~4_val",
+   "param": "Prog_EXi@26.7~4",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIX MOD.INTENSITY value",
+   "x": 1050.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Mix Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 26,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "47",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@27.7~4",
+   "param": "Prog_EXi@27.7~4",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DEPTH",
+   "x": 1132.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1152.9772727272727,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Depth",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 27,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@27.7~4_val",
+   "param": "Prog_EXi@27.7~4",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DEPTH value",
+   "x": 1134.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Depth",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 27,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "48",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@29.7~3",
+   "param": "Prog_EXi@29.7~3",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DEPTH MOD.INTENSITY",
+   "x": 1215.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1236.3181818181818,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Depth Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 29,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@29.7~3_val",
+   "param": "Prog_EXi@29.7~3",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DEPTH MOD.INTENSITY value",
+   "x": 1217.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Depth Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 29,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "50",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@30.7~3",
+   "param": "Prog_EXi@30.7~3",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED",
+   "x": 1298.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1319.659090909091,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~230",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 30,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "01~E6",
+    "value": "1~230"
+   }
+  },
+  {
+   "id": "Prog_EXi@30.7~3_val",
+   "param": "Prog_EXi@30.7~3",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED value",
+   "x": 1300.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 30,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "51",
+     "IDX": "0"
+    },
+    "data": "01~E6",
+    "value": "1~230"
+   }
+  },
+  {
+   "id": "Prog_EXi@32.7~3",
+   "param": "Prog_EXi@32.7~3",
+   "group": "vibrato_chorus_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED MOD.INTENSITY",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-115~+115",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Speed Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 32,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "8D~73",
+    "value": "-115~+115"
+   }
+  },
+  {
+   "id": "Prog_EXi@32.7~3_val",
+   "param": "Prog_EXi@32.7~3",
+   "group": "vibrato_chorus_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED MOD.INTENSITY value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Vibrato/Chorus",
+    "name": "Speed Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 32,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "53",
+     "IDX": "0"
+    },
+    "data": "8D~73",
+    "value": "-115~+115"
+   }
+  },
+  {
+   "id": "Prog_EXi@36.2~1",
+   "param": "Prog_EXi@36.2~1",
+   "group": "amplifier",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AMP TYPE",
+   "x": 441.3,
+   "y": 284,
+   "w": 54.5,
+   "h": 16,
+   "text": [
+    "Type1"
+   ],
+   "options": "Type1~Pre Amp",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Amp Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 36,
+    "bit": "2~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "58",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Type1~Pre Amp"
+   }
+  },
+  {
+   "id": "Prog_EXi@37.7~2",
+   "param": "Prog_EXi@37.7~2",
+   "group": "amplifier",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AMP GAIN MOD SRC",
+   "x": 589.4,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Amp Gain Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 37,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "60",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@42",
+   "param": "Prog_EXi@42",
+   "group": "amplifier",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OUT LVL MOD SRC",
+   "x": 725.5,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Output Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 42,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@36.7~3",
+   "param": "Prog_EXi@36.7~3",
+   "group": "amplifier",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMP GAIN",
+   "x": 443.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 464.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Amp Gain",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 36,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@36.7~3_val",
+   "param": "Prog_EXi@36.7~3",
+   "group": "amplifier",
+   "type": "display",
+   "kind": "value",
+   "label": "AMP GAIN value",
+   "x": 445.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Amp Gain",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 36,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "59",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_EXi@38.7~2",
+   "param": "Prog_EXi@38.7~2",
+   "group": "amplifier",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMP GAIN MOD.INTENSITY",
+   "x": 538.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 559.3333333333334,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Amp Gain Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 38,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@38.7~2_val",
+   "param": "Prog_EXi@38.7~2",
+   "group": "amplifier",
+   "type": "display",
+   "kind": "value",
+   "label": "AMP GAIN MOD.INTENSITY value",
+   "x": 540.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Amp Gain Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 38,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "61",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_EXi@39.6~2",
+   "param": "Prog_EXi@39.6~2",
+   "group": "amplifier",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EQ TREBLE",
+   "x": 633.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 654.6666666666667,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10~+10",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "EQ Treble",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 39,
+    "bit": "6~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "F6~0A",
+    "value": "-10~+10"
+   }
+  },
+  {
+   "id": "Prog_EXi@39.6~2_val",
+   "param": "Prog_EXi@39.6~2",
+   "group": "amplifier",
+   "type": "display",
+   "kind": "value",
+   "label": "EQ TREBLE value",
+   "x": 635.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "EQ Treble",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 39,
+    "bit": "6~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "62",
+     "IDX": "0"
+    },
+    "data": "F6~0A",
+    "value": "-10~+10"
+   }
+  },
+  {
+   "id": "Prog_EXi@39.7",
+   "param": "Prog_EXi@39.7",
+   "group": "amplifier",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EQ MIDDLE",
+   "x": 729.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 750.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10~+10",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "EQ Middle",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 39,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "F6~0A",
+    "value": "-10~+10"
+   }
+  },
+  {
+   "id": "Prog_EXi@39.7_val",
+   "param": "Prog_EXi@39.7",
+   "group": "amplifier",
+   "type": "display",
+   "kind": "value",
+   "label": "EQ MIDDLE value",
+   "x": 731.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "EQ Middle",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 39,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "63",
+     "IDX": "0"
+    },
+    "data": "F6~0A",
+    "value": "-10~+10"
+   }
+  },
+  {
+   "id": "Prog_EXi@40.7~4",
+   "param": "Prog_EXi@40.7~4",
+   "group": "amplifier",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EQ BASS",
+   "x": 824.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 845.3333333333334,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10~+10",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "EQ Bass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 40,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "F6~0A",
+    "value": "-10~+10"
+   }
+  },
+  {
+   "id": "Prog_EXi@40.7~4_val",
+   "param": "Prog_EXi@40.7~4",
+   "group": "amplifier",
+   "type": "display",
+   "kind": "value",
+   "label": "EQ BASS value",
+   "x": 826.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "EQ Bass",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 40,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "64",
+     "IDX": "0"
+    },
+    "data": "F6~0A",
+    "value": "-10~+10"
+   }
+  },
+  {
+   "id": "Prog_EXi@41.7~1",
+   "param": "Prog_EXi@41.7~1",
+   "group": "amplifier",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OUTPUT LEVEL",
+   "x": 919.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 940.6666666666667,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Output Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 41,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@41.7~1_val",
+   "param": "Prog_EXi@41.7~1",
+   "group": "amplifier",
+   "type": "display",
+   "kind": "value",
+   "label": "OUTPUT LEVEL value",
+   "x": 921.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Output Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 41,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "65",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_EXi@43",
+   "param": "Prog_EXi@43",
+   "group": "amplifier",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OUTPUT LEVEL MOD.INTENSITY",
+   "x": 1015.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1036.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-127~+127",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Output Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 43,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "67",
+     "IDX": "0"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "Prog_EXi@43_val",
+   "param": "Prog_EXi@43",
+   "group": "amplifier",
+   "type": "display",
+   "kind": "value",
+   "label": "OUTPUT LEVEL MOD.INTENSITY value",
+   "x": 1017.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Amplifier",
+    "name": "Output Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 43,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "67",
+     "IDX": "0"
+    },
+    "data": "81~7F",
+    "value": "-127~+127"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AMP·MIX",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "exi:CX-3"
+}

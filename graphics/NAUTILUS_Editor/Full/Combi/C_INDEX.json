@@ -1,0 +1,251 @@
+{
+ "object": "Combi",
+ "areas": [
+  {
+   "label": "GENERAL",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "TIMBRE",
+   "pages": 3,
+   "index": "TIMBRE",
+   "instances": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+   ],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "EFFECTS",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "FX EDIT",
+   "pages": 0,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": "EFFECTS"
+  },
+  {
+   "label": "X-Y",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "CONTROL",
+   "pages": 6,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "SCENES",
+   "pages": 5,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "ARP / STEP SEQ",
+   "pages": 4,
+   "index": "SEQ",
+   "instances": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "AUDIO IN",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_GENERAL_P1",
+   "area": "GENERAL",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_TIMBRE_P1",
+   "area": "TIMBRE",
+   "n": 1,
+   "of": 3
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_TIMBRE_P2",
+   "area": "TIMBRE",
+   "n": 2,
+   "of": 3
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_TIMBRE_P3",
+   "area": "TIMBRE",
+   "n": 3,
+   "of": 3
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_EFFECTS_P1",
+   "area": "EFFECTS",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_EFFECTS_P2",
+   "area": "EFFECTS",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_X_Y_P1",
+   "area": "X-Y",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_X_Y_P2",
+   "area": "X-Y",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P1",
+   "area": "CONTROL",
+   "n": 1,
+   "of": 6
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P2",
+   "area": "CONTROL",
+   "n": 2,
+   "of": 6
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P3",
+   "area": "CONTROL",
+   "n": 3,
+   "of": 6
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P4",
+   "area": "CONTROL",
+   "n": 4,
+   "of": 6
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P5",
+   "area": "CONTROL",
+   "n": 5,
+   "of": 6
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_CONTROL_P6",
+   "area": "CONTROL",
+   "n": 6,
+   "of": 6
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P1",
+   "area": "SCENES",
+   "n": 1,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P2",
+   "area": "SCENES",
+   "n": 2,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P3",
+   "area": "SCENES",
+   "n": 3,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P4",
+   "area": "SCENES",
+   "n": 4,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_SCENES_P5",
+   "area": "SCENES",
+   "n": 5,
+   "of": 5
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_ARP_STEP_SEQ_P1",
+   "area": "ARP / STEP SEQ",
+   "n": 1,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_ARP_STEP_SEQ_P2",
+   "area": "ARP / STEP SEQ",
+   "n": 2,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_ARP_STEP_SEQ_P3",
+   "area": "ARP / STEP SEQ",
+   "n": 3,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_ARP_STEP_SEQ_P4",
+   "area": "ARP / STEP SEQ",
+   "n": 4,
+   "of": 4
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_AUDIO_IN_P1",
+   "area": "AUDIO IN",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "NAUTILUS_NAVIGATOR_EDITOR_C_AUDIO_IN_P2",
+   "area": "AUDIO IN",
+   "n": 2,
+   "of": 2
+  }
+ ]
+}

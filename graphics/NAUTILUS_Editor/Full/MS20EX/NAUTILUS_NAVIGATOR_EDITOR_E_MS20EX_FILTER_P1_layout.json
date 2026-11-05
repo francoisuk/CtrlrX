@@ -1,0 +1,2569 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "FILTER · 1/2",
+ "tab_index": 0,
+ "object": "Program · MS-20EX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_MS20EX_FILTER_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_MS20EX_FILTER_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MS-20EX — FILTER · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 207.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 279.6,
+   "y": 84,
+   "w": 177.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 459.8,
+   "y": 84,
+   "w": 186.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 648.9,
+   "y": 84,
+   "w": 195.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 847.0,
+   "y": 84,
+   "w": 173.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 1023.6,
+   "y": 84,
+   "w": 175.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1202.0,
+   "y": 84,
+   "w": 179.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@383.7~6",
+   "param": "Prog_EXi@383.7~6",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CUTOFF MOD.SOURCE",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 383,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "6"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@384.7~6",
+   "param": "Prog_EXi@384.7~6",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PEAK MOD.SOURCE",
+   "x": 225.1,
+   "y": 153.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 384,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "7"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@385.7~6",
+   "param": "Prog_EXi@385.7~6",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MG/T.EXT MOD.SOURCE",
+   "x": 382.1,
+   "y": 153.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 385,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "8"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@386.7~6",
+   "param": "Prog_EXi@386.7~6",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG2/EXT MOD.SOURCE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 386,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "9"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@417",
+   "param": "Prog_EXi@417",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CUTOFF MOD INT.MOD SRC",
+   "x": 225.1,
+   "y": 187.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 417,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "6"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@418",
+   "param": "Prog_EXi@418",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PEAK MOD INT.MOD SRC",
+   "x": 382.1,
+   "y": 187.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 418,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "7"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@419",
+   "param": "Prog_EXi@419",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MG/T.EXT MOD INT.MOD SRC",
+   "x": 68.0,
+   "y": 221.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 419,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "8"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@420",
+   "param": "Prog_EXi@420",
+   "group": "hpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG2/EXT MOD INT.MOD SRC",
+   "x": 225.1,
+   "y": 221.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 420,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "9"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@305.7~2",
+   "param": "Prog_EXi@305.7~2",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF",
+   "x": 563.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 584.1725068121469,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 305,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@305.7~2_val",
+   "param": "Prog_EXi@305.7~2",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF value",
+   "x": 565.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 305,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@306.7~4",
+   "param": "Prog_EXi@306.7~4",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PEAK",
+   "x": 637.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 658.6113698292245,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 306,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@306.7~4_val",
+   "param": "Prog_EXi@306.7~4",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PEAK value",
+   "x": 639.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 306,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "35",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@307.7~6",
+   "param": "Prog_EXi@307.7~6",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MG/T.EXT",
+   "x": 712.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 733.050232846302,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 307,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@307.7~6_val",
+   "param": "Prog_EXi@307.7~6",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MG/T.EXT value",
+   "x": 714.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 307,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@309",
+   "param": "Prog_EXi@309",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG2/EXT",
+   "x": 786.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 807.4890958633796,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 309,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@309_val",
+   "param": "Prog_EXi@309",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG2/EXT value",
+   "x": 788.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 309,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "37",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@400",
+   "param": "Prog_EXi@400",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF MOD.INT",
+   "x": 860.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 881.9279588804573,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 400,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "6"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@400_val",
+   "param": "Prog_EXi@400",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF MOD.INT value",
+   "x": 862.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 400,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "6"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@401.7~3",
+   "param": "Prog_EXi@401.7~3",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PEAK MOD.INT",
+   "x": 935.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 956.3668218975347,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 401,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "7"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@401.7~3_val",
+   "param": "Prog_EXi@401.7~3",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PEAK MOD.INT value",
+   "x": 937.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 401,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "7"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@402.7~6",
+   "param": "Prog_EXi@402.7~6",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MG/T.EXT MOD.INT",
+   "x": 1009.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1030.8056849146124,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 402,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "8"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@402.7~6_val",
+   "param": "Prog_EXi@402.7~6",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MG/T.EXT MOD.INT value",
+   "x": 1011.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 402,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "8"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@404.7~1",
+   "param": "Prog_EXi@404.7~1",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG2/EXT MOD.INT",
+   "x": 1084.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1105.2445479316898,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 404,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "9"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@404.7~1_val",
+   "param": "Prog_EXi@404.7~1",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG2/EXT MOD.INT value",
+   "x": 1086.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 404,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "9"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@433.7~2",
+   "param": "Prog_EXi@433.7~2",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF MOD INT.MOD INT",
+   "x": 1158.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1179.6834109487675,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 433,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "6"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@433.7~2_val",
+   "param": "Prog_EXi@433.7~2",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF MOD INT.MOD INT value",
+   "x": 1160.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Cutoff Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 433,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "6"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@434.7~5",
+   "param": "Prog_EXi@434.7~5",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PEAK MOD INT.MOD INT",
+   "x": 1233.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1254.1222739658451,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 434,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "7"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@434.7~5_val",
+   "param": "Prog_EXi@434.7~5",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PEAK MOD INT.MOD INT value",
+   "x": 1235.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "Peak Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 434,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "7"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@436",
+   "param": "Prog_EXi@436",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MG/T.EXT MOD INT.MOD INT",
+   "x": 1307.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1328.5611369829226,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 436,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "8"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@436_val",
+   "param": "Prog_EXi@436",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MG/T.EXT MOD INT.MOD INT value",
+   "x": 1309.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "MG/T.EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 436,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "8"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@437.7~3",
+   "param": "Prog_EXi@437.7~3",
+   "group": "hpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG2/EXT MOD INT.MOD INT",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 437,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "9"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@437.7~3_val",
+   "param": "Prog_EXi@437.7~3",
+   "group": "hpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG2/EXT MOD INT.MOD INT value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "HPF",
+    "name": "EG2/EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 437,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "9"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@387.7~6",
+   "param": "Prog_EXi@387.7~6",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CUTOFF MOD.SOURCE",
+   "x": 68.0,
+   "y": 299.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 387,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "10"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@388.7~6",
+   "param": "Prog_EXi@388.7~6",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PEAK MOD.SOURCE",
+   "x": 225.1,
+   "y": 299.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 388,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "11"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@389.7~6",
+   "param": "Prog_EXi@389.7~6",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MG/T.EXT MOD.SOURCE",
+   "x": 382.1,
+   "y": 299.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 389,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "12"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@390.7~6",
+   "param": "Prog_EXi@390.7~6",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG2/EXT MOD.SOURCE",
+   "x": 68.0,
+   "y": 333.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 390,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "13"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@421",
+   "param": "Prog_EXi@421",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "CUTOFF MOD INT.MOD SRC",
+   "x": 225.1,
+   "y": 333.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 421,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "10"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@422",
+   "param": "Prog_EXi@422",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PEAK MOD INT.MOD SRC",
+   "x": 382.1,
+   "y": 333.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 422,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "11"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@423",
+   "param": "Prog_EXi@423",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MG/T.EXT MOD INT.MOD SRC",
+   "x": 68.0,
+   "y": 367.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 423,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "12"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@424",
+   "param": "Prog_EXi@424",
+   "group": "lpf_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG2/EXT MOD INT.MOD SRC",
+   "x": 225.1,
+   "y": 367.0,
+   "w": 149.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 424,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "13"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@310.7~2",
+   "param": "Prog_EXi@310.7~2",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF",
+   "x": 563.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 584.1725068121469,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 310,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@310.7~2_val",
+   "param": "Prog_EXi@310.7~2",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF value",
+   "x": 565.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 310,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@311.7~4",
+   "param": "Prog_EXi@311.7~4",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PEAK",
+   "x": 637.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 658.6113698292245,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 311,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@311.7~4_val",
+   "param": "Prog_EXi@311.7~4",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PEAK value",
+   "x": 639.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 311,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "39",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@312.7~6",
+   "param": "Prog_EXi@312.7~6",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MG/T.EXT",
+   "x": 712.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 733.050232846302,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 312,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@312.7~6_val",
+   "param": "Prog_EXi@312.7~6",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MG/T.EXT value",
+   "x": 714.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 312,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "40",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@314",
+   "param": "Prog_EXi@314",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG2/EXT",
+   "x": 786.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 807.4890958633796,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 314,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@314_val",
+   "param": "Prog_EXi@314",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG2/EXT value",
+   "x": 788.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 314,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "41",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@405.7~4",
+   "param": "Prog_EXi@405.7~4",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF MOD.INT",
+   "x": 860.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 881.9279588804573,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 405,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "10"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@405.7~4_val",
+   "param": "Prog_EXi@405.7~4",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF MOD.INT value",
+   "x": 862.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 405,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "10"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@406.7",
+   "param": "Prog_EXi@406.7",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PEAK MOD.INT",
+   "x": 935.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 956.3668218975347,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 406,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "11"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@406.7_val",
+   "param": "Prog_EXi@406.7",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PEAK MOD.INT value",
+   "x": 937.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 406,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "11"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@408.7~2",
+   "param": "Prog_EXi@408.7~2",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MG/T.EXT MOD.INT",
+   "x": 1009.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1030.8056849146124,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 408,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "12"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@408.7~2_val",
+   "param": "Prog_EXi@408.7~2",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MG/T.EXT MOD.INT value",
+   "x": 1011.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 408,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "12"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@409.7~5",
+   "param": "Prog_EXi@409.7~5",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG2/EXT MOD.INT",
+   "x": 1084.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1105.2445479316898,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 409,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "13"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@409.7~5_val",
+   "param": "Prog_EXi@409.7~5",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG2/EXT MOD.INT value",
+   "x": 1086.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 409,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "13"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@438.7~6",
+   "param": "Prog_EXi@438.7~6",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "CUTOFF MOD INT.MOD INT",
+   "x": 1158.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1179.6834109487675,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 438,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "10"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@438.7~6_val",
+   "param": "Prog_EXi@438.7~6",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "CUTOFF MOD INT.MOD INT value",
+   "x": 1160.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Cutoff Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 438,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "10"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@440.7~1",
+   "param": "Prog_EXi@440.7~1",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PEAK MOD INT.MOD INT",
+   "x": 1233.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1254.1222739658451,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 440,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "11"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@440.7~1_val",
+   "param": "Prog_EXi@440.7~1",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PEAK MOD INT.MOD INT value",
+   "x": 1235.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "Peak Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 440,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "11"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@441.7~4",
+   "param": "Prog_EXi@441.7~4",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MG/T.EXT MOD INT.MOD INT",
+   "x": 1307.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1328.5611369829226,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 441,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "12"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@441.7~4_val",
+   "param": "Prog_EXi@441.7~4",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MG/T.EXT MOD INT.MOD INT value",
+   "x": 1309.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "MG/T.EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 441,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "12"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@442.7",
+   "param": "Prog_EXi@442.7",
+   "group": "lpf_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG2/EXT MOD INT.MOD INT",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 442,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "13"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@442.7_val",
+   "param": "Prog_EXi@442.7",
+   "group": "lpf_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG2/EXT MOD INT.MOD INT value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "LPF",
+    "name": "EG2/EXT Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 442,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "16",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "13"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "FILTER",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "exi:MS-20EX"
+}

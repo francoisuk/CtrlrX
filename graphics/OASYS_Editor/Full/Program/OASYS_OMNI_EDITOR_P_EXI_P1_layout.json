@@ -1,0 +1,2418 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "EXi",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_P_EXI_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_P_EXI_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — EXi"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 84.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 147.0,
+   "y": 84,
+   "w": 65.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 215.5,
+   "y": 84,
+   "w": 74.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 293.0,
+   "y": 84,
+   "w": 66.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 362.6,
+   "y": 84,
+   "w": 80.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 446.1,
+   "y": 84,
+   "w": 104.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 553.8,
+   "y": 84,
+   "w": 61.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 618.7,
+   "y": 84,
+   "w": 85.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 707.0,
+   "y": 84,
+   "w": 77.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 787.4,
+   "y": 84,
+   "w": 82.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 872.6,
+   "y": 84,
+   "w": 78.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 953.6,
+   "y": 84,
+   "w": 80.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 1036.9,
+   "y": 84,
+   "w": 85.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1125.5,
+   "y": 84,
+   "w": 83.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1211.6,
+   "y": 84,
+   "w": 77.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1291.9,
+   "y": 84,
+   "w": 89.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi_Common@2857",
+   "param": "Prog_EXi_Common@2857",
+   "group": "exi_common",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ALGORITHM TYPE",
+   "x": 147.1,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~EP-1",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Common",
+    "name": "Algorithm Type",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2857,
+    "data": "00~09",
+    "value": "Off~EP-1",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2684",
+   "param": "Prog_EXi_Common@2684",
+   "group": "exi_common",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY ZONE BOTTOM",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Common",
+    "name": "Key Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2684,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 2672,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2684_val",
+   "param": "Prog_EXi_Common@2684",
+   "group": "exi_common",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY ZONE BOTTOM value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Common",
+    "name": "Key Zone Bottom",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2684,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 2672,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2685",
+   "param": "Prog_EXi_Common@2685",
+   "group": "exi_common",
+   "type": "knob",
+   "kind": "slider",
+   "label": "KEY ZONE TOP",
+   "x": 150.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 171.27358490566039,
+   "cy": 204.0,
+   "r": 12,
+   "range": "C-1~G9",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Common",
+    "name": "Key Zone Top",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2685,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 2673,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2685_val",
+   "param": "Prog_EXi_Common@2685",
+   "group": "exi_common",
+   "type": "display",
+   "kind": "value",
+   "label": "KEY ZONE TOP value",
+   "x": 152.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Common",
+    "name": "Key Zone Top",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2685,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "C-1~G9",
+    "oasys": {
+     "ofs": 2673,
+     "rule": "pcglib HD-1 map"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2858",
+   "param": "Prog_EXi_Common@2858",
+   "group": "exi_common",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TRANSPOSE",
+   "x": 224.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 245.54716981132077,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-60~+60",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Common",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2858,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2858_val",
+   "param": "Prog_EXi_Common@2858",
+   "group": "exi_common",
+   "type": "display",
+   "kind": "value",
+   "label": "TRANSPOSE value",
+   "x": 226.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Common",
+    "name": "Transpose",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2858,
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "C4~3C",
+    "value": "-60~+60",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2861.6~0",
+   "param": "Prog_EXi_Common@2861.6~0",
+   "group": "exi_output_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "PANPOT",
+   "x": 340.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "RND"
+   ],
+   "options": "RND~R127",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Panpot",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2861,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "RND~R127",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2867.0",
+   "param": "Prog_EXi_Common@2867.0",
+   "group": "exi_output_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MUTE",
+   "x": 420.5,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Mute",
+    "kind": "toggle",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2867,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2860.2~0",
+   "param": "Prog_EXi_Common@2860.2~0",
+   "group": "exi_output_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VECTOR CENTER LVL",
+   "x": 306.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 327.54716981132077,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0%~100%",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Vector Center Level",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2860,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "0%~100%",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2860.2~0_val",
+   "param": "Prog_EXi_Common@2860.2~0",
+   "group": "exi_output_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VECTOR CENTER LVL value",
+   "x": 308.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0%"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Vector Center Level",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2860,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~04",
+    "value": "0%~100%",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2863",
+   "param": "Prog_EXi_Common@2863",
+   "group": "exi_output_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PANPOT MOD.INT",
+   "x": 394.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 415.5974842767296,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Panpot Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2863,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2863_val",
+   "param": "Prog_EXi_Common@2863",
+   "group": "exi_output_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PANPOT MOD.INT value",
+   "x": 396.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Panpot Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2863,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2866",
+   "param": "Prog_EXi_Common@2866",
+   "group": "exi_output_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "PATCH LEVEL",
+   "x": 482.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 503.64779874213843,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Patch Level",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2866,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2866_val",
+   "param": "Prog_EXi_Common@2866",
+   "group": "exi_output_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "PATCH LEVEL value",
+   "x": 484.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Patch Level",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2866,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2864",
+   "param": "Prog_EXi_Common@2864",
+   "group": "exi_output_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2864",
+   "x": 698.6,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Send1",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2864,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2865",
+   "param": "Prog_EXi_Common@2865",
+   "group": "exi_output_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2865",
+   "x": 773.4,
+   "y": 150,
+   "w": 70.8,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "0~127",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Output",
+    "name": "Send2",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2865,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "3",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2867.5~1",
+   "param": "Prog_EXi_Common@2867.5~1",
+   "group": "exi_input",
+   "type": "menu",
+   "kind": "combo",
+   "label": "INPUT SOURCE BUS",
+   "x": 876.2,
+   "y": 170.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~TFX2",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Input",
+    "name": "Input Source Bus",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2867,
+    "bit": "5~1",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "00~1C",
+    "value": "Off~TFX2",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2867.7~6",
+   "param": "Prog_EXi_Common@2867.7~6",
+   "group": "exi_input",
+   "type": "menu",
+   "kind": "combo",
+   "label": "INPUT SOURCE CHANNEL",
+   "x": 876.2,
+   "y": 204.0,
+   "w": 128.1,
+   "h": 16,
+   "text": [
+    "Stereo/L+R"
+   ],
+   "options": "Stereo/L+R~Right",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Input",
+    "name": "Input Source Channel",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2867,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "0",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "29",
+     "IDX": "0"
+    },
+    "data": "00~02",
+    "value": "Stereo/L+R~Right",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2868.2~0",
+   "param": "Prog_EXi_Common@2868.2~0",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 1058.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Gate",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2868,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "A+B~Gate",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2881",
+   "param": "Prog_EXi_Common@2881",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE TYPE",
+   "x": 1192.5,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Symmetric"
+   ],
+   "options": "Symmetric~Asymmetri",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Shape Type",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2881,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Symmetric~Asymmetri",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2872",
+   "param": "Prog_EXi_Common@2872",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 1036.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1057.3396226415093,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2872,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2872_val",
+   "param": "Prog_EXi_Common@2872",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 1038.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2872,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2873",
+   "param": "Prog_EXi_Common@2873",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NUMBER OF STEPS",
+   "x": 1105.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1126.4716981132074,
+   "cy": 204.0,
+   "r": 12,
+   "range": "2~32",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2873,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2873_val",
+   "param": "Prog_EXi_Common@2873",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "NUMBER OF STEPS value",
+   "x": 1107.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "2"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2873,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2876",
+   "param": "Prog_EXi_Common@2876",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 1174.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1195.6037735849056,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-199~+199",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2876,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2876_val",
+   "param": "Prog_EXi_Common@2876",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 1176.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2876,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2878",
+   "param": "Prog_EXi_Common@2878",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK",
+   "x": 1243.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1264.7358490566037,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2878,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2878_val",
+   "param": "Prog_EXi_Common@2878",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK value",
+   "x": 1245.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2878,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2879",
+   "param": "Prog_EXi_Common@2879",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 1312.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1333.867924528302,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2879,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2879_val",
+   "param": "Prog_EXi_Common@2879",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 1314.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2879,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2880",
+   "param": "Prog_EXi_Common@2880",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2880,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2880_val",
+   "param": "Prog_EXi_Common@2880",
+   "group": "exi_mod_mixer1_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2880,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2870#1",
+   "param": "Prog_EXi_Common@2870#1",
+   "group": "exi_mod_mixer1_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2870#1",
+   "x": 210.0,
+   "y": 296,
+   "w": 118.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2870,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2874#2",
+   "param": "Prog_EXi_Common@2874#2",
+   "group": "exi_mod_mixer1_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2874#2",
+   "x": 332.8,
+   "y": 296,
+   "w": 118.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-199~+199",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer1",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2874,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "4",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2888.2~0",
+   "param": "Prog_EXi_Common@2888.2~0",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TYPE",
+   "x": 513.4,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "A+B"
+   ],
+   "options": "A+B~Gate",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Type",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2888,
+    "bit": "2~0",
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "A+B~Gate",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2901",
+   "param": "Prog_EXi_Common@2901",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE TYPE",
+   "x": 647.7,
+   "y": 284,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Symmetric"
+   ],
+   "options": "Symmetric~Asymmetri",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Shape Type",
+    "kind": "menu",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2901,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Symmetric~Asymmetri",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2892",
+   "param": "Prog_EXi_Common@2892",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "AMOUNT B",
+   "x": 491.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 512.5365853658536,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2892,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2892_val",
+   "param": "Prog_EXi_Common@2892",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "AMOUNT B value",
+   "x": 493.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Amount B",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2892,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2893",
+   "param": "Prog_EXi_Common@2893",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "NUMBER OF STEPS",
+   "x": 586.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 607.5219512195122,
+   "cy": 350.0,
+   "r": 12,
+   "range": "2~32",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2893,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2893_val",
+   "param": "Prog_EXi_Common@2893",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "NUMBER OF STEPS value",
+   "x": 588.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "2"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Number Of Steps",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2893,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "02~20",
+    "value": "2~32",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2896",
+   "param": "Prog_EXi_Common@2896",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 681.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 702.5073170731707,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-199~+199",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2896,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2896_val",
+   "param": "Prog_EXi_Common@2896",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 683.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2896,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2898",
+   "param": "Prog_EXi_Common@2898",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK",
+   "x": 776.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 797.4926829268293,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2898,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2898_val",
+   "param": "Prog_EXi_Common@2898",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK value",
+   "x": 778.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Attack",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2898,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2899",
+   "param": "Prog_EXi_Common@2899",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY",
+   "x": 871.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 892.4780487804878,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2899,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2899_val",
+   "param": "Prog_EXi_Common@2899",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY value",
+   "x": 873.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Decay",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2899,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2900",
+   "param": "Prog_EXi_Common@2900",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 966.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 987.4634146341464,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "exi",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2900,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2900_val",
+   "param": "Prog_EXi_Common@2900",
+   "group": "exi_mod_mixer2_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 968.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2900,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2890#1",
+   "param": "Prog_EXi_Common@2890#1",
+   "group": "exi_mod_mixer2_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2890#1",
+   "x": 1182.5,
+   "y": 296,
+   "w": 118.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2890,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi_Common@2894#2",
+   "param": "Prog_EXi_Common@2894#2",
+   "group": "exi_mod_mixer2_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi_Common@2894#2",
+   "x": 1305.2,
+   "y": 296,
+   "w": 118.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-199~+199",
+   "midi": null,
+   "korg": {
+    "group": "EXi1 Mod.Mixer2",
+    "name": "Amount A",
+    "kind": "knob",
+    "file": "Prog_EXi_Common.txt",
+    "ofs": 2894,
+    "sysex": {
+     "TYP": "11",
+     "SOC": "5",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "FF39~00C7",
+    "value": "-199~+199",
+    "oasys": {
+     "ofs": null,
+     "rule": "unmapped EXi region (pcglib G1-G6)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "EXi",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "exi",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier.",
+ "index": {
+  "label": "EXi",
+  "instances": [
+   "1",
+   "2"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2"
+  ],
+  "shown": "1",
+  "stride_bytes": 2,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes",
+  "stride_bytes_oasys": 2
+ }
+}

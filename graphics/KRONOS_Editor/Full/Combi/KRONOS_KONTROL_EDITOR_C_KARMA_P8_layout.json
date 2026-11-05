@@ -1,0 +1,4017 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "KARMA · 8/8",
+ "tab_index": 0,
+ "object": "Combi",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_C_KARMA_P8_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_C_KARMA_P8_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "1 : Combi"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Combi — KARMA · 8/8"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 112.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_timbre",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "TIMBRE",
+   "x": 175.6,
+   "y": 84,
+   "w": 106.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 284.7,
+   "y": 84,
+   "w": 110.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 398.6,
+   "y": 84,
+   "w": 106.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 508.2,
+   "y": 84,
+   "w": 108.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 620.0,
+   "y": 84,
+   "w": 114.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 737.2,
+   "y": 84,
+   "w": 128.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 868.2,
+   "y": 84,
+   "w": 111.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 982.8,
+   "y": 84,
+   "w": 105.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_module",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA MODULE",
+   "x": 1091.7,
+   "y": 84,
+   "w": 139.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1243.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1268.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_7",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "7",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_8",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "8",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1698",
+   "param": "CombiAndSongTimbreSet@1698",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1698",
+   "x": 280.8,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1698,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "12"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1710",
+   "param": "CombiAndSongTimbreSet@1710",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1710",
+   "x": 388.4,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1710,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "24"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1722",
+   "param": "CombiAndSongTimbreSet@1722",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1722",
+   "x": 496.1,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1722,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "36"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1734",
+   "param": "CombiAndSongTimbreSet@1734",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1734",
+   "x": 603.7,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1734,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "48"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1746",
+   "param": "CombiAndSongTimbreSet@1746",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1746",
+   "x": 711.4,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1746,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "60"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1758",
+   "param": "CombiAndSongTimbreSet@1758",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1758",
+   "x": 819.0,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1758,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "72"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1770",
+   "param": "CombiAndSongTimbreSet@1770",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1770",
+   "x": 926.6,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1770,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "84"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1782",
+   "param": "CombiAndSongTimbreSet@1782",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1782",
+   "x": 1034.3,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1782,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "96"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1794",
+   "param": "CombiAndSongTimbreSet@1794",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1794",
+   "x": 1141.9,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1794,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "108"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1806",
+   "param": "CombiAndSongTimbreSet@1806",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1806",
+   "x": 1249.6,
+   "y": 150,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1806,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "120"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1699",
+   "param": "CombiAndSongTimbreSet@1699",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1699",
+   "x": 280.8,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1699,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "13"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1711",
+   "param": "CombiAndSongTimbreSet@1711",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1711",
+   "x": 388.4,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1711,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "25"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1723",
+   "param": "CombiAndSongTimbreSet@1723",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1723",
+   "x": 496.1,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1723,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "37"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1735",
+   "param": "CombiAndSongTimbreSet@1735",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1735",
+   "x": 603.7,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1735,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "49"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1747",
+   "param": "CombiAndSongTimbreSet@1747",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1747",
+   "x": 711.4,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1747,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "61"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1759",
+   "param": "CombiAndSongTimbreSet@1759",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1759",
+   "x": 819.0,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1759,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "73"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1771",
+   "param": "CombiAndSongTimbreSet@1771",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1771",
+   "x": 926.6,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1771,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "85"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1783",
+   "param": "CombiAndSongTimbreSet@1783",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1783",
+   "x": 1034.3,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1783,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "97"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1795",
+   "param": "CombiAndSongTimbreSet@1795",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1795",
+   "x": 1141.9,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1795,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "109"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1807",
+   "param": "CombiAndSongTimbreSet@1807",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1807",
+   "x": 1249.6,
+   "y": 171,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) C#9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1807,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "121"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1700",
+   "param": "CombiAndSongTimbreSet@1700",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1700",
+   "x": 280.8,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1700,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "14"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1712",
+   "param": "CombiAndSongTimbreSet@1712",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1712",
+   "x": 388.4,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1712,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "26"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1724",
+   "param": "CombiAndSongTimbreSet@1724",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1724",
+   "x": 496.1,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1724,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "38"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1736",
+   "param": "CombiAndSongTimbreSet@1736",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1736",
+   "x": 603.7,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1736,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "50"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1748",
+   "param": "CombiAndSongTimbreSet@1748",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1748",
+   "x": 711.4,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1748,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "62"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1760",
+   "param": "CombiAndSongTimbreSet@1760",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1760",
+   "x": 819.0,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1760,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "74"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1772",
+   "param": "CombiAndSongTimbreSet@1772",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1772",
+   "x": 926.6,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1772,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "86"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1784",
+   "param": "CombiAndSongTimbreSet@1784",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1784",
+   "x": 1034.3,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1784,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "98"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1796",
+   "param": "CombiAndSongTimbreSet@1796",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1796",
+   "x": 1141.9,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1796,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "110"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1808",
+   "param": "CombiAndSongTimbreSet@1808",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1808",
+   "x": 1249.6,
+   "y": 192,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1808,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "122"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1701",
+   "param": "CombiAndSongTimbreSet@1701",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1701",
+   "x": 280.8,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1701,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "15"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1713",
+   "param": "CombiAndSongTimbreSet@1713",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1713",
+   "x": 388.4,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1713,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "27"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1725",
+   "param": "CombiAndSongTimbreSet@1725",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1725",
+   "x": 496.1,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1725,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "39"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1737",
+   "param": "CombiAndSongTimbreSet@1737",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1737",
+   "x": 603.7,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1737,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "51"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1749",
+   "param": "CombiAndSongTimbreSet@1749",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1749",
+   "x": 711.4,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1749,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "63"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1761",
+   "param": "CombiAndSongTimbreSet@1761",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1761",
+   "x": 819.0,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1761,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "75"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1773",
+   "param": "CombiAndSongTimbreSet@1773",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1773",
+   "x": 926.6,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1773,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "87"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1785",
+   "param": "CombiAndSongTimbreSet@1785",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1785",
+   "x": 1034.3,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1785,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "99"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1797",
+   "param": "CombiAndSongTimbreSet@1797",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1797",
+   "x": 1141.9,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1797,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "111"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1809",
+   "param": "CombiAndSongTimbreSet@1809",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1809",
+   "x": 1249.6,
+   "y": 213,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) D#9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1809,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "123"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1702",
+   "param": "CombiAndSongTimbreSet@1702",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1702",
+   "x": 280.8,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1702,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "16"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1714",
+   "param": "CombiAndSongTimbreSet@1714",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1714",
+   "x": 388.4,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1714,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "28"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1726",
+   "param": "CombiAndSongTimbreSet@1726",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1726",
+   "x": 496.1,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1726,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "40"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1738",
+   "param": "CombiAndSongTimbreSet@1738",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1738",
+   "x": 603.7,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1738,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "52"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1750",
+   "param": "CombiAndSongTimbreSet@1750",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1750",
+   "x": 711.4,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1750,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "64"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1762",
+   "param": "CombiAndSongTimbreSet@1762",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1762",
+   "x": 819.0,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1762,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "76"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1774",
+   "param": "CombiAndSongTimbreSet@1774",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1774",
+   "x": 926.6,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1774,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "88"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1786",
+   "param": "CombiAndSongTimbreSet@1786",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1786",
+   "x": 1034.3,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1786,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "100"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1798",
+   "param": "CombiAndSongTimbreSet@1798",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1798",
+   "x": 1141.9,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1798,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "112"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1810",
+   "param": "CombiAndSongTimbreSet@1810",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1810",
+   "x": 1249.6,
+   "y": 234,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) E9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1810,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "124"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1703",
+   "param": "CombiAndSongTimbreSet@1703",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1703",
+   "x": 280.8,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1703,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "17"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1715",
+   "param": "CombiAndSongTimbreSet@1715",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1715",
+   "x": 388.4,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1715,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "29"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1727",
+   "param": "CombiAndSongTimbreSet@1727",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1727",
+   "x": 496.1,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1727,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "41"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1739",
+   "param": "CombiAndSongTimbreSet@1739",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1739",
+   "x": 603.7,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1739,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "53"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1751",
+   "param": "CombiAndSongTimbreSet@1751",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1751",
+   "x": 711.4,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1751,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "65"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1763",
+   "param": "CombiAndSongTimbreSet@1763",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1763",
+   "x": 819.0,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1763,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "77"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1775",
+   "param": "CombiAndSongTimbreSet@1775",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1775",
+   "x": 926.6,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1775,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "89"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1787",
+   "param": "CombiAndSongTimbreSet@1787",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1787",
+   "x": 1034.3,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1787,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "101"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1799",
+   "param": "CombiAndSongTimbreSet@1799",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1799",
+   "x": 1141.9,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1799,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "113"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1811",
+   "param": "CombiAndSongTimbreSet@1811",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1811",
+   "x": 1249.6,
+   "y": 255,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1811,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "125"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1704",
+   "param": "CombiAndSongTimbreSet@1704",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1704",
+   "x": 280.8,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1704,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "18"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1716",
+   "param": "CombiAndSongTimbreSet@1716",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1716",
+   "x": 388.4,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1716,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "30"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1728",
+   "param": "CombiAndSongTimbreSet@1728",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1728",
+   "x": 496.1,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1728,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "42"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1740",
+   "param": "CombiAndSongTimbreSet@1740",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1740",
+   "x": 603.7,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1740,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "54"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1752",
+   "param": "CombiAndSongTimbreSet@1752",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1752",
+   "x": 711.4,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1752,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "66"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1764",
+   "param": "CombiAndSongTimbreSet@1764",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1764",
+   "x": 819.0,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1764,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "78"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1776",
+   "param": "CombiAndSongTimbreSet@1776",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1776",
+   "x": 926.6,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1776,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "90"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1788",
+   "param": "CombiAndSongTimbreSet@1788",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1788",
+   "x": 1034.3,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1788,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "102"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1800",
+   "param": "CombiAndSongTimbreSet@1800",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1800",
+   "x": 1141.9,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1800,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "114"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1812",
+   "param": "CombiAndSongTimbreSet@1812",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1812",
+   "x": 1249.6,
+   "y": 276,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) F#9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1812,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "126"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1705",
+   "param": "CombiAndSongTimbreSet@1705",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1705",
+   "x": 280.8,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1705,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "19"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1717",
+   "param": "CombiAndSongTimbreSet@1717",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1717",
+   "x": 388.4,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1717,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "31"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1729",
+   "param": "CombiAndSongTimbreSet@1729",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1729",
+   "x": 496.1,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1729,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "43"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1741",
+   "param": "CombiAndSongTimbreSet@1741",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1741",
+   "x": 603.7,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1741,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "55"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1753",
+   "param": "CombiAndSongTimbreSet@1753",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1753",
+   "x": 711.4,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1753,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "67"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1765",
+   "param": "CombiAndSongTimbreSet@1765",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1765",
+   "x": 819.0,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1765,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "79"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1777",
+   "param": "CombiAndSongTimbreSet@1777",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1777",
+   "x": 926.6,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1777,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "91"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1789",
+   "param": "CombiAndSongTimbreSet@1789",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1789",
+   "x": 1034.3,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1789,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "103"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1801",
+   "param": "CombiAndSongTimbreSet@1801",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1801",
+   "x": 1141.9,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1801,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "115"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1813",
+   "param": "CombiAndSongTimbreSet@1813",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1813",
+   "x": 1249.6,
+   "y": 297,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G9",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1813,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "127"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1706",
+   "param": "CombiAndSongTimbreSet@1706",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1706",
+   "x": 280.8,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1706,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "20"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1718",
+   "param": "CombiAndSongTimbreSet@1718",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1718",
+   "x": 388.4,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1718,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "32"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1730",
+   "param": "CombiAndSongTimbreSet@1730",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1730",
+   "x": 496.1,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1730,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "44"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1742",
+   "param": "CombiAndSongTimbreSet@1742",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1742",
+   "x": 603.7,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1742,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "56"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1754",
+   "param": "CombiAndSongTimbreSet@1754",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1754",
+   "x": 711.4,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1754,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "68"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1766",
+   "param": "CombiAndSongTimbreSet@1766",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1766",
+   "x": 819.0,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1766,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "80"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1778",
+   "param": "CombiAndSongTimbreSet@1778",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1778",
+   "x": 926.6,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1778,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "92"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1790",
+   "param": "CombiAndSongTimbreSet@1790",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1790",
+   "x": 1034.3,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1790,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "104"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1802",
+   "param": "CombiAndSongTimbreSet@1802",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1802",
+   "x": 1141.9,
+   "y": 318,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) G#8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1802,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "116"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1707",
+   "param": "CombiAndSongTimbreSet@1707",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1707",
+   "x": 280.8,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1707,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "21"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1719",
+   "param": "CombiAndSongTimbreSet@1719",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1719",
+   "x": 388.4,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1719,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "33"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1731",
+   "param": "CombiAndSongTimbreSet@1731",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1731",
+   "x": 496.1,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1731,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "45"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1743",
+   "param": "CombiAndSongTimbreSet@1743",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1743",
+   "x": 603.7,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1743,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "57"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1755",
+   "param": "CombiAndSongTimbreSet@1755",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1755",
+   "x": 711.4,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1755,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "69"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1767",
+   "param": "CombiAndSongTimbreSet@1767",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1767",
+   "x": 819.0,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1767,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "81"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1779",
+   "param": "CombiAndSongTimbreSet@1779",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1779",
+   "x": 926.6,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1779,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "93"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1791",
+   "param": "CombiAndSongTimbreSet@1791",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1791",
+   "x": 1034.3,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1791,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "105"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1803",
+   "param": "CombiAndSongTimbreSet@1803",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1803",
+   "x": 1141.9,
+   "y": 339,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1803,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "117"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1708",
+   "param": "CombiAndSongTimbreSet@1708",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1708",
+   "x": 280.8,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#0",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1708,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "22"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1720",
+   "param": "CombiAndSongTimbreSet@1720",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1720",
+   "x": 388.4,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#1",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1720,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "34"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1732",
+   "param": "CombiAndSongTimbreSet@1732",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1732",
+   "x": 496.1,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#2",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1732,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "46"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1744",
+   "param": "CombiAndSongTimbreSet@1744",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1744",
+   "x": 603.7,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#3",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1744,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "58"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1756",
+   "param": "CombiAndSongTimbreSet@1756",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1756",
+   "x": 711.4,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#4",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1756,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "70"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1768",
+   "param": "CombiAndSongTimbreSet@1768",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1768",
+   "x": 819.0,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#5",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1768,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "82"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1780",
+   "param": "CombiAndSongTimbreSet@1780",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1780",
+   "x": 926.6,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#6",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1780,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "94"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1792",
+   "param": "CombiAndSongTimbreSet@1792",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1792",
+   "x": 1034.3,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#7",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1792,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "106"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "CombiAndSongTimbreSet@1804",
+   "param": "CombiAndSongTimbreSet@1804",
+   "group": "karma_common_note_map_2_3",
+   "type": "display",
+   "kind": "value_box",
+   "label": "CombiAndSongTimbreSet@1804",
+   "x": 1141.9,
+   "y": 360,
+   "w": 103.6,
+   "h": 16,
+   "text": [
+    "0"
+   ],
+   "range": "C-1~G9, Remove",
+   "midi": null,
+   "korg": {
+    "group": "KARMA Common",
+    "name": "(Note Map) A#8",
+    "kind": "knob",
+    "file": "CombiAndSongTimbreSet.txt",
+    "ofs": 1804,
+    "sysex": {
+     "TYP": "2",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "66",
+     "IDX": "118"
+    },
+    "data": "00~7F, FF",
+    "value": "C-1~G9, Remove"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "KARMA",
+ "page_number": 8,
+ "pages_in_area": 8,
+ "apply": "all"
+}

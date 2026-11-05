@@ -1,0 +1,455 @@
+NAUTILUS MIDI IMPLEMENTATION                                                               Version 1.0 (Jul.01.2020)
+
+1.TRANSMITTED DATA
+
+
+1-1 CHANNEL MESSAGES                                                                         [H] :Hex, [D] :Decimal
+  +------+---------+--------------------+---------------------------------------------------------------------+----+
+  |Status| Second  |    Third           |         Description    ( Transmitted by ....)                       |ENA |
+  |[Hex] |[H] [D]  | [H]      [D]       |                                                                     |    |
+  +------+---------+--------------------+---------------------------------------------------------------------+----+
+  |  8n  | kk (kk) | vv (vv)            | Note Off(vv)=1-64      ( Key Off )                             *1 *4| A  |
+  |  9n  | kk (kk) | vv (vv)            | Note On (vv)=1-127     ( Key On )                                 *1| A  |
+  |  An  | kk (kk) | vv (vv)            | Poly Key Pressure      ( Sequence data )                            | T,Q|
+  |  Bn  | 00 (00) | mm (mm)            | Bank Select(MSB)       ( Prog/Combi/Set List change )             *2| PB |
+  |  Bn  | 01 (01) | vv (vv)            | Modulation1            ( Joystick +Y, X-Y/ASW/Pdl = JS+Y )          | C  |
+  |  Bn  | 02 (02) | vv (vv)            | Modulation2            ( Joystick -Y, X-Y/ASW/Pdl = JS-Y )          | C  |
+  |  Bn  | 04 (04) | vv (vv)            | Foot Pedal             ( Pdl = Foot Pedal )                         | C  |
+  |  Bn  | 05 (05) | vv (vv)            | Portamento Time        ( Knob/X-Y/Pdl = Porta.Time, S Chg )         | C  |
+  |  Bn  | 07 (07) | vv (vv)            | Volume                 ( Knob/X-Y/Pdl = Volume, S/C Chg )           | C  |
+  |  Bn  | 08 (08) | vv (vv)            | Post IFX Panpot        ( Knob/X-Y/Pdl = IFX Pan, S Chg )          *2| C  |
+  |  Bn  | 0A (10) | vv (vv)            | Panpot                 ( Knob/X-Y/Pdl = Pan, S Chg )                | C  |
+  |  Bn  | 0B (11) | vv (vv)            | Expression             ( Knob/X-Y/Pdl = Expression )                | C  |
+  |  Bn  | 0C (12) | vv (vv)            | Effect Control 1       ( Knob/X-Y/Pdl = FX Control1 )               | C  |
+  |  Bn  | 0D (13) | vv (vv)            | Effect Control 2       ( Knob/X-Y/Pdl = FX Control2 )               | C  |
+  |  Bn  | 0E (14) | vv (vv)            |                        ( ARP ON/OFF )                             *3| C  |
+  |  Bn  | 0F (15) | vv (vv)            |                        ( DRUM ON/OFF )                            *3| C  |
+  |  Bn  | 10 (16) | vv (vv)            | Multi Purpose Ctrl1    ( X-Y/ASW/Pdl = MIDI CC#16)                  | C  |
+  |  Bn  | 12 (18) | vv (vv)            | Multi Purpose Ctrl3    ( X-Y/ASW/Pdl = MIDI CC#18)                  | C  |
+  |  Bn  | 14 (20) | vv (vv)            |                        ( Knob/X-Y = Knob Mod5 )                     | C  |
+  |  Bn  | 15 (21) | vv (vv)            |                        ( Knob/X-Y = Knob Mod6 )                     | C  |
+  |  Bn  | 16 (22) | vv (vv)            |                        ( GATE )                                   *3| C  |
+  |  Bn  | 17 (23) | vv (vv)            |                        ( VELOCITY )                               *3| C  |
+  |  Bn  | 18 (24) | vv (vv)            |                        ( LENGTH )                                 *3| C  |
+  |  Bn  | 19 (25) | vv (vv)            |                        ( SWING )                                  *3| C  |
+  |  Bn  | 1A (26) | vv (vv)            |                        ( DRUM SD )                                *3| C  |
+  |  Bn  | 1F (31) | vv (vv)            |                        ( LATCH ON/OFF )                           *3| C  |
+  |  Bn  | 20 (32) | bb (bb)            | Bank Select(LSB)       ( Prog/Combi/Set List change )             *2| PB |
+  |  Bn  | 40 (64) | vv (vv)            | Hold1                  ( Damper )                                   | C  |
+  |  Bn  | 41 (65) | 00/7F (00/127)     | Portamento Off/On      ( SW1/SW2/ASW = Porta.SW, S Chg )            | C  |
+  |  Bn  | 42 (66) | 00/7F (00/127)     | Sostenuto Off/On       ( ASW = Sostenuto )                          | C  |
+  |  Bn  | 43 (67) | vv (vv)            | Soft Pedal             ( SW1/SW2/ASW = Soft )                       | C  |
+  |  Bn  | 46 (70) | vv (vv)            | Sound Controller 1     ( Knob/X-Y = F/A Sustain )                   | C  |
+  |  Bn  | 47 (71) | vv (vv)            | Sound Controller 2     ( Knob2, Knob/X-Y = Resonance )              | C  |
+  |  Bn  | 48 (72) | vv (vv)            | Sound Controller 3     ( Knob4, Knob/X-Y = F/A Release )            | C  |
+  |  Bn  | 49 (73) | vv (vv)            | Sound Controller 4     ( Knob/X-Y = F/A Attack )                    | C  |
+  |  Bn  | 4A (74) | vv (vv)            | Sound Controller 5     ( Knob1, Knob/X-Y = Filter Cutoff )          | C  |
+  |  Bn  | 4B (75) | vv (vv)            | Sound Controller 6     ( Knob/X-Y = F/A Decay )                     | C  |
+  |  Bn  | 4C (76) | vv (vv)            | Sound Controller 7     ( Knob/X-Y = Pitch LFO1 Spd )                | C  |
+  |  Bn  | 4D (77) | vv (vv)            | Sound Controller 8     ( Knob/X-Y = Pitch LFO1 Dep )                | C  |
+  |  Bn  | 4E (78) | vv (vv)            | Sound Controller 9     ( Knob/X-Y = Pitch LFO1 Dly )                | C  |
+  |  Bn  | 4F (79) | vv (vv)            | Sound Controller 10    ( Knob3, Knob/X-Y = Filter EG Int )          | C  |
+  |  Bn  | 50 (80) | 00/7F (00/127)     | Multi Purpose Ctrl5    ( SW1/Knob/X-Y = SW1 Mod. )                  | C  |
+  |  Bn  | 51 (81) | 00/7F (00/127)     | Multi Purpose Ctrl6    ( SW2/Knob/X-Y = SW2 Mod. )                  | C  |
+  |  Bn  | 52 (82) | 00/7F (00/127)     | Multi Purpose Ctrl7    ( ASW/Knob/X-Y = Foot SW )                   | C  |
+  |  Bn  | 53 (83) | vv (vv)            | Multi Purpose Ctrl8    ( Knob/X-Y     = MIDI CC#83 )                | C  |
+  |  Bn  | 55 (85) | vv (vv)            |                        ( X-Y = X-Y +X Mod. )                        | C  |
+  |  Bn  | 56 (86) | vv (vv)            |                        ( X-Y = X-Y -X Mod. )                        | C  |
+  |  Bn  | 57 (87) | vv (vv)            |                        ( X-Y = X-Y +Y Mod. )                        | C  |
+  |  Bn  | 58 (88) | vv (vv)            |                        ( X-Y = X-Y -Y Mod. )                        | C  |
+  |  Bn  | 5B (91) | vv (vv)            | Effect 1 Depth         ( Knob/X-Y/Pdl = MFX Send2, S Chg )          | C  |
+  |  Bg  | 5C (92) | 00/7F (00/127)     | Effect 2 Depth         ( All Insert FX Off/On )                     | C  |
+  |  Bn  | 5D (93) | vv (vv)            | Effect 3 Depth         ( Knob/X-Y/Pdl = MFX Send1, S Chg )          | C  |
+  |  Bg  | 5E (94) | 00/7F (00/127)     | Effect 4 Depth         ( Master FX1/2 Off/On )                      | C  |
+  |  Bg  | 5F (95) | 00/7F (00/127)     | Effect 5 Depth         ( Total  FX1/2 Off/On )                      | C  |
+  |  Bn  | 76 (118)| vv (vv)            |                        ( X-Y Control X )                          *3| C  |
+  |  Bn  | 77 (119)| vv (vv)            |                        ( X-Y Control Y )                          *3| C  |
+  |  Bn  | cc (cc) | vv (vv)            | Control (cc)=0-119     ( Sequencer data )                           | Q  |
+  |  Bn  | cc (cc) | vv (vv)            | Control (cc)=0-119     ( Knob            = MIDI CC#00-119 )         | C  |
+  |  Bn  | cc (cc) | vv (vv)            | Control (cc)=0-119     ( X-Y CC          = MIDI CC#00-119 )         | C  |
+  |  Bn  | cc (cc) | vv (vv)            | Control (cc)=0-119     ( ARP RTC         = MIDI CC#00-119 )         | C  |
+  |  Cn  | pp (pp) | -- --              | Program Change         ( Prog/Combi/Set List change )             *2| P  |
+  |  Dn  | vv (vv) | -- --              | Channel Pressure       ( Sequence data )                            | T,Q|
+  |  En  | bb (bb) | bb (bb)            | Bender Change          ( Joy Stick X )                              | C  |
+  +------+---------+--------------------+---------------------------------------------------------------------+----+
+  Pdl  :    Assignable Foot Pedal
+  ASW  :    Assignable Foot Switch
+  Knob :    RT Knob1 ~ 6
+  X-Y  :    X-Y CC Control
+
+  S Chg :   Transmitted when change a Song No.(Seq. mode). (Status = EXT,EX2,BTH) 
+  C/S Chg : Transmitted when change a Combination or Song No.(Seq. mode). (Status = EXT,EX2 or BTH)  
+
+  n :       MIDI Channel No. (0 - 15) ------ Usually Global Channel.
+            When in Combination/Sequencer/Spng Play mode, each timbre's/track's channel.(Status = EXT,EX2 or BTH) 
+  g :       Always Global Channel No. (0 - 15)  
+  ENA = A : Always Enabled. 
+        C : Enabled when Enable Control Change in Global mode is checked. 
+        P : Enabled when Enable Program Change in Global mode is checked. 
+        PB: Enabled when Enable Program and Bank Change in Global mode is checked.
+        T : Enabled when Enable After Touch in Global mode is checked. 
+        Q : Enabled when Sequencer is playing(transmit), recording(receive) 
+
+  *1 : kk = 00 - 127
+
+  *2 : Program                Combination        MIDI Out[Hex]  (Bank Map is KORG)    (Bank Map is GM(2))
+       Bank A 000 - 127     : Bank A 000 - 127 : mm,bb,pp      = 00,00,    00 - 7F   = 3F,00,    00 - 7F
+            B 000 - 127     :      B 000 - 127 :                 00,01,    00 - 7F     3F,01,    00 - 7F
+            C 000 - 127     :      C 000 - 127 :                 00,02,    00 - 7F     3F,02,    00 - 7F
+            D 000 - 127     :      D 000 - 127 :                 00,03,    00 - 7F     3F,03,    00 - 7F
+            E 000 - 127     :      E 000 - 127 :                 00,04,    00 - 7F     3F,04,    00 - 7F
+            F 000 - 127     :      F 000 - 127 :                 00,05,    00 - 7F     3F,05,    00 - 7F
+                            :      G 000 - 127 :                 00,06,    00 - 7F     3F,06,    00 - 7F
+
+            G 000 - 127     :      H 000 - 127 :                 00,08,    00 - 7F     3F,08,    00 - 7F
+            H 000 - 127     :      I 000 - 127 :                 00,09,    00 - 7F     3F,09,    00 - 7F
+            I 000 - 127     :      J 000 - 127 :                 00,0A,    00 - 7F     3F,0A,    00 - 7F
+            J 000 - 127     :      K 000 - 127 :                 00,0B,    00 - 7F     3F,0B,    00 - 7F
+            K 000 - 127     :      L 000 - 127 :                 00,0C,    00 - 7F     3F,0C,    00 - 7F
+            L 000 - 127     :      M 000 - 127 :                 00,0D,    00 - 7F     3F,0D,    00 - 7F
+            M 000 - 127     :      N 000 - 127 :                 00,0E,    00 - 7F     3F,0E,    00 - 7F
+            N 000 - 127     :                                    00,0F,    00 - 7F     3F,0F,    00 - 7F
+            O 000 - 127     :                                    00,10,    00 - 7F     3F,10,    00 - 7F
+            P 000 - 127     :                                    00,11,    00 - 7F     3F,11,    00 - 7F
+            Q 000 - 127     :                                    00,12,    00 - 7F     3F,12,    00 - 7F
+            R 000 - 127     :                                    00,13,    00 - 7F     3F,13,    00 - 7F
+            S 000 - 127     :                                    00,14,    00 - 7F     3F,14,    00 - 7F
+            T 000 - 127     :                                    00,15,    00 - 7F     3F,15,    00 - 7F
+
+          GM 001 - 128 :                                         79,00,    00 - 7F     79,00,    00 - 7F
+    g(1)-(9) 001 - 128 :                                         79,01-09, 00 - 7F     79,01-09, 00 - 7F
+        g(d) 001 - 128 :                                         78,00,    00 - 7F     78,00,    00 - 7F
+
+     : Set List 
+       000-127  000 - 127(Slot)                : mm,bb,pp      = 00,00-7F, 00 - 7F   = 00,00-7F, 00 - 7F
+
+  *3 : When CC# by "CC Default" is assigned to the ARP/X-Y Controllers in Global Mode.
+
+        Reset Controller MIDI Assign = CC Default
+
+        ARP ON/OFF         :CC#14
+        DRUM ON/OFF        :CC#15
+        GATE               :CC#22
+        VELOCITY           :CC#23
+        LENGTH             :CC#24
+        SWING              :CC#25
+        DRUM SD            :CC#26
+        LATCH ON/OFF       :CC#31
+        X-Y Control X      :CC#118
+        X-Y Control Y      :CC#119
+
+  *4 : (vv) = 64 is always transmitted at Sequencer playback.
+
+
+1-2 SYSTEM COMMON MESSAGES                                                [H] :Hex, [D] :Decimal
+  +------+--------+--------------------+--------------------------------------------------------+
+  |Status| Second |     Third          |           Description ( Transmitted when )             |
+  |[Hex] |[H] [D] |  [H]      [D]      |                                                        |
+  +------+--------+--------------------+--------------------------------------------------------+
+  |  F2  | ss (ss)|   tt      (tt)     | Song Position Pointer                                  |
+  |      |        |                    |   ss : Least significant [LSB]                       *5|
+  |      |        |                    |   tt : Most  significant [MSB]                       *5|
+  |  F3  | ss (ss)|                    | Song Select (Song is selected)                         |
+  |      |        |                    |   ss : Song(0-127)                                     |
+  +------+--------+--------------------+--------------------------------------------------------+
+
+  Transmits Song Position Pointer message when in Sequencer mode. (Internal Clock)
+  Transmits Song Select message when in Sequencer mode. (Internal Clock) 
+
+  *5 : For example, if time signature is 4/4 or 8/8, tt,ss = 00,10 means one measure.  
+
+
+1-3 SYSTEM REALTIME MESSAGES
+  +------------+------------------------------------------------------------+
+  |Status[Hex] |       Description ( Transmitted when ... )                 |
+  +------------+------------------------------------------------------------+
+  |  F8        | Timing Clock   ( Always )                                *6|
+  |  FA        | Start          ( START in Seq mode )                     *6|
+  |            |                ( Trigger ARP in Prog/Combi mode )     *6 *7|
+  |  FB        | Continue       ( Continue START in Seq mode )            *6|
+  |  FC        | Stop           ( STOP in Seq mode )                      *6|
+  |            |                ( Trigger ARP in Prog/Combi mode )     *6 *7|
+  |  FE        | Active Sensing ( Always )                                  |
+  +------------+------------------------------------------------------------+
+  *6 Transmits these messages when MIDI Clock in Global mode is Internal.
+  *7 Transmits these messages when Enable Start/Stop Out in Prog/Combi in Global mode is Enabled.
+
+
+1-4 SYSTEM EXCLUSIVE
+1-4-1 UNIVERSAL SYSTEM EXCLUSIVE MESSAGE ( NON REALTIME )
+      DEVICE INQUlRY REPLY ( Transmits when received a INQUIRY MESSAGE REQUEST )
+      [ F0,7E,0g,06,02,42,00,01,5D,00,mm,00,vv,ww,xx,00,F7 ] 3rd byte   g : Global Channel
+                                                             6th byte  42 : KORG ID
+                                                             8th byte  01 : NAUTILUS series ID LSB
+                                                             9th byte  5D : NAUTILUS series ID MSB
+                                                            11th byte  mm : NAUTILUS 61Keys member code mm = 05
+                                                                            NAUTILUS 73Keys member code mm = 0E
+                                                                            NAUTILUS 88Keys member code mm = 17
+                                                            13th byte  vv : System Version 1st ( 1 - )
+                                                            14th byte  ww : System Version 2nd ( 0 - )
+                                                            15th byte  xx : System Version 3rd ( 0 - )
+                                                            (i.e. Version 1.0.2: vv=01, ww=00, xx=02 )
+
+1-4-2 UNIVERSAL SYSTEM EXCLUSIVE MESSAGES ( REALTIME )
+      Master Volume
+      [ F0,7F,0g,04,01,vv,mm,F7 ]                     3rd byte    g : Global Channel
+                                                      6th byte   vv : Value(LSB)
+                                                      7th byte   mm : Value(MSB)
+                                                                 mm,vv = 00,00 - 7F,7F : Min - Max
+
+
+2.RECOGNIZED RECEIVE DATA
+
+
+2-1 CHANNEL MESSAGES                                                                         [H] :Hex, [D] :Decimal
+  +------+---------+--------------------+---------------------------------------------------------------------+----+
+  |Status| Second  |    Third           |         Description ( Use ..... )                                   |ENA |
+  |[Hex] |[H] [D]  | [H]      [D]       |                                                                     |    |
+  +------+---------+--------------------+---------------------------------------------------------------------+----+
+  |  8n  | kk (kk) |  vv      (vv)      | Note Off (vv) = 0-127                                             *5| A  |
+  |  9n  | kk (kk) |  00      (00)      | Note Off                                                            | A  |
+  |  9n  | kk (kk) |  vv      (vv)      | Note On (vv) = 1-127                                                | A  |
+  |  An  | kk (kk) |  vv      (vv)      | Poly Key Pressure   ( as AMS )                                      | T,Q|
+  |  Bn  | 00 (00) |  mm      (mm)      | Bank Select(MSB)    ( for Prog/Combi/Set List change )            *1| P  |
+  |  Bn  | 01 (01) |  vv      (vv)      | Modulation1         ( as Joy Stick +Y )                             | C  |
+  |  Bn  | 02 (02) |  vv      (vv)      | Modulation2         ( as Joy Stick -Y )                             | C  |
+  |  Bn  | 04 (04) |  vv      (vv)      | Foot Pedal          ( as AMS & FX Dmod Src = Foot Pedal )           | C  |
+  |  Bn  | 05 (05) |  vv      (vv)      | Portamento Time                                                     | C  |
+  |  Bn  | 06 (06) |  vv      (vv)      | Data Entry (MSB)    ( for RPC edit )                                | C  |
+  |  Bn  | 07 (07) |  vv      (vv)      | Volume                                                              | C  |
+  |  Bn  | 08 (08) |  vv      (vv)      | Balance Control     ( for Post IFX Panpot control )               *2| C  |
+  |  Bn  | 0A (10) |  vv      (vv)      | Panpot                                                              | C  |
+  |  Bn  | 0B (11) |  vv      (vv)      | Expression                                                          | C  |
+  |  Bn  | 0C (12) |  vv      (vv)      | Effect Control 1    ( as FX Dmod Src = Fx Control1 )                | C  |
+  |  Bn  | 0D (13) |  vv      (vv)      | Effect Control 2    ( as FX Dmod Src = Fx Control2 )                | C  |
+  |  Bn  | 0E (14) |  vv      (vv)      |                     ( as ARP ON/OFF )                             *4| C  |
+  |  Bn  | 0F (15) |  vv      (vv)      |                     ( as DRUM ON/OFF )                            *4| C  |
+  |  Bn  | 10 (16) | vv       (vv)      | Multi Purpose Ctrl1 ( as AMS & FX Dmod Src = CC#16 )                | C  |
+  |  Bn  | 11 (17) | vv       (vv)      | Multi Purpose Ctrl2 ( as AMS & FX Dmod Src = CC#17 )                | C  |
+  |  Bn  | 12 (18) | vv       (vv)      | Multi Purpose Ctrl3 ( as AMS & FX Dmod Src = CC#18 )                | C  |
+  |  Bn  | 13 (19) | vv       (vv)      | Multi Purpose Ctrl4 ( as AMS & FX Dmod Src = CC#19 )                | C  |
+  |  Bn  | 14 (20) | vv       (vv)      |                     ( as AMS & FX Dmod Src = Knob Mod5 )            | C  |
+  |  Bn  | 15 (21) | vv       (vv)      |                     ( as AMS & FX Dmod Src = Knob Mod6 )            | C  |
+  |  Bn  | 16 (22) | vv       (vv)      |                     ( as GATE )                                   *4| C  |
+  |  Bn  | 17 (23) | vv       (vv)      |                     ( as VELOCITY )                               *4| C  |
+  |  Bn  | 18 (24) | vv       (vv)      |                     ( as LENGTH )                                 *4| C  |
+  |  Bn  | 19 (25) | vv       (vv)      |                     ( as SWING )                                  *4| C  |
+  |  Bn  | 1A (26) | vv       (vv)      |                     ( as DRUM SD )                                *4| C  |
+  |  Bn  | 1F (31) | vv       (vv)      |                     ( as LATCH ON/OFF )                           *4| C  |
+  |  Bn  | 20 (32) | bb       (bb)      | Bank Select(LSB)    ( for Prog/Combi/Set List change )            *1| P  |
+  |  Bn  | 26 (38) | vv       (vv)      | Data Entry (LSB)    ( for RPC edit )                                | C  |
+  |  Bn  | 40 (64) | vv       (vv)      | Hold1               ( as Damper)                                    | C  |
+  |  Bn  | 41 (65) | 3F/40    (63/64)   | Portamento Off/On                                                   | C  |
+  |  Bn  | 42 (66) | 3F/40    (63/64)   | Sostenuto Off/On                                                    | C  |
+  |  Bn  | 43 (67) | vv       (vv)      | Soft Pedal                                                          | C  |
+  |  Bn  | 46 (70) | vv       (vv)      | Sound Controller 1  ( for Sustain Level control )                   | C  |
+  |  Bn  | 47 (71) | vv       (vv)      | Sound Controller 2  ( for Resonance control )                       | C  |
+  |  Bn  | 48 (72) | vv       (vv)      | Sound Controller 3  ( for Release Time control )                    | C  |
+  |  Bn  | 49 (73) | vv       (vv)      | Sound Controller 4  ( for Attack Time control )                     | C  |
+  |  Bn  | 4A (74) | vv       (vv)      | Sound Controller 5  ( for Filter Cutoff control )                   | C  |
+  |  Bn  | 4B (75) | vv       (vv)      | Sound Controller 6  ( for Decay Time control )                      | C  |
+  |  Bn  | 4C (76) | vv       (vv)      | Sound Controller 7  ( for LFO1 Speed control )                      | C  |
+  |  Bn  | 4D (77) | vv       (vv)      | Sound Controller 8  ( for LFO1 Pitch Depth control )                | C  |
+  |  Bn  | 4E (78) | vv       (vv)      | Sound Controller 9  ( for LFO1 Delay control )                      | C  |
+  |  Bn  | 4F (79) | vv       (vv)      | Sound Controller 10 ( for Filter EG Intensity control )             | C  |
+  |  Bn  | 50 (80) | vv       (vv)      | Multi Purpose Ctrl5 ( as AMS & FX Dmod Src = SW 1 )                 | C  |
+  |  Bn  | 51 (81) | vv       (vv)      | Multi Purpose Ctrl6 ( as AMS & FX Dmod Src = SW 2 )                 | C  |
+  |  Bn  | 52 (82) | vv       (vv)      | Multi Purpose Ctrl7 ( as AMS & FX Dmod Src = Foot Switch )          | C  |
+  |  Bn  | 53 (83) | vv       (vv)      | Multi Purpose Ctrl8 ( as AMS & FX Dmod Src = CC#83 )                | C  |
+  |  Bn  | 55 (85) | vv       (vv)      |                     ( as AMS & FX Dmod Src = X-Y Mod +X )           | C  |
+  |  Bn  | 56 (86) | vv       (vv)      |                     ( as AMS & FX Dmod Src = X-Y Mod -X )           | C  |
+  |  Bn  | 57 (87) | vv       (vv)      |                     ( as AMS & FX Dmod Src = X-Y Mod +Y )           | C  |
+  |  Bn  | 58 (88) | vv       (vv)      |                     ( as AMS & FX Dmod Src = X-Y Mod -Y )           | C  |
+  |  Bn  | 5B (91) | vv       (vv)      | Effect 1 Depth      ( for Send 2 Level control )                    | C  |
+  |  Bg  | 5C (92) | 00/00    (00/000)  | Effect 2 Depth      ( for All Insert FX Off/On )                    | C  |
+  |  Bn  | 5D (93) | vv       (vv)      | Effect 3 Depth      ( for Send 1 Level control )                    | C  |
+  |  Bg  | 5E (94) | 00/00    (00/000)  | Effect 4 Depth      ( for Master FX1,2 Off/On )                     | C  |
+  |  Bg  | 5F (95) | 00/00    (00/000)  | Effect 5 Depth      ( for Total  FX1,2 Off/On )                     | C  |
+  |  Bn  | 60 (96) | 00       (00)      | Data Increment      ( for RPC edit )                                | C  |
+  |  Bn  | 61 (97) | 00/00    (00/000)  | Data Decrement      ( for RPC edit )                                | C  |
+  |  Bn  | 64 (100)| 0r       (0r)      | RPN Param No. (LSB) ( for RPN select )                            *3| C  |
+  |  Bn  | 65 (101)| 00       (00)      | RPN Param No. (MSB) ( for RPN select )                            *3| C  |
+  |  Bn  | 76 (118)| vv       (vv)      |                     ( as X-Y Control X )                          *4| C  |
+  |  Bn  | 77 (119)| vv       (vv)      |                     ( as X-Y Control Y )                          *4| C  |
+  |  Bn  | cc (cc) | vv       (vv)      | Control data        ( for Seq. recording (cc) = 0-119 )             | C,Q|
+  |  Bn  | 78 (120)| 00       (00)      | All Sound Off                                                       | C  |
+  |  Bn  | 79 (121)| 00       (00)      | Reset All Controllers                                               | C  |
+  |  Bn  | 7A (122)| 00/7F    (00/127)  | Local Control Off/On                                                | A  |
+  |  Bn  | 7B (123)| 00       (00)      | All Notes Off                                                       | A  |
+  |  Bn  | 7C (124)| 00       (00)      | Omni Mode Off       ( as All Notes Off )                            | A  |
+  |  Bn  | 7D (125)| 00       (00)      | Omni Mode On        ( as All Notes Off )                            | A  |
+  |  Bn  | 7E (126)| 10       (16)      | Mono Mode On        ( as All Notes Off )                            | A  |
+  |  Bn  | 7F (127)| 00       (00)      | Poly mode On        ( as All Notes Off )                            | A  |
+  |  Cn  | pp (pp) | --        --       | Program Change      ( for Prog/Combi/Set List change )            *1| P  |
+  |  Dn  | vv (vv) | --        --       | Channel Pressure    ( as After Touch )                              | T  |
+  |  En  | bb (bb) | bb       (bb)      | Bender Change                                                       | C  |
+  +------+---------+--------------------+---------------------------------------------------------------------+----+
+
+  AMS         : Alternate Modulation Source
+  FX Dmod Src : Effect Dynamic Modulation Source 
+ 
+  n           : MIDI Channel No. (0 - 15) ------ Usually Global Channel.
+                When in Combination/Sequencer mode, each timbre's/track's channel.(Status is INT or BTH)
+  g           : Always Global Channel No. (0 - 15) 
+  x           : Random 
+  ENA         : Same as Transmitted data
+
+  *1 : When Bank Map in Global mode is KORG;  
+
+  MIDI In    [Hex]                 Program            Combination  
+  mm,bb,pp = 00,00,    00 - 7F   : Bank A 000 - 127 : Bank A 000 - 127
+             00,01,    00 - 7F   :      B 000 - 127 :      B 000 - 127
+             00,02,    00 - 7F   :      C 000 - 127 :      C 000 - 127
+             00,03,    00 - 7F   :      D 000 - 127 :      D 000 - 127
+             00,04,    00 - 7F   :      E 000 - 127 :      E 000 - 127
+             00,05,    00 - 7F   :      F 000 - 127 :      F 000 - 127
+             00,06,    00 - 7F   :                  :      G 000 - 127
+             00,08,    00 - 7F   :      G 000 - 127 :      H 000 - 127
+             00,09,    00 - 7F   :      H 000 - 127 :      I 000 - 127
+             00,0A,    00 - 7F   :      I 000 - 127 :      J 000 - 127
+             00,0B,    00 - 7F   :      J 000 - 127 :      K 000 - 127
+             00,0C,    00 - 7F   :      K 000 - 127 :      L 000 - 127
+             00,0D,    00 - 7F   :      L 000 - 127 :      M 000 - 127
+             00,0E,    00 - 7F   :      M 000 - 127 :      N 000 - 127
+             00,0F,    00 - 7F   :      N 000 - 127 :
+             00,10,    00 - 7F   :      O 000 - 127 :
+             00,11,    00 - 7F   :      P 000 - 127 :
+             00,12,    00 - 7F   :      Q 000 - 127 :
+             00,13,    00 - 7F   :      R 000 - 127 :
+             00,14,    00 - 7F   :      S 000 - 127 :
+             00,15,    00 - 7F   :      T 000 - 127 :
+ 
+             79,00,    00 - 7F   :          G 001 - 128
+             79,01-09, 00 - 7F   :  g(1)-g(9) 001 - 128
+             78,00,    00 - 7F   :       g(d) 001 - 128
+
+             38,00,    00 - 7F   :          G 001 - 128
+             3E,00,    00 - 7F   :       g(d) 001 - 128
+
+  MIDI In    [Hex]                 Set List  
+  mm,bb,pp = 00,00-7F, 00 - 7F   : 000-127    000 - 127(Slot)
+
+     : When Bank Map in Global mode is GM(2);  
+
+  MIDI In [Hex]                    Program            Combination 
+  mm,bb,pp = 3F,00,    00 - 7F   : Bank A 000 - 127 : Bank A 000 - 127
+             3F,01,    00 - 7F   :      B 000 - 127 :      B 000 - 127
+             3F,02,    00 - 7F   :      C 000 - 127 :      C 000 - 127
+             3F,03,    00 - 7F   :      D 000 - 127 :      D 000 - 127
+             3F,04,    00 - 7F   :      E 000 - 127 :      E 000 - 127
+             3F,05,    00 - 7F   :      F 000 - 127 :      F 000 - 127
+             3F,06,    00 - 7F   :                  :      G 000 - 127
+             3F,08,    00 - 7F   :      G 000 - 127 :      H 000 - 127
+             3F,09,    00 - 7F   :      H 000 - 127 :      I 000 - 127
+             3F,0A,    00 - 7F   :      I 000 - 127 :      J 000 - 127
+             3F,0B,    00 - 7F   :      J 000 - 127 :      K 000 - 127
+             3F,0C,    00 - 7F   :      K 000 - 127 :      L 000 - 127
+             3F,0D,    00 - 7F   :      L 000 - 127 :      M 000 - 127
+             3F,0E,    00 - 7F   :      M 000 - 127 :      N 000 - 127
+             3F,0F,    00 - 7F   :      N 000 - 127 :
+             3F,10,    00 - 7F   :      O 000 - 127 :
+             3F,11,    00 - 7F   :      P 000 - 127 :
+             3F,12,    00 - 7F   :      Q 000 - 127 :
+             3F,13,    00 - 7F   :      R 000 - 127 :
+             3F,14,    00 - 7F   :      S 000 - 127 :
+             3F,15,    00 - 7F   :      T 000 - 127 :
+
+             79,00,    00 - 7F   :          G 001 - 128
+             79,01-09, 00 - 7F   :  g(1)-g(9) 001 - 128
+             78,00,    00 - 7F   :       g(d) 001 - 128
+
+             00,00,    00 - 7F   :          G 001 - 128
+             38,00,    00 - 7F   :          G 001 - 128
+             3E,00,    00 - 7F   :       g(d) 001 - 128
+
+  MIDI In    [Hex]                 Set List
+  mm,bb,pp = 00,00-7F, 00 - 7F   : 000-127    000 - 127(Slot)
+
+
+  *2 : When in Program/Sampling mode, Global channel. 
+       When in Combination/Sequencer mode, each IFX's channel.   
+
+  *3 : r = 0 : Pitch Bend Sensitivity ( Bend Range ) 
+         = 1 : Fine Tune ( Detune )   
+         = 2 : Coarse Tune ( Transpose )
+
+  For drum program, both of Fine Tune and Coase Tune affect to Detune. 
+  Data Entry LSB value has no effect for Pitch Bend Sensitivity and Coarse Tune.
+
+  *4 : When CC# by "CC Default" is assigned to the ARP/X-Y Controllers in Global Mode.
+
+   n : When in Program/Combination mode, Global channel.
+       When in Sequencer mode, current selected track's channel.
+
+  *5 : Note Off Velocity values (vv) = 0 - 127 are not recorded in Sequencer.
+
+
+2-2 SYSTEM COMMON MESSAGES                                                [H] :Hex, [D] :Decimal
+  +------+--------+--------------------+--------------------------------------------------------+
+  |Status| Second |     Third          |           Description ( Use for ..... )                |
+  |[Hex] |[H] [D] |  [H]      [D]      |                                                        |
+  +------+--------+--------------------+--------------------------------------------------------+
+  |  F2  | ss (ss)|   tt      (tt)     | Song Position Pointer ( Location )                   *7|
+  |      |        |                    |   ss : Least significant [LSB]                         |
+  |      |        |                    |   tt : Most significant [MSB]                          |
+  |  F3  | ss (ss)|                    | Song Select (Song select )                           *6|
+  |      |        |                    |   ss : Song(0-127) No.                                 |
+  +------+--------+--------------------+--------------------------------------------------------+
+   Receive when in Sequencer mode. 
+
+
+2-3 SYSTEM REALTIME MESSAGES 
+  +------------+--------------------------------------------------------------+
+  |Status[Hex] |       Description ( Use for..... )                           |
+  +------------+--------------------------------------------------------------+
+  |  F8        | Timing Clock    ( Tempo, AMS & FX Dmod Src )               *6|
+  |  FA        | Start           ( Seq Start & Arpeggiator Control)         *7|
+  |  FB        | Continue        ( Seq Continue start & Arpeggiator Control)*7|
+  |  FC        | Stop            ( Seq Stop & Arpeggiator Control)          *7|
+  |  FE        | Active Sensing  ( MIDI Connect check )                       |
+  +------------+--------------------------------------------------------------+
+  *6 Receive when MIDI Clock in Global mode is External MIDI.
+  *7 Receive when MIDI Clock in Global mode is External MIDI,
+     and Receive Ext. Realtime Commands in Global mode is checked.
+
+
+
+2-4 SYSTEM EXCLUSIVE 
+
+2-4-1 UNIVERSAL SYSTEM EXCLUSIVE MESSAGE ( NON REALTIME ) 
+
+      DEVICE INQUlRY ( When received this message, transmits INQUlRY MESSAGE REPLY )  
+      [ F0,7E,nn,06,01,F7 ] 3rd byte nn : Channel = 0 - F : Global Channel 
+                                                  = 7F    : Any Channel 
+ 
+      GM System On ( Receive when in Sequencer mode ) 
+      [ F0,7E,nn,09,01,F7 ] 3rd byte nn : Channel = 0 - F : Global Channel  
+                                                  = 7F    : Any Channel
+
+
+2-4-2 UNIVERSAL SYSTEM EXCLUSIVE MESSAGES ( REALTIME ) 
+
+      Master Volume 
+      [ F0,7F,0g,04,01,vv,mm,F7 ] 3rd byte  g : Global Channel  
+                                  6th byte vv : Value(LSB) 
+                                  7th byte mm : Value(MSB) 
+                                           mm,vv = 00,00 - 7F,7F : Min - Max  
+
+      Master Balance  
+      [ F0,7F,0g,04,02,vv,mm,F7 ] 3rd byte  g : Global Channel 
+                                  6th byte vv : Value(LSB) 
+                                  7th byte mm : Value(MSB)  
+                                  mm,vv = 00,00:Left, 40,00:Center, 7F,7F:Right
+ 
+      Master Fine Tune ( Control Master Tune(cent) in Global ) 
+      [ F0,7F,0g,04,03,vv,mm,F7 ] 3rd byte  g : Global Channel  
+                                  6th byte vv : Value(LSB) 
+                                  7th byte mm : Value(MSB) 
+                                           mm,vv = 20,00:-50, 40,00:+00, 60,00:+50  
+
+      Master Coarse Tune ( Control Transpose (chromatic step) in Global )  
+      [ F0,7F,0g,04,04,vv,mm,F7 ] 3rd byte g : Global Channel 
+                                  6th byte vv : Value(LSB) 
+                                  7th byte mm : Value(MSB)  
+                                           mm,vv = 34,00:-12, 40,00:+00, 4C,00:+12
+

@@ -1,0 +1,2818 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "COMMON MOD · 1/2",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_P_COMMON_MOD_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_P_COMMON_MOD_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — COMMON MOD · 1/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 78.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 141.0,
+   "y": 84,
+   "w": 59.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 203.4,
+   "y": 84,
+   "w": 68.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 274.9,
+   "y": 84,
+   "w": 60.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 338.5,
+   "y": 84,
+   "w": 74.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 416.0,
+   "y": 84,
+   "w": 98.7,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 517.7,
+   "y": 84,
+   "w": 55.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 576.6,
+   "y": 84,
+   "w": 79.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 658.9,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 733.2,
+   "y": 84,
+   "w": 76.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 812.4,
+   "y": 84,
+   "w": 72.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 887.4,
+   "y": 84,
+   "w": 74.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 964.6,
+   "y": 84,
+   "w": 79.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 1047.2,
+   "y": 84,
+   "w": 93.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1143.6,
+   "y": 84,
+   "w": 77.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1223.6,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1297.9,
+   "y": 84,
+   "w": 83.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@2738",
+   "param": "Prog_HD-1@2738",
+   "group": "pitch_eg_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "TIME MOD.SOURCE",
+   "x": 152.2,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2738,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2742",
+   "param": "Prog_HD-1@2742",
+   "group": "pitch_eg_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 275.2,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2742,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2718",
+   "param": "Prog_HD-1@2718",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START LEVEL",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2718,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2718_val",
+   "param": "Prog_HD-1@2718",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START LEVEL value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2718,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2719",
+   "param": "Prog_HD-1@2719",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME",
+   "x": 142.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 163.00569974554708,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2719,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2719_val",
+   "param": "Prog_HD-1@2719",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME value",
+   "x": 144.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2719,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2720",
+   "param": "Prog_HD-1@2720",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK LEVEL",
+   "x": 208.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 229.01139949109415,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2720,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2720_val",
+   "param": "Prog_HD-1@2720",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK LEVEL value",
+   "x": 210.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2720,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2721",
+   "param": "Prog_HD-1@2721",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME",
+   "x": 274.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 295.01709923664123,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2721,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2721_val",
+   "param": "Prog_HD-1@2721",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME value",
+   "x": 276.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2721,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2722",
+   "param": "Prog_HD-1@2722",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BREAK LEVEL",
+   "x": 340.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 361.0227989821883,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2722,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2722_val",
+   "param": "Prog_HD-1@2722",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BREAK LEVEL value",
+   "x": 342.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2722,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2723",
+   "param": "Prog_HD-1@2723",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME",
+   "x": 406.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 427.0284987277354,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2723,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2723_val",
+   "param": "Prog_HD-1@2723",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME value",
+   "x": 408.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2723,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2724",
+   "param": "Prog_HD-1@2724",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME",
+   "x": 472.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 493.03419847328246,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2724,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2724_val",
+   "param": "Prog_HD-1@2724",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME value",
+   "x": 474.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2724,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2725",
+   "param": "Prog_HD-1@2725",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE LEVEL",
+   "x": 538.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 559.0398982188295,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2725,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2725_val",
+   "param": "Prog_HD-1@2725",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE LEVEL value",
+   "x": 540.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Release Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2725,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "4"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2726",
+   "param": "Prog_HD-1@2726",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME EG CURVE",
+   "x": 604.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 625.0455979643766,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2726,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2726_val",
+   "param": "Prog_HD-1@2726",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME EG CURVE value",
+   "x": 606.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2726,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2727",
+   "param": "Prog_HD-1@2727",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME EG CURVE",
+   "x": 670.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 691.0512977099237,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2727,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2727_val",
+   "param": "Prog_HD-1@2727",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME EG CURVE value",
+   "x": 672.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2727,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2728",
+   "param": "Prog_HD-1@2728",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME EG CURVE",
+   "x": 736.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 757.0569974554708,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2728,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2728_val",
+   "param": "Prog_HD-1@2728",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME EG CURVE value",
+   "x": 738.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2728,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2729",
+   "param": "Prog_HD-1@2729",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME EG CURVE",
+   "x": 802.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 823.0626972010178,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2729,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2729_val",
+   "param": "Prog_HD-1@2729",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME EG CURVE value",
+   "x": 804.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2729,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2739",
+   "param": "Prog_HD-1@2739",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TIME MOD INT TO ATK TIME",
+   "x": 868.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 889.0683969465649,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Time Mod.Intensity To Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2739,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2739_val",
+   "param": "Prog_HD-1@2739",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TIME MOD INT TO ATK TIME value",
+   "x": 870.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Time Mod.Intensity To Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2739,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2740",
+   "param": "Prog_HD-1@2740",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TIME MOD INT TO DCY TIME",
+   "x": 934.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 955.074096692112,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Time Mod.Intensity To Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2740,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2740_val",
+   "param": "Prog_HD-1@2740",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TIME MOD INT TO DCY TIME value",
+   "x": 936.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Time Mod.Intensity To Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2740,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2741",
+   "param": "Prog_HD-1@2741",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "TIME MOD.INT TO SLOPE TIME",
+   "x": 1000.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1021.0797964376591,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Time Mod.Intensity To Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2741,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2741_val",
+   "param": "Prog_HD-1@2741",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "TIME MOD.INT TO SLOPE TIME value",
+   "x": 1002.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Time Mod.Intensity To Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2741,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2743",
+   "param": "Prog_HD-1@2743",
+   "group": "pitch_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESET THRESHOLD",
+   "x": 1066.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1087.085496183206,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2743,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2743_val",
+   "param": "Prog_HD-1@2743",
+   "group": "pitch_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RESET THRESHOLD value",
+   "x": 1068.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2743,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2730",
+   "param": "Prog_HD-1@2730",
+   "group": "pitch_eg_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2730",
+   "x": 1282.1,
+   "y": 150,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2730,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2734",
+   "param": "Prog_HD-1@2734",
+   "group": "pitch_eg_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@2734",
+   "x": 1355.0,
+   "y": 150,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2734,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2731",
+   "param": "Prog_HD-1@2731",
+   "group": "pitch_eg_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2731",
+   "x": 1282.1,
+   "y": 171,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.1 Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2731,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2735",
+   "param": "Prog_HD-1@2735",
+   "group": "pitch_eg_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2735",
+   "x": 1355.0,
+   "y": 171,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.2 Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2735,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2732",
+   "param": "Prog_HD-1@2732",
+   "group": "pitch_eg_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2732",
+   "x": 1282.1,
+   "y": 192,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.1 Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2732,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2736",
+   "param": "Prog_HD-1@2736",
+   "group": "pitch_eg_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2736",
+   "x": 1355.0,
+   "y": 192,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.2 Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2736,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2733",
+   "param": "Prog_HD-1@2733",
+   "group": "pitch_eg_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2733",
+   "x": 1282.1,
+   "y": 213,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.1 Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2733,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2737",
+   "param": "Prog_HD-1@2737",
+   "group": "pitch_eg_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@2737",
+   "x": 1355.0,
+   "y": 213,
+   "w": 69.0,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "Pitch EG",
+    "name": "Level Mod.2 Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2737,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "10",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2744.5~0",
+   "param": "Prog_HD-1@2744.5~0",
+   "group": "common_lfo_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WAVEFORM",
+   "x": 68.0,
+   "y": 299.0,
+   "w": 71.8,
+   "h": 16,
+   "text": [
+    "Triangle"
+   ],
+   "options": "Triangle~Random6(Co",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Waveform",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2744,
+    "bit": "5~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~11",
+    "value": "Triangle~Random6(Co"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2744.6",
+   "param": "Prog_HD-1@2744.6",
+   "group": "common_lfo_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "STOP",
+   "x": 233.9,
+   "y": 300.0,
+   "w": 157.9,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Stop",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2744,
+    "bit": "6",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2749",
+   "param": "Prog_HD-1@2749",
+   "group": "common_lfo_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SHAPE MOD.SOURCE",
+   "x": 399.8,
+   "y": 299.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Shape Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2749,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2752",
+   "param": "Prog_HD-1@2752",
+   "group": "common_lfo_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 68.0,
+   "y": 333.0,
+   "w": 84.0,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Gate2 + Damper",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2752,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Gate2 + Damper"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2753.7",
+   "param": "Prog_HD-1@2753.7",
+   "group": "common_lfo_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MIDI SYNC",
+   "x": 233.9,
+   "y": 334.0,
+   "w": 157.9,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "all",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "MIDI Sync",
+    "kind": "toggle",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2753,
+    "bit": "7",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2755",
+   "param": "Prog_HD-1@2755",
+   "group": "common_lfo_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQUENCY MOD.SOURCE",
+   "x": 399.8,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2755,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2757",
+   "param": "Prog_HD-1@2757",
+   "group": "common_lfo_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "FREQUENCY MOD.INT.MOD.SOURCE",
+   "x": 68.0,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2757,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2745",
+   "param": "Prog_HD-1@2745",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY",
+   "x": 589.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 610.756862745098,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2745,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2745_val",
+   "param": "Prog_HD-1@2745",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY value",
+   "x": 591.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2745,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2746",
+   "param": "Prog_HD-1@2746",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY FINE",
+   "x": 677.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 698.7838779956427,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Fine",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2746,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2746_val",
+   "param": "Prog_HD-1@2746",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY FINE value",
+   "x": 679.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Fine",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2746,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2747",
+   "param": "Prog_HD-1@2747",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START PHASE",
+   "x": 765.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 786.8108932461873,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-180~RND",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Start Phase",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2747,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "DC~25",
+    "value": "-180~RND"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2747_val",
+   "param": "Prog_HD-1@2747",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START PHASE value",
+   "x": 767.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "-180"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Start Phase",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2747,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "DC~25",
+    "value": "-180~RND"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2748",
+   "param": "Prog_HD-1@2748",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE",
+   "x": 853.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 874.8379084967321,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2748,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2748_val",
+   "param": "Prog_HD-1@2748",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE value",
+   "x": 855.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Shape",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2748,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2750",
+   "param": "Prog_HD-1@2750",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SHAPE MOD.INTENSITY",
+   "x": 941.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 962.8649237472767,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Shape Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2750,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2750_val",
+   "param": "Prog_HD-1@2750",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SHAPE MOD.INTENSITY value",
+   "x": 943.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Shape Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2750,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2751",
+   "param": "Prog_HD-1@2751",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "OFFSET",
+   "x": 1029.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1050.8919389978214,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2751,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2751_val",
+   "param": "Prog_HD-1@2751",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "OFFSET value",
+   "x": 1031.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Offset",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2751,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2753.3~0",
+   "param": "Prog_HD-1@2753.3~0",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC BASE NOTE",
+   "x": 1117.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1138.9189542483662,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1/32~1/1",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2753,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2753.3~0_val",
+   "param": "Prog_HD-1@2753.3~0",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC BASE NOTE value",
+   "x": 1119.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1/32"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "MIDI Sync Base Note",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2753,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~09",
+    "value": "1/32~1/1"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2754",
+   "param": "Prog_HD-1@2754",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MIDI SYNC TIMES",
+   "x": 1205.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1226.945969498911,
+   "cy": 350.0,
+   "r": 12,
+   "range": "1~32",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "MIDI Sync Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2754,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2754_val",
+   "param": "Prog_HD-1@2754",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MIDI SYNC TIMES value",
+   "x": 1207.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "MIDI Sync Times",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2754,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "01~20",
+    "value": "1~32"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2756",
+   "param": "Prog_HD-1@2756",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY MOD.INTENSITY",
+   "x": 1294.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1314.9729847494555,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2756,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2756_val",
+   "param": "Prog_HD-1@2756",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY MOD.INTENSITY value",
+   "x": 1296.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2756,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2758",
+   "param": "Prog_HD-1@2758",
+   "group": "common_lfo_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY MOD.INT.MOD.INT",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "all",
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2758,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@2758_val",
+   "param": "Prog_HD-1@2758",
+   "group": "common_lfo_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY MOD.INT.MOD.INT value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Common LFO",
+    "name": "Frequency Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 2758,
+    "sysex": {
+     "TYP": "1",
+     "SOC": "0",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "COMMON MOD",
+ "page_number": 1,
+ "pages_in_area": 2,
+ "apply": "all"
+}

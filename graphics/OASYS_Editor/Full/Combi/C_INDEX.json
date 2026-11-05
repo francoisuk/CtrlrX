@@ -1,0 +1,293 @@
+{
+ "object": "Combi",
+ "areas": [
+  {
+   "label": "GENERAL",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "TIMBRE",
+   "pages": 3,
+   "index": "TIMBRE",
+   "instances": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+   ],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "EFFECTS",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "FX EDIT",
+   "pages": 0,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": "EFFECTS"
+  },
+  {
+   "label": "VECTOR",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "CONTROL",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "AUDIO IN",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "KARMA",
+   "pages": 8,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "KARMA MODULE",
+   "pages": 13,
+   "index": "MODULE",
+   "instances": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "apply": "all",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "OASYS_OMNI_EDITOR_C_GENERAL_P1",
+   "area": "GENERAL",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_TIMBRE_P1",
+   "area": "TIMBRE",
+   "n": 1,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_TIMBRE_P2",
+   "area": "TIMBRE",
+   "n": 2,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_TIMBRE_P3",
+   "area": "TIMBRE",
+   "n": 3,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_EFFECTS_P1",
+   "area": "EFFECTS",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_EFFECTS_P2",
+   "area": "EFFECTS",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_VECTOR_P1",
+   "area": "VECTOR",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_VECTOR_P2",
+   "area": "VECTOR",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_CONTROL_P1",
+   "area": "CONTROL",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_AUDIO_IN_P1",
+   "area": "AUDIO IN",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_AUDIO_IN_P2",
+   "area": "AUDIO IN",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P1",
+   "area": "KARMA",
+   "n": 1,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P2",
+   "area": "KARMA",
+   "n": 2,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P3",
+   "area": "KARMA",
+   "n": 3,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P4",
+   "area": "KARMA",
+   "n": 4,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P5",
+   "area": "KARMA",
+   "n": 5,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P6",
+   "area": "KARMA",
+   "n": 6,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P7",
+   "area": "KARMA",
+   "n": 7,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_P8",
+   "area": "KARMA",
+   "n": 8,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P1",
+   "area": "KARMA MODULE",
+   "n": 1,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P2",
+   "area": "KARMA MODULE",
+   "n": 2,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P3",
+   "area": "KARMA MODULE",
+   "n": 3,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P4",
+   "area": "KARMA MODULE",
+   "n": 4,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P5",
+   "area": "KARMA MODULE",
+   "n": 5,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P6",
+   "area": "KARMA MODULE",
+   "n": 6,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P7",
+   "area": "KARMA MODULE",
+   "n": 7,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P8",
+   "area": "KARMA MODULE",
+   "n": 8,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P9",
+   "area": "KARMA MODULE",
+   "n": 9,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P10",
+   "area": "KARMA MODULE",
+   "n": 10,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P11",
+   "area": "KARMA MODULE",
+   "n": 11,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P12",
+   "area": "KARMA MODULE",
+   "n": 12,
+   "of": 13
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_C_KARMA_MODULE_P13",
+   "area": "KARMA MODULE",
+   "n": 13,
+   "of": 13
+  }
+ ]
+}

@@ -1,0 +1,2125 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AMP · 1/3",
+ "tab_index": 0,
+ "object": "Program",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_P_AMP_P1_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_P_AMP_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program — AMP · 1/3"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_general",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "GENERAL",
+   "x": 60,
+   "y": 84,
+   "w": 73.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 136.0,
+   "y": 84,
+   "w": 54.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 193.5,
+   "y": 84,
+   "w": 63.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP",
+   "x": 260.1,
+   "y": 84,
+   "w": 55.6,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO·MIX",
+   "x": 318.7,
+   "y": 84,
+   "w": 69.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_common_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "COMMON MOD",
+   "x": 391.3,
+   "y": 84,
+   "w": 93.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_exi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXi",
+   "x": 488.0,
+   "y": 84,
+   "w": 51.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_step_seq",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "STEP SEQ",
+   "x": 542.0,
+   "y": 84,
+   "w": 74.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_engine",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ENGINE",
+   "x": 619.3,
+   "y": 84,
+   "w": 66.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_effects",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EFFECTS",
+   "x": 688.7,
+   "y": 84,
+   "w": 71.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx_edit",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX EDIT",
+   "x": 763.0,
+   "y": 84,
+   "w": 67.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_vector",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "VECTOR",
+   "x": 833.0,
+   "y": 84,
+   "w": 69.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_control",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROL",
+   "x": 905.3,
+   "y": 84,
+   "w": 74.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_drum_track",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "DRUM TRACK",
+   "x": 983.0,
+   "y": 84,
+   "w": 88.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 1074.4,
+   "y": 84,
+   "w": 72.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA",
+   "x": 1149.5,
+   "y": 84,
+   "w": 66.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_karma_ge",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "KARMA GE",
+   "x": 1218.9,
+   "y": 84,
+   "w": 78.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1309.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idx_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1334.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_HD-1@3143",
+   "param": "Prog_HD-1@3143",
+   "group": "osc_amplifier_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "EG INT.MOD SRC",
+   "x": 425.6,
+   "y": 138,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "EG Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3143,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3141",
+   "param": "Prog_HD-1@3141",
+   "group": "osc_amplifier_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL",
+   "x": 383.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 404.79999999999995,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3141,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3141_val",
+   "param": "Prog_HD-1@3141",
+   "group": "osc_amplifier_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL value",
+   "x": 385.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3141,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3142",
+   "param": "Prog_HD-1@3142",
+   "group": "osc_amplifier_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "VELOCITY EG INTENSITY",
+   "x": 489.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 510.79999999999995,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "Velocity EG Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3142,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3142_val",
+   "param": "Prog_HD-1@3142",
+   "group": "osc_amplifier_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "VELOCITY EG INTENSITY value",
+   "x": 491.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "Velocity EG Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3142,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3144",
+   "param": "Prog_HD-1@3144",
+   "group": "osc_amplifier_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "EG INT.MOD. INTENSITY",
+   "x": 595.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 616.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "EG Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3144,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3144_val",
+   "param": "Prog_HD-1@3144",
+   "group": "osc_amplifier_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "EG INT.MOD. INTENSITY value",
+   "x": 597.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "EG Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3144,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3145",
+   "param": "Prog_HD-1@3145",
+   "group": "osc_amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3145",
+   "x": 836.8,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "LFO1 Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3145,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3146",
+   "param": "Prog_HD-1@3146",
+   "group": "osc_amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3146",
+   "x": 991.0,
+   "y": 150,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "LFO2 Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3146,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3147",
+   "param": "Prog_HD-1@3147",
+   "group": "osc_amplifier_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@3147",
+   "x": 836.8,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "LFO1 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3147,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3149",
+   "param": "Prog_HD-1@3149",
+   "group": "osc_amplifier_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_HD-1@3149",
+   "x": 991.0,
+   "y": 171,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "LFO2 Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3149,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "1"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3148",
+   "param": "Prog_HD-1@3148",
+   "group": "osc_amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3148",
+   "x": 836.8,
+   "y": 192,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "LFO1 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3148,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3150",
+   "param": "Prog_HD-1@3150",
+   "group": "osc_amplifier_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_HD-1@3150",
+   "x": 991.0,
+   "y": 192,
+   "w": 150.2,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier",
+    "name": "LFO2 Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3150,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3163",
+   "param": "Prog_HD-1@3163",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LEVEL MOD.SOURCE",
+   "x": 156.9,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3163,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3182",
+   "param": "Prog_HD-1@3182",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RESET SOURCE",
+   "x": 279.9,
+   "y": 284,
+   "w": 48.4,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Reset Source",
+    "kind": "menu",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3182,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "00~30",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3151",
+   "param": "Prog_HD-1@3151",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "START LEVEL",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3151,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3151_val",
+   "param": "Prog_HD-1@3151",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "START LEVEL value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3151,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3152",
+   "param": "Prog_HD-1@3152",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME",
+   "x": 163.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 184.06666666666666,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3152,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3152_val",
+   "param": "Prog_HD-1@3152",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME value",
+   "x": 165.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3152,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3153",
+   "param": "Prog_HD-1@3153",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK LEVEL",
+   "x": 250.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 271.1333333333333,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3153,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3153_val",
+   "param": "Prog_HD-1@3153",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK LEVEL value",
+   "x": 252.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3153,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3154",
+   "param": "Prog_HD-1@3154",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME",
+   "x": 337.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 358.2,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3154,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3154_val",
+   "param": "Prog_HD-1@3154",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME value",
+   "x": 339.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3154,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "1"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3155",
+   "param": "Prog_HD-1@3155",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "BREAK LEVEL",
+   "x": 424.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 445.26666666666665,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3155,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3155_val",
+   "param": "Prog_HD-1@3155",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "BREAK LEVEL value",
+   "x": 426.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3155,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3156",
+   "param": "Prog_HD-1@3156",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME",
+   "x": 511.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 532.3333333333333,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3156,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3156_val",
+   "param": "Prog_HD-1@3156",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME value",
+   "x": 513.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Slope Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3156,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "2"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3157",
+   "param": "Prog_HD-1@3157",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUSTAIN LEVEL",
+   "x": 598.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 619.4,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3157,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3157_val",
+   "param": "Prog_HD-1@3157",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUSTAIN LEVEL value",
+   "x": 600.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3157,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3158",
+   "param": "Prog_HD-1@3158",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME",
+   "x": 685.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 706.4666666666667,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3158,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3158_val",
+   "param": "Prog_HD-1@3158",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME value",
+   "x": 687.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3158,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "3"
+    },
+    "data": "00~63",
+    "value": "0~99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3159",
+   "param": "Prog_HD-1@3159",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME EG CURVE",
+   "x": 772.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 793.5333333333333,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3159,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3159_val",
+   "param": "Prog_HD-1@3159",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME EG CURVE value",
+   "x": 774.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Attack Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3159,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3160",
+   "param": "Prog_HD-1@3160",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME EG CURVE",
+   "x": 859.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 880.5999999999999,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3160,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3160_val",
+   "param": "Prog_HD-1@3160",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME EG CURVE value",
+   "x": 861.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Decay Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3160,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3161",
+   "param": "Prog_HD-1@3161",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SLOPE TIME EG CURVE",
+   "x": 946.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 967.6666666666666,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3161,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3161_val",
+   "param": "Prog_HD-1@3161",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SLOPE TIME EG CURVE value",
+   "x": 948.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Slope Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3161,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3162",
+   "param": "Prog_HD-1@3162",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME EG CURVE",
+   "x": 1033.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1054.7333333333333,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~10",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3162,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3162_val",
+   "param": "Prog_HD-1@3162",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME EG CURVE value",
+   "x": 1035.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Release Time EG Curve",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3162,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "00~0A",
+    "value": "0~10"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3164",
+   "param": "Prog_HD-1@3164",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL MOD.INT TO START LEVEL",
+   "x": 1120.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1141.8,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3164,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3164_val",
+   "param": "Prog_HD-1@3164",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL MOD.INT TO START LEVEL value",
+   "x": 1122.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Level Mod.Intensity To Start Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3164,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3165",
+   "param": "Prog_HD-1@3165",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL MOD.INT TO ATTACK LEVEL",
+   "x": 1207.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1228.8666666666666,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3165,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3165_val",
+   "param": "Prog_HD-1@3165",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL MOD.INT TO ATTACK LEVEL value",
+   "x": 1209.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Level Mod.Intensity To Attack Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3165,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3166",
+   "param": "Prog_HD-1@3166",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LEVEL MOD.INT TO BREAK LEVEL",
+   "x": 1294.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1315.9333333333334,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3166,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3166_val",
+   "param": "Prog_HD-1@3166",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "LEVEL MOD.INT TO BREAK LEVEL value",
+   "x": 1296.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Level Mod.Intensity To Break Level",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3166,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3183",
+   "param": "Prog_HD-1@3183",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RESET THRESHOLD",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-99~+99",
+   "apply": "hd1",
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3183,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "Prog_HD-1@3183_val",
+   "param": "Prog_HD-1@3183",
+   "group": "osc_amplifier_eg_1_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RESET THRESHOLD value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "OSC1 Amplifier EG",
+    "name": "Reset Threshold",
+    "kind": "knob",
+    "file": "Prog_HD-1.txt",
+    "ofs": 3183,
+    "sysex": {
+     "TYP": "9",
+     "SOC": "8",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AMP",
+ "page_number": 1,
+ "pages_in_area": 3,
+ "apply": "hd1",
+ "index": {
+  "label": "OSC",
+  "instances": [
+   "1",
+   "2"
+  ],
+  "listed_by_korg": [
+   "1",
+   "2"
+  ],
+  "shown": "1",
+  "stride_bytes": 466,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ }
+}

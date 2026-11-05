@@ -1,0 +1,2006 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "EG · 3/6",
+ "tab_index": 0,
+ "object": "Program · MS-20EX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "KRONOS_KONTROL_EDITOR_E_MS20EX_EG_P3_fond.png",
+ "background_2x": "KRONOS_KONTROL_EDITOR_E_MS20EX_EG_P3_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MS-20EX — EG · 3/6"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 193.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 265.4,
+   "y": 84,
+   "w": 162.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 431.2,
+   "y": 84,
+   "w": 171.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 606.1,
+   "y": 84,
+   "w": 180.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 789.9,
+   "y": 84,
+   "w": 159.3,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 952.2,
+   "y": 84,
+   "w": 161.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1116.3,
+   "y": 84,
+   "w": 164.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@475",
+   "param": "Prog_EXi@475",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HOLD TIME MOD.SOURCE",
+   "x": 309.7,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 475,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@477.7~3",
+   "param": "Prog_EXi@477.7~3",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HOLD TIME MOD.INT.MOD.SOURCE",
+   "x": 531.9,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 477,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@479.7~6",
+   "param": "Prog_EXi@479.7~6",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ATTACK TIME MOD.SOURCE",
+   "x": 754.0,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 479,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@482.7~1",
+   "param": "Prog_EXi@482.7~1",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ATTACK TIME MOD.INT.MOD.SOURCE",
+   "x": 976.1,
+   "y": 153.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 482,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@484.7~4",
+   "param": "Prog_EXi@484.7~4",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DECAY TIME MOD.SOURCE",
+   "x": 309.7,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 484,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@486.7",
+   "param": "Prog_EXi@486.7",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DECAY TIME MOD.INT.MOD.SOURCE",
+   "x": 531.9,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 486,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@489.7~2",
+   "param": "Prog_EXi@489.7~2",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SUSTAIN LEVEL MOD.SOURCE",
+   "x": 754.0,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 489,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "20",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@491.7~5",
+   "param": "Prog_EXi@491.7~5",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SUSTAIN LEVEL MOD.INT.MOD.SOURCE",
+   "x": 976.1,
+   "y": 187.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 491,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "22",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@494",
+   "param": "Prog_EXi@494",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RELEASE TIME MOD.SOURCE",
+   "x": 309.7,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 494,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "24",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@496.7~3",
+   "param": "Prog_EXi@496.7~3",
+   "group": "eg2_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RELEASE TIME MOD.INT.MOD.SOURCE",
+   "x": 531.9,
+   "y": 221.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 496,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "26",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@465",
+   "param": "Prog_EXi@465",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HOLD TIME",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 465,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@465_val",
+   "param": "Prog_EXi@465",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HOLD TIME value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 465,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@466.7~2",
+   "param": "Prog_EXi@466.7~2",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME",
+   "x": 145.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 166.47050760334116,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 466,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@466.7~2_val",
+   "param": "Prog_EXi@466.7~2",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME value",
+   "x": 147.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 466,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "1",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@467.7~4",
+   "param": "Prog_EXi@467.7~4",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME",
+   "x": 214.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 235.94101520668235,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 467,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@467.7~4_val",
+   "param": "Prog_EXi@467.7~4",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME value",
+   "x": 216.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 467,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@468.7~6",
+   "param": "Prog_EXi@468.7~6",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUSTAIN LEVEL",
+   "x": 284.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 305.41152281002354,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 468,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@468.7~6_val",
+   "param": "Prog_EXi@468.7~6",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUSTAIN LEVEL value",
+   "x": 286.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 468,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@470",
+   "param": "Prog_EXi@470",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME",
+   "x": 353.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 374.8820304133647,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 470,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@470_val",
+   "param": "Prog_EXi@470",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME value",
+   "x": 355.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 470,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@476",
+   "param": "Prog_EXi@476",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HOLD TIME MOD.INTENSITY",
+   "x": 423.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 444.35253801670586,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 476,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@476_val",
+   "param": "Prog_EXi@476",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HOLD TIME MOD.INTENSITY value",
+   "x": 425.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 476,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@478.7~3",
+   "param": "Prog_EXi@478.7~3",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HOLD TIME MOD INT.MOD INT",
+   "x": 492.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 513.8230456200471,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 478,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@478.7~3_val",
+   "param": "Prog_EXi@478.7~3",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HOLD TIME MOD INT.MOD INT value",
+   "x": 494.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Hold Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 478,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@480.7~6",
+   "param": "Prog_EXi@480.7~6",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATTACK TIME MOD.INTENSITY",
+   "x": 562.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 583.2935532233882,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 480,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@480.7~6_val",
+   "param": "Prog_EXi@480.7~6",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATTACK TIME MOD.INTENSITY value",
+   "x": 564.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 480,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@483.7~1",
+   "param": "Prog_EXi@483.7~1",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ATK TIME MOD INT.MOD INT",
+   "x": 631.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 652.7640608267294,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 483,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@483.7~1_val",
+   "param": "Prog_EXi@483.7~1",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ATK TIME MOD INT.MOD INT value",
+   "x": 633.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Attack Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 483,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@485.7~4",
+   "param": "Prog_EXi@485.7~4",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DECAY TIME MOD.INTENSITY",
+   "x": 701.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 722.2345684300706,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 485,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@485.7~4_val",
+   "param": "Prog_EXi@485.7~4",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DECAY TIME MOD.INTENSITY value",
+   "x": 703.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 485,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@487.7",
+   "param": "Prog_EXi@487.7",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "DCY TIME MOD INT.MOD INT",
+   "x": 770.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 791.7050760334117,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 487,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@487.7_val",
+   "param": "Prog_EXi@487.7",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "DCY TIME MOD INT.MOD INT value",
+   "x": 772.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Decay Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 487,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "19",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@490.7~2",
+   "param": "Prog_EXi@490.7~2",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUSTAIN LEVEL MOD.INTENSITY",
+   "x": 840.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 861.1755836367529,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 490,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@490.7~2_val",
+   "param": "Prog_EXi@490.7~2",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUSTAIN LEVEL MOD.INTENSITY value",
+   "x": 842.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 490,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "21",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@492.7~5",
+   "param": "Prog_EXi@492.7~5",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SUS LVL MOD INT.MOD INT",
+   "x": 909.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 930.6460912400942,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 492,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@492.7~5_val",
+   "param": "Prog_EXi@492.7~5",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SUS LVL MOD INT.MOD INT value",
+   "x": 911.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Sustain Level Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 492,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "23",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@495",
+   "param": "Prog_EXi@495",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "RELEASE TIME MOD.INTENSITY",
+   "x": 979.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1000.1165988434353,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 495,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@495_val",
+   "param": "Prog_EXi@495",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "RELEASE TIME MOD.INTENSITY value",
+   "x": 981.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 495,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "25",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@497.7~3",
+   "param": "Prog_EXi@497.7~3",
+   "group": "eg2_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "REL TIME MOD INT.MOD INT",
+   "x": 1048.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1069.5871064467765,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 497,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@497.7~3_val",
+   "param": "Prog_EXi@497.7~3",
+   "group": "eg2_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "REL TIME MOD INT.MOD INT value",
+   "x": 1050.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "EG2",
+    "name": "Release Time Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 497,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "27",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@498.7~6",
+   "param": "Prog_EXi@498.7~6",
+   "group": "eg1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DELAY TIME MOD.SOURCE",
+   "x": 1122.6,
+   "y": 299.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG1",
+    "name": "Delay Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 498,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "28",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@501.7~1",
+   "param": "Prog_EXi@501.7~1",
+   "group": "eg1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DELAY TIME MOD.INT.MOD.SOURCE",
+   "x": 1281.3,
+   "y": 299.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG1",
+    "name": "Delay Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 501,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "30",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@503.7~4",
+   "param": "Prog_EXi@503.7~4",
+   "group": "eg1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ATTACK TIME MOD.SOURCE",
+   "x": 1122.6,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG1",
+    "name": "Attack Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 503,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "32",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@505.7",
+   "param": "Prog_EXi@505.7",
+   "group": "eg1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ATTACK TIME MOD.INT.MOD.SOURCE",
+   "x": 1281.3,
+   "y": 333.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG1",
+    "name": "Attack Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 505,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "34",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@508.7~2",
+   "param": "Prog_EXi@508.7~2",
+   "group": "eg1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RELEASE TIME MOD.SOURCE",
+   "x": 1122.6,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG1",
+    "name": "Release Time Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 508,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "36",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@510.7~5",
+   "param": "Prog_EXi@510.7~5",
+   "group": "eg1_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "RELEASE TIME MOD.INT.MOD.SOURCE",
+   "x": 1281.3,
+   "y": 367.0,
+   "w": 56,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:MS-20EX",
+   "midi": null,
+   "korg": {
+    "group": "EG1",
+    "name": "Release Time Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 510,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "17",
+     "SUB": "0",
+     "PID": "38",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "EG",
+ "page_number": 3,
+ "pages_in_area": 6,
+ "apply": "exi:MS-20EX"
+}

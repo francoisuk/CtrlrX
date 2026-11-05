@@ -1,0 +1,372 @@
+{
+ "object": "Program",
+ "areas": [
+  {
+   "label": "GENERAL",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "OSC",
+   "pages": 3,
+   "index": "OSC",
+   "instances": [
+    "1",
+    "2"
+   ],
+   "apply": "hd1",
+   "link": null
+  },
+  {
+   "label": "FILTER",
+   "pages": 4,
+   "index": "OSC",
+   "instances": [
+    "1",
+    "2"
+   ],
+   "apply": "hd1",
+   "link": null
+  },
+  {
+   "label": "AMP",
+   "pages": 3,
+   "index": "OSC",
+   "instances": [
+    "1",
+    "2"
+   ],
+   "apply": "hd1",
+   "link": null
+  },
+  {
+   "label": "LFO·MIX",
+   "pages": 2,
+   "index": "OSC",
+   "instances": [
+    "1",
+    "2"
+   ],
+   "apply": "hd1",
+   "link": null
+  },
+  {
+   "label": "COMMON MOD",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "EXi",
+   "pages": 1,
+   "index": "EXi",
+   "instances": [
+    "1",
+    "2"
+   ],
+   "apply": "exi",
+   "link": null
+  },
+  {
+   "label": "STEP SEQ",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "exi",
+   "link": null
+  },
+  {
+   "label": "ENGINE",
+   "pages": 0,
+   "index": null,
+   "instances": [],
+   "apply": "exi",
+   "link": "ENGINES"
+  },
+  {
+   "label": "EFFECTS",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "FX EDIT",
+   "pages": 0,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": "EFFECTS"
+  },
+  {
+   "label": "VECTOR",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "CONTROL",
+   "pages": 1,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "AUDIO IN",
+   "pages": 2,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "KARMA",
+   "pages": 8,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  },
+  {
+   "label": "KARMA GE",
+   "pages": 4,
+   "index": null,
+   "instances": [],
+   "apply": "all",
+   "link": null
+  }
+ ],
+ "pages": [
+  {
+   "page": "OASYS_OMNI_EDITOR_P_GENERAL_P1",
+   "area": "GENERAL",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_OSC_P1",
+   "area": "OSC",
+   "n": 1,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_OSC_P2",
+   "area": "OSC",
+   "n": 2,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_OSC_P3",
+   "area": "OSC",
+   "n": 3,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_FILTER_P1",
+   "area": "FILTER",
+   "n": 1,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_FILTER_P2",
+   "area": "FILTER",
+   "n": 2,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_FILTER_P3",
+   "area": "FILTER",
+   "n": 3,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_FILTER_P4",
+   "area": "FILTER",
+   "n": 4,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_AMP_P1",
+   "area": "AMP",
+   "n": 1,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_AMP_P2",
+   "area": "AMP",
+   "n": 2,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_AMP_P3",
+   "area": "AMP",
+   "n": 3,
+   "of": 3
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_LFO_MIX_P1",
+   "area": "LFO·MIX",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_LFO_MIX_P2",
+   "area": "LFO·MIX",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_COMMON_MOD_P1",
+   "area": "COMMON MOD",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_COMMON_MOD_P2",
+   "area": "COMMON MOD",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_EXI_P1",
+   "area": "EXi",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_STEP_SEQ_P1",
+   "area": "STEP SEQ",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_STEP_SEQ_P2",
+   "area": "STEP SEQ",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_EFFECTS_P1",
+   "area": "EFFECTS",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_EFFECTS_P2",
+   "area": "EFFECTS",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_VECTOR_P1",
+   "area": "VECTOR",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_VECTOR_P2",
+   "area": "VECTOR",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_CONTROL_P1",
+   "area": "CONTROL",
+   "n": 1,
+   "of": 1
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_AUDIO_IN_P1",
+   "area": "AUDIO IN",
+   "n": 1,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_AUDIO_IN_P2",
+   "area": "AUDIO IN",
+   "n": 2,
+   "of": 2
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P1",
+   "area": "KARMA",
+   "n": 1,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P2",
+   "area": "KARMA",
+   "n": 2,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P3",
+   "area": "KARMA",
+   "n": 3,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P4",
+   "area": "KARMA",
+   "n": 4,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P5",
+   "area": "KARMA",
+   "n": 5,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P6",
+   "area": "KARMA",
+   "n": 6,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P7",
+   "area": "KARMA",
+   "n": 7,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_P8",
+   "area": "KARMA",
+   "n": 8,
+   "of": 8
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_GE_P1",
+   "area": "KARMA GE",
+   "n": 1,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_GE_P2",
+   "area": "KARMA GE",
+   "n": 2,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_GE_P3",
+   "area": "KARMA GE",
+   "n": 3,
+   "of": 4
+  },
+  {
+   "page": "OASYS_OMNI_EDITOR_P_KARMA_GE_P4",
+   "area": "KARMA GE",
+   "n": 4,
+   "of": 4
+  }
+ ]
+}

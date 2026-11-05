@@ -1,0 +1,444 @@
+name: Pamplejuce
+
+on:
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
+  push:
+  pull_request:
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  BUILD_TYPE: Release
+  BUILD_DIR: build
+  DISPLAY: :0
+  HOMEBREW_NO_INSTALL_CLEANUP: 1
+  SCCACHE_GHA_ENABLED: true
+  SCCACHE_CACHE_MULTIARCH: 1
+  IPP_DIR: C:\Program Files (x86)\Intel\oneAPI\ipp\latest\lib\cmake\ipp
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build_and_test:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    env:
+      HAVE_MACOS_SIGNING_SECRETS: ${{ secrets.DEV_ID_COMBO_CERT != '' && secrets.DEV_ID_COMBO_PASSWORD != '' && secrets.DEVELOPER_ID_APPLICATION != '' && secrets.DEVELOPER_ID_INSTALLER != '' && secrets.NOTARIZATION_USERNAME != '' && secrets.NOTARIZATION_PASSWORD != '' && secrets.TEAM_ID != '' }}
+      HAVE_AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET != '' }}
+      HAVE_GPG_KEY: ${{ secrets.GPG_SIGNING_KEY != '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-24.04
+            pluginval-binary: ./pluginval
+            extra-flags: -G Ninja -DJUCE_LINUX=1
+          - name: macOS
+            os: macos-15
+            pluginval-binary: pluginval.app/Contents/MacOS/pluginval
+            extra-flags: -G Ninja -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+          - name: Windows
+            os: windows-2022
+            pluginval-binary: ./pluginval.exe
+            extra-flags: ""
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      - name: Setup MSVC (Windows)
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Set up Clang (Linux)
+        if: runner.os == 'Linux'
+        uses: egor-tensin/setup-clang@v1
+
+      - name: Install JUCE's Linux Deps & LuaJIT Dev Tools
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt install -y \
+            libasound2-dev libx11-dev libxinerama-dev libxext-dev \
+            libfreetype6-dev libglu1-mesa-dev xvfb ninja-build \
+            binutils-dev libboost-dev libcurl4-openssl-dev libgl1-mesa-dev \
+            libglapi-mesa libiberty-dev libsframe1 libudev-dev \
+            libxcursor-dev libxrandr-dev xorg-dev \
+            libgtk-3-dev librsvg2-bin libwebkit2gtk-4.1-dev libluajit-5.1-dev unzip \
+            rpm
+          sudo ln -sf /usr/lib/x86_64-linux-gnu/pkgconfig/webkit2gtk-4.1.pc \
+                      /usr/lib/x86_64-linux-gnu/pkgconfig/webkit2gtk-4.0.pc
+          sudo /usr/bin/Xvfb $DISPLAY &
+
+      - name: Install IPP (Windows)
+        if: runner.os == 'Windows'
+        run: nuget install intelipp.static.win-x64 -Version 2022.2.0.575
+
+      - name: Install Ninja (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ninja
+
+      - name: Install macOS Deps (Including Homebrew LuaJIT)
+        if: matrix.name == 'macOS'
+        run: |
+          brew install osxutils boost luajit
+          echo "PKG_CONFIG_PATH=$(brew --prefix luajit)/lib/pkgconfig:$PKG_CONFIG_PATH" >> $GITHUB_ENV
+
+      - name: Use latest Xcode on system (macOS)
+        if: matrix.name == 'macOS'
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Extract LuaJIT (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: |
+          ZIP="./Source/Resources/LuaJIT/luajit.zip"
+          if [ -f "$ZIP" ]; then
+            unzip -o "$ZIP" -d "Source/Misc/"
+          else
+            echo "Error: luajit.zip not found at $ZIP"
+            exit 1
+          fi
+
+      - name: Extract LuaJIT (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $zipPath = "Source/Resources/LuaJIT/luajit.zip"
+          if (Test-Path $zipPath) {
+            Expand-Archive -Path $zipPath -DestinationPath "Source/Misc/" -Force
+          } else {
+            exit 1
+          }
+
+      - name: Build LuaJIT (Windows)
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: |
+          if exist "Source\Misc\luajit\src\msvcbuild.bat" (
+            pushd "Source\Misc\luajit\src"
+            call msvcbuild.bat static
+            popd
+            exit /b 0
+          )
+          exit /b 1
+
+      - name: Build LuaJIT (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          LUAJIT_SRC=$(find . -type d -path "*/luajit/src" | head -n 1)
+          if [ -z "$LUAJIT_SRC" ]; then exit 0; fi
+          cd "$LUAJIT_SRC"
+          make clean
+          make -j$(nproc) XCFLAGS="-fPIC"
+
+      - name: Build Universal LuaJIT (macOS)
+        if: matrix.name == 'macOS'
+        run: |
+          LUAJIT_SRC=$(find . -type d -path "*/luajit/src" | head -n 1)
+          if [ -z "$LUAJIT_SRC" ]; then exit 0; fi
+          cd "$LUAJIT_SRC"
+          export MACOSX_DEPLOYMENT_TARGET=10.15
+          make clean
+          CC=clang TARGET_SYS=Darwin TARGET_FLAGS="-arch x86_64" make -j$(sysctl -n hw.ncpu)
+          mv libluajit.a libluajit_x86.a
+          make clean
+          CC=clang TARGET_SYS=Darwin TARGET_FLAGS="-arch arm64" make -j$(sysctl -n hw.ncpu)
+          mv libluajit.a libluajit_arm.a
+          lipo -create libluajit_x86.a libluajit_arm.a -output libluajit.a
+
+      - name: Unzip Boost for CtrlrX
+        if: runner.os != 'Linux'
+        run: |
+          BOOST_ZIP=$(find . -name "boost.zip" | head -n 1)
+          if [ -n "$BOOST_ZIP" ]; then
+            unzip -o "$BOOST_ZIP" -d "./Source/Misc/"
+          fi
+
+      - name: Cache the build
+        uses: mozilla-actions/sccache-action@v0.0.9
+
+      - name: Extract version from .jucer file
+        run: |
+          while IFS= read -r -d $'\0' JUCER_FILE <&3; do
+            if [ "$JUCER_FILE" -nt "VERSION" -a -n "`grep -h 'version=.\+Ctrlr' \"$JUCER_FILE\"`" ]; then
+              grep -h 'version=.\+Ctrlr' "$JUCER_FILE" | sed -E 's/.*version="([^"]*).*/\1/g' | head -n 1 > VERSION
+            fi
+          done 3< <(find . -name "Ctrlr*.jucer" -type f -print0)
+          cat VERSION
+
+      - name: Configure CMake
+        run: |
+          EXTRA_MAC_FLAGS=""
+          if [ "${{ env.HAVE_MACOS_SIGNING_SECRETS }}" != "true" ]; then
+            echo "Signing secrets missing. Forcing LuaJIT off for unsigned macOS build."
+            EXTRA_MAC_FLAGS="-DCTRLRX_FORCE_JIT_OFF=ON"
+          fi
+          
+          cmake -B ${{ env.BUILD_DIR }} \
+            -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
+            -DCMAKE_C_COMPILER_LAUNCHER=sccache \
+            -DCMAKE_CXX_COMPILER_LAUNCHER=sccache \
+            -DCTRLRX_USE_LUAJIT=ON \
+            $EXTRA_MAC_FLAGS \
+            ${{ matrix.extra-flags }} .
+
+      - name: Build Project
+        run: cmake --build ${{ env.BUILD_DIR }} --config ${{ env.BUILD_TYPE }}
+
+      - name: Read in .env from CMake
+        run: |
+          if [ -f .env ]; then
+            cat .env >> $GITHUB_ENV
+          elif [ -f ${{ env.BUILD_DIR }}/.env ]; then
+            cat ${{ env.BUILD_DIR }}/.env >> $GITHUB_ENV
+          fi
+
+      - name: Set additional env vars for next steps
+        run: |
+          ARTIFACTS_PATH=${{ env.BUILD_DIR }}/${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}
+          echo "ARTIFACTS_PATH=$ARTIFACTS_PATH" >> $GITHUB_ENV
+          echo "VST3_PATH=$ARTIFACTS_PATH/VST3/${{ env.PRODUCT_NAME }}.vst3" >> $GITHUB_ENV
+          echo "AU_PATH=$ARTIFACTS_PATH/AU/${{ env.PRODUCT_NAME }}.component" >> $GITHUB_ENV
+          echo "AUV3_PATH=$ARTIFACTS_PATH/AUv3/${{ env.PRODUCT_NAME }}.appex" >> $GITHUB_ENV
+          echo "CLAP_PATH=$ARTIFACTS_PATH/CLAP/${{ env.PRODUCT_NAME }}.clap" >> $GITHUB_ENV
+          echo "STANDALONE_PATH=$ARTIFACTS_PATH/Standalone/${{ env.PRODUCT_NAME }}.app" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=${{ env.PRODUCT_NAME }}-${{ env.VERSION }}-${{ matrix.name }}" >> $GITHUB_ENV
+
+      - name: Pluginval Verification Pass
+        run: |
+          curl -LO "https://github.com/Tracktion/pluginval/releases/download/v1.0.3/pluginval_${{ matrix.name }}.zip"
+          7z x pluginval_${{ matrix.name }}.zip
+          ${{ matrix.pluginval-binary }} --strictness-level 5 --verbose --validate "${{ env.VST3_PATH }}"
+
+      # APPLE CODESIGNING STEPS
+      - name: Import Merged Developer ID Certificates
+        if: ${{ matrix.name == 'macOS' && env.HAVE_MACOS_SIGNING_SECRETS == 'true' }}
+        uses: apple-actions/import-codesign-certs@v3
+        with:
+          p12-file-base64: ${{ secrets.DEV_ID_COMBO_CERT }}
+          p12-password: ${{ secrets.DEV_ID_COMBO_PASSWORD }}
+          keychain-password: gha_temp_password
+          create-keychain: true 
+          keychain: signing_temp
+
+      - name: Final Keychain Configuration
+        if: ${{ matrix.name == 'macOS' && env.HAVE_MACOS_SIGNING_SECRETS == 'true' }}
+        run: |
+          KEYCHAIN_NAME="signing_temp"
+          KEYCHAIN_ABS_PATH="/Users/runner/Library/Keychains/${KEYCHAIN_NAME}.keychain-db"
+          /usr/bin/security list-keychains -d user -s "$KEYCHAIN_ABS_PATH" login.keychain
+
+      - name: Codesign (macOS)
+        if: ${{ matrix.name == 'macOS' && env.HAVE_MACOS_SIGNING_SECRETS == 'true' }}
+        run: |
+          APP_IDENTITY="${{ secrets.DEVELOPER_ID_APPLICATION }}"
+          ENTITLEMENTS="Source/Misc/macOS/Entitlements.plist"
+          echo "--- AVAILABLE SIGNING IDENTITIES ---"
+          security find-identity -p codesigning -v
+          echo "------------------------------------"
+          codesign --force -s "$APP_IDENTITY" -v "${{ env.VST3_PATH }}" --deep --strict --options=runtime --entitlements "$ENTITLEMENTS" --timestamp
+          codesign --force -s "$APP_IDENTITY" -v "${{ env.AU_PATH }}" --deep --strict --options=runtime --entitlements "$ENTITLEMENTS" --timestamp
+          if [ -f "${{ env.CLAP_PATH }}" ]; then
+            codesign --force -s "$APP_IDENTITY" -v "${{ env.CLAP_PATH }}" --deep --strict --options=runtime --entitlements "$ENTITLEMENTS" --timestamp
+          fi
+          codesign --force -s "$APP_IDENTITY" -v "${{ env.STANDALONE_PATH }}" --deep --strict --options=runtime --entitlements "$ENTITLEMENTS" --timestamp
+
+      - name: Add Custom Icons (macOS)
+        if: ${{ matrix.name == 'macOS' }}
+        run: |
+          sips -i Packaging/Mac/Icon.icns
+          DeRez -only icns Packaging/Mac/Icon.icns > /tmp/icons
+          Rez -a /tmp/icons -o "${{ env.VST3_PATH }}/Icon"$'\r'
+          Rez -a /tmp/icons -o "${{ env.AU_PATH }}/Icon"$'\r'
+          SetFile -a C "${{ env.VST3_PATH }}"
+          SetFile -a C "${{ env.AU_PATH }}"
+
+      # PACKAGING & NOTARIZATION PROCEDURES (macOS Single Installer)
+      - name: Signed Packaging and Notarization (macOS)
+        if: ${{ matrix.name == 'macOS' && env.HAVE_MACOS_SIGNING_SECRETS == 'true' }}
+        timeout-minutes: 30
+        run: |
+          pkgbuild --identifier "${{ env.BUNDLE_ID }}.au.pkg" --version $VERSION --component "${{ env.AU_PATH }}" --install-location "/Library/Audio/Plug-Ins/Components" "Packaging/${{ env.PRODUCT_NAME }}.au.pkg"
+          pkgbuild --identifier "${{ env.BUNDLE_ID }}.vst3.pkg" --version $VERSION --component "${{ env.VST3_PATH }}" --install-location "/Library/Audio/Plug-Ins/VST3" "Packaging/${{ env.PRODUCT_NAME }}.vst3.pkg"
+          pkgbuild --analyze --root "$(dirname "${{ env.STANDALONE_PATH }}")" standalone.plist
+          plutil -replace BundleIsRelocatable -bool NO standalone.plist
+          pkgbuild --identifier "${{ env.BUNDLE_ID }}.app.pkg" --version $VERSION --root "$(dirname "${{ env.STANDALONE_PATH }}")" --component-plist standalone.plist --install-location "/Applications" "Packaging/${{ env.PRODUCT_NAME }}.app.pkg"
+          envsubst < ./Packaging/Mac/distribution.xml.template > ./Packaging/distribution.xml
+          productbuild --resources ./Packaging/resources --package-path ./Packaging --distribution ./Packaging/distribution.xml --sign "${{ secrets.DEVELOPER_ID_INSTALLER }}" --timestamp "Packaging/${{ env.ARTIFACT_NAME }}.pkg"
+          xcrun notarytool submit "Packaging/${{ env.ARTIFACT_NAME }}.pkg" --apple-id ${{ secrets.NOTARIZATION_USERNAME }} --password ${{ secrets.NOTARIZATION_PASSWORD }} --team-id ${{ secrets.TEAM_ID }} --wait
+          xcrun stapler staple "Packaging/${{ env.ARTIFACT_NAME }}.pkg"
+
+      - name: Unsigned Packaging (macOS Fallback)
+        if: ${{ matrix.name == 'macOS' && env.HAVE_MACOS_SIGNING_SECRETS != 'true' }}
+        timeout-minutes: 30
+        run: |
+          echo "WARNING: Codesigning secrets not found. Building unsigned package only."
+          pkgbuild --identifier "${{ env.BUNDLE_ID }}.au.pkg" --version $VERSION --component "${{ env.AU_PATH }}" --install-location "/Library/Audio/Plug-Ins/Components" "Packaging/${{ env.PRODUCT_NAME }}.au.pkg"
+          pkgbuild --identifier "${{ env.BUNDLE_ID }}.vst3.pkg" --version $VERSION --component "${{ env.VST3_PATH }}" --install-location "/Library/Audio/Plug-Ins/VST3" "Packaging/${{ env.PRODUCT_NAME }}.vst3.pkg"
+          pkgbuild --analyze --root "$(dirname "${{ env.STANDALONE_PATH }}")" standalone.plist
+          plutil -replace BundleIsRelocatable -bool NO standalone.plist
+          pkgbuild --identifier "${{ env.BUNDLE_ID }}.app.pkg" --version $VERSION --root "$(dirname "${{ env.STANDALONE_PATH }}")" --component-plist standalone.plist --install-location "/Applications" "Packaging/${{ env.PRODUCT_NAME }}.app.pkg"
+          envsubst < ./Packaging/Mac/distribution.xml.template > ./Packaging/distribution.xml
+          productbuild --resources ./Packaging/resources --package-path ./Packaging --distribution ./Packaging/distribution.xml "Packaging/${{ env.ARTIFACT_NAME }}.pkg"
+
+      # LINUX CODESIGNING, SIGNATURE VERIFICATION & CPACK
+      - name: Set up GnuPG and Import Key
+        if: ${{ matrix.name == 'Linux' && env.HAVE_GPG_KEY == 'true' }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y gnupg
+          echo "${{ secrets.GPG_SIGNING_KEY }}" | gpg --batch --import
+
+      - name: Sign the Linux Binary
+        if: ${{ matrix.name == 'Linux' && env.HAVE_GPG_KEY == 'true' }}
+        run: |
+          BINARY_PATH="${{ env.ARTIFACTS_PATH }}/Standalone/${{ env.PRODUCT_NAME }}"
+          SIGNATURE_PATH="${{ env.ARTIFACTS_PATH }}/Standalone/${{ env.PRODUCT_NAME }}.sig"
+          gpg --batch --yes --pinentry-mode loopback \
+              --passphrase "${{ secrets.GPG_SIGNING_PASSPHRASE }}" \
+              --default-key "CtrlrX Project" \
+              --output "$SIGNATURE_PATH" \
+              --detach-sign "$BINARY_PATH"
+          gpg --verify "$SIGNATURE_PATH" "$BINARY_PATH"
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
+
+      - name: Package with CPack (DEB/RPM)
+        if: ${{ matrix.name == 'Linux' }}
+        run: |
+          cd build
+          cpack -G "DEB;RPM"
+
+      - name: Build portable tarball
+        if: ${{ matrix.name == 'Linux' }}
+        run: cmake --build build --target portable_tarball
+
+      # WINDOWS CODESIGNING & INNO SETUP INSTALLER
+      - name: Codesign with Azure Trusted Signing (Windows Plugins .EXE & .VST3)
+        if: ${{ matrix.name == 'Windows' && env.HAVE_AZURE_CLIENT_SECRET == 'true' }}
+        uses: azure/trusted-signing-action@v0.5.1
+        with:
+          azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          endpoint: ${{ secrets.AZURE_ENDPOINT }}
+          trusted-signing-account-name: ${{ secrets.AZURE_CODE_SIGNING_NAME }}
+          certificate-profile-name: ${{ secrets.AZURE_CERT_PROFILE_NAME }}
+          files-folder: ${{ env.ARTIFACTS_PATH }}
+          files-folder-filter: exe,dll,vst3
+          files-folder-recurse: true
+
+      - name: Generate Installer (Windows)
+        if: ${{ matrix.name == 'Windows' }}
+        shell: pwsh
+        run: |
+          iscc "Packaging\Windows\installer.iss"
+          Move-Item -Path "Packaging/Windows/Output/${env:ARTIFACT_NAME}.exe" -Destination "${env:ARTIFACTS_PATH}/"
+
+      - name: Codesign with Azure Trusted Signing (Windows Installer)
+        if: ${{ matrix.name == 'Windows' && env.HAVE_AZURE_CLIENT_SECRET == 'true' }}
+        uses: azure/trusted-signing-action@v0.5.1
+        with:
+          azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          endpoint: ${{ secrets.AZURE_ENDPOINT }}
+          trusted-signing-account-name: ${{ secrets.AZURE_CODE_SIGNING_NAME }}
+          certificate-profile-name: ${{ secrets.AZURE_CERT_PROFILE_NAME }}
+          files-folder: ${{ env.ARTIFACTS_PATH }}
+          files-folder-filter: "${{ env.ARTIFACT_NAME }}.exe"
+          files-folder-recurse: false
+
+      # ARTIFACT UPLOADS
+      - name: Upload DEB Package
+        if: ${{ matrix.name == 'Linux' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctrlrx-debian-package
+          path: build/*.deb
+          archive: false
+
+      - name: Upload RPM Package
+        if: ${{ matrix.name == 'Linux' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctrlrx-rpm-package
+          path: build/*.rpm
+          archive: false
+
+      - name: Upload Tarball Package
+        if: ${{ matrix.name == 'Linux' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctrlrx-tarball-package
+          path: build/*.tar.gz
+          archive: false
+
+      - name: Upload macOS Single Package 
+        if: ${{ matrix.name == 'macOS' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctrlrx-macos-package
+          path: Packaging/*-macOS.pkg
+          archive: false
+
+      - name: Upload Windows Installer Exe
+        if: ${{ matrix.name == 'Windows' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctrlrx-windows-package
+          path: ${{ env.ARTIFACTS_PATH }}/${{ env.ARTIFACT_NAME }}.exe
+          archive: false
+
+  # RELEASE DISTRIBUTION
+  release:
+    if: contains(github.ref, 'tags/v')
+    runs-on: ubuntu-latest
+    needs: build_and_test
+    steps:
+      - name: Get Readme
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            README.md
+            VERSION
+          sparse-checkout-cone-mode: false
+
+      - name: Get Artifacts
+        uses: actions/download-artifact@v4
+  
+      - name: Compose release notes
+        run: |
+          set +e
+          echo '![alt text](/Source/Resources/Icons/CtrlrX-README-250x315.png?raw=true "CtrlrX")' > release_notes.txt
+          echo -e "\n# CtrlrX ${GITHUB_REF_NAME} - Changelog" >> release_notes.txt
+          sed '0,/^## Changelog/d; 0,/^##/d; /##/,$d' README.md >> release_notes.txt
+          cat release_notes.txt
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release_notes.txt
+          prerelease: true
+          overwrite: true
+          files: |
+            **/*-macOS.pkg
+            **/*-Windows.exe
+            **/*.deb
+            **/*.rpm
+            **/*.tar.gz

@@ -1,0 +1,14 @@
+{
+  "settleMs": 600,
+  "quietMs": 60,
+  "steps": [
+    { "action": "wait", "ms": 3000 },
+    { "action": "eval", "lua": "return { refreshN = KK.refreshN, mixKey = KK.mixKey, taKey = KK.taKey, vol = KK.vol, panv = KK.panv }" },
+    { "action": "eval", "lua": "local c,m={}, {} for i=1,8 do local mo=panel:getModulatorByName('kkMix'..i) c[i]=mo:getComponent():getValue() m[i]=mo:getValue() end return { component=c, modulator=m }" },
+    { "action": "eval", "lua": "local c,m={}, {} for i=1,8 do local mo=panel:getModulatorByName(string.format('kkEnc%02d',i)) c[i]=mo:getComponent():getValue() m[i]=mo:getValue() end return { component=c, modulator=m }" },
+    { "action": "eval", "lua": "local c={} for i=1,9 do c[i]=panel:getModulatorByName('kkFdr'..i):getComponent():getValue() end return c" },
+    { "action": "eval", "lua": "local c={} for i=1,8 do c[i]=panel:getComponent(string.format('kkEncL%02d',i)):getProperty('uiLabelText') end return c" },
+    { "action": "paint", "modulator": "kkMix1", "file": "out/02_mix1.png" },
+    { "action": "screenshot", "file": "out/02_rack.png" }
+  ]
+}

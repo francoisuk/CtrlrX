@@ -1,0 +1,1147 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "CATEGORIES",
+ "tab_index": 0,
+ "object": "Global",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_G_CATEGORIES_P1_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_G_CATEGORIES_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "3 : Global"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Global — CATEGORIES"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_basic",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "BASIC",
+   "x": 60,
+   "y": 84,
+   "w": 134.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_controller",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CONTROLLER",
+   "x": 197.7,
+   "y": 84,
+   "w": 161.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_midi",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MIDI",
+   "x": 362.1,
+   "y": 84,
+   "w": 128.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_ext_sets",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EXT SETS",
+   "x": 493.4,
+   "y": 84,
+   "w": 147.5,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_audio_in",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AUDIO IN",
+   "x": 643.9,
+   "y": 84,
+   "w": 145.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_octave_scales",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OCTAVE SCALES",
+   "x": 792.3,
+   "y": 84,
+   "w": 174.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_all_note_scale",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "ALL NOTE SCALE",
+   "x": 969.4,
+   "y": 84,
+   "w": 174.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_categories",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "CATEGORIES",
+   "x": 1146.6,
+   "y": 84,
+   "w": 159.4,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idxprev_idxprev",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_idxbox",
+   "group": "nav",
+   "type": "display",
+   "kind": "label",
+   "label": "CATEGORY 00",
+   "x": 1343.0,
+   "y": 85,
+   "w": 72.0,
+   "h": 16,
+   "text": [
+    "CATEGORY 00"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_idxnext_idxnext",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "▶",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Global@12912",
+   "param": "Global@12912",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@12912",
+   "x": 616.8,
+   "y": 150,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 12912,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@16800",
+   "param": "Global@16800",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@16800",
+   "x": 751.6,
+   "y": 150,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 16800,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@20688",
+   "param": "Global@20688",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@20688",
+   "x": 886.4,
+   "y": 150,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 20688,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13344",
+   "param": "Global@13344",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13344",
+   "x": 616.8,
+   "y": 171,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 00) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13344,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17232",
+   "param": "Global@17232",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17232",
+   "x": 751.6,
+   "y": 171,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 00) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17232,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21120",
+   "param": "Global@21120",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21120",
+   "x": 886.4,
+   "y": 171,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 00) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21120,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13368",
+   "param": "Global@13368",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13368",
+   "x": 616.8,
+   "y": 192,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 01) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13368,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17256",
+   "param": "Global@17256",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17256",
+   "x": 751.6,
+   "y": 192,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 01) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17256,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21144",
+   "param": "Global@21144",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21144",
+   "x": 886.4,
+   "y": 192,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 01) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21144,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13392",
+   "param": "Global@13392",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13392",
+   "x": 616.8,
+   "y": 213,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 02) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13392,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17280",
+   "param": "Global@17280",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17280",
+   "x": 751.6,
+   "y": 213,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 02) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17280,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21168",
+   "param": "Global@21168",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21168",
+   "x": 886.4,
+   "y": 213,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 02) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21168,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13416",
+   "param": "Global@13416",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13416",
+   "x": 616.8,
+   "y": 234,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 03) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13416,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17304",
+   "param": "Global@17304",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17304",
+   "x": 751.6,
+   "y": 234,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 03) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17304,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21192",
+   "param": "Global@21192",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21192",
+   "x": 886.4,
+   "y": 234,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 03) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21192,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13440",
+   "param": "Global@13440",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13440",
+   "x": 616.8,
+   "y": 255,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 04) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13440,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17328",
+   "param": "Global@17328",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17328",
+   "x": 751.6,
+   "y": 255,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 04) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17328,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21216",
+   "param": "Global@21216",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21216",
+   "x": 886.4,
+   "y": 255,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 04) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21216,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13464",
+   "param": "Global@13464",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13464",
+   "x": 616.8,
+   "y": 276,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 05) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13464,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17352",
+   "param": "Global@17352",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17352",
+   "x": 751.6,
+   "y": 276,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 05) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17352,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21240",
+   "param": "Global@21240",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21240",
+   "x": 886.4,
+   "y": 276,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 05) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21240,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13488",
+   "param": "Global@13488",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13488",
+   "x": 616.8,
+   "y": 297,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 06) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13488,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17376",
+   "param": "Global@17376",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17376",
+   "x": 751.6,
+   "y": 297,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 06) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17376,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21264",
+   "param": "Global@21264",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21264",
+   "x": 886.4,
+   "y": 297,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 06) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21264,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@13512",
+   "param": "Global@13512",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@13512",
+   "x": 616.8,
+   "y": 318,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[PROGRAM] (Sub 07) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 13512,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@17400",
+   "param": "Global@17400",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@17400",
+   "x": 751.6,
+   "y": 318,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[COMBI] (Sub 07) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 17400,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "Global@21288",
+   "param": "Global@21288",
+   "group": "category",
+   "type": "display",
+   "kind": "text",
+   "label": "Global@21288",
+   "x": 886.4,
+   "y": 318,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "—"
+   ],
+   "range": "",
+   "midi": null,
+   "korg": {
+    "group": "Category 00",
+    "name": "[KARMA] (Sub 07) Name",
+    "kind": "text",
+    "file": "Global.txt",
+    "ofs": 21288,
+    "data": "20~7F",
+    "value": ""
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "CATEGORIES",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "all",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier.",
+ "index": {
+  "label": "CATEGORY",
+  "instances": [
+   "00",
+   "01",
+   "02",
+   "03",
+   "04",
+   "05",
+   "06",
+   "07",
+   "08",
+   "09",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17"
+  ],
+  "listed_by_korg": [
+   "00",
+   "01",
+   "02",
+   "03",
+   "04",
+   "05",
+   "06",
+   "07",
+   "08",
+   "09",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17"
+  ],
+  "shown": "00",
+  "stride_bytes": 24,
+  "rule": "même implantation pour chaque instance ; OFS(instance n) = OFS(instance 1) + (n - 1) × stride_bytes"
+ }
+}

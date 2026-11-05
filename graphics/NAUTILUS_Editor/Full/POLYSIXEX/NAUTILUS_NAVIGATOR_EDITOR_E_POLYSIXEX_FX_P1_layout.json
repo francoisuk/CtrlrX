@@ -1,0 +1,1049 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "FX",
+ "tab_index": 0,
+ "object": "Program · PolysixEX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_POLYSIXEX_FX_P1_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_POLYSIXEX_FX_P1_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · PolysixEX — FX"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 192.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 264.9,
+   "y": 84,
+   "w": 162.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 430.4,
+   "y": 84,
+   "w": 171.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 604.8,
+   "y": 84,
+   "w": 180.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 788.2,
+   "y": 84,
+   "w": 158.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 950.1,
+   "y": 84,
+   "w": 160.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1113.8,
+   "y": 84,
+   "w": 164.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_fx",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FX",
+   "x": 1281.1,
+   "y": 84,
+   "w": 158.9,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@6.7",
+   "param": "Prog_EXi@6.7",
+   "group": "effect_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE",
+   "x": 159.5,
+   "y": 153.0,
+   "w": 216.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Ensemble",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 6,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "00~03",
+    "value": "Off~Ensemble"
+   }
+  },
+  {
+   "id": "Prog_EXi@7.7~1",
+   "param": "Prog_EXi@7.7~1",
+   "group": "effect_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MODE MOD.SOURCE",
+   "x": 383.6,
+   "y": 153.0,
+   "w": 216.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Mode Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 7,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@9.7~6",
+   "param": "Prog_EXi@9.7~6",
+   "group": "effect_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPREAD MOD.SOURCE",
+   "x": 159.5,
+   "y": 187.0,
+   "w": 216.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 9,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@12.7~1",
+   "param": "Prog_EXi@12.7~1",
+   "group": "effect_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPREAD MOD INT.MOD SRC",
+   "x": 383.6,
+   "y": 187.0,
+   "w": 216.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 12,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@15.7~6",
+   "param": "Prog_EXi@15.7~6",
+   "group": "effect_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED/INT MOD.SOURCE",
+   "x": 159.5,
+   "y": 221.0,
+   "w": 216.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 15,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "15",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@18.7~1",
+   "param": "Prog_EXi@18.7~1",
+   "group": "effect_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEED/INT MOD INT.MOD SRC",
+   "x": 383.6,
+   "y": 221.0,
+   "w": 216.1,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity Mod.Int.Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 18,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "17",
+     "IDX": "0"
+    },
+    "data": "00~31",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@8.3~1",
+   "param": "Prog_EXi@8.3~1",
+   "group": "effect_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MODE MOD.INT",
+   "x": 675.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 696.1328125,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-3~+3",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Mode Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 8,
+    "bit": "3~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "FD~03",
+    "value": "-3~+3"
+   }
+  },
+  {
+   "id": "Prog_EXi@8.3~1_val",
+   "param": "Prog_EXi@8.3~1",
+   "group": "effect_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "MODE MOD.INT value",
+   "x": 677.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Mode Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 8,
+    "bit": "3~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "FD~03",
+    "value": "-3~+3"
+   }
+  },
+  {
+   "id": "Prog_EXi@8.7~4",
+   "param": "Prog_EXi@8.7~4",
+   "group": "effect_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPREAD",
+   "x": 770.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 791.4661458333334,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 8,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@8.7~4_val",
+   "param": "Prog_EXi@8.7~4",
+   "group": "effect_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPREAD value",
+   "x": 772.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 8,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@10.7~6",
+   "param": "Prog_EXi@10.7~6",
+   "group": "effect_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPREAD MOD.INT",
+   "x": 865.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 886.7994791666667,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 10,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@10.7~6_val",
+   "param": "Prog_EXi@10.7~6",
+   "group": "effect_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPREAD MOD.INT value",
+   "x": 867.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 10,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@13.7~1",
+   "param": "Prog_EXi@13.7~1",
+   "group": "effect_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPREAD MOD INT.MOD INT",
+   "x": 961.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 982.1328125,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 13,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@13.7~1_val",
+   "param": "Prog_EXi@13.7~1",
+   "group": "effect_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPREAD MOD INT.MOD INT value",
+   "x": 963.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Spread Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 13,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "13",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@14.7~4",
+   "param": "Prog_EXi@14.7~4",
+   "group": "effect_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED/INT",
+   "x": 1056.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1077.4661458333335,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0.00~10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 14,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@14.7~4_val",
+   "param": "Prog_EXi@14.7~4",
+   "group": "effect_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED/INT value",
+   "x": 1058.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0.00"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 14,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "14",
+     "IDX": "0"
+    },
+    "data": "0000~03E8",
+    "value": "0.00~10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@16.7~6",
+   "param": "Prog_EXi@16.7~6",
+   "group": "effect_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED/INT MOD.INT",
+   "x": 1151.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1172.7994791666667,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 16,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@16.7~6_val",
+   "param": "Prog_EXi@16.7~6",
+   "group": "effect_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED/INT MOD.INT value",
+   "x": 1153.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 16,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "16",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@19.7~1",
+   "param": "Prog_EXi@19.7~1",
+   "group": "effect_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "SPEED/INT MOD INT.MOD INT",
+   "x": 1247.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1268.1328125,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.00~+10.00",
+   "apply": "exi:PolysixEX",
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 19,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "Prog_EXi@19.7~1_val",
+   "param": "Prog_EXi@19.7~1",
+   "group": "effect_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "SPEED/INT MOD INT.MOD INT value",
+   "x": 1249.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Effect",
+    "name": "Speed/Intensity Mod.Int.Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (PolysixEX)",
+    "ofs": 19,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "18",
+     "IDX": "0"
+    },
+    "data": "FC18~03E8",
+    "value": "-10.00~+10.00"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "FX",
+ "page_number": 1,
+ "pages_in_area": 1,
+ "apply": "exi:PolysixEX"
+}

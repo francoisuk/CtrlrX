@@ -1,0 +1,2259 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "AMP·MIX · 2/2",
+ "tab_index": 0,
+ "object": "Program · CX-3",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "NAUTILUS_NAVIGATOR_EDITOR_E_CX3_AMP_MIX_P2_fond.png",
+ "background_2x": "NAUTILUS_NAVIGATOR_EDITOR_E_CX3_AMP_MIX_P2_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · CX-3 — AMP·MIX · 2/2"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 449.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 521.7,
+   "y": 84,
+   "w": 419.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 943.9,
+   "y": 84,
+   "w": 437.1,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@44.7",
+   "param": "Prog_EXi@44.7",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "WET/DRY MOD.SOURCE",
+   "x": 68.0,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Wet/Dry Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 44,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "69",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@46.7",
+   "param": "Prog_EXi@46.7",
+   "group": "rotary_speaker_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ROTARY SWITCH",
+   "x": 296.7,
+   "y": 154.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Switch",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 46,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "71",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@47",
+   "param": "Prog_EXi@47",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY SWITCH MOD SRC",
+   "x": 525.3,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Switch Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 47,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "72",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@48.0",
+   "param": "Prog_EXi@48.0",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY SWITCH MODE",
+   "x": 754.0,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Switch Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 48,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "73",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@48.1",
+   "param": "Prog_EXi@48.1",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY MODE",
+   "x": 982.7,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Rotate"
+   ],
+   "options": "Rotate~Stop",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 48,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "74",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Rotate~Stop"
+   }
+  },
+  {
+   "id": "Prog_EXi@48.7~2",
+   "param": "Prog_EXi@48.7~2",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY MODE MOD.SOURCE",
+   "x": 1211.3,
+   "y": 153.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Mode Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 48,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "75",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@49.2",
+   "param": "Prog_EXi@49.2",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY MODE MODE",
+   "x": 68.0,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Mode Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 49,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "76",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@49.3",
+   "param": "Prog_EXi@49.3",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY SPEED",
+   "x": 296.7,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Slow"
+   ],
+   "options": "Slow~Fast",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Speed",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 49,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "77",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Slow~Fast"
+   }
+  },
+  {
+   "id": "Prog_EXi@49.7~4",
+   "param": "Prog_EXi@49.7~4",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY SPEED MOD SRC",
+   "x": 525.3,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Tempo",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Speed Mod.Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 49,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "78",
+     "IDX": "0"
+    },
+    "data": "00~28",
+    "value": "Off~Tempo"
+   }
+  },
+  {
+   "id": "Prog_EXi@50.4",
+   "param": "Prog_EXi@50.4",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "ROTARY SPEED MODE",
+   "x": 754.0,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Toggle"
+   ],
+   "options": "Toggle~Momentary",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Speed Mode",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 50,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "79",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Toggle~Momentary"
+   }
+  },
+  {
+   "id": "Prog_EXi@50.5",
+   "param": "Prog_EXi@50.5",
+   "group": "rotary_speaker_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "ROTARY FAST OVERRIDES STOP",
+   "x": 982.7,
+   "y": 188.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotary Fast Overrides Stop",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 50,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "80",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@61.7~2",
+   "param": "Prog_EXi@61.7~2",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HORN/ROTOR BALANCE",
+   "x": 1211.3,
+   "y": 187.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Rotor"
+   ],
+   "options": "Rotor~Horn",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn/Rotor Balance",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 61,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "93",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Rotor~Horn"
+   }
+  },
+  {
+   "id": "Prog_EXi@67.1",
+   "param": "Prog_EXi@67.1",
+   "group": "rotary_speaker_1_2",
+   "type": "button",
+   "kind": "toggle",
+   "label": "SPEAKER SIMULATOR",
+   "x": 68.0,
+   "y": 222.0,
+   "w": 220.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:CX-3",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Speaker Simulator",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 67,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "100",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On"
+   }
+  },
+  {
+   "id": "Prog_EXi@67.2",
+   "param": "Prog_EXi@67.2",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OFF OUTPUT",
+   "x": 296.7,
+   "y": 221.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Pre-Crossover"
+   ],
+   "options": "Pre-Crossover~Post-",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Off Output",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 67,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "101",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Pre-Crossover~Post-"
+   }
+  },
+  {
+   "id": "Prog_EXi@67.3",
+   "param": "Prog_EXi@67.3",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "AMP & ROTARY VERSION",
+   "x": 525.3,
+   "y": 221.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Classic CX-3"
+   ],
+   "options": "Classic CX-3~Custom",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Amp & Rotary Version",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 67,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "102",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Classic CX-3~Custom"
+   }
+  },
+  {
+   "id": "Prog_EXi@67.6~4",
+   "param": "Prog_EXi@67.6~4",
+   "group": "rotary_speaker_1_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "SPEAKER SIM TYPE",
+   "x": 754.0,
+   "y": 221.0,
+   "w": 220.7,
+   "h": 16,
+   "text": [
+    "Natural"
+   ],
+   "options": "Natural~CX-3",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Speaker Sim Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 67,
+    "bit": "6~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "103",
+     "IDX": "0"
+    },
+    "data": "00~06",
+    "value": "Natural~CX-3"
+   }
+  },
+  {
+   "id": "Prog_EXi@44.6~0",
+   "param": "Prog_EXi@44.6~0",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WET/DRY",
+   "x": 76.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Dry~Wet",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Wet/Dry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 44,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "68",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@44.6~0_val",
+   "param": "Prog_EXi@44.6~0",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "WET/DRY value",
+   "x": 78.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Dry"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Wet/Dry",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 44,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "68",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "Dry~Wet"
+   }
+  },
+  {
+   "id": "Prog_EXi@45.7",
+   "param": "Prog_EXi@45.7",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "WET/DRY MOD.INT",
+   "x": 144.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 165.73684210526315,
+   "cy": 350.0,
+   "r": 12,
+   "range": "-100~+100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Wet/Dry Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 45,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@45.7_val",
+   "param": "Prog_EXi@45.7",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "WET/DRY MOD.INT value",
+   "x": 146.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Wet/Dry Mod.Intensity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 45,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "70",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-100~+100"
+   }
+  },
+  {
+   "id": "Prog_EXi@50.7~6",
+   "param": "Prog_EXi@50.7~6",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN ACCELERATION",
+   "x": 213.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 234.4736842105263,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 50,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "81",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@50.7~6_val",
+   "param": "Prog_EXi@50.7~6",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN ACCELERATION value",
+   "x": 215.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 50,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "81",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@51.7~5",
+   "param": "Prog_EXi@51.7~5",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN DECELERATION",
+   "x": 282.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 303.2105263157895,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 51,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@51.7~5_val",
+   "param": "Prog_EXi@51.7~5",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN DECELERATION value",
+   "x": 284.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 51,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "82",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@52.7~4",
+   "param": "Prog_EXi@52.7~4",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN START ACCELERATION",
+   "x": 350.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 371.9473684210526,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Start Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 52,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@52.7~4_val",
+   "param": "Prog_EXi@52.7~4",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN START ACCELERATION value",
+   "x": 352.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Start Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 52,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "83",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@53.7~3",
+   "param": "Prog_EXi@53.7~3",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN STOP DECELERATION",
+   "x": 419.7,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 440.6842105263157,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Stop Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 53,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@53.7~3_val",
+   "param": "Prog_EXi@53.7~3",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN STOP DECELERATION value",
+   "x": 421.7,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Stop Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 53,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "84",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@54.7~2",
+   "param": "Prog_EXi@54.7~2",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN SLOW SPEED",
+   "x": 488.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 509.4210526315789,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Slow Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 54,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@54.7~2_val",
+   "param": "Prog_EXi@54.7~2",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN SLOW SPEED value",
+   "x": 490.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Slow Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 54,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "85",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@55.7~1",
+   "param": "Prog_EXi@55.7~1",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN FAST SPEED",
+   "x": 557.2,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 578.1578947368421,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Fast Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 55,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@55.7~1_val",
+   "param": "Prog_EXi@55.7~1",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN FAST SPEED value",
+   "x": 559.2,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Fast Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 55,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "86",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@56.6~0",
+   "param": "Prog_EXi@56.6~0",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR ACCELERATION",
+   "x": 625.9,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 646.8947368421052,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 56,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@56.6~0_val",
+   "param": "Prog_EXi@56.6~0",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR ACCELERATION value",
+   "x": 627.9,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 56,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "87",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@56.7",
+   "param": "Prog_EXi@56.7",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR DECELERATION",
+   "x": 694.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 715.6315789473683,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 56,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@56.7_val",
+   "param": "Prog_EXi@56.7",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR DECELERATION value",
+   "x": 696.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 56,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "88",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@57.7~6",
+   "param": "Prog_EXi@57.7~6",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR START ACCELERATION",
+   "x": 763.4,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 784.3684210526314,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Start Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 57,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "89",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@57.7~6_val",
+   "param": "Prog_EXi@57.7~6",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR START ACCELERATION value",
+   "x": 765.4,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Start Acceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 57,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "89",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@58.7~5",
+   "param": "Prog_EXi@58.7~5",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR STOP DECELERATION",
+   "x": 832.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 853.1052631578947,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Stop Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 58,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "90",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@58.7~5_val",
+   "param": "Prog_EXi@58.7~5",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR STOP DECELERATION value",
+   "x": 834.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Stop Deceleration",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 58,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "90",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@59.7~4",
+   "param": "Prog_EXi@59.7~4",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR SLOW SPEED",
+   "x": 900.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 921.8421052631578,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Slow Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 59,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "91",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@59.7~4_val",
+   "param": "Prog_EXi@59.7~4",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR SLOW SPEED value",
+   "x": 902.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Slow Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 59,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "91",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@60.7~3",
+   "param": "Prog_EXi@60.7~3",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR FAST SPEED",
+   "x": 969.6,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 990.5789473684209,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Fast Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 60,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "92",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@60.7~3_val",
+   "param": "Prog_EXi@60.7~3",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR FAST SPEED value",
+   "x": 971.6,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Fast Speed",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 60,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "92",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@62.7~1",
+   "param": "Prog_EXi@62.7~1",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN MIC DISTANCE",
+   "x": 1038.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1059.3157894736842,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Mic Distance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 62,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "94",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@62.7~1_val",
+   "param": "Prog_EXi@62.7~1",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN MIC DISTANCE value",
+   "x": 1040.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Mic Distance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 62,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "94",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@63.6~0",
+   "param": "Prog_EXi@63.6~0",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN MIC SPREAD",
+   "x": 1107.1,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1128.0526315789473,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Mic Spread",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 63,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "95",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@63.6~0_val",
+   "param": "Prog_EXi@63.6~0",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN MIC SPREAD value",
+   "x": 1109.1,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Mic Spread",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 63,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "95",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@63.7",
+   "param": "Prog_EXi@63.7",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR MIC DISTANCE",
+   "x": 1175.8,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1196.7894736842104,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Mic Distance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 63,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "96",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@63.7_val",
+   "param": "Prog_EXi@63.7",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR MIC DISTANCE value",
+   "x": 1177.8,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Mic Distance",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 63,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "96",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@64.7~6",
+   "param": "Prog_EXi@64.7~6",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR MIC SPREAD",
+   "x": 1244.5,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1265.5263157894735,
+   "cy": 350.0,
+   "r": 12,
+   "range": "0~100",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Mic Spread",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 64,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "97",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@64.7~6_val",
+   "param": "Prog_EXi@64.7~6",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR MIC SPREAD value",
+   "x": 1246.5,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Mic Spread",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 64,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "97",
+     "IDX": "0"
+    },
+    "data": "00~64",
+    "value": "0~100"
+   }
+  },
+  {
+   "id": "Prog_EXi@65.7~5",
+   "param": "Prog_EXi@65.7~5",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HORN STOP PHASE",
+   "x": 1313.3,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1334.2631578947367,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Free~+180",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Stop Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 65,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "98",
+     "IDX": "0"
+    },
+    "data": "ED~12",
+    "value": "Free~+180"
+   }
+  },
+  {
+   "id": "Prog_EXi@65.7~5_val",
+   "param": "Prog_EXi@65.7~5",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "HORN STOP PHASE value",
+   "x": 1315.3,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Free"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Horn Stop Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 65,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "98",
+     "IDX": "0"
+    },
+    "data": "ED~12",
+    "value": "Free~+180"
+   }
+  },
+  {
+   "id": "Prog_EXi@66.7~3",
+   "param": "Prog_EXi@66.7~3",
+   "group": "rotary_speaker_2_2",
+   "type": "knob",
+   "kind": "slider",
+   "label": "ROTOR STOP PHASE",
+   "x": 1382.0,
+   "y": 329.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1402.9999999999998,
+   "cy": 350.0,
+   "r": 12,
+   "range": "Free~+180",
+   "apply": "exi:CX-3",
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Stop Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 66,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "99",
+     "IDX": "0"
+    },
+    "data": "ED~12",
+    "value": "Free~+180"
+   }
+  },
+  {
+   "id": "Prog_EXi@66.7~3_val",
+   "param": "Prog_EXi@66.7~3",
+   "group": "rotary_speaker_2_2",
+   "type": "display",
+   "kind": "value",
+   "label": "ROTOR STOP PHASE value",
+   "x": 1384.0,
+   "y": 374.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Free"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "Rotary Speaker",
+    "name": "Rotor Stop Phase",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (CX-3)",
+    "ofs": 66,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "127",
+     "SUB": "0",
+     "PID": "99",
+     "IDX": "0"
+    },
+    "data": "ED~12",
+    "value": "Free~+180"
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "AMP·MIX",
+ "page_number": 2,
+ "pages_in_area": 2,
+ "apply": "exi:CX-3"
+}

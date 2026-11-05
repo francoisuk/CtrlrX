@@ -1,0 +1,992 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "EG · 6/6",
+ "tab_index": 0,
+ "object": "Program · MS-20EX",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_MS20EX_EG_P6_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_MS20EX_EG_P6_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · MS-20EX — EG · 6/6"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 193.4,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 265.4,
+   "y": 84,
+   "w": 162.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 431.2,
+   "y": 84,
+   "w": 171.9,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 606.1,
+   "y": 84,
+   "w": 180.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 789.9,
+   "y": 84,
+   "w": 159.3,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 952.2,
+   "y": 84,
+   "w": 161.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1116.3,
+   "y": 84,
+   "w": 164.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@252.7~4",
+   "param": "Prog_EXi@252.7~4",
+   "group": "eg6_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@252.7~4",
+   "x": 616.8,
+   "y": 150,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.1 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 252,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 252,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@257.7~4",
+   "param": "Prog_EXi@257.7~4",
+   "group": "eg6_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@257.7~4",
+   "x": 751.6,
+   "y": 150,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.2 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 257,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "9",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 257,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@262.7~4",
+   "param": "Prog_EXi@262.7~4",
+   "group": "eg6_2_2",
+   "type": "menu",
+   "kind": "combo",
+   "label": "Prog_EXi@262.7~4",
+   "x": 886.4,
+   "y": 150,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "range": "Off~Tempo",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.3 Source",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 262,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "11",
+     "IDX": "0"
+    },
+    "data": "00~34",
+    "value": "Off~Tempo",
+    "oasys": {
+     "ofs": 262,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@253.7~4",
+   "param": "Prog_EXi@253.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@253.7~4",
+   "x": 616.8,
+   "y": 171,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.1 Intensity To Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 253,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 253,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@258.7~4",
+   "param": "Prog_EXi@258.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@258.7~4",
+   "x": 751.6,
+   "y": 171,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.2 Intensity To Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 258,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 258,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@263.7~4",
+   "param": "Prog_EXi@263.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@263.7~4",
+   "x": 886.4,
+   "y": 171,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.3 Intensity To Attack Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 263,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "0"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 263,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@254.7~4",
+   "param": "Prog_EXi@254.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@254.7~4",
+   "x": 616.8,
+   "y": 192,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.1 Intensity To Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 254,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 254,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@259.7~4",
+   "param": "Prog_EXi@259.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@259.7~4",
+   "x": 751.6,
+   "y": 192,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.2 Intensity To Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 259,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 259,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@264.7~4",
+   "param": "Prog_EXi@264.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@264.7~4",
+   "x": 886.4,
+   "y": 192,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.3 Intensity To Decay Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 264,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "1"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 264,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@255.7~4",
+   "param": "Prog_EXi@255.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@255.7~4",
+   "x": 616.8,
+   "y": 213,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.1 Intensity To Slope Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 255,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 255,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@260.7~4",
+   "param": "Prog_EXi@260.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@260.7~4",
+   "x": 751.6,
+   "y": 213,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.2 Intensity To Slope Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 260,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 260,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@265.7~4",
+   "param": "Prog_EXi@265.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@265.7~4",
+   "x": 886.4,
+   "y": 213,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.3 Intensity To Slope Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 265,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "2"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 265,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@256.7~4",
+   "param": "Prog_EXi@256.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@256.7~4",
+   "x": 616.8,
+   "y": 234,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.1 Intensity To Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 256,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "8",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 256,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@261.7~4",
+   "param": "Prog_EXi@261.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@261.7~4",
+   "x": 751.6,
+   "y": 234,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.2 Intensity To Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 261,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "10",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 261,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@266.7~4",
+   "param": "Prog_EXi@266.7~4",
+   "group": "eg6_2_2",
+   "type": "display",
+   "kind": "value_box",
+   "label": "Prog_EXi@266.7~4",
+   "x": 886.4,
+   "y": 234,
+   "w": 130.8,
+   "h": 16,
+   "text": [
+    "+0"
+   ],
+   "range": "-99~+99",
+   "midi": null,
+   "korg": {
+    "group": "EG6",
+    "name": "Time Mod.3 Intensity To Release Time",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (MS-20EX)",
+    "ofs": 266,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "15",
+     "SUB": "0",
+     "PID": "12",
+     "IDX": "3"
+    },
+    "data": "9D~63",
+    "value": "-99~+99",
+    "oasys": {
+     "ofs": 266,
+     "rule": "engine head, same relative offset (OASYS block EXi1 @2848, EXi2 @3636)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "EG",
+ "page_number": 6,
+ "pages_in_area": 6,
+ "apply": "exi:MS-20EX",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

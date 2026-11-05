@@ -1,0 +1,1981 @@
+{
+ "panel": "KRONOS KONTROL — EDITOR",
+ "page": "OSC · 6/7",
+ "tab_index": 0,
+ "object": "Program · STR-1",
+ "width": 1500,
+ "height": 432,
+ "units": "pixels du PNG 1x, origine en haut à gauche ; × 2 pour le PNG @2x",
+ "background": "OASYS_OMNI_EDITOR_E_STR1_OSC_P6_fond.png",
+ "background_2x": "OASYS_OMNI_EDITOR_E_STR1_OSC_P6_fond@2x.png",
+ "source_spec": "EDITOR_WINDOW.md (panneau complet-0.97i) ; param = modulateur CTRLR d’origine",
+ "kinds": {
+  "slider": "encodeur (uiSlider rotatif)",
+  "value": "afficheur de la valeur de l’encodeur",
+  "combo": "menu (uiCombo)",
+  "fxcombo": "menu de la liste des effets (331 entrées)",
+  "toggle": "paramètre Off / On : bouton à barre de voyant (combo Off|On dans 0.97i)",
+  "label": "afficheur en lecture seule",
+  "label_editable": "afficheur modifiable (double-clic)"
+ },
+ "controls": [
+  {
+   "id": "kkObjSel",
+   "param": "kkObjSel",
+   "group": "object",
+   "type": "menu",
+   "kind": "combo",
+   "label": "OBJECT",
+   "x": 140,
+   "y": 29,
+   "w": 112,
+   "h": 16,
+   "text": [
+    "0 : Program"
+   ],
+   "options": [
+    "0 : Program",
+    "1 : Combi",
+    "4 : Drum Kit",
+    "5 : Wave Seq",
+    "3 : Global"
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkEdTitle",
+   "param": "kkEdTitle",
+   "group": "title",
+   "type": "display",
+   "kind": "label",
+   "label": "TITLE",
+   "x": 266,
+   "y": 29,
+   "w": 300,
+   "h": 16,
+   "text": [
+    "Program · STR-1 — OSC · 6/7"
+   ],
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkBtnGetProg",
+   "param": "kkBtnGetProg",
+   "group": "actions",
+   "type": "button",
+   "label": "READ SOUND",
+   "x": 586,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "on",
+   "lit_bar": "kkLitGetProg",
+   "lit_rect": [
+    589,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnApply",
+   "param": "kkBtnApply",
+   "group": "actions",
+   "type": "button",
+   "label": "APPLY → 0x4B",
+   "x": 670,
+   "y": 27,
+   "w": 84.2,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitApply",
+   "lit_rect": [
+    673,
+    29.2,
+    78.2,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnWrite",
+   "param": "kkBtnWrite",
+   "group": "actions",
+   "type": "button",
+   "label": "WRITE → 0x49",
+   "x": 760.2,
+   "y": 27,
+   "w": 83.4,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitWrite",
+   "lit_rect": [
+    763.2,
+    29.2,
+    77.4,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnStore",
+   "param": "kkBtnStore",
+   "group": "actions",
+   "type": "button",
+   "label": "STORE 0x4C",
+   "x": 849.5,
+   "y": 27,
+   "w": 78,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitStore",
+   "lit_rect": [
+    852.5,
+    29.2,
+    72,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkBtnBankRead",
+   "param": "kkBtnBankRead",
+   "group": "actions",
+   "type": "button",
+   "label": "READ BANK 0x4D",
+   "x": 933.5,
+   "y": 27,
+   "w": 95.9,
+   "h": 20,
+   "state": "off",
+   "lit_bar": "kkLitBankRead",
+   "lit_rect": [
+    936.5,
+    29.2,
+    89.9,
+    2
+   ],
+   "midi": null
+  },
+  {
+   "id": "kkDestBank",
+   "param": "kkDestBank",
+   "group": "write_to",
+   "type": "menu",
+   "kind": "combo",
+   "label": "DEST BANK",
+   "x": 1087.4,
+   "y": 29,
+   "w": 58,
+   "h": 16,
+   "text": [
+    "U-A"
+   ],
+   "options": "INT-A..F, USER-A..GG (Program) ; INT-A..G, USER-A..G (Combi)…",
+   "midi": null
+  },
+  {
+   "id": "kkDestNumber",
+   "param": "kkDestNumber",
+   "group": "write_to",
+   "type": "display",
+   "kind": "value_box",
+   "label": "DEST NUMBER",
+   "x": 1149.4,
+   "y": 29,
+   "w": 36,
+   "h": 16,
+   "text": [
+    "000"
+   ],
+   "range": "0..127",
+   "midi": null
+  },
+  {
+   "id": "kkBtnCompare",
+   "param": "kkBtnCompare",
+   "group": "write_to",
+   "type": "button",
+   "kind": "toggle",
+   "label": "COMPARE",
+   "x": 1195.4,
+   "y": 27,
+   "w": 70,
+   "h": 20,
+   "note": "compare le tampon modifié avec la version lue (locale)",
+   "midi": null
+  },
+  {
+   "id": "kkBtnToRack",
+   "param": "kkBtnToRack",
+   "group": "rack",
+   "type": "button",
+   "label": "◀  RACK",
+   "x": 1306,
+   "y": 27,
+   "w": 76,
+   "h": 20,
+   "midi": null
+  },
+  {
+   "id": "kkEdStatus",
+   "param": "kkEdStatus",
+   "group": "status",
+   "type": "display",
+   "kind": "label",
+   "label": "STATUS",
+   "x": 60,
+   "y": 54,
+   "w": 506,
+   "h": 13,
+   "dynamic": true,
+   "midi": null
+  },
+  {
+   "id": "kkNav_back_program",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "◀ PROGRAM",
+   "x": 60,
+   "y": 84,
+   "w": 189.8,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_osc",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "OSC",
+   "x": 261.8,
+   "y": 84,
+   "w": 159.3,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_filter",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "FILTER",
+   "x": 424.1,
+   "y": 84,
+   "w": 168.3,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_amp_mix",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "AMP·MIX",
+   "x": 595.4,
+   "y": 84,
+   "w": 177.2,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_eg",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "EG",
+   "x": 775.6,
+   "y": 84,
+   "w": 155.7,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_lfo",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "LFO",
+   "x": 934.3,
+   "y": 84,
+   "w": 157.6,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_area_mod",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "MOD",
+   "x": 1094.9,
+   "y": 84,
+   "w": 161.1,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_1",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "1",
+   "x": 1268.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_2",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "2",
+   "x": 1293.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_3",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "3",
+   "x": 1318.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_4",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "4",
+   "x": 1343.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_5",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "5",
+   "x": 1368.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_6",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "6",
+   "x": 1393.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "on",
+   "midi": null
+  },
+  {
+   "id": "kkNav_page_7",
+   "group": "nav",
+   "type": "button",
+   "kind": "nav",
+   "label": "7",
+   "x": 1418.0,
+   "y": 84,
+   "w": 22.0,
+   "h": 18,
+   "state": "off",
+   "midi": null
+  },
+  {
+   "id": "Prog_EXi@541.0",
+   "param": "Prog_EXi@541.0",
+   "group": "pcm",
+   "type": "menu",
+   "kind": "combo",
+   "label": "HIGH MS TYPE",
+   "x": 134.0,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Multisample",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 541,
+    "bit": "0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~Multisample",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@541.1",
+   "param": "Prog_EXi@541.1",
+   "group": "pcm",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MID HIGH MS TYPE",
+   "x": 293.3,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Multisample",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 541,
+    "bit": "1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Off~Multisample",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@541.2",
+   "param": "Prog_EXi@541.2",
+   "group": "pcm",
+   "type": "menu",
+   "kind": "combo",
+   "label": "MID LOW MS TYPE",
+   "x": 450.9,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Multisample",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 541,
+    "bit": "2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "2"
+    },
+    "data": "00~01",
+    "value": "Off~Multisample",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@541.3",
+   "param": "Prog_EXi@541.3",
+   "group": "pcm",
+   "type": "menu",
+   "kind": "combo",
+   "label": "LOW MS TYPE",
+   "x": 591.2,
+   "y": 138,
+   "w": 70,
+   "h": 16,
+   "text": [
+    "Off"
+   ],
+   "options": "Off~Multisample",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Type",
+    "kind": "menu",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 541,
+    "bit": "3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "0",
+     "IDX": "3"
+    },
+    "data": "00~01",
+    "value": "Off~Multisample",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@614.4",
+   "param": "Prog_EXi@614.4",
+   "group": "pcm",
+   "type": "button",
+   "kind": "toggle",
+   "label": "HIGH MS REVERSE",
+   "x": 671.2,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Reverse",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 614,
+    "bit": "4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "0"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@614.5",
+   "param": "Prog_EXi@614.5",
+   "group": "pcm",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MID HIGH MS REVERSE",
+   "x": 763.2,
+   "y": 137,
+   "w": 102.1,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Reverse",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 614,
+    "bit": "5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "1"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@614.6",
+   "param": "Prog_EXi@614.6",
+   "group": "pcm",
+   "type": "button",
+   "kind": "toggle",
+   "label": "MID LOW MS REVERSE",
+   "x": 871.3,
+   "y": 137,
+   "w": 100.7,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Reverse",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 614,
+    "bit": "6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "2"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@614.7",
+   "param": "Prog_EXi@614.7",
+   "group": "pcm",
+   "type": "button",
+   "kind": "toggle",
+   "label": "LOW MS REVERSE",
+   "x": 978.0,
+   "y": 137,
+   "w": 86,
+   "h": 18,
+   "options": [
+    "Off",
+    "On"
+   ],
+   "apply": "exi:STR-1",
+   "state": "off",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Reverse",
+    "kind": "toggle",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 614,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "4",
+     "IDX": "3"
+    },
+    "data": "00~01",
+    "value": "Off~On",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@605.7~4",
+   "param": "Prog_EXi@605.7~4",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH MS NUMBER",
+   "x": 76.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 97.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~16382",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 605,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@605.7~4_val",
+   "param": "Prog_EXi@605.7~4",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH MS NUMBER value",
+   "x": 78.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 605,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "0"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@607.7~2",
+   "param": "Prog_EXi@607.7~2",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID HIGH MS NUMBER",
+   "x": 163.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 184.06666666666666,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~16382",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 607,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@607.7~2_val",
+   "param": "Prog_EXi@607.7~2",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID HIGH MS NUMBER value",
+   "x": 165.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 607,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "1"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@609",
+   "param": "Prog_EXi@609",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID LOW MS NUMBER",
+   "x": 250.1,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 271.1333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~16382",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 609,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@609_val",
+   "param": "Prog_EXi@609",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID LOW MS NUMBER value",
+   "x": 252.1,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 609,
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "2"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@610.7~6",
+   "param": "Prog_EXi@610.7~6",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW MS NUMBER",
+   "x": 337.2,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 358.2,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~16382",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 610,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@610.7~6_val",
+   "param": "Prog_EXi@610.7~6",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW MS NUMBER value",
+   "x": 339.2,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Number",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 610,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "2",
+     "IDX": "3"
+    },
+    "data": "0000~3FFE",
+    "value": "0~16382",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@612.7~4",
+   "param": "Prog_EXi@612.7~4",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH MS START OFFSET",
+   "x": 424.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 445.26666666666665,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~8th",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 612,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@612.7~4_val",
+   "param": "Prog_EXi@612.7~4",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH MS START OFFSET value",
+   "x": 426.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 612,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "0"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@613.3~0",
+   "param": "Prog_EXi@613.3~0",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID HIGH MS START OFFSET",
+   "x": 511.3,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 532.3333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~8th",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 613,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "1"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@613.3~0_val",
+   "param": "Prog_EXi@613.3~0",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID HIGH MS START OFFSET value",
+   "x": 513.3,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 613,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "1"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@613.7~4",
+   "param": "Prog_EXi@613.7~4",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID LOW MS START OFFSET",
+   "x": 598.4,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 619.4,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~8th",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 613,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "2"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@613.7~4_val",
+   "param": "Prog_EXi@613.7~4",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID LOW MS START OFFSET value",
+   "x": 600.4,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 613,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "2"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@614.3~0",
+   "param": "Prog_EXi@614.3~0",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW MS START OFFSET",
+   "x": 685.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 706.4666666666667,
+   "cy": 204.0,
+   "r": 12,
+   "range": "Off~8th",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 614,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "3"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@614.3~0_val",
+   "param": "Prog_EXi@614.3~0",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW MS START OFFSET value",
+   "x": 687.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "Off"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Start Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 614,
+    "bit": "3~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "3",
+     "IDX": "3"
+    },
+    "data": "00~08",
+    "value": "Off~8th",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@615.6~0",
+   "param": "Prog_EXi@615.6~0",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH MS LEVEL",
+   "x": 772.5,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 793.5333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 615,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@615.6~0_val",
+   "param": "Prog_EXi@615.6~0",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH MS LEVEL value",
+   "x": 774.5,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 615,
+    "bit": "6~0",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "0"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@615.7",
+   "param": "Prog_EXi@615.7",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID HIGH MS LEVEL",
+   "x": 859.6,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 880.5999999999999,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 615,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@615.7_val",
+   "param": "Prog_EXi@615.7",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID HIGH MS LEVEL value",
+   "x": 861.6,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 615,
+    "bit": "7",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "1"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@616.7~6",
+   "param": "Prog_EXi@616.7~6",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID LOW MS LEVEL",
+   "x": 946.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 967.6666666666666,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 616,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@616.7~6_val",
+   "param": "Prog_EXi@616.7~6",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID LOW MS LEVEL value",
+   "x": 948.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 616,
+    "bit": "7~6",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "2"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@617.7~5",
+   "param": "Prog_EXi@617.7~5",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "LOW MS LEVEL",
+   "x": 1033.7,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1054.7333333333333,
+   "cy": 204.0,
+   "r": 12,
+   "range": "0~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 617,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@617.7~5_val",
+   "param": "Prog_EXi@617.7~5",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "LOW MS LEVEL value",
+   "x": 1035.7,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Low MS Level",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 617,
+    "bit": "7~5",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "5",
+     "IDX": "3"
+    },
+    "data": "00~7F",
+    "value": "0~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@618.7~4",
+   "param": "Prog_EXi@618.7~4",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "HIGH - MID HIGH BOT VEL",
+   "x": 1120.8,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1141.8,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High - Mid High Bottom Velocity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 618,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@618.7~4_val",
+   "param": "Prog_EXi@618.7~4",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "HIGH - MID HIGH BOT VEL value",
+   "x": 1122.8,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "High - Mid High Bottom Velocity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 618,
+    "bit": "7~4",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "0"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@619.7~3",
+   "param": "Prog_EXi@619.7~3",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID HIGH - MID LOW BOT VEL",
+   "x": 1207.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1228.8666666666666,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High - Mid Low Bottom Velocity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 619,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@619.7~3_val",
+   "param": "Prog_EXi@619.7~3",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID HIGH - MID LOW BOT VEL value",
+   "x": 1209.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid High - Mid Low Bottom Velocity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 619,
+    "bit": "7~3",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "1"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@620.7~2",
+   "param": "Prog_EXi@620.7~2",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "MID LOW - LOW BOT VEL",
+   "x": 1294.9,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1315.9333333333334,
+   "cy": 204.0,
+   "r": 12,
+   "range": "1~127",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low - Low Bottom Velocity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 620,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@620.7~2_val",
+   "param": "Prog_EXi@620.7~2",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "MID LOW - LOW BOT VEL value",
+   "x": 1296.9,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "1"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Mid Low - Low Bottom Velocity",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 620,
+    "bit": "7~2",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "6",
+     "IDX": "2"
+    },
+    "data": "01~7F",
+    "value": "1~127",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@621.7~1",
+   "param": "Prog_EXi@621.7~1",
+   "group": "pcm",
+   "type": "knob",
+   "kind": "slider",
+   "label": "FREQUENCY OFFSET",
+   "x": 1382.0,
+   "y": 183.0,
+   "w": 42,
+   "h": 42,
+   "cx": 1403.0,
+   "cy": 204.0,
+   "r": 12,
+   "range": "-10.0~+10.0",
+   "apply": "exi:STR-1",
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Frequency Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 621,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-10.0~+10.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "Prog_EXi@621.7~1_val",
+   "param": "Prog_EXi@621.7~1",
+   "group": "pcm",
+   "type": "display",
+   "kind": "value",
+   "label": "FREQUENCY OFFSET value",
+   "x": 1384.0,
+   "y": 228.0,
+   "w": 38,
+   "h": 11,
+   "text": [
+    "+0"
+   ],
+   "dynamic": true,
+   "midi": null,
+   "korg": {
+    "group": "PCM",
+    "name": "Frequency Offset",
+    "kind": "knob",
+    "file": "Prog_EXi.txt (STR-1)",
+    "ofs": 621,
+    "bit": "7~1",
+    "sysex": {
+     "TYP": "11/12",
+     "SOC": "25",
+     "SUB": "0",
+     "PID": "7",
+     "IDX": "0"
+    },
+    "data": "9C~64",
+    "value": "-10.0~+10.0",
+    "oasys": {
+     "ofs": null,
+     "rule": "engine data beyond the verified 328-byte head (pcglib G3/G5)"
+    }
+   }
+  },
+  {
+   "id": "logo_kronoscopie",
+   "group": "logo",
+   "type": "logo",
+   "label": "KRONOSCOPIE",
+   "x": 1397,
+   "y": 17,
+   "w": 40,
+   "h": 40,
+   "midi": null
+  }
+ ],
+ "area": "OSC",
+ "page_number": 6,
+ "pages_in_area": 7,
+ "apply": "exi:STR-1",
+ "instrument_note": "OASYS : structure du KRONOS moins les fonctions absentes de l’OASYS. korg.ofs = offset KRONOS ; korg.oasys.ofs = offset dans la fiche du PCG OASYS (programme 4386 o, combi 7766 o), d’après les cartes octet par octet de pcglib (reference\\ref-oasys) ; null = pas d’équivalent vérifié. Korg n’a pas publié le SysEx de l’OASYS. Global, Song, Drum Kit, Wave Seq : offsets KRONOS, à vérifier."
+}

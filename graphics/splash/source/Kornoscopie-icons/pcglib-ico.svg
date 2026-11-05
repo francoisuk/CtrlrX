@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" xmlns:c2pa="http://c2pa.org/manifest">
+<title>Kronoscopie</title>
+<defs>
+<linearGradient id="kg1" x1="432" y1="90" x2="231" y2="311" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#43c3ff"/><stop offset="1" stop-color="#1c63d6"/></linearGradient>
+<linearGradient id="kg2" x1="270" y1="285" x2="434" y2="429" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1b5fd2"/><stop offset="1" stop-color="#3ab9fb"/></linearGradient>
+<linearGradient id="kgw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="0.8" stop-color="#f4f6fa"/><stop offset="1" stop-color="#d9dee8"/></linearGradient>
+<linearGradient id="kgb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a2232"/><stop offset="0.5" stop-color="#0d1320"/><stop offset="1" stop-color="#060a12"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="500" height="500" rx="58" ry="58" fill="#162d5f"/>
+<g>
+<path d="M76 90 H120 V424 Q120 430 114 430 H82 Q76 430 76 424 Z" fill="url(#kgw)"/>
+<path d="M126 90 H170 V424 Q170 430 164 430 H132 Q126 430 126 424 Z" fill="url(#kgw)"/>
+<path d="M176 90 H218 V424 Q218 430 212 430 H182 Q176 430 176 424 Z" fill="url(#kgw)"/>
+<path d="M105 90 H137 V246 Q137 252 131 252 H111 Q105 252 105 246 Z" fill="url(#kgb)"/>
+<path d="M158 90 H190 V246 Q190 252 184 252 H164 Q158 252 158 246 Z" fill="url(#kgb)"/>
+</g>
+<polygon points="320,90 432,90 231,311 231,200" fill="url(#kg1)"/>
+<polygon points="303,257 434,429 332,429 252,317" fill="url(#kg2)"/>
+</svg>

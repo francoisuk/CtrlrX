@@ -1,0 +1,88 @@
+#!/bin/sh
+# CtrlrX Linux build helper.
+#
+# Usage:
+#   ./build.sh [--keep|-k] [native|vm] [job_count] [-- [cmake_args...]]
+#
+# Examples:
+#   ./build.sh                               # Fresh build, auto jobs
+#   ./build.sh --keep -- -DCMAKE_BUILD_TYPE=Debug # Keep build folder, change to Debug
+#   ./build.sh vm 2 -- -DENABLE_FEATURE=ON   # VM mode, 2 jobs, pass custom flag
+
+set -e
+
+# 1. Parse optional --keep / -k flag
+KEEP_BUILD=false
+if [ "$1" = "--keep" ] || [ "$1" = "-k" ]; then
+    KEEP_BUILD=true
+    shift
+fi
+
+# 2. Extract standard positioning arguments before the "--" separator
+MODE="native"
+JOBS_OVERRIDE=""
+
+if [ "$1" != "--" ] && [ -n "$1" ]; then
+    MODE="$1"
+    shift
+fi
+
+if [ "$1" != "--" ] && [ -n "$1" ]; then
+    JOBS_OVERRIDE="$1"
+    shift
+fi
+
+# 3. Handle the "--" separator and capture CMake parameters
+CMAKE_PARAMS=""
+if [ "$1" = "--" ]; then
+    shift
+    CMAKE_PARAMS="$@" # Captures everything left over
+fi
+
+# 4. Determine parallel jobs
+case "$MODE" in
+    native)
+        if [ -n "$JOBS_OVERRIDE" ]; then
+            JOBS="$JOBS_OVERRIDE"
+        else
+            JOBS="$(nproc --ignore=1)"
+        fi
+        echo "Building native (bare-metal): using $JOBS parallel job(s)"
+        ;;
+    vm)
+        if [ -n "$JOBS_OVERRIDE" ]; then
+            JOBS="$JOBS_OVERRIDE"
+        else
+            JOBS=2
+        fi
+        echo "Building in VM-safe mode: capped at $JOBS job(s)"
+        ;;
+    *)
+        echo "Error: Unknown mode '$MODE'. Use 'native' or 'vm'."
+        exit 1
+        ;;
+esac
+
+# 5. Handle the build directory
+if [ "$KEEP_BUILD" = true ]; then
+    if [ -d "build" ]; then
+        echo "Keeping existing build/ directory for incremental compilation."
+    else
+        echo "Build directory does not exist yet. Creating build/..."
+        mkdir build
+    fi
+else
+    echo "Clearing and recreating build/ directory..."
+    rm -rf build
+    mkdir build
+fi
+
+# 6. Run CMake configure and build
+if [ -n "$CMAKE_PARAMS" ] || [ ! -f "build/CMakeCache.txt" ]; then
+    echo "Configuring CMake with parameters: $CMAKE_PARAMS"
+    cmake -B build -S . $CMAKE_PARAMS
+fi
+
+echo "Compiling project..."
+cmake --build build --parallel "$JOBS"
+
