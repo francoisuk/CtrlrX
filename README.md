@@ -33,18 +33,27 @@ Orientation documents, in reading order: `CTRLRX_MIGRATION.md`,
 
 ## Engine variants and their frameworks
 
-The stated base framework for this project is JUCE 8. Measured from the trees
-on disk:
+Two independent version numbers are in play and they are easy to confuse:
 
-| Tree | JUCE | Notes |
-|---|---|---|
-| `build/CtrlrX-dnaldoog/CtrlrX-master` | **8.0.12** | The JUCE 8 engine; the only JUCE 8 tree here |
-| `build/CtrlrX-damiensellier/CtrlrX` | 6.0.8 | upstream `v5.6.36` |
-| `build/CtrlrX-pr337` | 6.0.8 | PR #337 export |
-| `probe/src` | 6.0.8 | `v5.6.36` clone used to build the probe |
+- **CtrlrX** is the application. Its releases are `5.6.xx` on the upstream
+  `damiensellier` line and **`8.7x`** on `dnaldoog`'s JUCE 8 line.
+- **JUCE** is the framework CtrlrX builds against. Releases are `8.0.x` (JUCE 8)
+  or `6.0.x` (JUCE 6).
 
-There is no JUCE "8.76" — JUCE 8 releases are `8.0.x`, and `8.0.12` is what is
-installed. Treat `8.0.12` as the base.
+So "CtrlrX 8.76 on JUCE 8" resolves to: CtrlrX version `8.76`, JUCE `8.0.12`.
+Measured from the trees on disk:
+
+| Tree | CtrlrX | JUCE | Notes |
+|---|---|---|---|
+| `build/CtrlrX-dnaldoog/CtrlrX-master` | **8.77** | **8.0.12** | The JUCE 8 engine — the tree this project builds and patches |
+| `build/CtrlrX-damiensellier/CtrlrX` | 5.6.36 | 6.0.8 | upstream clone, tag `v5.6.36` |
+| `build/CtrlrX-pr337` | 5.6.37 | 6.0.8 | PR #337 export (base `5.6.37-Maintenance`) |
+| `probe/src` | 5.6.36 | 6.0.8 | clone the probe binary was built from |
+
+The `VERSION` file is authoritative for CtrlrX; `CHANGELOG.md` in the engine tree
+lists `v8.77` (11/05/2026) and `v8.76` (11/05/2026) at the top. Note the
+`v8.76` changelog entry is empty — `v8.77` is the first release in that pair
+with recorded changes, so **8.77 is the effective baseline**, not 8.76.
 
 ## Building the engine
 
