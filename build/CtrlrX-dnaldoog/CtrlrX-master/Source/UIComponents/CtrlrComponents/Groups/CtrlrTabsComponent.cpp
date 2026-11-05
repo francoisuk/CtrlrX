@@ -151,6 +151,18 @@ CtrlrTabsInternal::~CtrlrTabsInternal() {}
 
 void CtrlrTabsInternal::currentTabChanged(int newCurrentTabIndex, const String &newCurrentTabName) {
 	owner.setProperty(Ids::uiTabsCurrentTab, newCurrentTabIndex);
+	owner.notifyTabChanged(newCurrentTabIndex);
+}
+
+void CtrlrTabsComponent::notifyTabChanged(const int newIndex) {
+	// uiTabsCurrentTabChanged names a Lua callback. It was resolved when the
+	// property changed but never invoked, so a panel could not react to a tab
+	// change (e.g. refresh a page on arrival).
+	if (owner.getOwnerPanel().getRestoreState())
+		return; // values are still settling while the panel is being restored
+
+	if (tabChangedCbk && !tabChangedCbk.wasObjectDeleted() && tabChangedCbk->isValid())
+		owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call(tabChangedCbk, &owner, newIndex);
 }
 //[/MiscUserDefs]
 
@@ -274,6 +286,18 @@ void CtrlrTabsComponent::valueTreePropertyChanged(ValueTree &treeWhosePropertyHa
 			return;
 
 		tabChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	} else if (property == Ids::uiTabsCurrentTab) {
+		// Compatibility: panels written against older Ctrlr select a tab by setting
+		// this property on the component (panel:...getComponent():setPropertyInt).
+		// Nothing read it back, so those panel scripts silently did nothing.
+		// currentTabChanged() also WRITES this property, so only act on a value
+		// that actually differs from the live index.
+		const int wantedTab = (int)getProperty(Ids::uiTabsCurrentTab);
+
+		if (ctrlrTabs != nullptr && wantedTab >= 0 && wantedTab < ctrlrTabs->getNumTabs()
+			&& wantedTab != ctrlrTabs->getCurrentTabIndex()) {
+			setComponentValue((double)wantedTab, false);
+		}
 	} else if (property == Ids::uiTabsFrontTabFont || property == Ids::uiTabsTabFont ||
 			   property == Ids::uiTabsFrontTabOutline || property == Ids::uiTabsTabOutline) {
 		// FIX: Re-calculate tab widths and trigger redraw on the child bar

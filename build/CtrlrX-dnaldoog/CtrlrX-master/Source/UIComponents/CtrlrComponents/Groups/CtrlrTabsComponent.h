@@ -97,6 +97,7 @@ public:
 	void modulatorChanged (CtrlrModulator *modulatorThatChanged);
 	TabbedComponent *getTabs() { return ((TabbedComponent *)ctrlrTabs); }
 	void setOwned (CtrlrComponent *componentToOwn, const int subIndexInGroup = 0, const bool shouldOwnThisComponent = true);
+	void notifyTabChanged (const int newIndex);
 	void canvasStateRestored();
 	void addTab(const ValueTree tabToAdd);
 	void removeTab(const ValueTree tabToRemove);
