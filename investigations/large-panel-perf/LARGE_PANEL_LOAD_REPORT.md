@@ -741,3 +741,99 @@ Three independent levers, in decreasing order of expected benefit:
 
 Option 3 is orthogonal and remains the cheapest structural change, but option 1 or 2 fixes
 the engine for any panel, present or future.
+
+---
+
+## 17. PROTOTYPE A/B — geometric growth applied 2026-11-05
+
+Option 1 was applied as a single-line change and benchmarked against §16.
+
+### 17.1 The change
+
+`JUCE/modules/juce_core/text/juce_String.cpp:204`, inside `makeUniqueWithByteSize`:
+
+```cpp
+// before
+auto newText = createUninitialisedBytes (jmax (b->allocatedNumBytes, numBytes));
+// after  (prototype)
+auto newText = createUninitialisedBytes (jmax (b->allocatedNumBytes * 2, numBytes));
+```
+
+Nothing else changed. Both instrumentation layers (§14, §16) stayed active.
+
+### 17.2 Result
+
+| Metric | Before | After | Change |
+|---|---:|---:|---:|
+| **XML Parse (t1 − t0)** | 30 795.37 ms | **8 109.71 ms** | **−73.7 % (3.8×)** |
+| Lua Execute | 115.89 ms | 120.89 ms | unchanged (control) |
+| Resource Import | 3 645.69 ms | 3 914.04 ms | unchanged (control) |
+| Widget Construction | 351.28 ms | 355.06 ms | unchanged (control) |
+| **Total Load** | 34 908.24 ms | **12 499.69 ms** | −64.2 % |
+| **Peak RSS** | 741.0 MB | **740.5 MB** | −0.5 MB (no meaningful change) |
+
+Parser internals:
+
+| Bucket | Before | After |
+|---|---:|---:|
+| total parse | 30 736.11 ms | 8 050.75 ms |
+| attribute values | 30 684.37 ms | 7 999.28 ms |
+| — entity decode | 9 462.99 ms | 3 958.29 ms |
+| — attribute text | 21 221.38 ms | 4 040.99 ms |
+| structural | 51.74 ms | 51.46 ms |
+
+The three untouched phases are flat to within noise, which confirms the change is isolated to
+`String` and did not perturb unrelated code.
+
+### 17.3 Answering the two questions directly
+
+**"Did XML parse drop from 30 s to milliseconds?" — No.** It dropped to **8.1 s**, a 3.8×
+improvement. Real, but still ~27× slower than a healthy parser on 30 MB.
+
+**"Did Peak RSS drop from 741 MB?" — No.** 740.5 MB, unchanged. The peak was never caused by
+allocation churn: freed buffers do not raise a high-water mark. 741 MB is *retained* data —
+the 26.9 MB of attribute `String`s (plus the `XmlElement` tree holding a second copy), the
+`ValueTree` built from it, 895 widgets, and the decoded resource blocks. Reducing the copy
+churn removes transient traffic, not the peak.
+
+### 17.4 Why it is still quadratic — the second O(n)
+
+Geometric growth removed one of **two** per-append O(n) terms. The other one is still there:
+
+```cpp
+// juce_String.cpp:765, inside appendCharPointer
+auto byteOffsetOfNull = getByteOffsetOfEnd();          // :765
+
+// juce_String.cpp:558
+size_t String::getByteOffsetOfEnd() const noexcept {
+    return findByteOffsetOfEnd (text);                 // :560
+}
+
+static size_t findByteOffsetOfEnd (String::CharPointerType text) noexcept {
+    return (size_t) ((char*) text.findTerminatingNull().getAddress() - (char*) text.getAddress());
+}
+```
+
+`getByteOffsetOfEnd()` is a **strlen over the entire accumulated string, performed on every
+single append**. It is O(n) per append → O(n²) overall, and geometric growth cannot help it,
+because the scan is about finding the end, not about capacity.
+
+This is quantitatively consistent with what remains: `kronosData` needs ≈50 000 appends, so
+the aggregate strlen distance is ≈ 50 000² × 65 / 2 ≈ 81 GB of scanning. At a ~10 GB/s scan
+rate that is ≈8 s — exactly the 8.0 s still measured. Per-entity cost fell from 108.8 µs to
+45.5 µs but is still dominated by how much text already precedes the entity, not by the
+entity itself.
+
+**Conclusion: `juce::String` has two independent O(n) costs per append — an exact-size
+reallocation and a full strlen — and both must go for attribute parsing to become linear.**
+
+### 17.5 Consequence for the next prototype
+
+Option 1 alone is not sufficient. The remaining fix in the parser is Option 2 — preallocate
+the attribute buffer once in `readQuotedString` (the closing quote is findable up front with
+`input.indexOf(quote)`), and build the value by writing through a pointer rather than by
+repeated `String` appends. That removes *both* the reallocation and the strlen for this hot
+path, and is bounded to `juce_XmlDocument.cpp` rather than to every `String` in the framework.
+
+Predicted outcome: XML parse below ~0.5 s (attribute throughput ≥50 MB/s), with peak RSS
+essentially unchanged, since the retained data does not change.
