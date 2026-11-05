@@ -926,3 +926,107 @@ Resource import is now the dominant cost, exactly as §4.3 predicted: every laun
 base64-decodes 20 MB and rewrites 228 files, because `importResource` only deduplicates
 against an in-memory registry that is empty on a cold start. §9 option 1 is the next target
 and is worth ~3.4 s of the remaining 4.3 s.
+
+---
+
+## 19. RESOURCE IMPORT — fixed 2026-11-05 (and what it exposed)
+
+### 19.1 Changes
+
+1. `CtrlrPanelResourceManager::importResource` — the destination directory is now resolved
+   **before** the base64 decode, and an on-disk cache check runs first: if the destination
+   file exists with the expected (or unknown) size, the 20 MB decode and the file write are
+   both skipped. If the resource is already registered in memory, the call returns
+   `Result::ok()` immediately; otherwise the on-disk file is registered with `addResource`.
+2. `CtrlrPanelResource::computeContentHash` — replaced
+   `loadFileAsData()` + `data.toBase64Encoding().hashCode64()` (read whole file, allocate a
+   1.33× base64 copy) with `f.hashCode64()`, which streams the same bytes without the copy.
+
+### 19.2 First attempt failed — and why
+
+The first version required `getResource (resourceName) == nullptr` for the cache hit. It
+never fired: diagnostics showed `hits=0 misses=228 decode=118.2ms`. The reason is that
+**every resource is already registered in memory before `importResource` is called**
+(`memNull=0` on the very first resource), so control fell through to "Path A", where the
+hash comparison failed and `replaceWithData()` rewrote all 228 files.
+
+Two important corrections that came out of this:
+
+- **The base64 decode is not the cost.** It is 118 ms for 20 MB. The write path was the
+  expensive part.
+- **A size check is sufficient** to know the on-disk bytes are the ones we want. Requiring
+  the in-memory registry to be empty was simply the wrong precondition.
+
+### 19.3 Result
+
+Diagnostics after the corrected check:
+
+```
+SUMMARY calls=228 hits=228 alreadyMem=228 misses=0
+        loop=32.6ms fastAdd=0.0ms decode=0.0ms slowAdd=0.0ms
+```
+
+**The resource loop went from rewriting 228 files to 32.6 ms.** Decode and write are gone.
+
+Final load profile:
+
+```
+==================== CTRLR LOAD PROFILE ====================
+panel               : C:\Korg\ctrlrx-profile-run\KronosKontrol_1.0i.panel
+------------------------------------------------------------
+XML Parse           (t1 - t0) : 244.88 ms
+Lua Execute         (t2 - t1) : 118.96 ms
+Resource Import     (t3 - t2) : 2515.53 ms
+Widget Construction (t4 - t3) : 348.05 ms
+Total Load          (t4 - t0) : 3227.43 ms
+------------------------------------------------------------
+Peak RSS                      : 739.9 MB
+```
+
+Progression of total load: **34 908 → 12 500 → 4 278 → 4 140 → 3 227 ms**.
+
+### 19.4 The 2.5 s is NOT resource import any more
+
+`t3` sits after the whole block between the Lua restore and the resource chain, so the
+"Resource Import" bucket actually contains three things:
+
+| Item in the t2→t3 window | Cost |
+|---|---:|
+| `if (panelScheme < CTRLR_PANEL_SCHEME) upgradeScheme();` | **0** — `CtrlrPanel::upgradeScheme()` is an empty stub (CtrlrPanel.cpp:1560) |
+| `for (props) panelTree.setProperty(name, value, 0)` — 134 root attributes | **≈2 483 ms** |
+| `resourceManager.restoreState(...)` — 228 resources | **32.6 ms** |
+
+By subtraction: 2 515.53 − 32.6 ≈ **2 483 ms** for 134 `setProperty` calls, i.e. **≈18.5 ms
+per property**.
+
+This loop was always there and was previously hidden inside the resource bucket. Each
+`panelTree.setProperty()` fires `CtrlrPanel::valueTreePropertyChanged` (CtrlrPanel.cpp:477),
+which is a long `else if` chain over the property identifier; two branches have real side
+effects — `panelMidiInputDevice` / `panelMidiOutputDevice` call
+`midiInputThread.openInputDevice()` (line 498) and
+`getDeviceByName(..., true)` (line 511), i.e. MIDI device open/enumeration, which is slow.
+Every property also fans out to all `ValueTree` listeners registered on `panelTree`.
+
+The exact split between the 132 benign properties and the two MIDI ones is not yet measured
+— that needs two more markers around the loop.
+
+### 19.5 Consequence
+
+Against the stated goal ("total under 1 s"), total is **3 227 ms**, of which resource import
+is now 33 ms. The remaining cost is a *different* function:
+
+- XML parse 245 ms
+- Lua 119 ms
+- **panel property copy ≈2 483 ms**
+- widgets 348 ms
+
+Removing the property-copy cost would land total near **0.75 s**. The obvious change is to
+stop notifying per property during a restore — `panelTree.copyPropertiesFrom (savedState,
+nullptr)` performs the same bulk copy with a single change notification — combined with
+deferring the two MIDI device properties until after restore. That is a logic change and was
+not made here.
+
+**Caveat on the cache check:** it trusts size equality, so a truncated or stale file of
+exactly the right size would be accepted. A stronger check would compare a stored content
+hash, but the hash algorithm now differs from what existing panels recorded (§19.1 item 2),
+so any hash-based check needs a migration decision first.
