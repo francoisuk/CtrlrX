@@ -14,7 +14,6 @@
 #include "CtrlrUtilities.h"
 #include "JuceClasses/LMemoryBlock.h"
 #include "stdafx.h"
-#include "CtrlrLoadProfiler.h" // TEMP: load-phase instrumentation (t2, t3, t4)
 
 CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 	: owner(_owner),
@@ -2218,7 +2217,6 @@ Result CtrlrPanel::restoreState(const ValueTree &savedState) {
 	panelTree.setProperty(Ids::panelFilePath, filePath, nullptr);
 
 	ctrlrLuaManager->restoreState(savedState.getChildWithName(Ids::luaManager));
-	CTRLR_PROF_MARK (2); // TEMP t2: end of Lua compile/execute phase
 
 	if ((int)savedState.getProperty(Ids::panelScheme) < CTRLR_PANEL_SCHEME)
 		upgradeScheme();
@@ -2252,7 +2250,6 @@ Result CtrlrPanel::restoreState(const ValueTree &savedState) {
 			getResourceManager().checkMissingResources(panelResourcesTree);
 		}
 	}
-	CTRLR_PROF_MARK (3); // TEMP t3: end of resource import
 
 	if (luaPanelBeforeLoadCbk && !luaPanelBeforeLoadCbk.wasObjectDeleted()) {
 		if (luaPanelBeforeLoadCbk->isValid()) {
@@ -2271,8 +2268,6 @@ Result CtrlrPanel::restoreState(const ValueTree &savedState) {
 	if (savedState.getChildWithName(Ids::uiPanelEditor).isValid()) {
 		getEditor(true)->restoreState(savedState);
 	}
-	CTRLR_PROF_MARK (4); // TEMP t4: end of widget construction
-	CTRLR_PROF_REPORT(); // TEMP: consolidated load-profile block
 	if (savedState.getChildWithName(Ids::uiWindowManager).isValid()) {
 		panelWindowManager.restoreState(savedState.getChildWithName(Ids::uiWindowManager));
 	}

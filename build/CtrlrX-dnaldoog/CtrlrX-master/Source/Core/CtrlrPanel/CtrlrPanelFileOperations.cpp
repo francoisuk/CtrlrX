@@ -9,7 +9,6 @@
 #include "CtrlrProcessor.h"
 #include "CtrlrUtilities.h"
 #include "stdafx.h"
-#include "CtrlrLoadProfiler.h" // TEMP: load-phase instrumentation (t0, t1)
 
 ValueTree CtrlrPanel::createPortablePanelTree() {
 	ValueTree copy = getPanelTree().createCopy();
@@ -507,8 +506,6 @@ const ValueTree CtrlrPanel::openBinPanel(const MemoryBlock &panelData, const boo
 }
 
 const ValueTree CtrlrPanel::openXmlPanel(const File &panelFile) {
-	CTRLR_PROF_BEGIN (panelFile.getFullPathName()); // TEMP t0
-
 	String xmlData;
 
 	if (panelFile.hasFileExtension("panelz")) {
@@ -523,20 +520,14 @@ const ValueTree CtrlrPanel::openXmlPanel(const File &panelFile) {
 		std::unique_ptr<XmlElement> xml(XmlDocument::parse(xmlData).release());
 
 		if (xml) {
-			ValueTree parsedTree = ValueTree::fromXml(*xml);
-			CTRLR_PROF_MARK (1); // TEMP t1 (.panelz branch)
-			return (parsedTree);
+			return (ValueTree::fromXml(*xml));
 		} else {
 			_ERR("CtrlrPanel::openXmlPanel can't parse file contents as XML");
 		}
 	} else if (panelFile.hasFileExtension("panel")) {
-		CTRLR_PROF_TRACE ("about to XmlDocument::parse(File)");
 		std::unique_ptr<XmlElement> xml(XmlDocument::parse(panelFile).release());
-		CTRLR_PROF_TRACE (xml ? "parse returned an element" : "parse returned NULL");
 		if (xml) {
-			ValueTree parsedTree = ValueTree::fromXml(*xml);
-			CTRLR_PROF_MARK (1); // TEMP t1 (.panel branch)
-			return (parsedTree);
+			return (ValueTree::fromXml(*xml));
 		} else {
 			_ERR("CtrlrPanel::openXmlPanel can't parse file contents as XML");
 		}

@@ -70,6 +70,25 @@ git — see below). The tree already carries `JUCE 8.0.12`; if it is missing:
 git clone --branch 8.0.12 https://github.com/juce-framework/JUCE.git JUCE
 ```
 
+### The JUCE patch is applied automatically
+
+This project carries one modification to JUCE, as a patch:
+
+| File | Purpose |
+|---|---|
+| `patches/juce_xml_parser_perf.patch` | Makes `XmlDocument::readQuotedString()` linear instead of O(n²) |
+
+CMake applies it at configure time, idempotently, and fails the configure if it
+cannot. Nothing to do manually — but note:
+
+- It needs **git** on `PATH` (`find_package(Git)`).
+- It is applied to the *working tree* of `JUCE/`, so a fresh `git clone` of JUCE
+  needs one reconfigure to re-apply it.
+- If you update JUCE, delete the "already applied" assumption by resetting the
+  file first (the patch is version-specific to 8.0.12).
+
+Measured effect on the 29 MB KronosKontrol panel: XML parse **30.7 s → 0.19 s**.
+
 ## Generating the panel
 
 The `.panel` is **generated** — never hand-edited:
