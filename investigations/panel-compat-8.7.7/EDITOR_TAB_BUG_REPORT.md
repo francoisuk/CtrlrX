@@ -1,10 +1,15 @@
 # Kronos Kontrol — EDITOR button does nothing (CtrlrX 8.7.7)
 
-**Status:** fixed in engine, verified on the real panel
+**Status:** fixed in the engine **and** in the panel, verified by clicking the button
 **Date:** 5 November 2026
 **Engine:** CtrlrX 8.7.7 (JUCE 8.0.12), Release x64, MSVC 19.51
 **Panel:** `KronosKontrol_1.0i.panel`
-**Commit:** `9119ece` — `fix(tabs): make uiTabsCurrentTab an input again, and actually call the tab callback`
+**Commits:** `9119ece` (engine), `7f938eb` (panel + provenance), `6c12d84` / this revision (docs)
+**Companion:** `BUG_PROVENANCE_5.6.36_vs_8x.md` — proves it is an 8.x regression, with the
+5.6.36 vs 8.x source comparison. That is the document to send upstream.
+
+**Contents:** §5–§6 the two defects · §7 how they compound · **§8 the fix, both layers,
+with code** · §9 verification · §11–§12 compatibility and risk · §13 upstream options.
 
 ---
 
@@ -217,8 +222,16 @@ Fixing only the first would have swapped "nothing happens" for "an empty page ap
 
 ## 8. The fix
 
-Scope: engine only. **No panel change was required** — `kkMain.lua` still calls
-`setPropertyInt()`, which now works again.
+The fix was applied at **two layers**, deliberately:
+
+| Layer | Change | Why |
+|---|---|---|
+| Engine | `uiTabsCurrentTab` accepted as input; `tabChangedCbk` invoked | Repairs every panel written for older Ctrlr, not just this one |
+| Panel | drive the tab with `setComponentValue()`; refresh explicitly | Makes this panel work on a **stock 8.7.7** and on 5.6.x too |
+
+The engine layer alone is enough for this panel (that is what §9 verified first).
+The panel layer was added afterwards as belt-and-braces: a released panel should not
+depend on a patched engine to function.
 
 ### 8.1 Accept `uiTabsCurrentTab` as an input
 
@@ -280,6 +293,38 @@ Declared in `CtrlrTabsComponent.h:100`.
   `kkTabChanged(mod, value)` signature; `value` is the new tab index.
 - `WeakReference` checked for `wasObjectDeleted()` / `isValid()` before use, matching
   the pattern in `CtrlrLabel.cpp:262`.
+
+### 8.3 Panel-side change (defensive, second layer)
+
+`panels/KronosKontrol/lua/kkMain.lua` — three call sites:
+
+```lua
+-- before                                                  -- after
+setPropertyInt("uiTabsCurrentTab", 1)                      setComponentValue(1, false); kkEditShow()
+setPropertyInt("uiTabsCurrentTab", 0)                      setComponentValue(0, false)
+setPropertyInt("uiTabsCurrentTab", 1)   -- busy guard     setComponentValue(1, false)
+```
+
+| Line | Context | Change |
+|---:|---|---|
+| 1593 | `kkBtnEdit` | `setComponentValue(1, false); kkEditShow()` |
+| 1594 | `kkBtnToRack` | `setComponentValue(0, false)` |
+| 1787 | `kkTabChanged` busy guard (force back to EDIT during a write) | `setComponentValue(1, false)` |
+
+`setComponentValue(double, bool)` is the API exposed to Lua at
+`CtrlrComponent.cpp:727-728` and routes straight to
+`TabbedButtonBar::setCurrentTabIndex()`; the second argument is
+`sendChangeMessage`, and `false` keeps the modulator value untouched, exactly as the
+property write did.
+
+**Why `kkEditShow()` is called explicitly here:** on a **stock 8.7.7** the tab callback
+is still dead, so nothing would refresh the page on arrival. Calling it directly makes
+the panel independent of the engine patch. On this patched engine it runs twice
+(once from the button, once from the callback) — harmless, the function is idempotent.
+
+The built panel was regenerated from the same strings (3 replacements in the embedded
+`kkMain` Lua method, no `setPropertyInt("uiTabsCurrentTab"` left anywhere), so panel and
+Lua source agree.
 
 ---
 
@@ -354,8 +399,14 @@ panel:getModulatorByName("kkTabs"):getComponent():setComponentValue(1, false)
 ```
 
 which is the API `CtrlrComponent.cpp:727-728` exposes and which routes straight to
-`TabbedButtonBar::setCurrentTabIndex`. The engine fix was chosen because it repairs
-every panel at once rather than one panel script.
+`TabbedButtonBar::setCurrentTabIndex`. **Both were actually done here** (§8.3): the
+engine fix repairs every panel at once, and the panel fix keeps this release working
+on a stock 8.7.7.
+
+**Was this a regression?** Yes — introduced in the CtrlrX 8.x line; 5.6.36 and 5.6.37
+have both mechanisms and 8.66/8.77 have neither. The evidence, code excerpts and the
+limits of what can be established are in
+`BUG_PROVENANCE_5.6.36_vs_8x.md`, which is the document to send upstream.
 
 ---
 
@@ -365,10 +416,10 @@ every panel at once rather than one panel script.
 |---|---|
 | `Source/UIComponents/CtrlrComponents/Groups/CtrlrTabsComponent.cpp` | input branch for `uiTabsCurrentTab`; `notifyTabChanged()`; call from `currentTabChanged()` |
 | `Source/UIComponents/CtrlrComponents/Groups/CtrlrTabsComponent.h` | declaration of `notifyTabChanged(const int)` |
-
-Panel sources were **not** modified: `panels/KronosKontrol/lua/kkMain.lua`
-(lines 1593, 1594, 1787) is unchanged.
+| `panels/KronosKontrol/lua/kkMain.lua` | 3 call sites now use `setComponentValue()`; explicit `kkEditShow()` on the EDITOR button |
+| `panels/KronosKontrol/KronosKontrol_1.0i.panel` | rebuilt panel with the same Lua change embedded |
 
 Build: `cmake --build <build-dir> --config Release --target CtrlrX_Standalone --parallel 8`
 Deployed: `C:\Korg\CtrlrX-8.7.7-portable\CtrlrX.exe`
-Commit: `9119ece`
+Panel deployed: `C:\Korg\CtrlrX-8.7.7-portable\KronosKontrol_1.0i_fixed.panel`
+Commits: `9119ece` (engine), `7f938eb` (panel + provenance), `6c12d84` (this report)
