@@ -293,6 +293,11 @@ tab ancestry.
 
 ## 7. Ranked hypotheses for the ~30 s load
 
+> **These hypotheses have since been measured and refuted — see §14.**
+> The real distribution is XML parsing 89 %, resource import 10 %, widget
+> construction 1 %, Lua 0.3 %. Read §7 as the reasoning that led to the
+> experiment, not as the current understanding.
+
 **These are hypotheses. No timing has been measured.** Only static byte counts and code
 paths are established above.
 
@@ -458,3 +463,104 @@ patterns instead.
   launch, and a hash routine that base64-encodes entire files.
 - No timing has been measured yet. The next step is a five-marker instrumentation patch to
   turn the ranked hypotheses into five numbers before any optimisation is attempted.
+
+---
+
+## 14. MEASURED BASELINE — instrumentation implemented 2026-11-05
+
+The §8 measurement plan was implemented, built and run. It supersedes §7.
+
+### 14.1 Result (CtrlrX 8.77 / JUCE 8.0.12, Release x64, MSVC 19.51, Windows)
+
+| Phase | Run 1 | Run 2 |
+|---|---:|---:|
+| XML Parse (t1 − t0) | **29 985.18 ms** | **28 452.34 ms** |
+| Lua Execute (t2 − t1) | 117.24 ms | 115.48 ms |
+| Resource Import (t3 − t2) | 3 211.81 ms | 3 442.05 ms |
+| Widget Construction (t4 − t3) | 336.79 ms | 348.29 ms |
+| **Total Load (t4 − t0)** | **33 651.01 ms** | **32 358.17 ms** |
+| Peak RSS | 741.1 MB | 741.1 MB |
+
+Raw per-marker trace of run 1 (milliseconds since boot):
+
+```
+6208666.23 ms  t0 openXmlPanel entered
+6208668.20 ms  about to XmlDocument::parse(File)
+6238643.86 ms  parse returned an element     <-- 29 975 ms inside XmlDocument::parse
+6238651.40 ms  t1 after fromXml              <-- ValueTree::fromXml cost only 7.5 ms
+6238768.64 ms  t2 after lua restore
+6241980.45 ms  t3 after resource import
+6242317.23 ms  t4 after editor restore
+```
+
+### 14.2 What this refutes
+
+- **Lua compile/execute is not a problem**: 117 ms for 6.6 MB. Hypothesis §7 #1 was wrong.
+- **Component construction is not a problem**: 337 ms for 895 widgets, of which 651 are
+  invisible. Hypothesis §7 #4 was wrong — this is the cheapest phase, not the dearest.
+- **Resource import is real but secondary**: ~3.3 s (10 %). Hypothesis §7 #2 was directionally
+  right, wrong in magnitude.
+- **XML parsing dominates**: ~29 s of ~33 s, i.e. **89 % of load time**. Nothing in §7
+  predicted this. It is `XmlDocument::parse(const File&)` specifically — not
+  `ValueTree::fromXml`, which costs 7.5 ms.
+
+### 14.3 Why parsing is implausible at ~30 s
+
+29 MB of XML should parse in low single-digit seconds. Two structural facts from §3 are the
+likely cause and are the next thing to measure:
+
+- 20.0 MB sits in 228 `resourceData="…"` attributes and 6.6 MB in 41 `luaMethodCode="…"`
+  attributes — i.e. ~88 % of the document is inside **attribute values**, not elements.
+- The Lua attributes carry entity-escaped newlines (`&#10;`), so the parser performs entity
+  decoding over 6.6 MB.
+
+Peak RSS of 741 MB for a 30 MB input is consistent with a parser that materialises large
+intermediate `String` objects per attribute.
+
+### 14.4 Instrumentation as built
+
+- New header `Source/Core/CtrlrPanel/CtrlrLoadProfiler.h` (header-only, no build-system change).
+- Marker call sites, 5 total:
+  - `CtrlrPanelFileOperations.cpp:510` — t0 at `openXmlPanel` entry
+  - `CtrlrPanelFileOperations.cpp:536` — t1 after `ValueTree::fromXml` (`.panel` branch; a
+    twin exists in the `.panelz` branch)
+  - `CtrlrPanel.cpp:2221` — t2 after `ctrlrLuaManager->restoreState`
+  - `CtrlrPanel.cpp:2255` — t3 after the resource import chain
+  - `CtrlrPanel.cpp:2274-2275` — t4 after `getEditor(true)->restoreState`, then the report
+- Output channels: `Logger::writeToLog`, `OutputDebugStringW`, and unconditionally
+  `%TEMP%\ctrlr_load_profile.txt` (a packaged GUI executable has no console, so the file is
+  the reliable channel). A per-marker `%TEMP%\ctrlr_load_trace.txt` records how far a load
+  got when the final block never appears.
+- Peak memory: `K32GetProcessMemoryInfo` resolved dynamically from `kernel32.dll`, so no
+  import library was added to the project.
+- Removal: set `CTRLR_LOAD_PROFILING` to `0` (all call sites compile away), or delete the
+  header and its five call sites. No logic, no control flow and no function signatures changed.
+
+### 14.5 Operational notes for reproducing
+
+- The standalone accepts a panel path on the command line
+  (`CtrlrStandaloneApplication.cpp:136`), but **the argument must not carry a trailing
+  space**: `File::hasFileExtension("panel")` then fails and `openXmlPanel` silently takes the
+  "unknown file type" branch, producing a no-op load with an idle process. Launch through a
+  `.bat` wrapper rather than `Start-Process`, which appends a trailing space.
+- Resources are extracted to `%APPDATA%\CtrlrX\<panelName>\`, not next to the panel file.
+- Both runs cold/warm behaved identically, consistent with §4.3: `importResource` rewrites
+  every resource on every launch.
+
+---
+
+## 15. Revised next step
+
+The optimisation target is now clear and is none of the original candidates:
+
+1. Measure *inside* `XmlDocument::parse` — separate attribute-value scanning, entity
+   decoding and element allocation — before changing anything.
+2. Candidate fixes for parse cost, in expected order of benefit:
+   a. Move `resourceData` / `luaMethodCode` payloads out of attributes into child text or a
+      sidecar file (attribute values are the slow path in most XML parsers, including JUCE's);
+   b. do not entity-escape newlines in Lua payloads (or store Lua base64/base-85 instead);
+   c. stream the panel instead of building a 741 MB peak of intermediate strings.
+3. Resource import (~3.3 s) remains a valid secondary target — see §9 optimisation #1.
+
+Widget construction and Lua must be dropped from the priority list: together they are ~1.3 %
+of load time.

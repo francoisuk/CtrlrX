@@ -34,6 +34,11 @@ venv/
 /reference/VST_SDK/
 /reference/books/
 
+# Extracted from Source/Misc/boost/boost.zip at build time (16 010 files).
+# The engine's include path expects these in place; keep them out of git.
+/build/CtrlrX-dnaldoog/CtrlrX-master/Source/Misc/boost/boost/
+/build/CtrlrX-dnaldoog/CtrlrX-master/Source/Misc/boost/__MACOSX/
+
 # --- C / C++ build output ----------------------------------------------------
 CMakeFiles/
 *.o
