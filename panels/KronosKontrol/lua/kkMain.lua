@@ -1590,8 +1590,8 @@ elseif n == "kkBtnBankRead" then kkReadBank()         -- E5 : lit la banque (0x4
   elseif n == "kkBtnPlay" then kkPlayNote(mod, value)   -- 0.97h : PLAY = momentary note-on (remote audition)
   elseif n == "kkBtnSave" then kkSaveStub()        -- 0.97h : SAVE = PCG writer (post-0.98a, honest stub)
   elseif n == "kkBtnWriteR" then kkWriteSlotR()    -- 0.97h : WRITE (RACK) = write slot 0x49
-  elseif n == "kkBtnEdit" then panel:getModulatorByName("kkTabs"):getComponent():setPropertyInt("uiTabsCurrentTab", 1)
-  elseif n == "kkBtnToRack" then panel:getModulatorByName("kkTabs"):getComponent():setPropertyInt("uiTabsCurrentTab", 0)
+  elseif n == "kkBtnEdit" then panel:getModulatorByName("kkTabs"):getComponent():setComponentValue(1, false); kkEditShow()
+  elseif n == "kkBtnToRack" then panel:getModulatorByName("kkTabs"):getComponent():setComponentValue(0, false)
   end
 end
 function kkClick(...) kkGuard("kkClick", kkClickBody, ...) end
@@ -1784,7 +1784,7 @@ function kkEdIFX1Edit(...) kkGuard("kkEdIFX1Edit", kkEdIFX1EditBody, ...) end
 -- onglet RACK -> EDIT (uiTabsCurrentTab) : rafraîchir la page EDIT à l'arrivée
 local function kkTabChangedBody(mod, value)
   if KK.busy then                                 -- pas de changement d'onglet pendant une écriture 0x4B
-    panel:getModulatorByName("kkTabs"):getComponent():setPropertyInt("uiTabsCurrentTab", 1)
+    panel:getModulatorByName("kkTabs"):getComponent():setComponentValue(1, false)
     kkEdStatus('Write in progress…')
     return
   end
